@@ -16,5 +16,16 @@
   <url>
     <loc>https://digitalmarketing.sarvyanta.com/</loc>
   </url>
+<url>
+  <loc>https://sarvyanta.com/MakeupArtist/</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
 
+  <url>
+  <loc>https://sarvyanta.com/tuitions/</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+</url>
+  
 </urlset>
