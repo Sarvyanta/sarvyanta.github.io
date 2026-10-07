@@ -23,6 +23,8 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- TUITION -->
+
   <url>
     <loc>https://sarvyanta.com/tuitions/</loc>
     <changefreq>weekly</changefreq>
@@ -36,46 +38,48 @@
   </url>
 
   <url>
-    <loc>https://sarvyanta.com/tuitions/resources/</loc>
+    <loc>https://sarvyanta.com/tuitions/tutor/resources/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://sarvyanta.com/tuitions/resources/how-to-teach-effectively-online-and-offline/</loc>
+    <loc>https://sarvyanta.com/tuitions/tutor/resources/how-to-teach-effectively-online-and-offline/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://sarvyanta.com/tuitions/resources/how-to-keep-students-engaged-during-tuition/</loc>
+    <loc>https://sarvyanta.com/tuitions/tutor/resources/how-to-keep-students-engaged-during-tuition/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://sarvyanta.com/tuitions/resources/how-to-plan-a-good-tuition-session/</loc>
+    <loc>https://sarvyanta.com/tuitions/tutor/resources/how-to-plan-a-good-tuition-session/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://sarvyanta.com/tuitions/resources/how-parents-can-support-their-childs-learning/</loc>
+    <loc>https://sarvyanta.com/tuitions/tutor/resources/how-parents-can-support-their-childs-learning/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://sarvyanta.com/tuitions/resources/online-vs-home-tuition-choosing-the-right-learning-environment/</loc>
+    <loc>https://sarvyanta.com/tuitions/tutor/resources/online-vs-home-tuition-choosing-the-right-learning-environment/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://sarvyanta.com/tuitions/resources/how-students-can-build-better-study-habits/</loc>
+    <loc>https://sarvyanta.com/tuitions/tutor/resources/how-students-can-build-better-study-habits/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- FESTIVALS -->
 
   <url>
     <loc>https://sarvyanta.com/Festivals/</loc>
