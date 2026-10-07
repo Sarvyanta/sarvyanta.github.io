@@ -1090,3 +1090,5 @@ img {
   }
 
 }
+
+/* ================= INTERNATIONAL VARIATION ================= */ .international-alt { background: var(--white); } .international-alt .section-label { color: var(--blue); } 
