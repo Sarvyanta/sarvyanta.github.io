@@ -1,532 +1,713 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- ================= GOOGLE ADSENSE ================= -->
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6474637490053228"
-    crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Sarvyanta | Building an Intelligent World</title>
 
-  <meta name="description"
-        content="Sarvyanta is a technology, innovation and opportunity platform focused on building useful solutions for an intelligent world.">
+  <meta
+    name="description"
+    content="Sarvyanta brings people, ideas, knowledge, technology and opportunities together to create useful solutions and build an intelligent world."
+  />
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+  <meta
+    name="keywords"
+    content="Sarvyanta, Building an Intelligent World, technology, innovation, digital solutions, education, knowledge, products, opportunities"
+  />
+
+  <link rel="canonical" href="https://sarvyanta.com/" />
+
+  <meta property="og:title" content="Sarvyanta | Building an Intelligent World" />
+  <meta
+    property="og:description"
+    content="Connecting people, ideas, knowledge, technology and opportunities to create useful solutions."
+  />
+  <meta property="og:url" content="https://sarvyanta.com/" />
+  <meta property="og:type" content="website" />
+  <meta
+    property="og:image"
+    content="https://sarvyanta.com/images/sarvyanta-connection.jpg"
+  />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sarvyanta | Building an Intelligent World" />
+  <meta
+    name="twitter:description"
+    content="Connecting people, ideas, knowledge, technology and opportunities."
+  />
+  <meta
+    name="twitter:image"
+    content="https://sarvyanta.com/images/sarvyanta-connection.jpg"
+  />
+
+  <meta
+    name="google-adsense-account"
+    content="ca-pub-6474637490053228"
+  />
+
+  <!-- IMPORTANT: index.html and style.css are in the same folder -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Analytics -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-987ESMD68T"
+  ></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    gtag("js", new Date());
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      color: #151515;
-      line-height: 1.7;
-    }
+    gtag("config", "G-987ESMD68T", {
+      anonymize_ip: true
+    });
+  </script>
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 8%;
-      border-bottom: 1px solid #eeeeee;
-      background: #ffffff;
-    }
-
-    .logo {
-      font-size: 27px;
-      font-weight: bold;
-      letter-spacing: 1.5px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #333333;
-      margin-left: 24px;
-      font-size: 15px;
-    }
-
-    nav a:hover {
-      color: #000000;
-    }
-
-    .hero {
-      min-height: 78vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 80px 10%;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 56px;
-      line-height: 1.15;
-      max-width: 900px;
-      margin-bottom: 24px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #666666;
-      max-width: 720px;
-      margin-bottom: 34px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 28px;
-      background: #111111;
-      color: #ffffff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 15px;
-    }
-
-    .button:hover {
-      background: #333333;
-    }
-
-    .section {
-      padding: 85px 12%;
-      text-align: center;
-    }
-
-    .light {
-      background: #f7f7f7;
-    }
-
-    .section h2 {
-      font-size: 36px;
-      margin-bottom: 20px;
-      line-height: 1.25;
-    }
-
-    .section-intro {
-      max-width: 760px;
-      margin: 0 auto;
-      color: #666666;
-      font-size: 18px;
-    }
-
-    /* Meaning */
-
-    .meaning {
-      max-width: 850px;
-      margin: 40px auto 0;
-      padding: 42px;
-      background: #ffffff;
-      border: 1px solid #eeeeee;
-      border-radius: 12px;
-    }
-
-    .meaning-name {
-      font-size: 30px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      margin-bottom: 25px;
-    }
-
-    .meaning-parts {
-      display: flex;
-      justify-content: center;
-      gap: 70px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-
-    .meaning-part {
-      min-width: 180px;
-    }
-
-    .meaning-part strong {
-      display: block;
-      font-size: 23px;
-      margin-bottom: 5px;
-    }
-
-    .meaning-part span {
-      color: #666666;
-    }
-
-    .meaning-statement {
-      font-size: 18px;
-      color: #444444;
-    }
-
-    .tagline {
-      margin-top: 25px;
-      font-size: 20px;
-      font-weight: bold;
-      letter-spacing: 0.3px;
-    }
-
-    /* Cards */
-
-    .cards {
-      display: flex;
-      gap: 22px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 45px;
-    }
-
-    .card {
-      background: #ffffff;
-      padding: 32px;
-      width: 290px;
-      min-height: 190px;
-      border-radius: 10px;
-      text-align: left;
-      border: 1px solid #eeeeee;
-    }
-
-    .card h3 {
-      margin-bottom: 12px;
-      font-size: 20px;
-    }
-
-    .card p {
-      color: #666666;
-    }
-
-    /* Vision */
-
-    .vision {
-      max-width: 850px;
-      margin: 40px auto 0;
-      font-size: 21px;
-      color: #444444;
-    }
-
-    /* Journey */
-
-    .journey {
-      max-width: 750px;
-      margin: 35px auto 0;
-    }
-
-    .journey-step {
-      padding: 22px;
-      margin: 12px 0;
-      background: #ffffff;
-      border: 1px solid #eeeeee;
-      border-radius: 8px;
-      text-align: left;
-    }
-
-    .journey-step strong {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .journey-step span {
-      color: #666666;
-    }
-
-    footer {
-      text-align: center;
-      padding: 35px 20px;
-      color: #777777;
-      border-top: 1px solid #eeeeee;
-      font-size: 14px;
-    }
-
-    @media (max-width: 600px) {
-
-      header {
-        padding: 17px 5%;
-      }
-
-      .logo {
-        font-size: 23px;
-      }
-
-      nav {
-        display: none;
-      }
-
-      .hero {
-        min-height: 75vh;
-        padding: 60px 7%;
-      }
-
-      .hero h1 {
-        font-size: 39px;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-      .section {
-        padding: 65px 7%;
-      }
-
-      .section h2 {
-        font-size: 30px;
-      }
-
-      .section-intro {
-        font-size: 16px;
-      }
-
-      .meaning {
-        padding: 30px 20px;
-      }
-
-      .meaning-parts {
-        gap: 25px;
-      }
-
-      .meaning-name {
-        font-size: 26px;
-      }
-
-      .meaning-statement {
-        font-size: 16px;
-      }
-
-      .tagline {
-        font-size: 18px;
-      }
-
-      .vision {
-        font-size: 18px;
-      }
-
-      .card {
-        width: 100%;
-      }
-    }
-  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Sarvyanta",
+    "url": "https://sarvyanta.com/",
+    "description": "Sarvyanta brings people, ideas, knowledge, technology and opportunities together to create useful solutions.",
+    "slogan": "Building an Intelligent World"
+  }
+  </script>
 </head>
 
 <body>
 
-  <!-- HEADER -->
+  <!-- ================= HEADER ================= -->
 
-  <header>
-    <div class="logo">SARVYANTA</div>
+  <header class="site-header">
+    <div class="container nav-wrap">
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#meaning">Meaning</a>
-      <a href="#build">What We Build</a>
-      <a href="#journey">Journey</a>
-    </nav>
+      <a href="/" class="brand" aria-label="Sarvyanta home">
+        <span class="brand-mark">S</span>
+        <span class="brand-name">SARVYANTA</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#build">What We Build</a>
+        <a href="#journey">Journey</a>
+      </nav>
+
+    </div>
   </header>
 
 
-  <!-- HERO -->
+  <main>
 
-  <section class="hero">
+    <!-- ================= HERO ================= -->
 
-    <h1>Building an Intelligent World.</h1>
+    <section class="hero">
 
-    <p>
-      Sarvyanta is a technology, innovation and opportunity platform
-      focused on turning ideas and real-world problems into useful solutions.
-    </p>
+      <div class="hero-glow glow-one"></div>
+      <div class="hero-glow glow-two"></div>
 
-    <a class="button" href="#about">Discover Sarvyanta</a>
+      <div class="container hero-grid">
 
-  </section>
+        <div class="hero-content">
 
+          <div class="eyebrow">
+            <span></span>
+            SARVYANTA
+          </div>
 
-  <!-- ABOUT -->
+          <h1>
+            Building an
+            <strong>Intelligent World.</strong>
+          </h1>
 
-  <section class="section light" id="about">
+          <p class="hero-lead">
+            Connecting people, ideas, knowledge, technology and opportunities
+            to create useful solutions for the world around us.
+          </p>
 
-    <h2>What is Sarvyanta?</h2>
+          <div class="hero-actions">
 
-    <p class="section-intro">
-      Sarvyanta is being built as a long-term platform where
-      technology, people, businesses and ideas come together
-      to create meaningful solutions.
-    </p>
+            <a href="#about" class="btn btn-primary">
+              Discover Sarvyanta
+              <span>→</span>
+            </a>
 
-    <div class="vision">
+            <a href="#build" class="btn btn-ghost">
+              Explore What We Build
+            </a>
 
-      We believe that a better future is created by understanding
-      problems, connecting the right people and building solutions
-      that are genuinely useful.
+          </div>
 
-    </div>
+          <div class="hero-note">
+            <span class="pulse-dot"></span>
+            Many possibilities. One vision.
+          </div>
 
-  </section>
-
-
-  <!-- MEANING -->
-
-  <section class="section" id="meaning">
-
-    <h2>The Meaning Behind Sarvyanta</h2>
-
-    <p class="section-intro">
-      Sarvyanta represents a journey from limitless possibilities
-      toward an ultimate destination.
-    </p>
-
-    <div class="meaning">
-
-      <div class="meaning-name">
-        SARVYANTA
-      </div>
-
-      <div class="meaning-parts">
-
-        <div class="meaning-part">
-          <strong>SARV</strong>
-          <span>All • Everything • Universal</span>
         </div>
 
-        <div class="meaning-part">
-          <strong>ANTA</strong>
-          <span>End • Ultimate • Destination</span>
+
+        <!-- CONNECTION VISUAL -->
+
+        <div class="connection-stage" aria-label="Abstract visual representing connection between people, ideas and technology">
+
+          <div class="connection-orbit orbit-one"></div>
+          <div class="connection-orbit orbit-two"></div>
+          <div class="connection-orbit orbit-three"></div>
+
+          <div class="connection-center">
+            <div class="center-ring"></div>
+            <div class="center-core">S</div>
+          </div>
+
+          <!-- Abstract connection lines -->
+          <svg
+            class="connection-svg"
+            viewBox="0 0 600 520"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+
+            <defs>
+              <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#67d8ff"/>
+                <stop offset="50%" stop-color="#8b7cff"/>
+                <stop offset="100%" stop-color="#e5a7ff"/>
+              </linearGradient>
+
+              <filter id="softGlow">
+                <feGaussianBlur stdDeviation="4" result="blur"/>
+                <feMerge>
+                  <feMergeNode in="blur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+
+            <g
+              fill="none"
+              stroke="url(#lineGradient)"
+              stroke-width="2"
+              opacity="0.78"
+              filter="url(#softGlow)"
+            >
+
+              <path d="M70 120 C170 70 220 170 300 250" />
+              <path d="M80 390 C170 350 215 300 300 250" />
+              <path d="M530 105 C430 90 390 170 300 250" />
+              <path d="M525 405 C435 390 390 315 300 250" />
+
+              <path d="M70 120 C230 120 350 120 530 105" />
+              <path d="M80 390 C230 430 390 430 525 405" />
+
+              <path d="M70 120 C145 235 170 325 80 390" />
+              <path d="M530 105 C450 220 450 315 525 405" />
+
+            </g>
+
+            <g
+              fill="#d8f6ff"
+              stroke="#74ddff"
+              stroke-width="2"
+              filter="url(#softGlow)"
+            >
+              <circle cx="70" cy="120" r="7"/>
+              <circle cx="80" cy="390" r="7"/>
+              <circle cx="530" cy="105" r="7"/>
+              <circle cx="525" cy="405" r="7"/>
+              <circle cx="300" cy="250" r="10"/>
+            </g>
+
+            <g fill="#ffffff" opacity="0.9">
+              <circle cx="175" cy="138" r="3"/>
+              <circle cx="205" cy="350" r="3"/>
+              <circle cx="395" cy="145" r="3"/>
+              <circle cx="420" cy="355" r="3"/>
+              <circle cx="300" cy="90" r="3"/>
+              <circle cx="300" cy="420" r="3"/>
+            </g>
+
+          </svg>
+
+          <div class="visual-label label-one">
+            <span>People</span>
+          </div>
+
+          <div class="visual-label label-two">
+            <span>Ideas</span>
+          </div>
+
+          <div class="visual-label label-three">
+            <span>Knowledge</span>
+          </div>
+
+          <div class="visual-label label-four">
+            <span>Technology</span>
+          </div>
+
         </div>
 
       </div>
 
-      <p class="meaning-statement">
-        <strong>Sarvyanta</strong> reflects the idea of bringing
-        many possibilities together and moving toward an
-        ultimate destination.
-      </p>
+    </section>
 
-      <div class="tagline">
-        One Vision. Many Possibilities. One Destination.
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about-section" id="about">
+
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-kicker">THE IDEA</span>
+
+          <h2>
+            Many possibilities,
+            <span>coming together.</span>
+          </h2>
+
+          <p>
+            Sarvyanta is being built as a long-term platform where people,
+            businesses, ideas, knowledge and technology can come together
+            to create meaningful solutions.
+          </p>
+        </div>
+
+
+        <div class="about-grid">
+
+          <article class="about-card about-main">
+
+            <div class="card-number">01</div>
+
+            <h3>What is Sarvyanta?</h3>
+
+            <p>
+              Sarvyanta is a growing platform focused on understanding
+              real-world problems, connecting the right possibilities and
+              turning useful ideas into practical solutions.
+            </p>
+
+            <p>
+              Some may become digital products. Some may become useful
+              information. Some may connect people with opportunities.
+              Others may simply help someone understand something better.
+            </p>
+
+          </article>
+
+
+          <article class="about-card philosophy-card">
+
+            <div class="philosophy-symbol">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+
+            <h3>One direction.</h3>
+
+            <p>
+              Sarvyanta reflects the idea of bringing many possibilities
+              together and moving toward an ultimate destination.
+            </p>
+
+            <div class="philosophy-line">
+              Possibilities
+              <span>→</span>
+              Connection
+              <span>→</span>
+              Creation
+              <span>→</span>
+              Impact
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= WHAT WE BUILD ================= -->
+
+    <section class="build-section" id="build">
+
+      <div class="container">
+
+        <div class="section-heading build-heading">
+
+          <span class="section-kicker">WHAT WE BUILD</span>
+
+          <h2>
+            More than technology.
+          </h2>
+
+          <p>
+            Sarvyanta can grow wherever useful ideas, knowledge, technology,
+            people and opportunities intersect.
+          </p>
+
+        </div>
+
+
+        <div class="build-grid">
+
+          <!-- CONNECTING -->
+
+          <article class="build-card featured-card">
+
+            <div class="build-icon connection-icon">
+              <span>↗</span>
+            </div>
+
+            <div class="build-index">01</div>
+
+            <h3>Connecting</h3>
+
+            <p>
+              Bringing people, businesses, creators, learners, ideas and
+              opportunities closer together.
+            </p>
+
+            <div class="card-line"></div>
+
+          </article>
+
+
+          <!-- EDUCATION -->
+
+          <article class="build-card education-card">
+
+            <div class="build-icon">
+              <span>◎</span>
+            </div>
+
+            <div class="build-index">02</div>
+
+            <h3>Education & Knowledge</h3>
+
+            <p>
+              Creating useful explanations, comparisons, guides and
+              knowledge that help people understand the world around them.
+            </p>
+
+            <div class="card-line"></div>
+
+          </article>
+
+
+          <!-- DIGITAL SOLUTIONS -->
+
+          <article class="build-card">
+
+            <div class="build-icon">
+              <span>⌘</span>
+            </div>
+
+            <div class="build-index">03</div>
+
+            <h3>Digital Solutions</h3>
+
+            <p>
+              Websites, applications, automation and technology solutions
+              designed around real needs.
+            </p>
+
+            <div class="card-line"></div>
+
+          </article>
+
+
+          <!-- PRODUCTS -->
+
+          <article class="build-card">
+
+            <div class="build-icon">
+              <span>◇</span>
+            </div>
+
+            <div class="build-index">04</div>
+
+            <h3>Products</h3>
+
+            <p>
+              Useful digital and physical products created to solve specific
+              problems and improve everyday experiences.
+            </p>
+
+            <div class="card-line"></div>
+
+          </article>
+
+
+          <!-- INNOVATION -->
+
+          <article class="build-card">
+
+            <div class="build-icon">
+              <span>✦</span>
+            </div>
+
+            <div class="build-index">05</div>
+
+            <h3>Innovation</h3>
+
+            <p>
+              Exploring ideas, technologies and new ways of solving problems
+              across different areas.
+            </p>
+
+            <div class="card-line"></div>
+
+          </article>
+
+
+          <!-- OPPORTUNITIES -->
+
+          <article class="build-card">
+
+            <div class="build-icon">
+              <span>∞</span>
+            </div>
+
+            <div class="build-index">06</div>
+
+            <h3>Opportunities</h3>
+
+            <p>
+              Connecting skills, businesses, creators and possibilities
+              to create value for everyone involved.
+            </p>
+
+            <div class="card-line"></div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= JOURNEY ================= -->
+
+    <section class="journey-section" id="journey">
+
+      <div class="journey-background"></div>
+
+      <div class="container">
+
+        <div class="section-heading journey-heading">
+
+          <span class="section-kicker">THE JOURNEY</span>
+
+          <h2>
+            From a real problem
+            <span>to something useful.</span>
+          </h2>
+
+          <p>
+            Sarvyanta starts small. Discovering problems, experimenting with
+            ideas and building things that are genuinely useful.
+          </p>
+
+        </div>
+
+
+        <div class="journey-track">
+
+          <div class="journey-line"></div>
+
+
+          <article class="journey-step">
+
+            <div class="journey-node">01</div>
+
+            <div class="journey-content">
+
+              <span>DISCOVER</span>
+
+              <h3>Find real problems.</h3>
+
+              <p>
+                Understand what people and businesses actually need.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="journey-step">
+
+            <div class="journey-node">02</div>
+
+            <div class="journey-content">
+
+              <span>UNDERSTAND</span>
+
+              <h3>Learn and connect.</h3>
+
+              <p>
+                Bring together knowledge, people, technology and ideas.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="journey-step">
+
+            <div class="journey-node">03</div>
+
+            <div class="journey-content">
+
+              <span>BUILD</span>
+
+              <h3>Create something useful.</h3>
+
+              <p>
+                Turn promising ideas into practical solutions and experiences.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="journey-step">
+
+            <div class="journey-node">04</div>
+
+            <div class="journey-content">
+
+              <span>GROW</span>
+
+              <h3>Take useful ideas further.</h3>
+
+              <p>
+                Successful experiments can become products, services,
+                projects and long-term opportunities.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CLOSING ================= -->
+
+    <section class="closing-section">
+
+      <div class="container">
+
+        <div class="closing-card">
+
+          <div class="closing-orb orb-a"></div>
+          <div class="closing-orb orb-b"></div>
+
+          <div class="closing-content">
+
+            <span class="section-kicker">SARVYANTA</span>
+
+            <h2>
+              Many possibilities.
+              <br />
+              <span>One intelligent world.</span>
+            </h2>
+
+            <p>
+              This is only the beginning. More knowledge, products,
+              technologies, projects and opportunities can grow from here.
+            </p>
+
+            <a href="#build" class="btn btn-light">
+              Explore Sarvyanta
+              <span>→</span>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="site-footer">
+
+    <div class="container footer-wrap">
+
+      <div>
+        <div class="footer-brand">SARVYANTA</div>
+
+        <p>
+          Building an Intelligent World.
+        </p>
+      </div>
+
+      <div class="footer-links">
+
+        <a href="#about">About</a>
+        <a href="#build">What We Build</a>
+        <a href="#journey">Journey</a>
+        <a href="/Privacy-Policy/">Privacy Policy</a>
+
+      </div>
+
+      <div class="footer-copy">
+        © 2026 Sarvyanta
       </div>
 
     </div>
 
-  </section>
-
-
-  <!-- WHAT WE BUILD -->
-
-  <section class="section light" id="build">
-
-    <h2>What We Build</h2>
-
-    <p class="section-intro">
-      Sarvyanta can grow across different areas as we discover
-      problems worth solving.
-    </p>
-
-    <div class="cards">
-
-      <div class="card">
-        <h3>Digital Solutions</h3>
-        <p>
-          Websites, applications, automation and technology
-          solutions designed around real needs.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Products</h3>
-        <p>
-          Useful digital and physical products created to solve
-          specific problems and improve everyday experiences.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Innovation</h3>
-        <p>
-          Exploring ideas, technologies and new ways of solving
-          problems across different industries.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Opportunities</h3>
-        <p>
-          Connecting people, skills, businesses and opportunities
-          to create value for everyone involved.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- JOURNEY -->
-
-  <section class="section" id="journey">
-
-    <h2>Our Journey Starts Here.</h2>
-
-    <p class="section-intro">
-      Sarvyanta begins with small experiments and real problems,
-      and grows through the solutions we build.
-    </p>
-
-    <div class="journey">
-
-      <div class="journey-step">
-        <strong>01 — Discover</strong>
-        <span>
-          Find real problems faced by people and businesses.
-        </span>
-      </div>
-
-      <div class="journey-step">
-        <strong>02 — Build</strong>
-        <span>
-          Create practical solutions using technology, people and ideas.
-        </span>
-      </div>
-
-      <div class="journey-step">
-        <strong>03 — Connect</strong>
-        <span>
-          Bring together customers, creators, businesses and opportunities.
-        </span>
-      </div>
-
-      <div class="journey-step">
-        <strong>04 — Grow</strong>
-        <span>
-          Turn successful solutions into products, services and
-          long-term ventures.
-        </span>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FINAL CTA -->
-
-  <section class="section light">
-
-    <h2>Many Possibilities. One Vision.</h2>
-
-    <p class="section-intro">
-      This is only the beginning of Sarvyanta.
-      More products, projects, services and opportunities
-      will grow from here.
-    </p>
-
-  </section>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-    © 2026 Sarvyanta. Building an Intelligent World.
   </footer>
 
+
+  <!-- ================= ANALYTICS ================= -->
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+      link.addEventListener("click", function() {
+        if (typeof gtag === "function") {
+          gtag("event", "sarvyanta_navigation", {
+            section: link.getAttribute("href")
+          });
+        }
+      });
+    });
+
+    document.querySelectorAll(".build-card").forEach(function(card) {
+      card.addEventListener("click", function() {
+        if (typeof gtag === "function") {
+          gtag("event", "sarvyanta_build_area_click", {
+            area: card.querySelector("h3")?.textContent || ""
+          });
+        }
+      });
+    });
+  </script>
+
 </body>
-</html>
+  </html>
