@@ -2124,3 +2124,249 @@ tr:last-child td {
   }
 }
 
+/* =========================================
+   SARVYANTA NEW MOM JOURNEY
+   Shared rose theme for English homepage
+========================================= */
+
+:root {
+  --nm-rose: #bd6f78;
+  --nm-rose-dark: #984e60;
+  --nm-rose-light: #f8e8eb;
+  --nm-blush: #fff3f1;
+  --nm-plum: #543843;
+}
+
+/* Headings and highlighted text */
+
+.hero-content h1,
+.intro-grid h2,
+.section-heading h2,
+.feelings-intro h2,
+.closing-inner h2 {
+  color: var(--nm-plum);
+}
+
+.hero-content h1 span,
+.section-heading h2 span,
+.feelings-intro h2 span,
+.closing-inner h2 span,
+.intro-grid h2 em {
+  color: var(--nm-rose-dark);
+}
+
+/* Eyebrows and section labels */
+
+.hero-section .eyebrow,
+.intro-section .section-label,
+.journey-section .section-label,
+.feelings-section .section-label,
+.support-section .section-label {
+  color: var(--nm-rose-dark);
+}
+
+/* Primary and secondary buttons */
+
+.primary-button {
+  color: #fff;
+  background: linear-gradient(135deg, #b96273, #ce8790);
+  box-shadow: 0 8px 22px rgba(165, 82, 103, 0.2);
+}
+
+.primary-button:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #984e60, #b96273);
+}
+
+.secondary-button {
+  color: var(--nm-rose-dark);
+  background: #fff;
+  border-color: #e8c8ce;
+}
+
+.secondary-button:hover {
+  color: var(--nm-rose-dark);
+  background: var(--nm-rose-light);
+  border-color: #d9a7b0;
+}
+
+/* Motherhood illustration */
+
+.hero-art {
+  background: radial-gradient(
+    circle at 50% 40%,
+    #fff 0%,
+    #fff1f1 58%,
+    #f4e1e8 100%
+  );
+}
+
+.art-orbit {
+  border-color: rgba(189, 111, 120, 0.24);
+}
+
+.mother-body {
+  background: linear-gradient(145deg, #d9a0aa, #a85f78);
+}
+
+.baby-body {
+  background: #f3d5dc;
+}
+
+.art-spark,
+.closing-symbol {
+  color: var(--nm-rose);
+}
+
+.art-caption {
+  border-color: #efd9dd;
+}
+
+.art-caption strong {
+  color: var(--nm-rose-dark);
+}
+
+/* Journey cards */
+
+.journey-card {
+  border-color: #eedde0;
+  background: linear-gradient(150deg, #fff, #fff8f7);
+}
+
+.journey-card:hover {
+  border-color: #dfb7bf;
+  box-shadow: 0 16px 35px rgba(111, 61, 76, 0.11);
+}
+
+.journey-card .card-icon {
+  color: var(--nm-rose-dark);
+  background: var(--nm-rose-light);
+}
+
+.card-pregnancy .card-icon,
+.card-birth .card-icon,
+.card-early .card-icon,
+.card-motherhood .card-icon,
+.card-nobody .card-icon {
+  color: var(--nm-rose-dark);
+  background: var(--nm-rose-light);
+}
+
+.card-link {
+  color: var(--nm-rose-dark);
+}
+
+/* Quote section */
+
+.quote-section {
+  background: linear-gradient(135deg, #fff0ef, #f8e9ee);
+}
+
+.quote-mark,
+.quote-inner blockquote em {
+  color: var(--nm-rose);
+}
+
+.quote-inner blockquote {
+  color: var(--nm-plum);
+}
+
+/* Feelings cloud */
+
+.feelings-cloud {
+  border-color: #f0dfe2;
+  background: linear-gradient(145deg, #fff6f5, #fff);
+}
+
+.feeling,
+.feeling-large,
+.feeling-soft {
+  border-color: #ecd2d8;
+  color: var(--nm-rose-dark);
+  background: var(--nm-rose-light);
+}
+
+/* Support section */
+
+.support-section {
+  background: linear-gradient(135deg, #8e4e63, #b76d7d);
+}
+
+.support-inner .section-label,
+.support-inner h2,
+.support-inner > p {
+  color: #fff;
+}
+
+.support-inner h2 span {
+  color: #ffe3e7;
+}
+
+/* Educational notice */
+
+.notice-box {
+  border-color: #edd6da;
+  background: #fff6f5;
+}
+
+.notice-icon {
+  color: var(--nm-rose-dark);
+  background: var(--nm-rose-light);
+}
+
+.notice-box h3 {
+  color: var(--nm-plum);
+}
+
+/* Advertisement placeholder */
+
+.ad-placeholder {
+  border-color: #e8cfd4;
+  background: #fffafa;
+}
+
+/* Closing section */
+
+.closing-section {
+  background: linear-gradient(135deg, #fff4f1, #f8e9ee);
+}
+
+.closing-inner h2 {
+  color: var(--nm-plum);
+}
+
+.closing-inner h2 span {
+  color: var(--nm-rose-dark);
+}
+
+/* Header language link and general links */
+
+.language-link {
+  color: var(--nm-rose-dark);
+}
+
+.language-link:hover {
+  color: var(--nm-rose-dark);
+  background: var(--nm-rose-light);
+}
+
+a {
+  --color-primary: var(--nm-rose-dark);
+}
+
+/* Keyboard focus */
+
+:focus-visible {
+  outline-color: var(--nm-rose);
+}
+
+/* Soft rose background glows */
+
+.page-glow-one {
+  background: #e9a9b4;
+}
+
+.page-glow-two {
+  background: #d7a0b6;
+}
+
