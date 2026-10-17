@@ -1595,65 +1595,73 @@ section {
 }
 
 
-/* Sarvyanta logo — compact desktop and mobile */
+
+/* Compact Sarvyanta brand in the top-left corner */
 
 .site-header .nav-wrap {
-  height: 76px;
+  min-height: 82px;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
 }
 
 .site-header .brand {
-  display: inline-flex;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   flex: 0 1 auto;
-  width: 170px;
-  max-width: 170px;
-  min-width: 0;
+  width: 150px;
+  max-width: 150px;
+  gap: 2px;
   overflow: hidden;
+  letter-spacing: normal;
 }
 
 .site-header .brand-logo {
   display: block;
-  width: 100%;
+  width: 125px;
   height: 48px;
-  max-height: 48px;
+  max-width: 100%;
   object-fit: contain;
   object-position: left center;
   border-radius: 0;
 }
 
-/* Tablet and mobile */
-@media (max-width: 700px) {
-  .site-header .nav-wrap {
-    height: 64px;
-  }
-
-  .site-header .brand {
-    width: 125px;
-    max-width: 125px;
-  }
-
-  .site-header .brand-logo {
-    height: 38px;
-    max-height: 38px;
-  }
+.site-header .brand-tagline {
+  display: block;
+  color: #c8eaff;
+  font-size: 9px;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
-/* Small phones */
-@media (max-width: 430px) {
+.site-header .main-nav {
+  flex-shrink: 0;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
   .site-header .nav-wrap {
-    height: 60px;
+    min-height: 68px;
+    gap: 8px;
   }
 
   .site-header .brand {
-    width: 110px;
-    max-width: 110px;
+    width: 118px;
+    max-width: 118px;
   }
 
   .site-header .brand-logo {
-    height: 34px;
-    max-height: 34px;
+    width: 105px;
+    height: 38px;
+  }
+
+  .site-header .brand-tagline {
+    font-size: 7px;
   }
 }
