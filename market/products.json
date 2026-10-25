@@ -1,1 +1,36 @@
+[
+  {
+    "id": "sample-diapers-001",
+    "name": "Add your first baby-care product",
+    "category": "baby-care",
+    "type": "affiliate",
+    "description": "Replace this sample with a real product, an original helpful description, and your Amazon Associates link.",
+    "affiliateUrl": "",
+    "imageUrl": "",
+    "active": false,
+    "featured": true
+  },
+  {
+    "id": "sample-home-001",
+    "name": "Add a home essential",
+    "category": "home-essentials",
+    "type": "affiliate",
+    "description": "Add useful recommendations that help visitors make informed choices.",
+    "affiliateUrl": "",
+    "imageUrl": "",
+    "active": false,
+    "featured": false
+  },
+  {
+    "id": "sarvyanta-ginger-garlic-paste",
+    "name": "Sarvyanta Ginger-Garlic Paste",
+    "category": "sarvyanta-products",
+    "type": "sarvyanta",
+    "description": "Our own product listing will appear here when it is ready to launch.",
+    "affiliateUrl": "",
+    "imageUrl": "",
+    "active": false,
+    "featured": false
+  }
+]
 
