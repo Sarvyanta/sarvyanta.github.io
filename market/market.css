@@ -3,6 +3,7 @@
   --blue: #175cd3;
   --blue-dark: #1246a8;
   --blue-light: #eaf2ff;
+  --navy: #08111f;
   --page: #f5f7fb;
   --surface: #ffffff;
   --text: #172033;
@@ -45,12 +46,12 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 select:focus-visible {
-  outline: 3px solid rgba(23, 92, 211, 0.25);
+  outline: 3px solid rgba(23, 92, 211, 0.35);
   outline-offset: 2px;
 }
 
 /* =========================
-   Header
+   Header — Technology Navy
    ========================= */
 
 .site-header {
@@ -63,9 +64,10 @@ select:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-  background: rgba(255, 255, 255, 0.97);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(10px);
+  background: var(--navy);
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 18px rgba(8, 17, 31, 0.18);
 }
 
 .brand {
@@ -82,28 +84,36 @@ select:focus-visible {
   place-items: center;
   flex-shrink: 0;
   border-radius: 9px;
-  background: var(--blue);
-  color: #fff;
+  background: #ffffff;
+  color: var(--blue-dark);
   font-size: 20px;
   font-weight: 800;
 }
 
 .brand-name {
-  color: var(--text);
+  color: #ffffff;
   font-size: 18px;
   font-weight: 800;
   letter-spacing: -0.4px;
 }
 
 .brand-name span {
-  color: var(--blue);
+  color: #c5d8ff;
+}
+
+/* Optional brand image, if used in the HTML */
+.brand-logo {
+  display: block;
+  width: 125px;
+  max-height: 42px;
+  object-fit: contain;
 }
 
 .header-nav {
   display: flex;
   align-items: center;
   gap: 22px;
-  color: #475467;
+  color: #ffffff;
   font-size: 12px;
   font-weight: 600;
 }
@@ -111,13 +121,20 @@ select:focus-visible {
 .header-nav a,
 .footer-links a,
 .footer-column a {
-  transition: color 0.15s ease;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.header-nav a {
+  color: #ffffff;
+  opacity: 0.92;
 }
 
 .header-nav a:hover,
-.footer-links a:hover,
-.footer-column a:hover {
-  color: var(--blue);
+.header-nav a:focus-visible {
+  color: #ffffff;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
 }
 
 /* =========================
@@ -132,7 +149,7 @@ select:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 22px;
-  background: linear-gradient(110deg, #edf4ff, #fff 85%);
+  background: linear-gradient(110deg, #edf4ff, #ffffff 85%);
   border: 1px solid #dce8fb;
   border-radius: var(--radius);
 }
@@ -173,7 +190,7 @@ select:focus-visible {
   align-items: center;
   gap: 10px;
   padding: 11px;
-  background: #fff;
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 11px;
 }
@@ -224,7 +241,7 @@ select:focus-visible {
   display: flex;
   align-items: center;
   gap: 9px;
-  background: #fff;
+  background: #ffffff;
   border: 1px solid #d9e0ea;
   border-radius: 10px;
 }
@@ -264,7 +281,7 @@ select:focus-visible {
   padding: 0 10px;
   border: 1px solid var(--border);
   border-radius: 9px;
-  background: #fff;
+  background: #ffffff;
   color: var(--muted);
   font-size: 11px;
 }
@@ -321,7 +338,7 @@ select:focus-visible {
 .category-chip {
   min-height: 34px;
   padding: 6px 13px;
-  background: #fff;
+  background: #ffffff;
   border: 1px solid #dfe5ee;
   border-radius: 22px;
   color: #475467;
@@ -336,7 +353,7 @@ select:focus-visible {
 .category-chip.selected {
   background: var(--blue);
   border-color: var(--blue);
-  color: #fff;
+  color: #ffffff;
 }
 
 /* =========================
@@ -355,7 +372,7 @@ select:focus-visible {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -373,7 +390,7 @@ select:focus-visible {
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: #fff;
+  background: #ffffff;
   border-bottom: 1px solid #f0f2f5;
 }
 
@@ -462,7 +479,7 @@ select:focus-visible {
   border: 1px solid var(--blue);
   border-radius: 8px;
   background: var(--blue);
-  color: #fff;
+  color: #ffffff;
   font-size: 11px;
   font-weight: 700;
   text-align: center;
@@ -486,14 +503,14 @@ select:focus-visible {
 
 .product-action.own-action,
 .own-action {
-  background: #fff;
+  background: #ffffff;
   color: var(--blue);
 }
 
 .product-action.own-action:hover,
 .own-action:hover {
   background: var(--blue);
-  color: #fff;
+  color: #ffffff;
 }
 
 /* =========================
@@ -504,7 +521,7 @@ select:focus-visible {
 #empty-state {
   padding: 26px 15px;
   text-align: center;
-  background: #fff;
+  background: #ffffff;
   border: 1px dashed #d6dce6;
   border-radius: 12px;
 }
@@ -533,7 +550,7 @@ select:focus-visible {
   border: 0;
   border-radius: 8px;
   background: var(--blue);
-  color: #fff;
+  color: #ffffff;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
@@ -548,7 +565,7 @@ select:focus-visible {
   grid-column: 1 / -1;
   padding: 26px 15px;
   text-align: center;
-  background: #fff;
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 12px;
   color: var(--muted);
@@ -569,15 +586,14 @@ select:focus-visible {
 }
 
 /* =========================
-   Footer
-   Supports both the original
-   footer and the new 3-column footer
+   Footer — Technology Navy
    ========================= */
 
 .site-footer {
   padding: 30px clamp(16px, 4vw, 48px) 18px;
-  background: #fff;
-  border-top: 1px solid var(--border);
+  background: var(--navy);
+  color: #eaf2ff;
+  border-top: 3px solid var(--blue-dark);
 }
 
 .footer-content {
@@ -591,16 +607,20 @@ select:focus-visible {
 .footer-brand {
   display: inline-block;
   margin-bottom: 8px;
-  color: var(--blue);
+  color: #ffffff;
   font-size: 19px;
   font-weight: 800;
+}
+
+.site-footer .footer-brand span {
+  color: #c5d8ff;
 }
 
 .footer-about p,
 .footer-bottom p,
 .site-footer > p {
   margin: 5px 0;
-  color: var(--muted);
+  color: #c5d8ff;
   font-size: 11px;
   line-height: 1.7;
 }
@@ -614,28 +634,35 @@ select:focus-visible {
 
 .footer-column h3 {
   margin: 0 0 3px;
-  color: var(--text);
+  color: #ffffff;
   font-size: 13px;
 }
 
 .footer-column a {
-  color: var(--muted);
+  color: #c5d8ff;
   font-size: 12px;
+}
+
+.footer-column a:hover,
+.footer-column a:focus-visible {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 .footer-bottom {
   width: min(1200px, 100%);
   margin: 24px auto 0;
   padding-top: 14px;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
   text-align: center;
 }
 
 .footer-bottom p {
   margin: 5px 0;
+  color: #c5d8ff;
 }
 
-/* Original footer links, if using the older footer HTML */
+/* Original footer links, if using older footer HTML */
 .footer-links {
   display: flex;
   justify-content: center;
@@ -647,7 +674,11 @@ select:focus-visible {
 }
 
 .footer-links a {
-  color: var(--muted);
+  color: #c5d8ff;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
 }
 
 .copyright {
@@ -706,6 +737,11 @@ select:focus-visible {
 
   .header-nav a:first-child {
     display: none;
+  }
+
+  .brand-logo {
+    width: 100px;
+    max-height: 36px;
   }
 
   .market-intro {
@@ -882,6 +918,7 @@ select:focus-visible {
   }
 }
 
+/* Small mobile devices */
 @media (max-width: 360px) {
   .brand-name {
     font-size: 13px;
@@ -901,7 +938,10 @@ select:focus-visible {
   }
 }
 
-/* Respect reduced-motion preferences */
+/* =========================
+   Reduced motion
+   ========================= */
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -910,353 +950,5 @@ select:focus-visible {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-  }
-}
-
-/* =====================================
-   SARVYANTA MARKET — HEADER BRAND COLOR
-   ===================================== */
-
-.site-header {
-  background: linear-gradient(135deg, #175cd3 0%, #1246a8 100%);
-  color: #ffffff;
-  border-bottom: none;
-  box-shadow: 0 4px 18px rgba(18, 70, 168, 0.18);
-}
-
-.site-header .brand,
-.site-header .brand-name,
-.site-header .brand-name span {
-  color: #ffffff;
-}
-
-.site-header .brand-mark {
-  background: #ffffff;
-  color: #175cd3;
-  border: none;
-}
-
-.site-header .header-nav a {
-  color: #ffffff;
-  opacity: 0.92;
-  transition: background 0.2s ease, opacity 0.2s ease;
-}
-
-.site-header .header-nav a:hover,
-.site-header .header-nav a:focus-visible {
-  color: #ffffff;
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.14);
-  border-radius: 8px;
-}
-
-/* =====================================
-   SARVYANTA MARKET — FOOTER BRAND COLOR
-   ===================================== */
-
-.site-footer {
-  background: linear-gradient(135deg, #1246a8 0%, #0b2f70 100%);
-  color: #eaf2ff;
-  border-top: 4px solid #175cd3;
-}
-
-.site-footer .footer-brand {
-  color: #ffffff;
-  font-weight: 800;
-}
-
-.site-footer .footer-about p {
-  color: #d8e6ff;
-}
-
-.site-footer .footer-column h3 {
-  color: #ffffff;
-}
-
-.site-footer .footer-column a {
-  color: #d8e6ff;
-  transition: color 0.2s ease;
-}
-
-.site-footer .footer-column a:hover,
-.site-footer .footer-column a:focus-visible {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-.site-footer .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
-}
-
-.site-footer .footer-bottom p {
-  color: #c5d8ff;
-}
-
-/* Keep keyboard focus visible */
-.site-header a:focus-visible,
-.site-footer a:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 4px;
-}
-
-/* Mobile navigation readability */
-@media (max-width: 620px) {
-  .site-header {
-    background: linear-gradient(135deg, #175cd3 0%, #1246a8 100%);
-  }
-
-  .site-footer {
-    background: linear-gradient(160deg, #1246a8 0%, #0b2f70 100%);
-  }
-}
-
-/* Sarvyanta Market — unified brand identity */
-
-.site-header {
-  background: linear-gradient(135deg, #175cd3 0%, #1246a8 100%);
-  color: #fff;
-  border-bottom: none;
-  box-shadow: 0 4px 18px rgba(18, 70, 168, 0.18);
-}
-
-.brand {
-  gap: 12px;
-}
-
-.brand-logo {
-  display: block;
-  width: 125px;
-  max-height: 42px;
-  object-fit: contain;
-}
-
-.site-header .brand-name {
-  color: #fff;
-  padding-left: 12px;
-  border-left: 1px solid rgba(255, 255, 255, 0.35);
-  font-size: 14px;
-  letter-spacing: 0;
-}
-
-.header-nav {
-  color: #fff;
-}
-
-.header-nav a {
-  color: #fff;
-  opacity: 0.92;
-}
-
-.header-nav a:hover,
-.header-nav a:focus-visible {
-  color: #fff;
-  opacity: 1;
-}
-
-.site-footer {
-  background: linear-gradient(135deg, #1246a8 0%, #0b2f70 100%);
-  color: #eaf2ff;
-  border-top: 4px solid #175cd3;
-}
-
-.site-footer .footer-brand {
-  color: #fff;
-  font-size: 19px;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-}
-
-.site-footer .footer-brand span {
-  color: #c5d8ff;
-}
-
-.site-footer .footer-about p,
-.site-footer .footer-column a {
-  color: #d8e6ff;
-}
-
-.site-footer .footer-column h3 {
-  color: #fff;
-}
-
-.site-footer .footer-column a:hover,
-.site-footer .footer-column a:focus-visible {
-  color: #fff;
-  text-decoration: underline;
-}
-
-.site-footer .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
-}
-
-.site-footer .footer-bottom p {
-  color: #c5d8ff;
-}
-
-.site-header a:focus-visible,
-.site-footer a:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 4px;
-}
-
-@media (max-width: 620px) {
-  .site-header {
-    padding: 8px 12px;
-  }
-
-  .brand {
-    gap: 8px;
-  }
-
-  .brand-logo {
-    width: 100px;
-    max-height: 36px;
-  }
-
-  .site-header .brand-name {
-    padding-left: 8px;
-    font-size: 12px;
-  }
-
-  .header-nav {
-    gap: 10px;
-  }
-}
-
-/* Sarvyanta Market header — deep blue */
-.site-header {
-  background: #1246A8;
-  color: #FFFFFF;
-  border-bottom: none;
-  box-shadow: 0 4px 18px rgba(18, 70, 168, 0.18);
-}
-
-.site-header .brand-name,
-.site-header .header-nav,
-.site-header .header-nav a {
-  color: #FFFFFF;
-}
-
-.site-header .brand-name span {
-  color: #EAF2FF;
-}
-
-.site-header .header-nav a:hover,
-.site-header .header-nav a:focus-visible {
-  color: #FFFFFF;
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.14);
-  border-radius: 8px;
-}
-
-.site-header .brand-mark {
-  background: #FFFFFF;
-  color: #1246A8;
-}
-
-.site-header a:focus-visible {
-  outline: 2px solid #FFFFFF;
-  outline-offset: 4px;
-}
-
-/* =====================================
-   SARVYANTA MARKET — TECHNOLOGY NAVY
-   ===================================== */
-
-/* Header */
-.site-header {
-  background: #08111F;
-  color: #FFFFFF;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 4px 18px rgba(8, 17, 31, 0.18);
-}
-
-.site-header .brand-name,
-.site-header .header-nav,
-.site-header .header-nav a {
-  color: #FFFFFF;
-}
-
-.site-header .brand-name span {
-  color: #C5D8FF;
-}
-
-/* Keep the existing S mark visible */
-.site-header .brand-mark {
-  background: #FFFFFF;
-  color: #1246A8;
-  border: none;
-}
-
-.site-header .header-nav a:hover,
-.site-header .header-nav a:focus-visible {
-  color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-}
-
-/* Optional logo image support */
-.brand-logo {
-  display: block;
-  width: 125px;
-  max-height: 42px;
-  object-fit: contain;
-}
-
-/* Footer */
-.site-footer {
-  background: #08111F;
-  color: #EAF2FF;
-  border-top: 3px solid #1246A8;
-}
-
-.site-footer .footer-brand,
-.site-footer .footer-column h3 {
-  color: #FFFFFF;
-}
-
-.site-footer .footer-about p,
-.site-footer .footer-column a {
-  color: #C5D8FF;
-}
-
-.site-footer .footer-column a:hover,
-.site-footer .footer-column a:focus-visible {
-  color: #FFFFFF;
-  text-decoration: underline;
-}
-
-.site-footer .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.site-footer .footer-bottom p {
-  color: #C5D8FF;
-}
-
-/* Keyboard accessibility */
-.site-header a:focus-visible,
-.site-footer a:focus-visible {
-  outline: 2px solid #FFFFFF;
-  outline-offset: 4px;
-}
-
-/* Mobile */
-@media (max-width: 620px) {
-  .site-header {
-    padding: 8px 12px;
-  }
-
-  .brand-logo {
-    width: 100px;
-    max-height: 36px;
-  }
-
-  .site-header .brand-name {
-    font-size: 12px;
-  }
-
-  .header-nav {
-    gap: 10px;
   }
 }
