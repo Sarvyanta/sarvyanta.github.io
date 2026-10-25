@@ -1,7 +1,95 @@
 
+/* =========================================
+   SARVYANTA MARKET — COMPLETE STYLESHEET
+   Brand: Rainbow + Navy
+   Shopping: Bright, clean, blue accents
+   Footer: Coordinated navy design
+   ========================================= */
 
 /* =========================================
-   HEADER — SARVYANTA NAVY + RAINBOW LOGO
+   1. DESIGN TOKENS
+   ========================================= */
+
+:root {
+  --blue: #1246A8;
+  --blue-dark: #0B347F;
+  --blue-light: #EAF2FF;
+  --navy: #031638;
+  --navy-light: #0A2147;
+
+  --page: #F5F7FB;
+  --surface: #FFFFFF;
+  --text: #172033;
+  --muted: #64748B;
+  --border: #E1E7F0;
+
+  --footer-text: #D5E0F3;
+  --footer-muted: #AFC1DE;
+  --footer-border: #263E65;
+
+  --radius: 14px;
+  --shadow: 0 4px 16px rgba(15, 35, 70, 0.055);
+  --shadow-hover: 0 10px 26px rgba(15, 35, 70, 0.11);
+}
+
+/* =========================================
+   2. RESET AND GLOBAL STYLES
+   ========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--text);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #82B4FF;
+  outline-offset: 3px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* =========================================
+   3. HEADER — APPROVED NAVY DESIGN
    ========================================= */
 
 .site-header {
@@ -15,8 +103,8 @@
   justify-content: space-between;
   gap: 18px;
   background: #031638;
-  color: #ffffff;
-  border-bottom: 1px solid #1e3560;
+  color: #FFFFFF;
+  border-bottom: 1px solid #1E3560;
   box-shadow: 0 4px 16px rgba(3, 22, 56, 0.18);
 }
 
@@ -25,11 +113,10 @@
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
-  text-decoration: none;
   min-width: 0;
+  text-decoration: none;
 }
 
-/* Use the original Sarvyanta logo image */
 .brand-logo {
   display: block;
   width: 145px;
@@ -39,9 +126,8 @@
   flex-shrink: 0;
 }
 
-/* The HTML currently displays only "Market" beside the logo */
 .brand-name {
-  color: #ffffff;
+  color: #FFFFFF;
   font-size: 19px;
   font-weight: 700;
   letter-spacing: 0.1px;
@@ -49,21 +135,21 @@
 }
 
 .brand-name span {
-  color: #eaf2ff;
+  color: #EAF2FF;
 }
 
 .header-nav {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #ffffff;
+  color: #FFFFFF;
   font-size: 13px;
   font-weight: 600;
 }
 
 .header-nav a {
   padding: 9px 12px;
-  color: #e8eefb;
+  color: #E8EEFB;
   border-radius: 8px;
   text-decoration: none;
   transition: background 0.2s ease, color 0.2s ease;
@@ -72,59 +158,11 @@
 .header-nav a:hover,
 .header-nav a:focus-visible {
   background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  color: #FFFFFF;
 }
-
-/* Tablet and mobile */
-@media (max-width: 600px) {
-  .site-header {
-    min-height: 64px;
-    padding: 9px 14px;
-    gap: 8px;
-  }
-
-  .brand {
-    gap: 8px;
-  }
-
-  .brand-logo {
-    width: 100px;
-    height: 40px;
-  }
-
-  .brand-name {
-    font-size: 15px;
-  }
-
-  .header-nav {
-    gap: 2px;
-    font-size: 12px;
-  }
-
-  .header-nav a {
-    padding: 8px;
-  }
-}
-
-@media (max-width: 380px) {
-  .brand-logo {
-    width: 78px;
-    height: 34px;
-  }
-
-  .brand-name {
-    font-size: 14px;
-  }
-
-  .header-nav a {
-    padding: 7px 5px;
-  }
-}
-
 
 /* =========================================
-   MARKET INTRODUCTION
-   Shopping-focused welcome section
+   4. MARKET INTRODUCTION
    ========================================= */
 
 .market-intro {
@@ -135,8 +173,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  background: linear-gradient(115deg, #eaf2ff 0%, #ffffff 72%);
-  border: 1px solid #dce8fb;
+  background: linear-gradient(115deg, #EAF2FF 0%, #FFFFFF 72%);
+  border: 1px solid #DCE8FB;
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(23, 92, 211, 0.04);
 }
@@ -180,8 +218,8 @@
   align-items: center;
   gap: 12px;
   padding: 16px;
-  background: #ffffff;
-  border: 1px solid #dce8fb;
+  background: #FFFFFF;
+  border: 1px solid #DCE8FB;
   border-radius: 13px;
   box-shadow: var(--shadow);
 }
@@ -200,6 +238,7 @@
 
 .intro-note strong {
   display: block;
+  color: var(--text);
   font-size: 13px;
 }
 
@@ -210,7 +249,7 @@
 }
 
 /* =========================================
-   SHOPPING AREA
+   5. SHOPPING AREA
    ========================================= */
 
 .shopping-area {
@@ -232,15 +271,15 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #ffffff;
-  border: 1px solid #d9e0ea;
+  background: #FFFFFF;
+  border: 1px solid #D9E0EA;
   border-radius: 11px;
   box-shadow: 0 2px 6px rgba(16, 24, 40, 0.025);
 }
 
 .search-box:focus-within {
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(23, 92, 211, 0.09);
+  box-shadow: 0 0 0 3px rgba(18, 70, 168, 0.09);
 }
 
 .search-box > span {
@@ -261,8 +300,13 @@
   font-size: 13px;
 }
 
+.search-box input:focus-visible,
+#product-search:focus-visible {
+  outline: none;
+}
+
 #product-search::placeholder {
-  color: #98a2b3;
+  color: #98A2B3;
 }
 
 .sort-control {
@@ -273,7 +317,7 @@
   padding: 0 13px;
   border: 1px solid var(--border);
   border-radius: 10px;
-  background: #ffffff;
+  background: #FFFFFF;
   color: var(--muted);
   font-size: 12px;
 }
@@ -289,7 +333,9 @@
   cursor: pointer;
 }
 
-/* Section heading */
+/* =========================================
+   6. SECTION HEADING
+   ========================================= */
 
 .section-heading {
   margin: 28px 0 15px;
@@ -319,7 +365,7 @@
 }
 
 /* =========================================
-   CATEGORY FILTERS
+   7. CATEGORY FILTERS
    ========================================= */
 
 .category-filters,
@@ -333,17 +379,15 @@
 .category-chip {
   min-height: 37px;
   padding: 8px 15px;
-  background: #ffffff;
-  border: 1px solid #dfe5ee;
+  background: #FFFFFF;
+  border: 1px solid #DFE5EE;
   border-radius: 24px;
   color: #475467;
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
-  transition:
-    background 0.18s ease,
-    border-color 0.18s ease,
+  transition: background 0.18s ease, border-color 0.18s ease,
     color 0.18s ease;
 }
 
@@ -351,11 +395,11 @@
 .category-chip.selected {
   background: var(--blue);
   border-color: var(--blue);
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 /* =========================================
-   PRODUCT GRID AND CARDS
+   8. PRODUCT GRID AND CARDS
    ========================================= */
 
 .product-grid,
@@ -370,19 +414,17 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background: #FFFFFF;
   border: 1px solid var(--border);
   border-radius: 14px;
   box-shadow: var(--shadow);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
     border-color 0.2s ease;
 }
 
 .product-card:hover {
   transform: translateY(-3px);
-  border-color: #d4e2fb;
+  border-color: #D4E2FB;
   box-shadow: var(--shadow-hover);
 }
 
@@ -392,8 +434,8 @@
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: #ffffff;
-  border-bottom: 1px solid #f0f2f5;
+  background: #FFFFFF;
+  border-bottom: 1px solid #F0F2F5;
 }
 
 .product-image {
@@ -413,8 +455,8 @@
   height: 100%;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #f2f6ff, #fafbfe);
-  color: #9bb9ee;
+  background: linear-gradient(135deg, #F2F6FF, #FAFBFE);
+  color: #9BB9EE;
   font-size: 38px;
 }
 
@@ -425,7 +467,7 @@
   max-width: calc(100% - 20px);
   padding: 5px 8px;
   border-radius: 6px;
-  background: #eaf2ff;
+  background: #EAF2FF;
   color: var(--blue-dark);
   font-size: 9px;
   font-weight: 800;
@@ -476,7 +518,9 @@
   font-weight: 400;
 }
 
-/* Product buttons */
+/* =========================================
+   9. PRODUCT ACTION BUTTONS
+   ========================================= */
 
 .product-action {
   width: 100%;
@@ -489,14 +533,12 @@
   border: 1px solid var(--blue);
   border-radius: 9px;
   background: var(--blue);
-  color: #ffffff;
+  color: #FFFFFF;
   font-size: 12px;
   font-weight: 700;
   text-align: center;
   cursor: pointer;
-  transition:
-    background 0.18s ease,
-    border-color 0.18s ease,
+  transition: background 0.18s ease, border-color 0.18s ease,
     color 0.18s ease;
 }
 
@@ -517,7 +559,7 @@
 
 .product-action.own-action,
 .own-action {
-  background: #ffffff;
+  background: #FFFFFF;
   color: var(--blue);
 }
 
@@ -525,19 +567,19 @@
 .own-action:hover {
   background: var(--blue);
   border-color: var(--blue);
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 /* =========================================
-   EMPTY AND LOADING STATES
+   10. EMPTY AND LOADING STATES
    ========================================= */
 
 .empty-state,
 #empty-state {
   padding: 34px 18px;
   text-align: center;
-  background: #ffffff;
-  border: 1px dashed #d6dce6;
+  background: #FFFFFF;
+  border: 1px dashed #D6DCE6;
   border-radius: 14px;
 }
 
@@ -565,7 +607,7 @@
   border: 0;
   border-radius: 8px;
   background: var(--blue);
-  color: #ffffff;
+  color: #FFFFFF;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
@@ -580,7 +622,7 @@
   grid-column: 1 / -1;
   padding: 30px 18px;
   text-align: center;
-  background: #ffffff;
+  background: #FFFFFF;
   border: 1px solid var(--border);
   border-radius: 12px;
   color: var(--muted);
@@ -588,7 +630,7 @@
 }
 
 /* =========================================
-   AFFILIATE DISCLOSURE NOTE
+   11. AFFILIATE DISCLOSURE
    ========================================= */
 
 .market-disclaimer {
@@ -601,13 +643,16 @@
 }
 
 /* =========================================
-   FOOTER — TECHNOLOGY NAVY
+   12. FOOTER — MATCHES THE HEADER
+   Consistent navy, restrained blue accents,
+   aligned columns and readable text
    ========================================= */
 
 .site-footer {
-  padding: 36px clamp(16px, 4vw, 48px) 20px;
+  margin-top: 38px;
+  padding: 40px clamp(16px, 4vw, 48px) 18px;
   background: var(--navy);
-  color: #eaf2ff;
+  color: var(--footer-text);
   border-top: 3px solid var(--blue);
 }
 
@@ -615,86 +660,123 @@
   width: min(1200px, 100%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 36px;
+  grid-template-columns: minmax(0, 1.8fr) minmax(130px, 0.8fr)
+    minmax(160px, 1fr);
+  gap: 42px;
+  align-items: start;
+}
+
+/* Footer brand */
+
+.footer-about {
+  min-width: 0;
 }
 
 .footer-brand {
   display: inline-block;
-  margin-bottom: 9px;
-  color: #ffffff;
-  font-size: 20px;
+  margin-bottom: 12px;
+  color: #FFFFFF;
+  font-size: 19px;
   font-weight: 800;
+  letter-spacing: 0.7px;
+  text-decoration: none;
 }
 
 .site-footer .footer-brand span {
-  color: #c5d8ff;
+  margin-left: 5px;
+  color: #AFCBFF;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
-.footer-about p,
-.footer-bottom p,
-.site-footer > p {
+.footer-about p {
+  max-width: 340px;
   margin: 5px 0;
-  color: #c5d8ff;
+  color: var(--footer-muted);
   font-size: 12px;
-  line-height: 1.8;
+  line-height: 1.9;
 }
+
+/* Footer navigation columns */
 
 .footer-column {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  gap: 11px;
 }
 
 .footer-column h3 {
-  margin: 0 0 4px;
-  color: #ffffff;
-  font-size: 14px;
+  margin: 0 0 5px;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
 }
 
 .footer-column a {
-  color: #c5d8ff;
+  color: var(--footer-text);
   font-size: 12px;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: color 0.18s ease;
 }
 
 .footer-column a:hover,
 .footer-column a:focus-visible {
-  color: #ffffff;
+  color: #FFFFFF;
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.footer-bottom {
-  width: min(1200px, 100%);
-  margin: 27px auto 0;
-  padding-top: 17px;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-  text-align: center;
-}
+/* Optional footer links for older markup */
 
-.footer-bottom p {
-  margin: 5px 0;
-  color: #c5d8ff;
-  font-size: 11px;
-}
-
-/* Support older footer markup */
 .footer-links {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 18px;
-  margin: 12px 0;
+  margin: 14px 0;
   font-size: 12px;
   font-weight: 600;
 }
 
 .footer-links a {
-  color: #c5d8ff;
+  color: var(--footer-text);
 }
 
 .footer-links a:hover {
-  color: #ffffff;
+  color: #FFFFFF;
+}
+
+.site-footer > p {
+  margin: 5px 0;
+  color: var(--footer-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* Footer legal text */
+
+.footer-bottom {
+  width: min(1200px, 100%);
+  margin: 32px auto 0;
+  padding-top: 19px;
+  border-top: 1px solid var(--footer-border);
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 6px 0;
+  color: var(--footer-muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.footer-bottom p:last-child {
+  margin-top: 12px;
+  color: #E3EBF8;
 }
 
 .copyright {
@@ -702,7 +784,7 @@
 }
 
 /* =========================================
-   TABLET
+   13. TABLET
    ========================================= */
 
 @media (max-width: 950px) {
@@ -721,18 +803,18 @@
   }
 
   .footer-content {
-    gap: 24px;
+    gap: 26px;
   }
 }
 
 /* =========================================
-   MOBILE
+   14. MOBILE
    ========================================= */
 
 @media (max-width: 620px) {
   .site-header {
-    min-height: 56px;
-    padding: 8px 12px;
+    min-height: 64px;
+    padding: 9px 14px;
     gap: 8px;
   }
 
@@ -740,25 +822,18 @@
     gap: 8px;
   }
 
-  .brand-mark {
-    width: 31px;
-    height: 31px;
-    font-size: 18px;
-    border-radius: 8px;
+  .brand-logo {
+    width: 100px;
+    height: 40px;
   }
 
   .brand-name {
     font-size: 15px;
   }
 
-  .brand-logo {
-    width: 100px;
-    max-height: 36px;
-  }
-
   .header-nav {
-    gap: 3px;
-    font-size: 10px;
+    gap: 2px;
+    font-size: 12px;
   }
 
   .header-nav a {
@@ -768,6 +843,8 @@
   .header-nav a:first-child {
     display: none;
   }
+
+  /* Introduction */
 
   .market-intro {
     width: calc(100% - 22px);
@@ -814,6 +891,8 @@
     font-size: 10px;
   }
 
+  /* Search and sorting */
+
   .shopping-area {
     width: calc(100% - 22px);
     margin-top: 19px;
@@ -858,6 +937,8 @@
     font-size: 10px;
   }
 
+  /* Horizontally scrollable categories */
+
   .category-filters,
   #categories {
     flex-wrap: nowrap;
@@ -873,6 +954,8 @@
     padding: 7px 12px;
     font-size: 11px;
   }
+
+  /* Two product cards per row */
 
   .product-grid,
   #product-grid {
@@ -932,23 +1015,30 @@
     font-size: 10px;
   }
 
+  /* Disclaimer */
+
   .market-disclaimer {
     width: calc(100% - 24px);
     margin: 17px auto 23px;
     font-size: 10px;
   }
 
+  /* Coordinated mobile footer */
+
   .site-footer {
-    padding: 26px 16px 16px;
+    margin-top: 26px;
+    padding: 28px 18px 16px;
   }
 
   .footer-content {
-    grid-template-columns: 1fr 1fr;
-    gap: 23px 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 18px;
   }
 
   .footer-about {
     grid-column: 1 / -1;
+    padding-bottom: 17px;
+    border-bottom: 1px solid var(--footer-border);
   }
 
   .footer-brand {
@@ -964,9 +1054,13 @@
     font-size: 12px;
   }
 
+  .footer-column {
+    gap: 10px;
+  }
+
   .footer-bottom {
-    margin-top: 21px;
-    padding-top: 13px;
+    margin-top: 25px;
+    padding-top: 15px;
   }
 
   .footer-bottom p {
@@ -974,7 +1068,25 @@
   }
 }
 
-/* Extra-small mobile devices */
+/* =========================================
+   15. EXTRA-SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 380px) {
+  .brand-logo {
+    width: 78px;
+    height: 34px;
+  }
+
+  .brand-name {
+    font-size: 14px;
+  }
+
+  .header-nav a {
+    padding: 7px 5px;
+  }
+}
+
 @media (max-width: 360px) {
   .brand-name {
     font-size: 13px;
@@ -1011,7 +1123,7 @@
 }
 
 /* =========================================
-   ACCESSIBILITY — REDUCED MOTION
+   16. ACCESSIBILITY — REDUCED MOTION
    ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
