@@ -1158,3 +1158,105 @@ select:focus-visible {
   outline: 2px solid #FFFFFF;
   outline-offset: 4px;
 }
+
+/* =====================================
+   SARVYANTA MARKET — TECHNOLOGY NAVY
+   ===================================== */
+
+/* Header */
+.site-header {
+  background: #08111F;
+  color: #FFFFFF;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 18px rgba(8, 17, 31, 0.18);
+}
+
+.site-header .brand-name,
+.site-header .header-nav,
+.site-header .header-nav a {
+  color: #FFFFFF;
+}
+
+.site-header .brand-name span {
+  color: #C5D8FF;
+}
+
+/* Keep the existing S mark visible */
+.site-header .brand-mark {
+  background: #FFFFFF;
+  color: #1246A8;
+  border: none;
+}
+
+.site-header .header-nav a:hover,
+.site-header .header-nav a:focus-visible {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+}
+
+/* Optional logo image support */
+.brand-logo {
+  display: block;
+  width: 125px;
+  max-height: 42px;
+  object-fit: contain;
+}
+
+/* Footer */
+.site-footer {
+  background: #08111F;
+  color: #EAF2FF;
+  border-top: 3px solid #1246A8;
+}
+
+.site-footer .footer-brand,
+.site-footer .footer-column h3 {
+  color: #FFFFFF;
+}
+
+.site-footer .footer-about p,
+.site-footer .footer-column a {
+  color: #C5D8FF;
+}
+
+.site-footer .footer-column a:hover,
+.site-footer .footer-column a:focus-visible {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.site-footer .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.site-footer .footer-bottom p {
+  color: #C5D8FF;
+}
+
+/* Keyboard accessibility */
+.site-header a:focus-visible,
+.site-footer a:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 4px;
+}
+
+/* Mobile */
+@media (max-width: 620px) {
+  .site-header {
+    padding: 8px 12px;
+  }
+
+  .brand-logo {
+    width: 100px;
+    max-height: 36px;
+  }
+
+  .site-header .brand-name {
+    font-size: 12px;
+  }
+
+  .header-nav {
+    gap: 10px;
+  }
+}
