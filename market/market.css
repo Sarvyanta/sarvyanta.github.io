@@ -912,3 +912,100 @@ select:focus-visible {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* =====================================
+   SARVYANTA MARKET — HEADER BRAND COLOR
+   ===================================== */
+
+.site-header {
+  background: linear-gradient(135deg, #175cd3 0%, #1246a8 100%);
+  color: #ffffff;
+  border-bottom: none;
+  box-shadow: 0 4px 18px rgba(18, 70, 168, 0.18);
+}
+
+.site-header .brand,
+.site-header .brand-name,
+.site-header .brand-name span {
+  color: #ffffff;
+}
+
+.site-header .brand-mark {
+  background: #ffffff;
+  color: #175cd3;
+  border: none;
+}
+
+.site-header .header-nav a {
+  color: #ffffff;
+  opacity: 0.92;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.site-header .header-nav a:hover,
+.site-header .header-nav a:focus-visible {
+  color: #ffffff;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+}
+
+/* =====================================
+   SARVYANTA MARKET — FOOTER BRAND COLOR
+   ===================================== */
+
+.site-footer {
+  background: linear-gradient(135deg, #1246a8 0%, #0b2f70 100%);
+  color: #eaf2ff;
+  border-top: 4px solid #175cd3;
+}
+
+.site-footer .footer-brand {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.site-footer .footer-about p {
+  color: #d8e6ff;
+}
+
+.site-footer .footer-column h3 {
+  color: #ffffff;
+}
+
+.site-footer .footer-column a {
+  color: #d8e6ff;
+  transition: color 0.2s ease;
+}
+
+.site-footer .footer-column a:hover,
+.site-footer .footer-column a:focus-visible {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.site-footer .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.site-footer .footer-bottom p {
+  color: #c5d8ff;
+}
+
+/* Keep keyboard focus visible */
+.site-header a:focus-visible,
+.site-footer a:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* Mobile navigation readability */
+@media (max-width: 620px) {
+  .site-header {
+    background: linear-gradient(135deg, #175cd3 0%, #1246a8 100%);
+  }
+
+  .site-footer {
+    background: linear-gradient(160deg, #1246a8 0%, #0b2f70 100%);
+  }
+}
