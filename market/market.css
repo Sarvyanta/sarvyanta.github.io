@@ -731,3 +731,211 @@ select {
     font-size: 11px;
   }
 }
+
+/* Sarvyanta brand colours */
+:root {
+  --blue: #175cd3;
+  --blue-dark: #1246a8;
+}
+
+/* Header */
+.site-header {
+  min-height: 62px;
+  padding: 9px clamp(14px, 4vw, 48px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background: #ffffff;
+  border-bottom: 1px solid #e4e8ef;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--blue);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.brand-name {
+  color: #172033;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.brand-name span {
+  color: var(--blue);
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #475467;
+}
+
+.header-nav a,
+.footer-links a {
+  transition: color 0.15s ease;
+}
+
+.header-nav a:hover,
+.footer-links a:hover {
+  color: var(--blue);
+}
+
+/* Footer */
+.site-footer {
+  padding: 24px 15px;
+  background: #ffffff;
+  border-top: 1px solid #e4e8ef;
+  text-align: center;
+}
+
+.footer-brand {
+  color: var(--blue);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.site-footer p {
+  margin: 5px 0;
+  color: #667085;
+  font-size: 11px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 12px 0;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.copyright {
+  margin-top: 14px !important;
+}
+
+/* Mobile header */
+@media (max-width: 620px) {
+  .site-header {
+    min-height: 55px;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .brand-mark {
+    width: 30px;
+    height: 30px;
+    font-size: 17px;
+  }
+
+  .brand-name {
+    font-size: 15px;
+  }
+
+  .header-nav {
+    gap: 12px;
+    font-size: 10px;
+  }
+
+  .header-nav a:first-child {
+    display: none;
+  }
+}
+
+.site-footer {
+  padding: 30px clamp(16px, 4vw, 48px) 18px;
+  background: #fff;
+  border-top: 1px solid #e4e8ef;
+}
+
+.footer-content {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 32px;
+}
+
+.footer-brand {
+  color: #175cd3;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.footer-about p,
+.footer-bottom p {
+  color: #667085;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.footer-column h3 {
+  margin: 0 0 3px;
+  font-size: 13px;
+}
+
+.footer-column a {
+  color: #667085;
+  font-size: 12px;
+}
+
+.footer-column a:hover {
+  color: #175cd3;
+}
+
+.footer-bottom {
+  width: min(1200px, 100%);
+  margin: 24px auto 0;
+  padding-top: 14px;
+  border-top: 1px solid #e4e8ef;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 5px 0;
+}
+
+@media (max-width: 620px) {
+  .site-footer {
+    padding: 24px 16px 16px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 16px;
+  }
+
+  .footer-about {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
+    margin-top: 20px;
+  }
+}
