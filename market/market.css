@@ -1122,3 +1122,39 @@ select:focus-visible {
     gap: 10px;
   }
 }
+
+/* Sarvyanta Market header — deep blue */
+.site-header {
+  background: #1246A8;
+  color: #FFFFFF;
+  border-bottom: none;
+  box-shadow: 0 4px 18px rgba(18, 70, 168, 0.18);
+}
+
+.site-header .brand-name,
+.site-header .header-nav,
+.site-header .header-nav a {
+  color: #FFFFFF;
+}
+
+.site-header .brand-name span {
+  color: #EAF2FF;
+}
+
+.site-header .header-nav a:hover,
+.site-header .header-nav a:focus-visible {
+  color: #FFFFFF;
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+}
+
+.site-header .brand-mark {
+  background: #FFFFFF;
+  color: #1246A8;
+}
+
+.site-header a:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 4px;
+}
