@@ -1,13 +1,14 @@
+
 [
   {
-    "id": "sample-diapers-001",
-    "name": "Add your first baby-care product",
+    "id": "honey-bunny-bamboo-cotton-infant-set",
+    "name": "Honey Bunny Bamboo Cotton Holding Set for Infants (0–6 Months)",
     "category": "baby-care",
     "type": "affiliate",
-    "description": "Replace this sample with a real product, an original helpful description, and your Amazon Associates link.",
-    "affiliateUrl": "",
+    "description": "A soft, lightweight bamboo cotton holding set for infants aged 0–6 months. Check the product listing for available sizes, materials and care instructions.",
+    "affiliateUrl": "https://www.amazon.in/dp/B0H33DQ6CK/ref=cm_sw_r_as_gl_apa_gl_i_dl_8109XSWZK16V54SR6N8A?linkCode=ml1&tag=sarvyantaam03-21&linkId=b7e40c814a7d4288a25511106404fbb8",
     "imageUrl": "",
-    "active": false,
+    "active": true,
     "featured": true
   },
   {
@@ -33,4 +34,3 @@
     "featured": false
   }
 ]
-
