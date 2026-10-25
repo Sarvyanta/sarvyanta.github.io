@@ -1,114 +1,108 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sarvyanta Market | Useful Products for Everyday Life</title>
-  <meta name="description" content="Discover useful products for everyday life, from carefully selected recommendations to products made by Sarvyanta.">
-  <link rel="canonical" href="https://sarvyanta.com/market/">
-  <meta name="theme-color" content="#123c79">
-  <meta property="og:title" content="Sarvyanta Market">
-  <meta property="og:description" content="Discover useful products for everyday life.">
-  <meta property="og:url" content="https://sarvyanta.com/market/">
-  <meta property="og:type" content="website">
+
+  <title>Sarvyanta Market | Useful Finds for Everyday Life</title>
+  <meta name="description" content="Explore useful products for your home, family and everyday life at Sarvyanta Market. Discover curated finds and Sarvyanta products.">
+  <meta name="theme-color" content="#175cd3">
+
   <link rel="stylesheet" href="market.css">
-  <script defer src="market.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="/" aria-label="Sarvyanta home">
-        <span class="brand-mark" aria-hidden="true">S</span>
-        <span><strong>Sarvyanta</strong><small>Building an Intelligent World</small></span>
-      </a>
-      <nav aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a class="active" href="/market/" aria-current="page">Market</a>
-      </nav>
-    </div>
+    <a class="brand" href="/" aria-label="Sarvyanta home">
+      <span class="brand-mark">S</span>
+      <span class="brand-name">Sarvyanta<span> Market</span></span>
+    </a>
+
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="#products">Shop</a>
+      <a href="disclosure.html">Affiliate disclosure</a>
+    </nav>
   </header>
 
-  <main id="main">
-    <section class="hero">
-      <div class="hero-copy">
+  <main>
+    <section class="market-intro">
+      <div class="intro-copy">
         <p class="eyebrow">WELCOME TO SARVYANTA MARKET</p>
-        <h1>Discover more.<br><span>Choose better.</span></h1>
-        <p class="hero-description">Useful products for everyday life—from helpful recommendations to products made by Sarvyanta.</p>
-        <a class="hero-link" href="#products">Explore products <span aria-hidden="true">↓</span></a>
+        <h1>Good finds for <span>everyday life.</span></h1>
+        <p class="intro-description">
+          Explore useful picks for your home, family and daily needs —
+          alongside products we create under the Sarvyanta name.
+        </p>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="hero-symbol">S<span>+</span></div>
-        <div class="floating-card card-top"><span class="mini-icon">✦</span> Thoughtful finds</div>
-        <div class="floating-card card-bottom"><span class="mini-icon">✓</span> Everyday essentials</div>
+      <div class="intro-note">
+        <span class="note-icon" aria-hidden="true">✦</span>
+        <div>
+          <strong>Curated for everyday use</strong>
+          <p>Discover useful products in one place.</p>
+        </div>
       </div>
     </section>
 
-    <section class="market-content" id="products">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">EXPLORE</p>
-          <h2>Find what you need</h2>
-          <p class="muted">Browse our recommendations and discover new favourites.</p>
-        </div>
-        <label class="search-box">
-          <span class="visually-hidden">Search products</span>
+    <section class="shopping-area" id="products" aria-label="Browse products">
+      <div class="search-row">
+        <label class="search-box" for="searchInput">
           <span aria-hidden="true">⌕</span>
-          <input id="product-search" type="search" placeholder="Search products..." autocomplete="off">
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search products..."
+            autocomplete="off"
+          >
         </label>
-      </div>
-
-      <div class="category-row" id="categories" aria-label="Product categories">
-        <button class="category-chip selected" type="button" data-category="all" aria-pressed="true">All products</button>
-      </div>
-
-      <div class="result-bar">
-        <p id="result-count" aria-live="polite">Loading products…</p>
-        <label class="sort-control">Sort
-          <select id="product-sort" aria-label="Sort products">
-            <option value="featured">Featured first</option>
-            <option value="name">Name: A–Z</option>
+        <label class="sort-control" for="sortSelect">
+          <span>Sort:</span>
+          <select id="sortSelect">
+            <option value="default">Recommended</option>
+            <option value="name-asc">Name: A–Z</option>
+            <option value="name-desc">Name: Z–A</option>
           </select>
         </label>
       </div>
 
-      <div id="product-grid" class="product-grid" aria-live="polite">
-        <div class="loading-card">Loading Sarvyanta Market…</div>
-      </div>
-      <div id="empty-state" class="empty-state" hidden>
-        <div class="empty-icon">⌕</div>
-        <h3>No products found</h3>
-        <p>Try another search or choose a different category.</p>
-        <button id="clear-filters" class="button button-secondary" type="button">Clear filters</button>
+      <div class="section-heading">
+        <div>
+          <h2>Explore the market</h2>
+          <p>Find something useful for your everyday needs.</p>
+        </div>
       </div>
 
-      <p class="affiliate-note"><strong>Affiliate disclosure:</strong> As an Amazon Associate I earn from qualifying purchases. Some links on this page may be affiliate links, which means Sarvyanta may earn a commission if you make a qualifying purchase, at no additional cost to you.</p>
-    </section>
+      <div
+        id="categoryFilters"
+        class="category-filters"
+        aria-label="Filter products by category"
+      ></div>
 
-    <section class="own-products-banner">
-      <div class="own-products-icon" aria-hidden="true">✦</div>
-      <div>
-        <p class="eyebrow">MADE WITH SARVYANTA</p>
-        <h2>Our own products, in the future</h2>
-        <p>We're building towards bringing Sarvyanta products to you. Check back as our range grows.</p>
+      <div id="productGrid" class="product-grid">
+        <p class="loading-message">Loading products…</p>
       </div>
+
+      <p class="market-disclaimer">
+        Product availability and prices may change. Please check the retailer’s
+        page for the latest details.
+      </p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <div>
-        <a class="footer-brand" href="/">Sarvyanta</a>
-        <p>Building an Intelligent World.</p>
-      </div>
-      <div class="footer-links">
-        <a href="/market/disclosure.html">Affiliate disclosure</a>
-        <a href="/">Sarvyanta home</a>
-      </div>
+    <a class="footer-brand" href="/">Sarvyanta</a>
+    <p>Building an Intelligent World.</p>
+    <div class="footer-links">
+      <a href="/">Main website</a>
+      <a href="disclosure.html">Affiliate disclosure</a>
     </div>
-    <p class="copyright">© <span id="current-year"></span> Sarvyanta. All rights reserved.</p>
+    <p class="copyright">© <span id="currentYear"></span> Sarvyanta</p>
   </footer>
+
+  <script>
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+  </script>
+  <script src="market.js"></script>
 </body>
 </html>
