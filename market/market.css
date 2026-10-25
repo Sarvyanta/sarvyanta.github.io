@@ -1,4 +1,9 @@
 
+/* =========================================
+   SARVYANTA MARKET
+   Bright, premium shopping experience
+   ========================================= */
+
 :root {
   --blue: #175cd3;
   --blue-dark: #1246a8;
@@ -11,7 +16,7 @@
   --border: #e4e8ef;
   --radius: 13px;
   --shadow: 0 3px 12px rgba(16, 24, 40, 0.05);
-  --shadow-hover: 0 7px 20px rgba(16, 24, 40, 0.09);
+  --shadow-hover: 0 8px 24px rgba(16, 24, 40, 0.10);
 }
 
 * {
@@ -47,46 +52,46 @@ a:focus-visible,
 input:focus-visible,
 select:focus-visible {
   outline: 3px solid rgba(23, 92, 211, 0.35);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
-/* =========================
-   Header — Technology Navy
-   ========================= */
+/* =========================================
+   HEADER — BRIGHT SARVYANTA BLUE
+   ========================================= */
 
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  min-height: 62px;
-  padding: 9px clamp(14px, 4vw, 48px);
+  min-height: 66px;
+  padding: 10px clamp(16px, 4vw, 48px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 15px;
-  background: var(--navy);
+  gap: 18px;
+  background: var(--blue);
   color: #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 4px 18px rgba(8, 17, 31, 0.18);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 3px 14px rgba(18, 70, 168, 0.15);
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   flex-shrink: 0;
 }
 
 .brand-mark {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  border-radius: 9px;
+  border-radius: 10px;
   background: #ffffff;
   color: var(--blue-dark);
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 800;
 }
 
@@ -98,10 +103,10 @@ select:focus-visible {
 }
 
 .brand-name span {
-  color: #c5d8ff;
+  color: #eaf2ff;
 }
 
-/* Optional brand image, if used in the HTML */
+/* Optional logo image support */
 .brand-logo {
   display: block;
   width: 125px;
@@ -112,65 +117,62 @@ select:focus-visible {
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 10px;
   color: #ffffff;
   font-size: 12px;
   font-weight: 600;
 }
 
-.header-nav a,
-.footer-links a,
-.footer-column a {
-  transition: color 0.15s ease, background 0.15s ease;
-}
-
 .header-nav a {
+  padding: 9px 12px;
   color: #ffffff;
-  opacity: 0.92;
+  border-radius: 8px;
+  transition: background 0.2s ease;
 }
 
 .header-nav a:hover,
 .header-nav a:focus-visible {
+  background: rgba(255, 255, 255, 0.16);
   color: #ffffff;
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
 }
 
-/* =========================
-   Market introduction
-   ========================= */
+/* =========================================
+   MARKET INTRODUCTION
+   Shopping-focused welcome section
+   ========================================= */
 
 .market-intro {
   width: min(1200px, calc(100% - 32px));
-  margin: 17px auto 0;
-  padding: 20px 24px;
+  margin: 22px auto 0;
+  padding: clamp(22px, 4vw, 38px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 22px;
-  background: linear-gradient(110deg, #edf4ff, #ffffff 85%);
+  gap: 28px;
+  background: linear-gradient(115deg, #eaf2ff 0%, #ffffff 72%);
   border: 1px solid #dce8fb;
-  border-radius: var(--radius);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(23, 92, 211, 0.04);
 }
 
 .intro-copy {
-  max-width: 680px;
+  max-width: 690px;
 }
 
 .eyebrow {
-  margin: 0 0 5px;
+  margin: 0 0 9px;
   color: var(--blue);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 1.1px;
+  letter-spacing: 1.2px;
 }
 
 .market-intro h1 {
   margin: 0;
-  font-size: clamp(24px, 3vw, 32px);
-  line-height: 1.2;
-  letter-spacing: -0.8px;
+  color: var(--text);
+  font-size: clamp(28px, 3.5vw, 42px);
+  line-height: 1.18;
+  letter-spacing: -1px;
 }
 
 .market-intro h1 span {
@@ -178,77 +180,81 @@ select:focus-visible {
 }
 
 .intro-description {
-  max-width: 600px;
-  margin: 7px 0 0;
+  max-width: 590px;
+  margin: 12px 0 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 .intro-note {
-  min-width: 205px;
+  min-width: 225px;
+  max-width: 270px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 11px;
+  gap: 12px;
+  padding: 16px;
   background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 11px;
+  border: 1px solid #dce8fb;
+  border-radius: 13px;
+  box-shadow: var(--shadow);
 }
 
 .note-icon {
-  width: 34px;
-  height: 34px;
+  width: 42px;
+  height: 42px;
   flex-shrink: 0;
   display: grid;
   place-items: center;
   background: var(--blue-light);
-  border-radius: 9px;
+  border-radius: 11px;
   color: var(--blue);
-  font-size: 20px;
+  font-size: 23px;
 }
 
 .intro-note strong {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .intro-note p {
-  margin: 2px 0 0;
+  margin: 4px 0 0;
   color: var(--muted);
   font-size: 11px;
 }
 
-/* =========================
-   Shopping controls
-   ========================= */
+/* =========================================
+   SHOPPING AREA
+   ========================================= */
 
 .shopping-area {
   width: min(1200px, calc(100% - 32px));
-  margin: 21px auto 38px;
+  margin: 28px auto 32px;
 }
 
 .search-row {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 12px;
 }
 
 .search-box {
   flex: 1;
   min-width: 0;
-  height: 44px;
-  padding: 0 13px;
+  min-height: 48px;
+  padding: 0 15px;
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   background: #ffffff;
   border: 1px solid #d9e0ea;
-  border-radius: 10px;
+  border-radius: 11px;
+  box-shadow: 0 2px 6px rgba(16, 24, 40, 0.025);
 }
 
 .search-box:focus-within {
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(23, 92, 211, 0.08);
+  box-shadow: 0 0 0 3px rgba(23, 92, 211, 0.09);
 }
 
 .search-box > span {
@@ -261,7 +267,7 @@ select:focus-visible {
 #product-search {
   width: 100%;
   min-width: 0;
-  padding: 9px 0;
+  padding: 10px 0;
   background: transparent;
   border: 0;
   outline: 0;
@@ -274,16 +280,16 @@ select:focus-visible {
 }
 
 .sort-control {
-  min-height: 42px;
+  min-height: 46px;
   display: flex;
   align-items: center;
-  gap: 7px;
-  padding: 0 10px;
+  gap: 8px;
+  padding: 0 13px;
   border: 1px solid var(--border);
-  border-radius: 9px;
+  border-radius: 10px;
   background: #ffffff;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .sort-control select,
@@ -294,10 +300,13 @@ select:focus-visible {
   background: transparent;
   color: var(--text);
   font-size: 12px;
+  cursor: pointer;
 }
 
+/* Section heading */
+
 .section-heading {
-  margin: 22px 0 11px;
+  margin: 28px 0 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -306,47 +315,50 @@ select:focus-visible {
 
 .section-heading h2 {
   margin: 0;
-  font-size: 20px;
-  letter-spacing: -0.3px;
+  font-size: 23px;
+  letter-spacing: -0.5px;
 }
 
 .section-heading p {
-  margin: 3px 0 0;
+  margin: 4px 0 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .result-count,
 #result-count {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 12px;
   white-space: nowrap;
 }
 
-/* =========================
-   Category filters
-   ========================= */
+/* =========================================
+   CATEGORY FILTERS
+   ========================================= */
 
 .category-filters,
 #categories {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 17px;
+  gap: 9px;
+  margin-bottom: 21px;
 }
 
 .category-chip {
-  min-height: 34px;
-  padding: 6px 13px;
+  min-height: 37px;
+  padding: 8px 15px;
   background: #ffffff;
   border: 1px solid #dfe5ee;
-  border-radius: 22px;
+  border-radius: 24px;
   color: #475467;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
 }
 
 .category-chip:hover,
@@ -356,15 +368,15 @@ select:focus-visible {
   color: #ffffff;
 }
 
-/* =========================
-   Product grid and cards
-   ========================= */
+/* =========================================
+   PRODUCT GRID AND CARDS
+   ========================================= */
 
 .product-grid,
 #product-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 15px;
+  gap: 18px;
 }
 
 .product-card {
@@ -374,18 +386,22 @@ select:focus-visible {
   flex-direction: column;
   background: #ffffff;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: 14px;
   box-shadow: var(--shadow);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  border-color: #d4e2fb;
   box-shadow: var(--shadow-hover);
 }
 
 .product-image-wrap {
-  height: 180px;
+  height: 205px;
   position: relative;
   display: grid;
   place-items: center;
@@ -397,8 +413,13 @@ select:focus-visible {
 .product-image {
   width: 100%;
   height: 100%;
-  padding: 12px;
+  padding: 15px;
   object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.035);
 }
 
 .product-placeholder {
@@ -408,86 +429,93 @@ select:focus-visible {
   place-items: center;
   background: linear-gradient(135deg, #f2f6ff, #fafbfe);
   color: #9bb9ee;
-  font-size: 36px;
+  font-size: 38px;
 }
 
 .product-badge {
   position: absolute;
-  left: 9px;
-  top: 9px;
-  max-width: calc(100% - 18px);
-  padding: 4px 7px;
-  border-radius: 5px;
-  background: #eef4ff;
+  left: 10px;
+  top: 10px;
+  max-width: calc(100% - 20px);
+  padding: 5px 8px;
+  border-radius: 6px;
+  background: #eaf2ff;
   color: var(--blue-dark);
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 800;
-  letter-spacing: 0.25px;
+  letter-spacing: 0.2px;
 }
 
 .product-info {
   flex: 1;
-  padding: 11px 12px 13px;
+  padding: 14px;
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
 
 .product-category {
-  margin: 0 0 5px;
+  margin: 0 0 6px;
   color: var(--blue);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: capitalize;
 }
 
 .product-title {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.4;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.45;
   overflow-wrap: anywhere;
 }
 
 .product-description {
-  margin: 6px 0 0;
+  margin: 7px 0 0;
   color: var(--muted);
-  font-size: 11px;
-  line-height: 1.5;
+  font-size: 12px;
+  line-height: 1.6;
 }
 
 .product-price {
-  margin: 10px 0 0;
+  margin: 12px 0 0;
   color: var(--text);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 800;
 }
 
 .product-price small {
   color: var(--muted);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 400;
 }
 
+/* Product buttons */
+
 .product-action {
   width: 100%;
-  min-height: 36px;
+  min-height: 40px;
   margin-top: auto;
-  padding: 8px 9px;
+  padding: 10px 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--blue);
-  border-radius: 8px;
+  border-radius: 9px;
   background: var(--blue);
   color: #ffffff;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   text-align: center;
   cursor: pointer;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
 }
 
 .product-info .product-action {
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
 .product-action:hover {
@@ -510,33 +538,34 @@ select:focus-visible {
 .product-action.own-action:hover,
 .own-action:hover {
   background: var(--blue);
+  border-color: var(--blue);
   color: #ffffff;
 }
 
-/* =========================
-   Empty and loading states
-   ========================= */
+/* =========================================
+   EMPTY AND LOADING STATES
+   ========================================= */
 
 .empty-state,
 #empty-state {
-  padding: 26px 15px;
+  padding: 34px 18px;
   text-align: center;
   background: #ffffff;
   border: 1px dashed #d6dce6;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
 .empty-state h3,
 #empty-state h3 {
   margin: 0;
-  font-size: 17px;
+  font-size: 19px;
 }
 
 .empty-state p,
 #empty-state p {
-  margin: 6px 0 14px;
+  margin: 7px 0 16px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .empty-state[hidden],
@@ -546,7 +575,7 @@ select:focus-visible {
 
 .clear-button,
 #clear-filters {
-  padding: 8px 14px;
+  padding: 9px 16px;
   border: 0;
   border-radius: 8px;
   background: var(--blue);
@@ -563,7 +592,7 @@ select:focus-visible {
 
 .loading-card {
   grid-column: 1 / -1;
-  padding: 26px 15px;
+  padding: 30px 18px;
   text-align: center;
   background: #ffffff;
   border: 1px solid var(--border);
@@ -572,28 +601,28 @@ select:focus-visible {
   font-size: 13px;
 }
 
-/* =========================
-   Affiliate disclosure note
-   ========================= */
+/* =========================================
+   AFFILIATE DISCLOSURE NOTE
+   ========================================= */
 
 .market-disclaimer {
   width: min(1200px, calc(100% - 32px));
-  margin: 18px auto 28px;
+  margin: 22px auto 30px;
   color: var(--muted);
-  font-size: 10px;
-  line-height: 1.7;
+  font-size: 11px;
+  line-height: 1.8;
   text-align: center;
 }
 
-/* =========================
-   Footer — Technology Navy
-   ========================= */
+/* =========================================
+   FOOTER — TECHNOLOGY NAVY
+   ========================================= */
 
 .site-footer {
-  padding: 30px clamp(16px, 4vw, 48px) 18px;
+  padding: 36px clamp(16px, 4vw, 48px) 20px;
   background: var(--navy);
   color: #eaf2ff;
-  border-top: 3px solid var(--blue-dark);
+  border-top: 3px solid var(--blue);
 }
 
 .footer-content {
@@ -601,14 +630,14 @@ select:focus-visible {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  gap: 32px;
+  gap: 36px;
 }
 
 .footer-brand {
   display: inline-block;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
   color: #ffffff;
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 800;
 }
 
@@ -621,21 +650,21 @@ select:focus-visible {
 .site-footer > p {
   margin: 5px 0;
   color: #c5d8ff;
-  font-size: 11px;
-  line-height: 1.7;
+  font-size: 12px;
+  line-height: 1.8;
 }
 
 .footer-column {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 9px;
+  gap: 10px;
 }
 
 .footer-column h3 {
-  margin: 0 0 3px;
+  margin: 0 0 4px;
   color: #ffffff;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .footer-column a {
@@ -651,8 +680,8 @@ select:focus-visible {
 
 .footer-bottom {
   width: min(1200px, 100%);
-  margin: 24px auto 0;
-  padding-top: 14px;
+  margin: 27px auto 0;
+  padding-top: 17px;
   border-top: 1px solid rgba(255, 255, 255, 0.18);
   text-align: center;
 }
@@ -660,16 +689,17 @@ select:focus-visible {
 .footer-bottom p {
   margin: 5px 0;
   color: #c5d8ff;
+  font-size: 11px;
 }
 
-/* Original footer links, if using older footer HTML */
+/* Support older footer markup */
 .footer-links {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 18px;
   margin: 12px 0;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -685,23 +715,23 @@ select:focus-visible {
   margin-top: 14px !important;
 }
 
-/* =========================
-   Tablet
-   ========================= */
+/* =========================================
+   TABLET
+   ========================================= */
 
 @media (max-width: 950px) {
   .product-grid,
   #product-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+    gap: 14px;
   }
 
   .product-image-wrap {
-    height: 160px;
+    height: 175px;
   }
 
   .intro-note {
-    min-width: 185px;
+    min-width: 200px;
   }
 
   .footer-content {
@@ -709,34 +739,30 @@ select:focus-visible {
   }
 }
 
-/* =========================
-   Mobile
-   ========================= */
+/* =========================================
+   MOBILE
+   ========================================= */
 
 @media (max-width: 620px) {
   .site-header {
-    min-height: 55px;
+    min-height: 56px;
     padding: 8px 12px;
     gap: 8px;
   }
 
+  .brand {
+    gap: 8px;
+  }
+
   .brand-mark {
-    width: 30px;
-    height: 30px;
-    font-size: 17px;
+    width: 31px;
+    height: 31px;
+    font-size: 18px;
+    border-radius: 8px;
   }
 
   .brand-name {
     font-size: 15px;
-  }
-
-  .header-nav {
-    gap: 12px;
-    font-size: 10px;
-  }
-
-  .header-nav a:first-child {
-    display: none;
   }
 
   .brand-logo {
@@ -744,42 +770,58 @@ select:focus-visible {
     max-height: 36px;
   }
 
+  .header-nav {
+    gap: 3px;
+    font-size: 10px;
+  }
+
+  .header-nav a {
+    padding: 8px;
+  }
+
+  .header-nav a:first-child {
+    display: none;
+  }
+
   .market-intro {
     width: calc(100% - 22px);
-    margin-top: 11px;
-    padding: 14px;
+    margin-top: 12px;
+    padding: 18px 15px;
     display: block;
-    border-radius: 11px;
+    border-radius: 12px;
   }
 
   .eyebrow {
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     font-size: 9px;
   }
 
   .market-intro h1 {
-    font-size: 24px;
-    letter-spacing: -0.5px;
+    font-size: 27px;
+    letter-spacing: -0.6px;
   }
 
   .intro-description {
-    margin-top: 6px;
+    margin-top: 8px;
     font-size: 12px;
+    line-height: 1.7;
   }
 
   .intro-note {
     min-width: 0;
-    margin-top: 10px;
-    padding: 8px 9px;
+    max-width: none;
+    margin-top: 14px;
+    padding: 11px;
   }
 
   .note-icon {
-    width: 29px;
-    height: 29px;
+    width: 34px;
+    height: 34px;
+    font-size: 19px;
   }
 
   .intro-note strong {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .intro-note p {
@@ -788,22 +830,22 @@ select:focus-visible {
 
   .shopping-area {
     width: calc(100% - 22px);
-    margin-top: 15px;
-    margin-bottom: 27px;
+    margin-top: 19px;
+    margin-bottom: 25px;
   }
 
   .search-row {
     align-items: stretch;
     flex-direction: column;
-    gap: 7px;
+    gap: 8px;
   }
 
   .search-box {
-    height: 42px;
+    min-height: 43px;
   }
 
   .sort-control {
-    min-height: 36px;
+    min-height: 38px;
     justify-content: space-between;
   }
 
@@ -813,11 +855,12 @@ select:focus-visible {
   }
 
   .section-heading {
-    margin-top: 18px;
+    margin-top: 22px;
+    margin-bottom: 13px;
   }
 
   .section-heading h2 {
-    font-size: 18px;
+    font-size: 19px;
   }
 
   .section-heading p {
@@ -833,44 +876,45 @@ select:focus-visible {
   #categories {
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding: 1px 0 8px;
-    margin-bottom: 11px;
+    padding: 1px 0 9px;
+    margin-bottom: 12px;
     scrollbar-width: thin;
   }
 
   .category-chip {
     flex: 0 0 auto;
-    min-height: 32px;
-    padding: 6px 11px;
+    min-height: 33px;
+    padding: 7px 12px;
+    font-size: 11px;
   }
 
   .product-grid,
   #product-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 9px;
+    gap: 10px;
   }
 
   .product-card {
-    border-radius: 10px;
+    border-radius: 11px;
   }
 
   .product-image-wrap {
-    height: 128px;
+    height: 135px;
   }
 
   .product-image {
-    padding: 8px;
+    padding: 9px;
   }
 
   .product-badge {
     left: 6px;
     top: 6px;
-    padding: 3px 5px;
+    padding: 4px 5px;
     font-size: 7px;
   }
 
   .product-info {
-    padding: 9px 9px 10px;
+    padding: 10px;
   }
 
   .product-category {
@@ -883,10 +927,12 @@ select:focus-visible {
 
   .product-description {
     font-size: 10px;
+    line-height: 1.5;
   }
 
   .product-price {
-    font-size: 13px;
+    margin-top: 9px;
+    font-size: 14px;
   }
 
   .product-price small {
@@ -894,53 +940,93 @@ select:focus-visible {
   }
 
   .product-info .product-action {
-    min-height: 34px;
-    margin-top: 9px;
-    padding: 7px 4px;
+    min-height: 35px;
+    margin-top: 10px;
+    padding: 7px 5px;
+    font-size: 10px;
+  }
+
+  .market-disclaimer {
+    width: calc(100% - 24px);
+    margin: 17px auto 23px;
     font-size: 10px;
   }
 
   .site-footer {
-    padding: 24px 16px 16px;
+    padding: 26px 16px 16px;
   }
 
   .footer-content {
     grid-template-columns: 1fr 1fr;
-    gap: 22px 16px;
+    gap: 23px 16px;
   }
 
   .footer-about {
     grid-column: 1 / -1;
   }
 
+  .footer-brand {
+    font-size: 18px;
+  }
+
+  .footer-about p,
+  .footer-column a {
+    font-size: 11px;
+  }
+
+  .footer-column h3 {
+    font-size: 12px;
+  }
+
   .footer-bottom {
-    margin-top: 20px;
+    margin-top: 21px;
+    padding-top: 13px;
+  }
+
+  .footer-bottom p {
+    font-size: 10px;
   }
 }
 
-/* Small mobile devices */
+/* Extra-small mobile devices */
 @media (max-width: 360px) {
   .brand-name {
     font-size: 13px;
   }
 
   .header-nav {
-    gap: 8px;
+    gap: 0;
     font-size: 9px;
   }
 
+  .header-nav a {
+    padding: 7px 6px;
+  }
+
+  .market-intro h1 {
+    font-size: 24px;
+  }
+
   .product-image-wrap {
-    height: 112px;
+    height: 115px;
+  }
+
+  .product-info {
+    padding: 8px;
   }
 
   .product-title {
     font-size: 11px;
   }
+
+  .product-info .product-action {
+    font-size: 9px;
+  }
 }
 
-/* =========================
-   Reduced motion
-   ========================= */
+/* =========================================
+   ACCESSIBILITY — REDUCED MOTION
+   ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
   *,
