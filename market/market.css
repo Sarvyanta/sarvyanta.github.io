@@ -1009,3 +1009,116 @@ select:focus-visible {
     background: linear-gradient(160deg, #1246a8 0%, #0b2f70 100%);
   }
 }
+
+/* Sarvyanta Market — unified brand identity */
+
+.site-header {
+  background: linear-gradient(135deg, #175cd3 0%, #1246a8 100%);
+  color: #fff;
+  border-bottom: none;
+  box-shadow: 0 4px 18px rgba(18, 70, 168, 0.18);
+}
+
+.brand {
+  gap: 12px;
+}
+
+.brand-logo {
+  display: block;
+  width: 125px;
+  max-height: 42px;
+  object-fit: contain;
+}
+
+.site-header .brand-name {
+  color: #fff;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+.header-nav {
+  color: #fff;
+}
+
+.header-nav a {
+  color: #fff;
+  opacity: 0.92;
+}
+
+.header-nav a:hover,
+.header-nav a:focus-visible {
+  color: #fff;
+  opacity: 1;
+}
+
+.site-footer {
+  background: linear-gradient(135deg, #1246a8 0%, #0b2f70 100%);
+  color: #eaf2ff;
+  border-top: 4px solid #175cd3;
+}
+
+.site-footer .footer-brand {
+  color: #fff;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.site-footer .footer-brand span {
+  color: #c5d8ff;
+}
+
+.site-footer .footer-about p,
+.site-footer .footer-column a {
+  color: #d8e6ff;
+}
+
+.site-footer .footer-column h3 {
+  color: #fff;
+}
+
+.site-footer .footer-column a:hover,
+.site-footer .footer-column a:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.site-footer .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.site-footer .footer-bottom p {
+  color: #c5d8ff;
+}
+
+.site-header a:focus-visible,
+.site-footer a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+
+@media (max-width: 620px) {
+  .site-header {
+    padding: 8px 12px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-logo {
+    width: 100px;
+    max-height: 36px;
+  }
+
+  .site-header .brand-name {
+    padding-left: 8px;
+    font-size: 12px;
+  }
+
+  .header-nav {
+    gap: 10px;
+  }
+}
