@@ -137,5 +137,18 @@
   "featured": false,
   "currency": "₹",
   "buttonLabel": "Enquire & Order on WhatsApp"
+  },
+  {
+  "id": "personalized-glitter-resin-name-stand",
+  "name": "Personalized Glitter Resin Name Stand",
+  "category": "other",
+  "type": "partner",
+  "description": "Perfect for decorating children's bedrooms, study tables, nursery spaces, and birthday party setups, it can be customized with your preferred name to create a unique keepsake. Its attractive design also makes it a thoughtful gift for birthdays, baby showers, naming ceremonies, and special occasions.",
+  "affiliateUrl": "",
+  "imageUrl": "https://sarvyanta.com/market/images/rigvedhi.png",
+  "active": true,
+  "featured": false,
+  "currency": "₹",
+  "buttonLabel": "Enquire & Order on WhatsApp"
   }
 ]
