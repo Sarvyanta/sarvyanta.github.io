@@ -564,3 +564,85 @@
 .market-category-track .product-info .product-action {
   margin-top: 12px !important;
 }
+
+/* =========================================
+   SARVYANTA MARKET — PRODUCT BUTTON ALIGNMENT
+   Keep titles, descriptions and buttons aligned
+   in each horizontal product carousel.
+========================================= */
+
+/* Make cards in each carousel stretch equally */
+.market-category-track {
+  align-items: stretch !important;
+}
+
+.market-category-track > .product-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-self: stretch !important;
+  height: auto !important;
+}
+
+/* Product information fills the available card height */
+.market-category-track > .product-card > .product-info {
+  display: flex !important;
+  flex: 1 1 auto !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+}
+
+/* Reserve exactly 3 lines for every product title */
+.market-category-track .product-title {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 3 !important;
+  line-clamp: 3 !important;
+  height: 4.2em !important;
+  min-height: 4.2em !important;
+  max-height: 4.2em !important;
+  line-height: 1.4em !important;
+  overflow: hidden !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Reserve exactly 6 lines for every description */
+.market-category-track .product-description {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 6 !important;
+  line-clamp: 6 !important;
+  height: 9em !important;
+  min-height: 9em !important;
+  max-height: 9em !important;
+  line-height: 1.5em !important;
+  overflow: hidden !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Push the optional price towards the bottom */
+.market-category-track .product-price {
+  margin-top: auto !important;
+  padding-top: 12px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Keep every action button at the bottom */
+.market-category-track .product-info > .product-action {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 12px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Preserve natural content in the product details viewer */
+.market-lightbox-product .product-title,
+.market-lightbox-product .product-description {
+  display: block !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+}
