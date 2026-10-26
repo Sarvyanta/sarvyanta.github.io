@@ -1320,3 +1320,113 @@ select:focus-visible {
   border-color: #F3A847;
   color: #172337;
      }
+/* Premium market introduction */
+.market-intro {
+  background: linear-gradient(120deg, #0B347F 0%, #1246A8 62%, #2368C7 100%);
+  border: 1px solid #0B347F;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(11, 52, 127, 0.18);
+}
+
+.market-intro .eyebrow {
+  color: #C7DCFF;
+}
+
+.market-intro h1,
+.market-intro h1 span {
+  color: #FFFFFF;
+}
+
+.market-intro .intro-description {
+  color: #E0EAFA;
+}
+
+.market-intro .intro-note {
+  background: rgba(255, 255, 255, 0.97);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 22px rgba(3, 22, 56, 0.15);
+}
+
+/* Elevated shopping controls */
+.shopping-area > .search-row,
+.shopping-area > .section-heading,
+.shopping-area > #categories {
+  position: relative;
+}
+
+.shopping-area > .search-row {
+  padding: 18px 18px 12px;
+  background: #FFFFFF;
+  border: 1px solid #DCE6F5;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 8px 24px rgba(15, 35, 70, 0.06);
+}
+
+.shopping-area > .section-heading {
+  margin: 0;
+  padding: 16px 18px 12px;
+  background: #FFFFFF;
+}
+
+.shopping-area > #categories {
+  margin: 0;
+  padding: 0 18px 18px;
+  background: #FFFFFF;
+  border: 1px solid #DCE6F5;
+  border-top: 0;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 8px 24px rgba(15, 35, 70, 0.06);
+}
+
+/* Give the product area more room after the controls */
+.shopping-area > .market-section-nav {
+  margin-top: 28px;
+}
+
+/* Stronger separation for product sections */
+.market-product-section {
+  padding: 20px;
+  background: linear-gradient(180deg, #EDF3FC 0%, #F5F8FD 100%);
+  border: 1px solid #DFE8F6;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(15, 35, 70, 0.035);
+}
+
+.market-product-section .product-card {
+  background: #FFFFFF;
+  box-shadow: 0 5px 16px rgba(15, 35, 70, 0.075);
+}
+
+.market-product-section .product-card:hover {
+  box-shadow: 0 12px 26px rgba(15, 35, 70, 0.12);
+}
+
+/* Keep the partner section recognisably green */
+#partner-products {
+  background: linear-gradient(180deg, #F0FAF4 0%, #F7FCF8 100%);
+  border-color: #D6EBDD;
+}
+
+@media (max-width: 620px) {
+  .market-intro {
+    background: linear-gradient(145deg, #0B347F 0%, #1246A8 100%);
+    box-shadow: 0 7px 18px rgba(11, 52, 127, 0.14);
+  }
+
+  .shopping-area > .search-row {
+    padding: 12px 12px 9px;
+  }
+
+  .shopping-area > .section-heading {
+    padding: 12px 12px 9px;
+  }
+
+  .shopping-area > #categories {
+    padding: 0 12px 13px;
+  }
+
+  .market-product-section {
+    padding: 12px;
+    border-radius: 13px;
+  }
+}
