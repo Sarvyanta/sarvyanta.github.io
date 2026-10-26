@@ -59,5 +59,18 @@
   "price": "",
   "currency": "₹",
   "buttonLabel": "Enquire on WhatsApp"
-}
+},
+  {
+  "id": "baby-essentials-for-newborn-kit",
+  "name": "Baby Essentials for Newborn Kit",
+  "category": "baby-care",
+  "type": "affiliate",
+  "description": "Infantbond 56 in 1 Baby Products All New Born Combo | Gift Set | Baby Essentials | Hospital Kit | Baby Clothes | Maternity Essentials | Infant Essentials | Baby Shower | Complete Daily Items Combo(0-6 Months) (Blue Moon)",
+  "affiliateUrl": "https://www.amazon.in/dp/B0C55KZ1SL/ref=cm_sw_r_as_gl_apa_gl_i_dl_B0Y5543R1EC0EHRCC3F2?linkCode=ml1&tag=sarvyantaam03-21&linkId=260bcc66fd7d03c2ea37a6c083530706",
+  "imageUrl": "",
+  "active": true,
+  "featured": false,
+  "currency": "₹",
+  "buttonLabel": "Check on Amazon"
+  }
 ]
