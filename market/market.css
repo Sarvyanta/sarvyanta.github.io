@@ -1281,3 +1281,30 @@ select:focus-visible {
     font-size: 11px;
   }
    }
+
+/* Clear separation between Sarvyanta Market sections */
+.market-product-section {
+  padding-bottom: 28px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #DCE5F0;
+}
+
+.market-product-section:last-of-type {
+  border-bottom: none;
+}
+
+/* Slightly clearer section headings */
+.market-subheading {
+  padding-bottom: 12px;
+  border-bottom: 2px solid #EAF0F8;
+}
+
+#partner-products .market-subheading {
+  border-bottom-color: #D1EBDD;
+}
+
+#sarvyanta-products .market-subheading {
+  border-bottom-color: #D7EAD9;
+}
+
+
