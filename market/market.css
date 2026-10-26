@@ -646,3 +646,118 @@
   -webkit-line-clamp: unset !important;
   line-clamp: unset !important;
 }
+
+/* =========================================
+   SARVYANTA MARKET — READABILITY UPGRADE
+========================================= */
+
+/* Base page typography */
+body {
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* Main section headings */
+.market-section-title,
+.market-product-section h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.3;
+}
+
+/* Category headings */
+.market-category-title {
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+/* Product category label */
+.market-category-track .product-category {
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+/* Product titles — readable but preserve alignment */
+.market-category-track .product-title {
+  font-size: 1.05rem !important;
+  line-height: 1.4em !important;
+  height: 4.2em !important;
+  min-height: 4.2em !important;
+  max-height: 4.2em !important;
+}
+
+/* Product descriptions */
+.market-category-track .product-description {
+  font-size: 0.95rem !important;
+  line-height: 1.5em !important;
+  height: 9em !important;
+  min-height: 9em !important;
+  max-height: 9em !important;
+}
+
+/* Price */
+.market-category-track .product-price {
+  font-size: 1.1rem !important;
+  line-height: 1.5;
+}
+
+.market-category-track .product-price small {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* Product buttons */
+.market-category-track .product-action {
+  font-size: 0.95rem !important;
+  line-height: 1.4;
+  min-height: 46px;
+  padding: 12px 14px;
+}
+
+/* Search and sorting controls */
+#product-search,
+#product-sort {
+  font-size: 1rem;
+  min-height: 46px;
+}
+
+/* Category filter chips */
+.category-chip {
+  font-size: 0.9rem;
+  min-height: 40px;
+}
+
+/* Result count and supporting text */
+#result-count,
+.market-section-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Mobile readability */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  .market-section-title,
+  .market-product-section h2 {
+    font-size: 1.55rem;
+  }
+
+  .market-category-title {
+    font-size: 1.15rem;
+  }
+
+  .market-category-track .product-title {
+    font-size: 1rem !important;
+  }
+
+  .market-category-track .product-description {
+    font-size: 0.92rem !important;
+  }
+
+  .market-category-track .product-action {
+    font-size: 0.9rem !important;
+    padding: 11px 10px;
+  }
+}
