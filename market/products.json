@@ -111,5 +111,18 @@
   "featured": false,
   "currency": "₹",
   "buttonLabel": "Check on Amazon"
+  },
+  {
+  "id": "piano-baby-gym-and-fitness-rack",
+  "name": "Piano Baby Gym and Fitness Rack",
+  "category": "baby-care",
+  "type": "affiliate",
+  "description": "ToysBuddy Kick and Play Multi-Function ABS High Grade Plastic Piano Baby Gym and Fitness Rack Products",
+  "affiliateUrl": "https://www.amazon.in/dp/B08F38HSMN/ref=cm_sw_r_as_gl_apa_gl_i_N8ZFENYSSCR2A8KPY4TP?linkCode=ml1&tag=sarvyantaam03-21&linkId=3af292fd785a7f0a2d5596b961be7cd7",
+  "imageUrl": "",
+  "active": true,
+  "featured": false,
+  "currency": "₹",
+  "buttonLabel": "Check on Amazon"
   }
 ]
