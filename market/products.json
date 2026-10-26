@@ -46,5 +46,18 @@
   "price": "",
   "currency": "₹",
   "buttonLabel": "Enquire & Order on WhatsApp"
+},
+{
+  "id": "sarvyanta-ginger-garlic-paste",
+  "name": "Sarvyanta Ginger-Garlic Paste",
+  "category": "sarvyanta-products",
+  "type": "sarvyanta",
+  "description": "Sarvyanta ginger-garlic paste. Product details and availability will be confirmed at launch.",
+  "imageUrl": "",
+  "active": true,
+  "featured": true,
+  "price": "",
+  "currency": "₹",
+  "buttonLabel": "Enquire on WhatsApp"
 }
 ]
