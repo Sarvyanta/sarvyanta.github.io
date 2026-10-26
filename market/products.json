@@ -72,5 +72,18 @@
   "featured": false,
   "currency": "₹",
   "buttonLabel": "Check on Amazon"
+  },
+  {
+  "id": "baby-feeding-combo-set-for-newborns-and-infants",
+  "name": "Baby Feeding Combo Set for Newborns & Infants",
+  "category": "baby-care",
+  "type": "affiliate",
+  "description": "Y. GOYAL & CO. Babyy Feeding Combo Set for Newborns & Infants | Stainless Steel Feeding Bottle, Spoon Feeder, Fruit Feeder & Food Feeder | BPA Free Baby Essentials Kit (13 in 1 Baby Feeding Combo Set)",
+  "affiliateUrl": "https://www.amazon.in/dp/B0H2ZPSPBR/ref=cm_sw_r_as_gl_apa_gl_i_dl_NMTKP0HQWTRJYBSHP297?linkCode=ml1&tag=sarvyantaam03-21&linkId=f9d8438f76f985a856520053eb71e1c9",
+  "imageUrl": "",
+  "active": true,
+  "featured": false,
+  "currency": "₹",
+  "buttonLabel": "Check on Amazon"
   }
 ]
