@@ -1,1314 +1,329 @@
-/* ========================================= SARVYANTA MARKET — COMPLETE STYLESHEET Brand: Rainbow + Navy Shopping: Bright, clean, blue accents Footer: Coordinated navy design Navigation: Amazon Orange / Partner Green / Sarvyanta Blue ========================================= */ /* ========================================= 1. DESIGN TOKENS ========================================= */ :root { --blue: #1246A8; --blue-dark: #0B347F; --blue-light: #EAF2FF; --navy: #031638; --navy-light: #0A2147; --amazon-orange: #FF9900; --amazon-orange-hover: #F3A847; --amazon-text: #172337; --partner-green: #167647; --partner-green-dark: #105C35; --partner-green-light: #DDF7E8; --page: #F5F7FB; --surface: #FFFFFF; --text: #172033; --muted: #64748B; --border: #E1E7F0; --footer-text: #D5E0F3; --footer-muted: #AFC1DE; --footer-border: #263E65; --radius: 14px; --shadow: 0 4px 16px rgba(15, 35, 70, 0.055); --shadow-hover: 0 10px 26px rgba(15, 35, 70, 0.11); } /* ========================================= 2. RESET AND GLOBAL STYLES ========================================= */ * { box-sizing: border-box; } html { scroll-behavior: smooth; scroll-padding-top: 90px; } body { margin: 0; background: var(--page); color: var(--text); font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased; } img { max-width: 100%; } a { color: inherit; text-decoration: none; } button, input, select { font: inherit; } button, select { cursor: pointer; } button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #82B4FF; outline-offset: 3px; } [hidden] { display: none !important; } /* ========================================= 3. HEADER — APPROVED NAVY DESIGN ========================================= */ .site-header { position: sticky; top: 0; z-index: 50; min-height: 76px; padding: 10px clamp(16px, 4vw, 48px); display: flex; align-items: center; justify-content: space-between; gap: 18px; background: #031638; color: #FFFFFF; border-bottom: 1px solid #1E3560; box-shadow: 0 4px 16px rgba(3, 22, 56, 0.18); } .brand { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; min-width: 0; text-decoration: none; } .brand-logo { display: block; width: 145px; height: 50px; object-fit: contain; object-position: left center; flex-shrink: 0; } .brand-name { color: #FFFFFF; font-size: 19px; font-weight: 700; letter-spacing: 0.1px; white-space: nowrap; } .brand-name span { color: #EAF2FF; } .header-nav { display: flex; align-items: center; gap: 10px; color: #FFFFFF; font-size: 13px; font-weight: 600; } .header-nav a { padding: 9px 12px; color: #E8EEFB; border-radius: 8px; text-decoration: none; transition: background 0.2s ease, color 0.2s ease; } .header-nav a:hover, .header-nav a:focus-visible { background: rgba(255, 255, 255, 0.12); color: #FFFFFF; } /* ========================================= 4. MARKET INTRODUCTION ========================================= */ .market-intro { width: min(1200px, calc(100% - 32px)); margin: 22px auto 0; padding: clamp(22px, 4vw, 38px); display: flex; align-items: center; justify-content: space-between; gap: 28px; background: linear-gradient(115deg, #EAF2FF 0%, #FFFFFF 72%); border: 1px solid #DCE8FB; border-radius: 16px; box-shadow: 0 4px 16px rgba(23, 92, 211, 0.04); } .intro-copy { max-width: 690px; } .eyebrow { margin: 0 0 9px; color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: 1.2px; } .market-intro h1 { margin: 0; color: var(--text); font-size: clamp(28px, 3.5vw, 42px); line-height: 1.18; letter-spacing: -1px; } .market-intro h1 span { color: var(--blue); } .intro-description { max-width: 590px; margin: 12px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; } .intro-note { min-width: 225px; max-width: 270px; display: flex; align-items: center; gap: 12px; padding: 16px; background: #FFFFFF; border: 1px solid #DCE8FB; border-radius: 13px; box-shadow: var(--shadow); } .note-icon { width: 42px; height: 42px; flex-shrink: 0; display: grid; place-items: center; background: var(--blue-light); border-radius: 11px; color: var(--blue); font-size: 23px; } .intro-note strong { display: block; color: var(--text); font-size: 13px; } .intro-note p { margin: 4px 0 0; color: var(--muted); font-size: 11px; } /* ========================================= 5. SHOPPING AREA ========================================= */ .shopping-area { width: min(1200px, calc(100% - 32px)); margin: 28px auto 32px; } .search-row { display: flex; align-items: center; gap: 12px; } .search-box { flex: 1; min-width: 0; min-height: 48px; padding: 0 15px; display: flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid #D9E0EA; border-radius: 11px; box-shadow: 0 2px 6px rgba(16, 24, 40, 0.025); } .search-box:focus-within { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(18, 70, 168, 0.09); } .search-box > span { color: var(--blue); font-size: 25px; line-height: 1; } .search-box input, #product-search { width: 100%; min-width: 0; padding: 10px 0; background: transparent; border: 0; outline: 0; color: var(--text); font-size: 13px; } .search-box input:focus-visible, #product-search:focus-visible { outline: none; } #product-search::placeholder { color: #98A2B3; } .sort-control { min-height: 46px; display: flex; align-items: center; gap: 8px; padding: 0 13px; border: 1px solid var(--border); border-radius: 10px; background: #FFFFFF; color: var(--muted); font-size: 12px; } .sort-control select, #product-sort { max-width: 160px; border: 0; outline: 0; background: transparent; color: var(--text); font-size: 12px; cursor: pointer; } /* ========================================= 6. SECTION HEADING ========================================= */ .section-heading { margin: 28px 0 15px; display: flex; align-items: center; justify-content: space-between; gap: 12px; } .section-heading h2 { margin: 0; font-size: 23px; letter-spacing: -0.5px; } .section-heading p { margin: 4px 0 0; color: var(--muted); font-size: 13px; } .result-count, #result-count { color: var(--muted); font-size: 12px; white-space: nowrap; } /* ========================================= 7. CATEGORY FILTERS ========================================= */ .category-filters, #categories { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 21px; } .category-chip { min-height: 37px; padding: 8px 15px; background: #FFFFFF; border: 1px solid #DFE5EE; border-radius: 24px; color: #475467; font-size: 12px; font-weight: 600; white-space: nowrap; cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease; } .category-chip:hover, .category-chip.selected { background: var(--blue); border-color: var(--blue); color: #FFFFFF; } /* ========================================= 8. PRODUCT GRID AND CARDS ========================================= */ .product-grid, #product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; } .product-card { min-width: 0; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; } .product-card:hover { transform: translateY(-3px); border-color: #D4E2FB; box-shadow: var(--shadow-hover); } .product-image-wrap { height: 205px; position: relative; display: grid; place-items: center; overflow: hidden; background: #FFFFFF; border-bottom: 1px solid #F0F2F5; } .product-image { width: 100%; height: 100%; padding: 15px; object-fit: contain; transition: transform 0.25s ease; } .product-card:hover .product-image { transform: scale(1.035); } .product-placeholder { width: 100%; height: 100%; display: grid; place-items: center; background: linear-gradient(135deg, #F2F6FF, #FAFBFE); color: #9BB9EE; font-size: 38px; } .product-badge { position: absolute; left: 10px; top: 10px; max-width: calc(100% - 20px); padding: 5px 8px; border-radius: 6px; background: #EAF2FF; color: var(--blue-dark); font-size: 9px; font-weight: 800; letter-spacing: 0.2px; } .product-info { flex: 1; padding: 14px; display: flex; flex-direction: column; align-items: stretch; } .product-category { margin: 0 0 6px; color: var(--blue); font-size: 11px; font-weight: 700; text-transform: capitalize; } .product-title { margin: 0; color: var(--text); font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; } .product-description { margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; } .product-price { margin: 12px 0 0; color: var(--text); font-size: 17px; font-weight: 800; } .product-price small { color: var(--muted); font-size: 10px; font-weight: 400; } /* ========================================= 9. PRODUCT ACTION BUTTONS ========================================= */ .product-action { width: 100%; min-height: 40px; margin-top: auto; padding: 10px 12px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--blue); border-radius: 9px; background: var(--blue); color: #FFFFFF; font-size: 12px; font-weight: 700; text-align: center; cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease; } .product-info .product-action { margin-top: 14px; } .product-action:hover { background: var(--blue-dark); border-color: var(--blue-dark); } .product-action[aria-disabled="true"], .product-action:disabled { opacity: 0.6; cursor: not-allowed; } .product-action.own-action, .own-action { background: #FFFFFF; color: var(--blue); } .product-action.own-action:hover, .own-action:hover { background: var(--blue); border-color: var(--blue); color: #FFFFFF; } /* ========================================= 10. EMPTY AND LOADING STATES ========================================= */ .empty-state, #empty-state { padding: 34px 18px; text-align: center; background: #FFFFFF; border: 1px dashed #D6DCE6; border-radius: 14px; } .empty-state h3, #empty-state h3 { margin: 0; font-size: 19px; } .empty-state p, #empty-state p { margin: 7px 0 16px; color: var(--muted); font-size: 13px; } .empty-state[hidden], #empty-state[hidden] { display: none !important; } .clear-button, #clear-filters { padding: 9px 16px; border: 0; border-radius: 8px; background: var(--blue); color: #FFFFFF; font-size: 12px; font-weight: 700; cursor: pointer; } .clear-button:hover, #clear-filters:hover { background: var(--blue-dark); } .loading-card { grid-column: 1 / -1; padding: 30px 18px; text-align: center; background: #FFFFFF; border: 1px solid var(--border); border-radius: 12px; color: var(--muted); font-size: 13px; } /* ========================================= 11. AFFILIATE DISCLOSURE ========================================= */ .market-disclaimer { width: min(1200px, calc(100% - 32px)); margin: 22px auto 30px; color: var(--muted); font-size: 11px; line-height: 1.8; text-align: center; } /* ========================================= 12. FOOTER — MATCHES THE HEADER ========================================= */ .site-footer { margin-top: 38px; padding: 40px clamp(16px, 4vw, 48px) 18px; background: var(--navy); color: var(--footer-text); border-top: 3px solid var(--blue); } .footer-content { width: min(1200px, 100%); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(130px, 0.8fr) minmax(160px, 1fr); gap: 42px; align-items: start; } .footer-about { min-width: 0; } .footer-brand { display: inline-block; margin-bottom: 12px; color: #FFFFFF; font-size: 19px; font-weight: 800; letter-spacing: 0.7px; text-decoration: none; } .site-footer .footer-brand span { margin-left: 5px; color: #AFCBFF; font-weight: 600; letter-spacing: 1px; } .footer-about p { max-width: 340px; margin: 5px 0; color: var(--footer-muted); font-size: 12px; line-height: 1.9; } .footer-column { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 11px; } .footer-column h3 { margin: 0 0 5px; color: #FFFFFF; font-size: 13px; font-weight: 700; letter-spacing: 0.2px; } .footer-column a { color: var(--footer-text); font-size: 12px; line-height: 1.6; text-decoration: none; transition: color 0.18s ease; } .footer-column a:hover, .footer-column a:focus-visible { color: #FFFFFF; text-decoration: underline; text-underline-offset: 3px; } .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; margin: 14px 0; font-size: 12px; font-weight: 600; } .footer-links a { color: var(--footer-text); } .footer-links a:hover { color: #FFFFFF; } .site-footer > p { margin: 5px 0; color: var(--footer-muted); font-size: 12px; line-height: 1.8; } .footer-bottom { width: min(1200px, 100%); margin: 32px auto 0; padding-top: 19px; border-top: 1px solid var(--footer-border); text-align: center; } .footer-bottom p { margin: 6px 0; color: var(--footer-muted); font-size: 11px; line-height: 1.8; } .footer-bottom p:last-child { margin-top: 12px; color: #E3EBF8; } .copyright { margin-top: 14px !important; } /* ========================================= 13. TABLET ========================================= */ @media (max-width: 950px) { .product-grid, #product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; } .product-image-wrap { height: 175px; } .intro-note { min-width: 200px; } .footer-content { gap: 26px; } } /* ========================================= 14. MOBILE ========================================= */ @media (max-width: 620px) { .site-header { min-height: 64px; padding: 9px 14px; gap: 8px; } .brand { gap: 8px; } .brand-logo { width: 100px; height: 40px; } .brand-name { font-size: 15px; } .header-nav { gap: 2px; font-size: 12px; } .header-nav a { padding: 8px; } .header-nav a:first-child { display: none; } .market-intro { width: calc(100% - 22px); margin-top: 12px; padding: 18px 15px; display: block; border-radius: 12px; } .eyebrow { margin-bottom: 6px; font-size: 9px; } .market-intro h1 { font-size: 27px; letter-spacing: -0.6px; } .intro-description { margin-top: 8px; font-size: 12px; line-height: 1.7; } .intro-note { min-width: 0; max-width: none; margin-top: 14px; padding: 11px; } .note-icon { width: 34px; height: 34px; font-size: 19px; } .intro-note strong { font-size: 12px; } .intro-note p { font-size: 10px; } .shopping-area { width: calc(100% - 22px); margin-top: 19px; margin-bottom: 25px; } .search-row { align-items: stretch; flex-direction: column; gap: 8px; } .search-box { min-height: 43px; } .sort-control { min-height: 38px; justify-content: space-between; } .sort-control select, #product-sort { max-width: 180px; } .section-heading { margin-top: 22px; margin-bottom: 13px; } .section-heading h2 { font-size: 19px; } .section-heading p { font-size: 11px; } .result-count, #result-count { font-size: 10px; } .category-filters, #categories { flex-wrap: nowrap; overflow-x: auto; padding: 1px 0 9px; margin-bottom: 12px; scrollbar-width: thin; } .category-chip { flex: 0 0 auto; min-height: 33px; padding: 7px 12px; font-size: 11px; } .product-grid, #product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .product-card { border-radius: 11px; } .product-image-wrap { height: 135px; } .product-image { padding: 9px; } .product-badge { left: 6px; top: 6px; padding: 4px 5px; font-size: 7px; } .product-info { padding: 10px; } .product-category { font-size: 9px; } .product-title { font-size: 12px; } .product-description { font-size: 10px; line-height: 1.5; } .product-price { margin-top: 9px; font-size: 14px; } .product-price small { font-size: 8px; } .product-info .product-action { min-height: 35px; margin-top: 10px; padding: 7px 5px; font-size: 10px; } .market-disclaimer { width: calc(100% - 24px); margin: 17px auto 23px; font-size: 10px; } .site-footer { margin-top: 26px; padding: 28px 18px 16px; } .footer-content { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px 18px; } .footer-about { grid-column: 1 / -1; padding-bottom: 17px; border-bottom: 1px solid var(--footer-border); } .footer-brand { font-size: 18px; } .footer-about p, .footer-column a { font-size: 11px; } .footer-column h3 { font-size: 12px; } .footer-column { gap: 10px; } .footer-bottom { margin-top: 25px; padding-top: 15px; } .footer-bottom p { font-size: 10px; } } /* ========================================= 15. EXTRA-SMALL MOBILE ========================================= */ @media (max-width: 380px) { .brand-logo { width: 78px; height: 34px; } .brand-name { font-size: 14px; } .header-nav a { padding: 7px 5px; } } @media (max-width: 360px) { .brand-name { font-size: 13px; } .header-nav { gap: 0; font-size: 9px; } .header-nav a { padding: 7px 6px; } .market-intro h1 { font-size: 24px; } .product-image-wrap { height: 115px; } .product-info { padding: 8px; } .product-title { font-size: 11px; } .product-info .product-action { font-size: 9px; } } /* ========================================= 16. ACCESSIBILITY — REDUCED MOTION ========================================= */ @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; } } /* ========================================= 17. MARKET SECTIONS — APPROVED BLUE + GREEN ========================================= */ .market-section-nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 28px; } /* Base navigation-button design */ .market-section-nav a { display: inline-flex; align-items: center; justify-content: center; padding: 11px 16px; border: 1px solid transparent; border-radius: 10px; background: #FFFFFF; color: var(--blue); font-size: 12px; font-weight: 800; box-shadow: 0 4px 12px rgba(15, 35, 70, 0.07); transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease; } .market-section-nav a:hover { transform: translateY(-2px); box-shadow: 0 7px 16px rgba(15, 35, 70, 0.12); } /* Navigation order: 1. Amazon Finds 2. Sarvyanta Partner Products 3. Our Products These styles assume the links appear in this order. */ .market-section-nav a:nth-child(1) { background: var(--amazon-orange); border-color: var(--amazon-orange); color: var(--amazon-text); } .market-section-nav a:nth-child(1):hover, .market-section-nav a:nth-child(1):focus-visible { background: var(--amazon-orange-hover); border-color: var(--amazon-orange-hover); color: var(--amazon-text); } .market-section-nav a:nth-child(2) { background: var(--partner-green); border-color: var(--partner-green); color: #FFFFFF; } .market-section-nav a:nth-child(2):hover, .market-section-nav a:nth-child(2):focus-visible { background: var(--partner-green-dark); border-color: var(--partner-green-dark); color: #FFFFFF; } .market-section-nav a:nth-child(3) { background: var(--blue); border-color: var(--blue); color: #FFFFFF; } .market-section-nav a:nth-child(3):hover, .market-section-nav a:nth-child(3):focus-visible { background: var(--blue-dark); border-color: var(--blue-dark); color: #FFFFFF; } /* Keyboard focus stays clear against colored buttons */ .market-section-nav a:focus-visible { outline: 3px solid #82B4FF; outline-offset: 3px; } .market-product-section { margin: 30px 0; scroll-margin-top: 95px; } .market-subheading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; } .market-subheading h2 { margin: 0; font-size: 22px; letter-spacing: -0.4px; } /* Highlight "Amazon" in the Amazon Finds heading. Add class="amazon-word" to the word Amazon in the HTML. */ .amazon-word { color: var(--amazon-orange); font-weight: 800; } .market-subheading p { margin: 5px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; } .section-label { display: inline-block; flex-shrink: 0; padding: 7px 10px; border-radius: 7px; font-size: 9px; font-weight: 800; letter-spacing: 0.35px; } .amazon-label { background: #FFF0D6; color: #7A4300; } .partner-label, .product-badge.partner-badge { background: #DDF7E8; color: #167647; } .own-label, .product-badge.own-badge { background: #E8F5E9; color: #176B3A; } /* Green partner order button */ .product-action.partner-action { background: #167647; border-color: #167647; color: #FFFFFF; } .product-action.partner-action:hover { background: #105C35; border-color: #105C35; } .product-card.partner-card { border-color: #D1EBDD; } .product-card.partner-card:hover { border-color: #9BD7B5; box-shadow: 0 10px 26px rgba(22, 118, 71, 0.10); } /* Keep the own-product style distinct from partner listings */ .product-action.own-action { background: #FFFFFF; border-color: #176B3A; color: #176B3A; } .product-action.own-action:hover { background: #176B3A; color: #FFFFFF; } @media (max-width: 620px) { .market-section-nav { gap: 7px; margin: 16px 0 23px; } .market-section-nav a { padding: 9px 10px; font-size: 11px; } .market-product-section { margin: 25px 0; scroll-margin-top: 75px; } .market-subheading { align-items: flex-start; flex-direction: column; gap: 9px; } .market-subheading h2 { font-size: 19px; } .market-subheading p { font-size: 11px; } } /* ========================================= 18. CLEAR SEPARATION BETWEEN SECTIONS ========================================= */ .market-product-section { padding-bottom: 28px; margin-bottom: 30px; border-bottom: 1px solid #DCE5F0; } .market-product-section:last-of-type { border-bottom: none; } .market-subheading { padding-bottom: 12px; border-bottom: 2px solid #EAF0F8; } #partner-products .market-subheading { border-bottom-color: #D1EBDD; } #sarvyanta-products .market-subheading { border-bottom-color: #D7EAD9; } /* ========================================= 19. PREMIUM MARKET INTRODUCTION ========================================= */ .market-intro { background: linear-gradient(120deg, #0B347F 0%, #1246A8 62%, #2368C7 100%); border: 1px solid #0B347F; border-radius: 18px; box-shadow: 0 12px 30px rgba(11, 52, 127, 0.18); } .market-intro .eyebrow { color: #C7DCFF; } .market-intro h1, .market-intro h1 span { color: #FFFFFF; } .market-intro .intro-description { color: #E0EAFA; } .market-intro .intro-note { background: rgba(255, 255, 255, 0.97); border-color: rgba(255, 255, 255, 0.5); box-shadow: 0 8px 22px rgba(3, 22, 56, 0.15); } /* Elevated shopping controls */ .shopping-area > .search-row, .shopping-area > .section-heading, .shopping-area > #categories { position: relative; } .shopping-area > .search-row { padding: 18px 18px 12px; background: #FFFFFF; border: 1px solid #DCE6F5; border-radius: 16px 16px 0 0; box-shadow: 0 8px 24px rgba(15, 35, 70, 0.06); } .shopping-area > .section-heading { margin: 0; padding: 16px 18px 12px; background: #FFFFFF; } .shopping-area > #categories { margin: 0; padding: 0 18px 18px; background: #FFFFFF; border: 1px solid #DCE6F5; border-top: 0; border-radius: 0 0 16px 16px; box-shadow: 0 8px 24px rgba(15, 35, 70, 0.06); } /* Give the product area more room after the controls */ .shopping-area > .market-section-nav { margin-top: 28px; } /* Stronger separation for product sections */ .market-product-section { padding: 20px; background: linear-gradient(180deg, #EDF3FC 0%, #F5F8FD 100%); border: 1px solid #DFE8F6; border-radius: 16px; box-shadow: 0 5px 18px rgba(15, 35, 70, 0.035); } .market-product-section .product-card { background: #FFFFFF; box-shadow: 0 5px 16px rgba(15, 35, 70, 0.075); } .market-product-section .product-card:hover { box-shadow: 0 12px 26px rgba(15, 35, 70, 0.12); } /* Keep the partner section recognisably green */ #partner-products { background: linear-gradient(180deg, #F0FAF4 0%, #F7FCF8 100%); border-color: #D6EBDD; } @media (max-width: 620px) { .market-intro { background: linear-gradient(145deg, #0B347F 0%, #1246A8 100%); box-shadow: 0 7px 18px rgba(11, 52, 127, 0.14); } .shopping-area > .search-row { padding: 12px 12px 9px; } .shopping-area > .section-heading { padding: 12px 12px 9px; } .shopping-area > #categories { padding: 0 12px 13px; } .market-product-section { padding: 12px; border-radius: 13px; } } /* ========================================= 20. HORIZONTAL PRODUCT CAROUSELS BY CATEGORY ========================================= */ .market-product-section .product-grid { display: block; min-width: 0; } .market-category-row { min-width: 0; margin-top: 22px; } .market-category-row:first-child { margin-top: 0; } .market-category-title { margin: 0 0 12px; color: #172033; font-size: 16px; font-weight: 750; letter-spacing: -0.2px; } .market-category-track { display: flex; flex-flow: row nowrap; align-items: stretch; gap: 16px; width: 100%; overflow-x: auto; overflow-y: hidden; padding: 2px 2px 14px; scroll-snap-type: x proximity; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #B7C9E5 transparent; } .market-category-track:focus-visible { outline: 2px solid #82B4FF; outline-offset: 3px; border-radius: 8px; } .market-category-track > .product-card { flex: 0 0 245px; width: 245px; min-width: 0; scroll-snap-align: start; } .market-category-track > .product-card .product-info { flex: 1; } .market-category-track::-webkit-scrollbar { height: 7px; } .market-category-track::-webkit-scrollbar-track { background: #E5ECF6; border-radius: 10px; } .market-category-track::-webkit-scrollbar-thumb { background: #A9BFDF; border-radius: 10px; } .market-category-track::-webkit-scrollbar-thumb:hover { background: #7899C9; } #partner-products .market-category-title { color: #176B3A; } /* Amazon category headings can use this class if needed */ #amazon-products .market-category-title { color: #7A4300; } @media (max-width: 620px) { .market-category-row { margin-top: 18px; } .market-category-title { margin-bottom: 10px; font-size: 14px; } .market-category-track { gap: 10px; padding-bottom: 10px; } .market-category-track > .product-card { flex-basis: 190px; width: 190px; } } @media (max-width: 380px) { .market-category-track > .product-card { flex-basis: 170px; width: 170px; } } /* ========================================= 21. AMAZON FINDS — HEADING AND SUBTITLE ========================================= */ /* Applies if the Amazon section uses id="amazon-products". */ #amazon-products .market-subheading h2 { color: var(--navy); } /* Highlight only the word "Amazon" when it has class="amazon-word". */ #amazon-products .market-subheading h2 .amazon-word { color: var(--amazon-orange); } /* If a small Amazon label appears beside the heading */ #amazon-products .section-label { background: #FFF0D6; color: #7A4300; } /* Keep all section titles readable and visually consistent */ #amazon-products .market-subheading { border-bottom-color: #FFD58A; } /* ========================================= 22. REDUCED-MOTION SUPPORT FOR NEW NAV ========================================= */ @media (prefers-reduced-motion: reduce) { .market-section-nav a { transition: none; } .market-section-nav a:hover { transform: none; } } 
-  
-/* =========================================
-   FINAL MARKET BUTTON COLORS
-   ========================================= */
+/* =========================================================
+   SARVYANTA MARKET — CONSOLIDATED STYLESHEET
+   Premium navy + blue design
+   Amazon: orange | Partners: green | Sarvyanta: navy
+   Responsive desktop, tablet and mobile
+   ========================================================= */
 
-/* Amazon affiliate buttons: Amazon orange */
-.product-card .product-action:not(.partner-action):not(.own-action) {
-  background: #FF9900 !important;
-  background-color: #FF9900 !important;
-  color: #172337 !important;
-  border: 1px solid #FF9900 !important;
-  font-weight: 800;
-  box-shadow: 0 4px 12px rgba(255, 153, 0, 0.22);
+/* 1. DESIGN TOKENS */
+:root {
+  --blue: #1246A8;
+  --blue-dark: #0B347F;
+  --blue-light: #EAF2FF;
+  --navy: #031638;
+  --navy-light: #0A2147;
+  --amazon-orange: #FF9900;
+  --amazon-orange-hover: #F3A847;
+  --amazon-text: #172337;
+  --partner-green: #167647;
+  --partner-green-dark: #105C35;
+  --partner-green-light: #DDF7E8;
+  --page: #F5F7FB;
+  --surface: #FFFFFF;
+  --text: #172033;
+  --muted: #64748B;
+  --border: #E1E7F0;
+  --footer-text: #D5E0F3;
+  --footer-muted: #AFC1DE;
+  --footer-border: #263E65;
+  --radius: 14px;
+  --shadow: 0 4px 16px rgba(15, 35, 70, 0.055);
+  --shadow-hover: 0 10px 26px rgba(15, 35, 70, 0.11);
 }
 
-.product-card .product-action:not(.partner-action):not(.own-action):hover {
-  background: #F3A847 !important;
-  background-color: #F3A847 !important;
-  border-color: #F3A847 !important;
-  color: #172337 !important;
+/* 2. RESET AND GLOBAL */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { margin: 0; background: var(--page); color: var(--text); font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+button, select { cursor: pointer; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #82B4FF; outline-offset: 3px; }
+[hidden] { display: none !important; }
+
+/* 3. HEADER */
+.site-header { position: sticky; top: 0; z-index: 50; min-height: 76px; padding: 10px clamp(16px, 4vw, 48px); display: flex; align-items: center; justify-content: space-between; gap: 18px; background: var(--navy); color: #fff; border-bottom: 1px solid #1E3560; box-shadow: 0 4px 16px rgba(3, 22, 56, 0.18); }
+.brand { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; min-width: 0; }
+.brand-logo { display: block; width: 145px; height: 50px; object-fit: contain; object-position: left center; flex-shrink: 0; }
+.brand-name { color: #fff; font-size: 19px; font-weight: 700; letter-spacing: .1px; white-space: nowrap; }
+.brand-name span { color: #EAF2FF; }
+.header-nav { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 14px; font-weight: 600; }
+.header-nav a { padding: 9px 12px; color: #E8EEFB; border-radius: 8px; transition: background .2s ease, color .2s ease; }
+.header-nav a:hover, .header-nav a:focus-visible { background: rgba(255,255,255,.12); color: #fff; }
+
+/* 4. INTRO / HERO */
+.market-intro { width: min(1200px, calc(100% - 32px)); margin: 22px auto 0; padding: clamp(22px, 4vw, 38px); display: flex; align-items: center; justify-content: space-between; gap: 28px; background: linear-gradient(120deg, #0B347F 0%, #1246A8 62%, #2368C7 100%); border: 1px solid #0B347F; border-radius: 18px; box-shadow: 0 12px 30px rgba(11, 52, 127, .18); }
+.intro-copy { max-width: 690px; }
+.eyebrow, .market-intro .eyebrow { margin: 0 0 9px; color: #C7DCFF; font-size: 13px; font-weight: 800; letter-spacing: 1.2px; }
+.market-intro h1 { margin: 0; color: #fff; font-size: clamp(30px, 3.5vw, 42px); line-height: 1.2; letter-spacing: -1px; }
+.market-intro h1 span { color: #fff; }
+.intro-description, .market-intro .intro-description { max-width: 590px; margin: 12px 0 0; color: #E0EAFA; font-size: 17px; line-height: 1.7; }
+.intro-note { min-width: 225px; max-width: 270px; display: flex; align-items: center; gap: 12px; padding: 16px; background: rgba(255,255,255,.97); border: 1px solid rgba(255,255,255,.5); border-radius: 13px; box-shadow: 0 8px 22px rgba(3,22,56,.15); }
+.note-icon { width: 42px; height: 42px; flex-shrink: 0; display: grid; place-items: center; background: var(--blue-light); border-radius: 11px; color: var(--blue); font-size: 23px; }
+.intro-note strong { display: block; color: var(--text); font-size: 16px; }
+.intro-note p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+
+/* 5. SHOPPING AREA AND SEARCH */
+.shopping-area { width: min(1200px, calc(100% - 32px)); margin: 28px auto 32px; }
+.search-row { display: flex; align-items: center; gap: 12px; }
+.search-box { flex: 1; min-width: 0; min-height: 48px; padding: 0 15px; display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid #D9E0EA; border-radius: 11px; box-shadow: 0 2px 6px rgba(16,24,40,.025); }
+.search-box:focus-within { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(18,70,168,.09); }
+.search-box > span { color: var(--blue); font-size: 25px; line-height: 1; }
+.search-box input, #product-search { width: 100%; min-width: 0; padding: 10px 0; background: transparent; border: 0; outline: 0; color: var(--text); font-size: 16px; }
+.search-box input:focus-visible, #product-search:focus-visible { outline: none; }
+#product-search::placeholder { color: #98A2B3; }
+.sort-control { min-height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 13px; border: 1px solid var(--border); border-radius: 10px; background: #fff; color: var(--muted); font-size: 15px; }
+.sort-control select, #product-sort { max-width: 180px; border: 0; outline: 0; background: transparent; color: var(--text); font-size: 15px; cursor: pointer; }
+.shopping-area > .search-row { padding: 18px 18px 12px; background: #fff; border: 1px solid #DCE6F5; border-radius: 16px 16px 0 0; box-shadow: 0 8px 24px rgba(15,35,70,.06); }
+.shopping-area > .section-heading { margin: 0; padding: 16px 18px 12px; background: #fff; }
+.shopping-area > #categories { margin: 0; padding: 0 18px 18px; background: #fff; border: 1px solid #DCE6F5; border-top: 0; border-radius: 0 0 16px 16px; box-shadow: 0 8px 24px rgba(15,35,70,.06); }
+
+/* 6. HEADINGS AND RESULT COUNT */
+.section-heading { margin: 28px 0 15px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.section-heading h2 { margin: 0; font-size: 26px; line-height: 1.35; letter-spacing: -.5px; }
+.section-heading p { margin: 4px 0 0; color: var(--muted); font-size: 16px; }
+.result-count, #result-count { color: var(--muted); font-size: 14px; white-space: nowrap; }
+
+/* 7. CATEGORY FILTERS */
+.category-filters, #categories { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 21px; }
+.category-chip { min-height: 42px; padding: 8px 15px; background: #fff; border: 1px solid #DFE5EE; border-radius: 24px; color: #475467; font-size: 15px; font-weight: 600; white-space: nowrap; cursor: pointer; transition: background .18s ease, border-color .18s ease, color .18s ease; }
+.category-chip:hover, .category-chip.selected { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+/* 8. STANDARD GRID CARDS */
+.product-grid, #product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.product-card { min-width: 0; overflow: hidden; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.product-card:hover { transform: translateY(-3px); border-color: #D4E2FB; box-shadow: var(--shadow-hover); }
+.product-image-wrap { height: 205px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #fff; border-bottom: 1px solid #F0F2F5; cursor: zoom-in; }
+.product-image { display: block; width: 100%; height: 100%; padding: 15px; object-fit: contain; object-position: center; transition: transform .25s ease; }
+.product-image-wrap:hover .product-image { transform: scale(1.035); }
+.product-placeholder { width: 100%; height: 100%; display: grid; place-items: center; background: linear-gradient(135deg, #F2F6FF, #FAFBFE); color: #9BB9EE; font-size: 38px; }
+.product-badge { position: absolute; left: 10px; top: 10px; max-width: calc(100% - 20px); padding: 5px 8px; border-radius: 6px; background: #EAF2FF; color: var(--blue-dark); font-size: 10px; font-weight: 800; letter-spacing: .2px; }
+.product-info { flex: 1; padding: 14px; display: flex; flex-direction: column; align-items: stretch; min-width: 0; }
+.product-category { margin: 0 0 6px; color: var(--blue); font-size: 13px; line-height: 1.4; font-weight: 700; text-transform: capitalize; }
+.product-title { margin: 0; color: var(--text); font-size: 17px; line-height: 1.4; overflow-wrap: anywhere; }
+.product-description { margin: 7px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; overflow-wrap: anywhere; }
+.product-price { margin: auto 0 0; padding-top: 12px; color: var(--text); font-size: 19px; line-height: 1.4; font-weight: 800; }
+.product-price small { color: var(--muted); font-size: 13px; font-weight: 400; }
+
+/* 9. PRODUCT BUTTONS */
+.product-action { width: 100%; min-height: 44px; margin-top: auto; padding: 11px 12px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--amazon-orange); border-radius: 9px; background: var(--amazon-orange); color: var(--amazon-text); font-size: 15px; line-height: 1.35; font-weight: 800; text-align: center; cursor: pointer; transition: background .18s ease, border-color .18s ease, color .18s ease; }
+.product-info .product-action { margin-top: 12px; }
+.product-card .product-action:not(.partner-action):not(.own-action) { background: var(--amazon-orange); background-color: var(--amazon-orange); border-color: var(--amazon-orange); color: var(--amazon-text); box-shadow: 0 4px 12px rgba(255,153,0,.18); }
+.product-card .product-action:not(.partner-action):not(.own-action):hover { background: var(--amazon-orange-hover); background-color: var(--amazon-orange-hover); border-color: var(--amazon-orange-hover); color: var(--amazon-text); }
+.product-card .product-action.partner-action { background: #25D366; background-color: #25D366; border-color: #25D366; color: #103B24; }
+.product-card .product-action.partner-action:hover { background: #1FBA59; background-color: #1FBA59; border-color: #1FBA59; color: #103B24; }
+.product-card .product-action.own-action { background: #0B347F; background-color: #0B347F; border-color: #0B347F; color: #fff; }
+.product-card .product-action.own-action:hover { background: #1246A8; background-color: #1246A8; border-color: #1246A8; color: #fff; }
+.product-action[aria-disabled="true"], .product-action:disabled, .product-card .product-action[aria-disabled="true"] { opacity: .6; cursor: not-allowed; }
+.product-card.partner-card { border-color: #D1EBDD; }
+.product-card.partner-card:hover { border-color: #9BD7B5; box-shadow: 0 10px 26px rgba(22,118,71,.10); }
+.partner-label, .product-badge.partner-badge { background: var(--partner-green-light); color: var(--partner-green); }
+.own-label, .product-badge.own-badge { background: #E8F5E9; color: #176B3A; }
+
+/* 10. EMPTY / LOADING STATES */
+.empty-state, #empty-state { padding: 34px 18px; text-align: center; background: #fff; border: 1px dashed #D6DCE6; border-radius: 14px; }
+.empty-state h3, #empty-state h3 { margin: 0; font-size: 21px; }
+.empty-state p, #empty-state p { margin: 7px 0 16px; color: var(--muted); font-size: 15px; }
+.empty-state[hidden], #empty-state[hidden] { display: none !important; }
+.clear-button, #clear-filters { padding: 10px 16px; border: 0; border-radius: 8px; background: var(--blue); color: #fff; font-size: 14px; font-weight: 700; cursor: pointer; }
+.clear-button:hover, #clear-filters:hover { background: var(--blue-dark); }
+.loading-card { grid-column: 1 / -1; padding: 30px 18px; text-align: center; background: #fff; border: 1px solid var(--border); border-radius: 12px; color: var(--muted); font-size: 15px; }
+
+/* 11. SECTION NAVIGATION */
+.market-section-nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0; }
+.market-section-nav a { display: inline-flex; align-items: center; justify-content: center; padding: 11px 16px; border: 1px solid transparent; border-radius: 10px; background: #fff; color: var(--blue); font-size: 14px; font-weight: 800; box-shadow: 0 4px 12px rgba(15,35,70,.07); transition: transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease; }
+.market-section-nav a:hover { transform: translateY(-2px); box-shadow: 0 7px 16px rgba(15,35,70,.12); }
+.market-section-nav a:nth-child(1), .market-section-nav a.market-nav-amazon { background: var(--amazon-orange); border-color: var(--amazon-orange); color: var(--amazon-text); -webkit-text-fill-color: var(--amazon-text); }
+.market-section-nav a:nth-child(1):hover, .market-section-nav a.market-nav-amazon:hover, .market-section-nav a.market-nav-amazon:focus-visible, .market-section-nav a.market-nav-amazon:active { background: var(--amazon-orange-hover); border-color: var(--amazon-orange-hover); color: var(--amazon-text); -webkit-text-fill-color: var(--amazon-text); }
+.market-section-nav a.market-nav-amazon .amazon-word, .market-section-nav a.market-nav-amazon .amazon-nav-label { color: var(--amazon-text); -webkit-text-fill-color: var(--amazon-text); }
+.market-section-nav a:nth-child(2), .market-section-nav a.market-nav-partner { background: var(--partner-green); border-color: var(--partner-green); color: #fff; }
+.market-section-nav a:nth-child(2):hover, .market-section-nav a.market-nav-partner:hover { background: var(--partner-green-dark); border-color: var(--partner-green-dark); color: #fff; }
+.market-section-nav a:nth-child(3), .market-section-nav a.market-nav-own { background: var(--blue-dark); border-color: var(--blue-dark); color: #fff; }
+.market-section-nav a:nth-child(3):hover, .market-section-nav a.market-nav-own:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+/* 12. PRODUCT SECTIONS */
+.market-product-section { margin: 30px 0; padding: 20px; scroll-margin-top: 95px; background: linear-gradient(180deg, #EDF3FC 0%, #F5F8FD 100%); border: 1px solid #DFE8F6; border-radius: 16px; box-shadow: 0 5px 18px rgba(15,35,70,.035); }
+.market-product-section:last-of-type { border-bottom: none; }
+.market-product-section .product-card { background: #fff; box-shadow: 0 5px 16px rgba(15,35,70,.075); }
+.market-product-section .product-card:hover { box-shadow: 0 12px 26px rgba(15,35,70,.12); }
+#partner-products { background: linear-gradient(180deg, #F0FAF4 0%, #F7FCF8 100%); border-color: #D6EBDD; }
+.market-subheading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #EAF0F8; }
+.market-subheading h2 { margin: 0; font-size: 26px; line-height: 1.35; letter-spacing: -.4px; }
+.market-subheading p { margin: 5px 0 0; color: var(--muted); font-size: 16px; line-height: 1.6; }
+#partner-products .market-subheading { border-bottom-color: #D1EBDD; }
+#sarvyanta-products .market-subheading { border-bottom-color: #D7EAD9; }
+#amazon-products .market-subheading { border-bottom-color: #FFD58A; color: var(--navy); }
+.amazon-word { color: var(--amazon-orange); font-weight: 800; }
+#amazon-products .market-subheading h2 .amazon-word { color: var(--amazon-orange); }
+.section-label { display: inline-block; flex-shrink: 0; padding: 7px 10px; border-radius: 7px; font-size: 11px; font-weight: 800; letter-spacing: .35px; }
+.amazon-label, #amazon-products .section-label { background: #FFF0D6; color: #7A4300; }
+
+/* 13. HORIZONTAL CATEGORY CAROUSELS */
+.market-product-section .product-grid { display: block; min-width: 0; }
+.market-category-row { min-width: 0; margin-top: 22px; }
+.market-category-row:first-child { margin-top: 0; }
+.market-category-title { margin: 0 0 12px; color: #172033; font-size: 21px; line-height: 1.4; font-weight: 750; letter-spacing: -.2px; }
+#partner-products .market-category-title { color: #176B3A; }
+#amazon-products .market-category-title { color: #7A4300; }
+.market-category-track { display: flex; flex-flow: row nowrap; align-items: stretch; gap: 16px; width: 100%; min-width: 0; overflow-x: auto; overflow-y: hidden; padding: 2px 2px 14px; scroll-snap-type: x proximity; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #B7C9E5 transparent; }
+.market-category-track:focus-visible { outline: 2px solid #82B4FF; outline-offset: 3px; border-radius: 8px; }
+.market-category-track > .product-card { box-sizing: border-box; flex: 0 0 260px; width: 260px; min-width: 260px; max-width: 260px; display: flex; flex-direction: column; align-self: stretch; scroll-snap-align: start; }
+.market-category-track > .product-card > .product-image-wrap { flex: 0 0 190px; height: 190px; min-height: 190px; }
+.market-category-track > .product-card > .product-info { display: flex; flex: 1 1 auto; flex-direction: column; min-width: 0; }
+.market-category-track .product-title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; height: 4.2em; min-height: 4.2em; max-height: 4.2em; line-height: 1.4em; overflow: hidden; overflow-wrap: anywhere; }
+.market-category-track .product-description { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 6; line-clamp: 6; height: 9em; min-height: 9em; max-height: 9em; margin: 7px 0 0; line-height: 1.5em; overflow: hidden; white-space: normal; overflow-wrap: anywhere; }
+.market-category-track .product-price { margin-top: auto; padding-top: 12px; flex-shrink: 0; }
+.market-category-track .product-info > .product-action { display: flex; flex-shrink: 0; align-items: center; justify-content: center; margin-top: 12px; }
+
+/* 14. AFFILIATE DISCLOSURE */
+.market-disclaimer { width: min(1200px, calc(100% - 32px)); margin: 22px auto 30px; color: var(--muted); font-size: 13px; line-height: 1.8; text-align: center; }
+
+/* 15. FOOTER */
+.site-footer { margin-top: 38px; padding: 40px clamp(16px, 4vw, 48px) 18px; background: var(--navy); color: var(--footer-text); border-top: 3px solid var(--blue); }
+.footer-content { width: min(1200px, 100%); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(130px, .8fr) minmax(160px, 1fr); gap: 42px; align-items: start; }
+.footer-about { min-width: 0; }
+.footer-brand { display: inline-block; margin-bottom: 12px; color: #fff; font-size: 19px; font-weight: 800; letter-spacing: .7px; }
+.site-footer .footer-brand span { margin-left: 5px; color: #AFCBFF; font-weight: 600; letter-spacing: 1px; }
+.footer-about p { max-width: 340px; margin: 5px 0; color: var(--footer-muted); font-size: 13px; line-height: 1.8; }
+.footer-column { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 11px; }
+.footer-column h3 { margin: 0 0 5px; color: #fff; font-size: 15px; font-weight: 700; letter-spacing: .2px; }
+.footer-column a { color: var(--footer-text); font-size: 13px; line-height: 1.7; transition: color .18s ease; }
+.footer-column a:hover, .footer-column a:focus-visible { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; margin: 14px 0; font-size: 13px; font-weight: 600; }
+.footer-links a { color: var(--footer-text); }
+.footer-links a:hover { color: #fff; }
+.site-footer > p { margin: 5px 0; color: var(--footer-muted); font-size: 13px; line-height: 1.8; }
+.footer-bottom { width: min(1200px, 100%); margin: 32px auto 0; padding-top: 19px; border-top: 1px solid var(--footer-border); text-align: center; }
+.footer-bottom p { margin: 6px 0; color: var(--footer-muted); font-size: 12px; line-height: 1.8; }
+.footer-bottom p:last-child { margin-top: 12px; color: #E3EBF8; }
+.copyright { margin-top: 14px !important; }
+
+/* 16. IMAGE LIGHTBOX */
+.market-image-lightbox { position: fixed; inset: 0; z-index: 99999; display: none; align-items: center; justify-content: center; padding: 18px; background: rgba(8,15,30,.92); }
+.market-image-lightbox.is-open { display: flex; }
+.market-lightbox-content { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; max-width: 900px; max-height: 95vh; gap: 12px; }
+.market-lightbox-image { display: block; max-width: 100%; max-height: 78vh; width: auto; height: auto; object-fit: contain; border-radius: 12px; background: #fff; }
+.market-lightbox-caption { color: #fff; text-align: center; font-size: 16px; line-height: 1.5; }
+.market-lightbox-controls { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 10px; }
+.market-lightbox-controls button, .market-lightbox-close { border: 0; border-radius: 9px; padding: 10px 16px; color: #fff; background: #173B70; font-size: 14px; font-weight: 600; cursor: pointer; }
+.market-lightbox-controls button:hover, .market-lightbox-close:hover { background: #24559A; }
+.market-lightbox-close { position: absolute; top: 0; right: 0; z-index: 2; width: 44px; height: 44px; padding: 0; border-radius: 50%; font-size: 24px; background: #D93025; }
+.market-lightbox-product .product-title, .market-lightbox-product .product-description { display: block; height: auto; min-height: 0; max-height: none; overflow: visible; -webkit-line-clamp: unset; line-clamp: unset; -webkit-box-orient: initial; white-space: pre-wrap; }
+.market-lightbox-product .product-title { line-height: 1.4; }
+.market-lightbox-product .product-description { line-height: 1.6; }
+
+/* 17. TABLET */
+@media (max-width: 950px) {
+  .product-grid, #product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .product-image-wrap { height: 175px; }
+  .intro-note { min-width: 200px; }
+  .footer-content { gap: 26px; }
 }
 
-/* Sarvyanta partner products: WhatsApp-style green */
-.product-card .product-action.partner-action {
-  background: #25D366 !important;
-  background-color: #25D366 !important;
-  border-color: #25D366 !important;
-  color: #103B24 !important;
-  font-weight: 800;
-}
-
-.product-card .product-action.partner-action:hover {
-  background: #1FBA59 !important;
-  background-color: #1FBA59 !important;
-  border-color: #1FBA59 !important;
-  color: #103B24 !important;
-}
-
-/* Sarvyanta-owned products: brand navy blue */
-.product-card .product-action.own-action {
-  background: #0B347F !important;
-  background-color: #0B347F !important;
-  border-color: #0B347F !important;
-  color: #FFFFFF !important;
-}
-
-.product-card .product-action.own-action:hover {
-  background: #1246A8 !important;
-  background-color: #1246A8 !important;
-  border-color: #1246A8 !important;
-  color: #FFFFFF !important;
-}
-
-/* Keep disabled buttons visibly inactive */
-.product-card .product-action[aria-disabled="true"] {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* Navigation buttons: Amazon orange, partner green, own blue */
-.market-section-nav .market-nav-amazon {
-  background: #FF9900;
-  border-color: #FF9900;
-  color: #172337;
-}
-
-.market-section-nav .market-nav-partner {
-  background: #167647;
-  border-color: #167647;
-  color: #FFFFFF;
-}
-
-.market-section-nav .market-nav-own {
-  background: #0B347F;
-  border-color: #0B347F;
-  color: #FFFFFF;
-}
-
-.market-section-nav .market-nav-amazon:hover {
-  background: #F3A847;
-  border-color: #F3A847;
-}
-
-.market-section-nav .market-nav-partner:hover {
-  background: #105C35;
-  border-color: #105C35;
-}
-
-.market-section-nav .market-nav-own:hover {
-  background: #1246A8;
-  border-color: #1246A8;
-}
-/* ==========================================
-   SARVYANTA MARKET - PRODUCT IMAGE IMPROVEMENTS
-   Append this to the end of market.css
-   ========================================== */
-
-/* Keep the full product image visible */
-.product-image-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  cursor: zoom-in;
-}
-
-.product-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  transition: transform 0.25s ease;
-}
-
-.product-image-wrap:hover .product-image {
-  transform: scale(1.04);
-}
-
-/* Larger cards and more readable content on mobile */
-@media (max-width: 600px) {
-  .product-card {
-    width: 220px;
-    min-width: 220px;
-  }
-
-  .product-image-wrap {
-    height: 165px;
-  }
-
-  .product-info {
-    padding: 13px;
-  }
-
-  .product-info h3,
-  .product-title {
-    font-size: 16px;
-    line-height: 1.4;
-  }
-
-  .product-info p,
-  .product-description {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .product-price {
-    font-size: 16px;
-  }
-
-  .product-action {
-    min-height: 42px;
-    font-size: 14px;
-  }
-}
-
-/* ==========================================
-   PRODUCT IMAGE LIGHTBOX
-   ========================================== */
-
-.market-image-lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-  background: rgba(8, 15, 30, 0.92);
-}
-
-.market-image-lightbox.is-open {
-  display: flex;
-}
-
-.market-lightbox-content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 900px;
-  max-height: 95vh;
-  gap: 12px;
-}
-
-.market-lightbox-image {
-  display: block;
-  max-width: 100%;
-  max-height: 78vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  border-radius: 12px;
-  background: #fff;
-}
-
-.market-lightbox-caption {
-  color: #fff;
-  text-align: center;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.market-lightbox-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.market-lightbox-controls button,
-.market-lightbox-close {
-  border: 0;
-  border-radius: 9px;
-  padding: 10px 16px;
-  color: #fff;
-  background: #173b70;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.market-lightbox-controls button:hover,
-.market-lightbox-close:hover {
-  background: #24559a;
-}
-
-.market-lightbox-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border-radius: 50%;
-  font-size: 24px;
-  background: #d93025;
-}
-
-@media (max-width: 600px) {
-  .market-image-lightbox {
-    padding: 12px;
-  }
-
-  .market-lightbox-image {
-    max-height: 70vh;
-  }
-
-  .market-lightbox-caption {
-    font-size: 15px;
-  }
-
-  .market-lightbox-controls button {
-    padding: 10px 12px;
-  }
-}
-
-/* Button colors by product type */
-.product-action {
-  background: #f8991d;
-  color: #fff;
-}
-
-.product-action.partner-action {
-  background: #16834a;
-  color: #fff;
-}
-
-.product-action.own-action {
-  background: #173b70;
-  color: #fff;
-}
-/* Product image interaction */
-.product-image-wrap {
-  position: relative;
-  cursor: zoom-in;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.product-image {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-}
-
-/* Make mobile cards easier to read */
-@media (max-width: 600px) {
-  .product-card {
-    width: 220px;
-    min-width: 220px;
-  }
-
-  .product-image-wrap {
-    height: 165px;
-  }
-
-  .product-info {
-    padding: 13px;
-  }
-
-  .product-title {
-    font-size: 16px;
-    line-height: 1.4;
-  }
-
-  .product-description {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .product-action {
-    min-height: 42px;
-    font-size: 14px;
-  }
-  }
-
-
-/* ==========================================
-   FINAL FIX — AMAZON FINDS NAVIGATION CONTRAST
-   ========================================== */
-
-/* Orange button with dark navy text */
-.market-section-nav a.market-nav-amazon,
-.market-section-nav a.market-nav-amazon:link,
-.market-section-nav a.market-nav-amazon:visited {
-  background-color: #FF9900 !important;
-  border-color: #FF9900 !important;
-  color: #172337 !important;
-  -webkit-text-fill-color: #172337 !important;
-}
-
-/* Fix the nested "Amazon" span specifically */
-.market-section-nav a.market-nav-amazon .amazon-word {
-  color: #172337 !important;
-  -webkit-text-fill-color: #172337 !important;
-}
-
-/* Keep text readable when hovering or using keyboard focus */
-.market-section-nav a.market-nav-amazon:hover,
-.market-section-nav a.market-nav-amazon:focus-visible,
-.market-section-nav a.market-nav-amazon:active {
-  background-color: #F3A847 !important;
-  border-color: #F3A847 !important;
-  color: #172337 !important;
-  -webkit-text-fill-color: #172337 !important;
-}
-
-.market-section-nav a.market-nav-amazon:hover .amazon-word,
-.market-section-nav a.market-nav-amazon:focus-visible .amazon-word,
-.market-section-nav a.market-nav-amazon:active .amazon-word {
-  color: #172337 !important;
-  -webkit-text-fill-color: #172337 !important;
-}
-
-/* Preserve the other navigation button colors */
-.market-section-nav a.market-nav-partner {
-  background-color: #167647;
-  border-color: #167647;
-  color: #FFFFFF;
-}
-
-.market-section-nav a.market-nav-own {
-  background-color: #0B347F;
-  border-color: #0B347F;
-  color: #FFFFFF;
-}
-
-
-/* Definitive Amazon Finds navigation fix */
-.market-section-nav a.market-nav-amazon,
-.market-section-nav a.market-nav-amazon:link,
-.market-section-nav a.market-nav-amazon:visited,
-.market-section-nav a.market-nav-amazon:hover,
-.market-section-nav a.market-nav-amazon:focus,
-.market-section-nav a.market-nav-amazon:active {
-  background: #FF9900 !important;
-  background-color: #FF9900 !important;
-  border-color: #FF9900 !important;
-  color: #172337 !important;
-  -webkit-text-fill-color: #172337 !important;
-}
-
-.market-section-nav a.market-nav-amazon .amazon-nav-label {
-  color: #172337 !important;
-  -webkit-text-fill-color: #172337 !important;
-}
-
-/* ==========================================
-   SARVYANTA MARKET — FINAL PRODUCT CARD FIX
-   Paste at the END of market.css
-   ========================================== */
-
-/* Keep carousel cards aligned and consistent */
-.market-category-track {
-  display: flex;
-  align-items: stretch !important;
-}
-
-.market-category-track .product-card {
-  box-sizing: border-box;
-  flex: 0 0 245px !important;
-  width: 245px !important;
-  min-width: 245px !important;
-  max-width: 245px !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-self: stretch !important;
-}
-
-/* Product image area */
-.market-category-track .product-image-wrap {
-  flex: 0 0 205px !important;
-  height: 205px !important;
-  min-height: 205px !important;
-  overflow: hidden;
-}
-
-.market-category-track .product-image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* Product details fill remaining card space */
-.market-category-track .product-info {
-  display: flex !important;
-  flex: 1 1 auto !important;
-  flex-direction: column !important;
-  min-width: 0;
-}
-
-/* Product title: maximum two lines */
-.market-category-track .product-title {
-  display: -webkit-box !important;
-  -webkit-box-orient: vertical !important;
-  -webkit-line-clamp: 2 !important;
-  line-clamp: 2;
-  overflow: hidden !important;
-  overflow-wrap: anywhere;
-}
-
-/* Description: show up to six lines, with no forced blank space */
-.market-category-track .product-description {
-  display: -webkit-box !important;
-  -webkit-box-orient: vertical !important;
-  -webkit-line-clamp: 6 !important;
-  line-clamp: 6;
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: 9em !important;
-  overflow: hidden !important;
-  margin: 7px 0 0 !important;
-  line-height: 1.5em !important;
-  white-space: normal !important;
-  overflow-wrap: anywhere;
-}
-
-/* Keep price and action buttons aligned near the bottom */
-.market-category-track .product-price {
-  margin-top: auto !important;
-  padding-top: 12px !important;
-}
-
-.market-category-track .product-info .product-action {
-  flex-shrink: 0;
-  margin-top: 12px !important;
-}
-
-/* Mobile layout */
+/* 18. MOBILE */
 @media (max-width: 620px) {
-  .market-category-track .product-card {
-    flex-basis: 190px !important;
-    width: 190px !important;
-    min-width: 190px !important;
-    max-width: 190px !important;
-  }
-
-  .market-category-track .product-image-wrap {
-    flex-basis: 135px !important;
-    height: 135px !important;
-    min-height: 135px !important;
-  }
-
-  .market-category-track .product-title {
-    font-size: 12px;
-    line-height: 1.4;
-  }
-
-  .market-category-track .product-description {
-    font-size: 10px;
-    line-height: 1.5em !important;
-    max-height: 9em !important;
-  }
+  .site-header { min-height: 64px; padding: 9px 14px; gap: 8px; }
+  .brand { gap: 8px; }
+  .brand-logo { width: 100px; height: 40px; }
+  .brand-name { font-size: 15px; }
+  .header-nav { gap: 2px; font-size: 12px; }
+  .header-nav a { padding: 8px; }
+  .header-nav a:first-child { display: none; }
+  .market-intro { width: calc(100% - 22px); margin-top: 12px; padding: 18px 15px; display: block; border-radius: 13px; background: linear-gradient(145deg, #0B347F 0%, #1246A8 100%); box-shadow: 0 7px 18px rgba(11,52,127,.14); }
+  .market-intro .eyebrow { margin-bottom: 7px; font-size: 11px; line-height: 1.4; }
+  .market-intro h1 { font-size: 29px; line-height: 1.25; letter-spacing: -.4px; }
+  .market-intro .intro-description { margin-top: 9px; font-size: 15px; line-height: 1.6; }
+  .intro-note { min-width: 0; max-width: none; margin-top: 14px; padding: 11px; }
+  .note-icon { width: 36px; height: 36px; font-size: 20px; }
+  .intro-note strong { font-size: 14px; }
+  .intro-note p { font-size: 12px; line-height: 1.5; }
+  .shopping-area { width: calc(100% - 22px); margin-top: 19px; margin-bottom: 25px; }
+  .search-row { align-items: stretch; flex-direction: column; gap: 8px; }
+  .shopping-area > .search-row { padding: 12px 12px 9px; }
+  .shopping-area > .section-heading { padding: 12px 12px 9px; }
+  .shopping-area > #categories { padding: 0 12px 13px; }
+  .search-box { min-height: 46px; }
+  .search-box input, #product-search { font-size: 16px; }
+  .sort-control { min-height: 44px; justify-content: space-between; }
+  .sort-control select, #product-sort { max-width: 180px; font-size: 15px; }
+  .section-heading { margin-top: 22px; margin-bottom: 13px; }
+  .section-heading h2, .market-subheading h2 { font-size: 23px; line-height: 1.3; }
+  .section-heading p, .market-subheading p { font-size: 14px; line-height: 1.5; }
+  .result-count, #result-count { font-size: 12px; }
+  .category-filters, #categories { flex-wrap: nowrap; overflow-x: auto; padding: 1px 0 9px; margin-bottom: 12px; scrollbar-width: thin; }
+  .category-chip { flex: 0 0 auto; min-height: 40px; padding: 8px 13px; font-size: 14px; }
+  .product-grid, #product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .product-card { border-radius: 11px; }
+  .product-image-wrap { height: 145px; }
+  .product-image { padding: 9px; }
+  .product-badge { left: 6px; top: 6px; padding: 4px 6px; font-size: 9px; }
+  .product-info { padding: 10px; }
+  .product-category { font-size: 12px; }
+  .product-title { font-size: 15px; line-height: 1.4; }
+  .product-description { font-size: 13px; line-height: 1.5; }
+  .product-price { padding-top: 9px; font-size: 17px; }
+  .product-price small { font-size: 11px; }
+  .product-info .product-action { min-height: 42px; margin-top: 10px; padding: 9px 7px; font-size: 13px; }
+  .market-section-nav { gap: 7px; margin: 16px 0 23px; }
+  .market-section-nav a { padding: 10px 11px; font-size: 12px; }
+  .market-product-section { margin: 25px 0; padding: 12px; border-radius: 13px; scroll-margin-top: 75px; }
+  .market-subheading { align-items: flex-start; flex-direction: column; gap: 9px; margin-bottom: 14px; }
+  .market-subheading p { font-size: 14px; }
+  .section-label { font-size: 10px; }
+  .market-category-row { margin-top: 18px; }
+  .market-category-title { margin-bottom: 10px; font-size: 19px; line-height: 1.4; }
+  .market-category-track { gap: 10px; padding-bottom: 10px; }
+  .market-category-track > .product-card { flex: 0 0 225px; width: 225px; min-width: 225px; max-width: 225px; }
+  .market-category-track > .product-card > .product-image-wrap { flex-basis: 160px; height: 160px; min-height: 160px; }
+  .market-category-track > .product-card > .product-info { padding: 11px; }
+  .market-category-track .product-category { font-size: 12px; line-height: 1.4; }
+  .market-category-track .product-title { font-size: 16px; line-height: 1.4em; height: 4.2em; min-height: 4.2em; max-height: 4.2em; }
+  .market-category-track .product-description { font-size: 13px; line-height: 1.5em; height: 9em; min-height: 9em; max-height: 9em; }
+  .market-category-track .product-price { padding-top: 10px; font-size: 18px; }
+  .market-category-track .product-price small { font-size: 12px; }
+  .market-category-track .product-info > .product-action { min-height: 44px; margin-top: 10px; padding: 10px 8px; font-size: 14px; line-height: 1.35; }
+  .market-disclaimer { width: calc(100% - 24px); margin: 17px auto 23px; font-size: 12px; line-height: 1.65; }
+  .site-footer { margin-top: 26px; padding: 28px 18px 16px; }
+  .footer-content { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px 18px; }
+  .footer-about { grid-column: 1 / -1; padding-bottom: 17px; border-bottom: 1px solid var(--footer-border); }
+  .footer-brand { font-size: 18px; }
+  .footer-about p, .footer-column a { font-size: 12px; }
+  .footer-column h3 { font-size: 14px; }
+  .footer-column { gap: 10px; }
+  .footer-bottom { margin-top: 25px; padding-top: 15px; }
+  .footer-bottom p { font-size: 11px; }
+  .market-image-lightbox { padding: 12px; }
+  .market-lightbox-image { max-height: 70vh; }
+  .market-lightbox-caption { font-size: 15px; }
+  .market-lightbox-controls button { padding: 10px 12px; }
 }
 
+/* 19. VERY SMALL PHONES */
 @media (max-width: 380px) {
-  .market-category-track .product-card {
-    flex-basis: 170px !important;
-    width: 170px !important;
-    min-width: 170px !important;
-    max-width: 170px !important;
-  }
-
-  .market-category-track .product-image-wrap {
-    flex-basis: 115px !important;
-    height: 115px !important;
-    min-height: 115px !important;
-  }
+  .brand-logo { width: 78px; height: 34px; }
+  .brand-name { font-size: 14px; }
+  .header-nav a { padding: 7px 5px; }
+  .market-intro { padding: 15px 12px; }
+  .market-intro h1 { font-size: 26px; }
+  .market-intro .intro-description { font-size: 14px; }
+  .market-category-track > .product-card { flex-basis: 205px; width: 205px; min-width: 205px; max-width: 205px; }
+  .market-category-track > .product-card > .product-image-wrap { flex-basis: 145px; height: 145px; min-height: 145px; }
+  .market-category-track .product-title { font-size: 15px; }
+  .market-category-track .product-description { font-size: 12px; }
+  .market-category-track .product-info > .product-action { font-size: 13px; }
 }
 
-/* Product details popup: show the FULL description */
-.market-lightbox-product .product-description {
-  display: block !important;
-  -webkit-line-clamp: unset !important;
-  line-clamp: unset !important;
-  -webkit-box-orient: initial !important;
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  overflow: visible !important;
-  margin: 7px 0 0 !important;
-  line-height: 1.6 !important;
-  white-space: pre-wrap !important;
-  overflow-wrap: anywhere;
+@media (max-width: 340px) {
+  .brand-name { font-size: 13px; }
+  .header-nav { gap: 0; font-size: 11px; }
+  .header-nav a { padding: 7px 4px; }
+  .market-category-track > .product-card { flex-basis: 190px; width: 190px; min-width: 190px; max-width: 190px; }
 }
 
-.market-lightbox-product .product-title {
-  display: block !important;
-  -webkit-line-clamp: unset !important;
-  line-clamp: unset !important;
-  height: auto !important;
-  max-height: none !important;
-  overflow: visible !important;
-    }
-/* Fix: Align product titles, prices and buttons across cards */
-
-.market-category-track .product-title {
-  display: -webkit-box !important;
-  -webkit-box-orient: vertical !important;
-  -webkit-line-clamp: 3 !important;
-  line-clamp: 3 !important;
-  min-height: 4.2em !important;
-  max-height: 4.2em !important;
-  line-height: 1.4em !important;
-  overflow: hidden !important;
-}
-
-/* Keep the price and Amazon button aligned at the bottom */
-.market-category-track .product-price {
-  margin-top: auto !important;
-}
-
-.market-category-track .product-info .product-action {
-  margin-top: 12px !important;
-}
-
-/* =========================================
-   SARVYANTA MARKET — PRODUCT BUTTON ALIGNMENT
-   Keep titles, descriptions and buttons aligned
-   in each horizontal product carousel.
-========================================= */
-
-/* Make cards in each carousel stretch equally */
-.market-category-track {
-  align-items: stretch !important;
-}
-
-.market-category-track > .product-card {
-  display: flex !important;
-  flex-direction: column !important;
-  align-self: stretch !important;
-  height: auto !important;
-}
-
-/* Product information fills the available card height */
-.market-category-track > .product-card > .product-info {
-  display: flex !important;
-  flex: 1 1 auto !important;
-  flex-direction: column !important;
-  min-width: 0 !important;
-}
-
-/* Reserve exactly 3 lines for every product title */
-.market-category-track .product-title {
-  display: -webkit-box !important;
-  -webkit-box-orient: vertical !important;
-  -webkit-line-clamp: 3 !important;
-  line-clamp: 3 !important;
-  height: 4.2em !important;
-  min-height: 4.2em !important;
-  max-height: 4.2em !important;
-  line-height: 1.4em !important;
-  overflow: hidden !important;
-  overflow-wrap: anywhere !important;
-}
-
-/* Reserve exactly 6 lines for every description */
-.market-category-track .product-description {
-  display: -webkit-box !important;
-  -webkit-box-orient: vertical !important;
-  -webkit-line-clamp: 6 !important;
-  line-clamp: 6 !important;
-  height: 9em !important;
-  min-height: 9em !important;
-  max-height: 9em !important;
-  line-height: 1.5em !important;
-  overflow: hidden !important;
-  overflow-wrap: anywhere !important;
-}
-
-/* Push the optional price towards the bottom */
-.market-category-track .product-price {
-  margin-top: auto !important;
-  padding-top: 12px !important;
-  flex-shrink: 0 !important;
-}
-
-/* Keep every action button at the bottom */
-.market-category-track .product-info > .product-action {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin-top: 12px !important;
-  flex-shrink: 0 !important;
-}
-
-/* Preserve natural content in the product details viewer */
-.market-lightbox-product .product-title,
-.market-lightbox-product .product-description {
-  display: block !important;
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  overflow: visible !important;
-  -webkit-line-clamp: unset !important;
-  line-clamp: unset !important;
-}
-
-
-
-/* ==========================================
-   SARVYANTA MARKET — FINAL TYPOGRAPHY
-   One consistent source for font sizes
-========================================== */
-
-/* Base text */
-body {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* Main introduction */
-.market-intro h1 {
-  font-size: clamp(30px, 3.5vw, 42px);
-  line-height: 1.2;
-}
-
-.market-intro .eyebrow {
-  font-size: 13px;
-}
-
-.market-intro .intro-description {
-  font-size: 17px;
-  line-height: 1.7;
-}
-
-.intro-note strong {
-  font-size: 16px;
-}
-
-.intro-note p {
-  font-size: 14px;
-}
-
-/* Section headings */
-.section-heading h2,
-.market-subheading h2 {
-  font-size: 26px;
-  line-height: 1.35;
-}
-
-.section-heading p,
-.market-subheading p {
-  font-size: 16px;
-}
-
-/* Category headings */
-.market-category-title {
-  font-size: 21px;
-  line-height: 1.4;
-}
-
-/* Product category, title and description */
-.market-category-track .product-category {
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.market-category-track .product-title {
-  font-size: 18px;
-  line-height: 1.4;
-  height: 4.2em;
-  min-height: 4.2em;
-  max-height: 4.2em;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  overflow: hidden;
-  overflow-wrap: anywhere;
-}
-
-.market-category-track .product-description {
-  font-size: 15px;
-  line-height: 1.5;
-  height: 9em;
-  min-height: 9em;
-  max-height: 9em;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
-  line-clamp: 6;
-  overflow: hidden;
-  overflow-wrap: anywhere;
-}
-
-/* Align prices and action buttons */
-.market-category-track .product-price {
-  margin-top: auto;
-  padding-top: 12px;
-  font-size: 19px;
-}
-
-.market-category-track .product-price small {
-  font-size: 13px;
-}
-
-.market-category-track .product-info > .product-action {
-  min-height: 48px;
-  margin-top: 12px;
-  padding: 12px;
-  font-size: 16px;
-  line-height: 1.4;
-}
-
-/* Search and sorting */
-#product-search,
-#product-sort,
-.search-box input,
-.sort-control,
-.sort-control select {
-  font-size: 16px;
-}
-
-.search-box,
-.sort-control {
-  min-height: 48px;
-}
-
-/* Category filter buttons */
-.category-chip {
-  font-size: 15px;
-  min-height: 42px;
-}
-
-/* Product carousel card dimensions */
-.market-category-track {
-  align-items: stretch;
-}
-
-.market-category-track > .product-card {
-  display: flex;
-  flex: 0 0 260px;
-  flex-direction: column;
-  width: 260px;
-  min-width: 260px;
-  max-width: 260px;
-}
-
-.market-category-track > .product-card > .product-info {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.market-category-track .product-image-wrap {
-  flex: 0 0 190px;
-  height: 190px;
-  min-height: 190px;
-}
-
-/* Footer */
-.footer-about p,
-.footer-column a,
-.footer-bottom p {
-  font-size: 13px;
-  line-height: 1.7;
-}
-
-/* Mobile */
-@media (max-width: 620px) {
-  .market-intro h1 {
-    font-size: 29px;
-  }
-
-  .market-intro .intro-description {
-    font-size: 15px;
-  }
-
-  .section-heading h2,
-  .market-subheading h2 {
-    font-size: 23px;
-  }
-
-  .market-category-title {
-    font-size: 19px;
-  }
-
-  .market-category-track > .product-card {
-    flex-basis: 240px;
-    width: 240px;
-    min-width: 240px;
-    max-width: 240px;
-  }
-
-  .market-category-track .product-image-wrap {
-    flex-basis: 170px;
-    height: 170px;
-    min-height: 170px;
-  }
-
-  .market-category-track .product-title {
-    font-size: 17px;
-  }
-
-  .market-category-track .product-description {
-    font-size: 14px;
-  }
-
-  .market-category-track .product-action {
-    font-size: 15px;
-    min-height: 46px;
-  }
-}
-
-/* Product details viewer: display full text */
-.market-lightbox-product .product-title,
-.market-lightbox-product .product-description {
-  display: block;
-  height: auto;
-  min-height: 0;
-  max-height: none;
-  overflow: visible;
-  -webkit-line-clamp: unset;
-  line-clamp: unset;
-}
-
-/* =========================================
-   SARVYANTA MARKET — SMALLER INNER TEXT
-   Keep header and footer unchanged
-========================================= */
-
-/* General content text */
-body {
-  font-size: 15px;
-}
-
-/* Welcome heading */
-.market-intro h1,
-.market-intro h2 {
-  font-size: clamp(27px, 3vw, 38px);
-}
-
-/* Welcome description */
-.market-intro p {
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-/* Main section headings */
-.market-section h2,
-.section-title {
-  font-size: 24px;
-}
-
-/* Category headings */
-.category-title,
-.product-category-title {
-  font-size: 19px;
-}
-
-/* Product cards */
-.product-title,
-.product-name {
-  font-size: 16px;
-  line-height: 1.4;
-}
-
-.product-description,
-.product-desc {
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-/* Product prices */
-.product-price,
-.price {
-  font-size: 17px;
-}
-
-/* Product buttons */
-.product-card button,
-.product-card .btn,
-.product-card a.button {
-  font-size: 14px;
-}
-
-/* Search and filter controls */
-input,
-select,
-.search-input {
-  font-size: 14px;
-}
-
-/* Category/filter chips */
-.category-chip,
-.category-button {
-  font-size: 14px;
-}
-
-/* Keep product images and card layout unchanged */
-
-/* Mobile adjustment */
-@media (max-width: 600px) {
-  .market-intro h1,
-  .market-intro h2 {
-    font-size: 26px;
-  }
-
-  .market-intro p {
-    font-size: 14px;
-  }
-
-  .market-section h2,
-  .section-title {
-    font-size: 22px;
-  }
-
-  .category-title,
-  .product-category-title {
-    font-size: 18px;
-  }
-
-  .product-title,
-  .product-name {
-    font-size: 15px;
-  }
-
-  .product-description,
-  .product-desc {
-    font-size: 12px;
-  }
-
-  .product-price,
-  .price {
-    font-size: 16px;
-  }
-}
-
-/* SARVYANTA MARKET — SMALLER MOBILE TEXT */
-@media (max-width: 600px) {
-
-  /* Welcome section */
-  .market-intro h1,
-  .market-intro h2 {
-    font-size: 23px !important;
-    line-height: 1.3;
-  }
-
-  .market-intro p {
-    font-size: 13px !important;
-    line-height: 1.5;
-  }
-
-  /* Section headings */
-  .market-section h2,
-  .section-title {
-    font-size: 20px !important;
-  }
-
-  /* Category headings */
-  .category-title,
-  .product-category-title {
-    font-size: 16px !important;
-  }
-
-  /* Product names */
-  .product-title,
-  .product-name {
-    font-size: 14px !important;
-    line-height: 1.35;
-  }
-
-  /* Product descriptions */
-  .product-description,
-  .product-desc {
-    font-size: 12px !important;
-    line-height: 1.45;
-  }
-
-  /* Prices */
-  .product-price,
-  .price {
-    font-size: 15px !important;
-  }
-
-  /* Buttons */
-  .product-card button,
-  .product-card .btn,
-  .product-card a.button {
-    font-size: 13px !important;
-  }
-
-  /* Search, filters and category chips */
-  input,
-  select,
-  .search-input,
-  .category-chip,
-  .category-button {
-    font-size: 13px !important;
-  }
-}
-
-/* =========================================
-   SARVYANTA MARKET — COMPACT MOBILE LAYOUT
-   Header and footer remain unchanged
-========================================= */
-
-@media (max-width: 620px) {
-
-  /* Overall content density */
-  .market-intro,
-  .shopping-area,
-  .market-product-section {
-    font-size: 13px !important;
-  }
-
-  /* Welcome section */
-  .market-intro {
-    padding: 14px 12px !important;
-  }
-
-  .market-intro h1 {
-    font-size: 21px !important;
-    line-height: 1.25 !important;
-    letter-spacing: -0.3px !important;
-  }
-
-  .market-intro .eyebrow {
-    font-size: 9px !important;
-  }
-
-  .market-intro .intro-description {
-    font-size: 12px !important;
-    line-height: 1.5 !important;
-  }
-
-  .intro-note {
-    padding: 9px !important;
-  }
-
-  .intro-note strong {
-    font-size: 11px !important;
-  }
-
-  .intro-note p {
-    font-size: 10px !important;
-  }
-
-  /* Search and sorting */
-  .search-box input,
-  #product-search,
-  .sort-control,
-  .sort-control select,
-  #product-sort {
-    font-size: 12px !important;
-  }
-
-  /* Section headings */
-  .section-heading h2,
-  .market-subheading h2 {
-    font-size: 18px !important;
-    line-height: 1.3 !important;
-  }
-
-  .section-heading p,
-  .market-subheading p {
-    font-size: 11px !important;
-  }
-
-  /* Product section navigation */
-  .market-section-nav a {
-    padding: 7px 9px !important;
-    font-size: 10px !important;
-  }
-
-  /* Category headings */
-  .market-category-title {
-    font-size: 13px !important;
-    line-height: 1.35 !important;
-  }
-
-  /* Make carousel cards more compact */
-  .market-category-track > .product-card {
-    flex: 0 0 175px !important;
-    width: 175px !important;
-    min-width: 175px !important;
-    max-width: 175px !important;
-  }
-
-  .market-category-track .product-image-wrap {
-    flex: 0 0 120px !important;
-    height: 120px !important;
-    min-height: 120px !important;
-  }
-
-  .market-category-track .product-info {
-    padding: 8px !important;
-  }
-
-  /* Product text */
-  .market-category-track .product-category {
-    font-size: 9px !important;
-    line-height: 1.3 !important;
-  }
-
-  .market-category-track .product-title {
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    height: 4.05em !important;
-    min-height: 4.05em !important;
-    max-height: 4.05em !important;
-  }
-
-  .market-category-track .product-description {
-    font-size: 10px !important;
-    line-height: 1.4em !important;
-    height: 8.4em !important;
-    min-height: 8.4em !important;
-    max-height: 8.4em !important;
-  }
-
-  .market-category-track .product-price {
-    font-size: 14px !important;
-    padding-top: 8px !important;
-  }
-
-  .market-category-track .product-price small {
-    font-size: 9px !important;
-  }
-
-  .market-category-track .product-info > .product-action {
-    min-height: 34px !important;
-    margin-top: 8px !important;
-    padding: 7px 5px !important;
-    font-size: 11px !important;
-    line-height: 1.3 !important;
-  }
-
-  /* Affiliate disclosure */
-  .market-disclaimer {
-    font-size: 10px !important;
-    line-height: 1.6 !important;
-  }
-}
-
-/* Very narrow phones */
-@media (max-width: 380px) {
-  .market-category-track > .product-card {
-    flex-basis: 160px !important;
-    width: 160px !important;
-    min-width: 160px !important;
-    max-width: 160px !important;
-  }
-}
-
-
-
-
-@media (max-width: 380px) {
-  .market-intro h1 {
-    font-size: 23px;
-  }
-
-  .market-intro p,
-  .market-description {
-    font-size: 13px;
-  }
-
-  .market-category-track > .product-card {
-    width: 175px;
-    min-width: 175px;
-    max-width: 175px;
-  }
-
-  .product-card img {
-    max-height: 120px;
-  }
-}
-
-
-/* SARVYANTA MARKET — LARGER MOBILE TEXT */
-
-@media (max-width: 620px) {
-
-  body {
-    font-size: 16px;
-  }
-
-  .market-intro h1 {
-    font-size: 29px;
-    line-height: 1.35;
-  }
-
-  .market-intro p,
-  .market-description {
-    font-size: 16px;
-    line-height: 1.7;
-  }
-
-  .market-section h2,
-  .section-heading {
-    font-size: 24px;
-    line-height: 1.4;
-  }
-
-  .market-category h2,
-  .market-category-title,
-  .category-heading {
-    font-size: 19px;
-    line-height: 1.45;
-  }
-
-  /* Wider product cards */
-  .market-category-track > .product-card {
-    width: 215px;
-    min-width: 215px;
-    max-width: 215px;
-  }
-
-  /* Product images */
-  .product-card img {
-    max-height: 155px;
-    object-fit: contain;
-  }
-
-  /* Product names */
-  .product-card h3,
-  .product-card .product-title {
-    font-size: 17px;
-    line-height: 1.5;
-  }
-
-  /* Product descriptions */
-  .product-card p,
-  .product-card .product-description {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  .product-card .product-category {
-    font-size: 12px;
-    line-height: 1.5;
-  }
-
-  /* Prices */
-  .product-card .price,
-  .product-card .product-price {
-    font-size: 19px;
-    line-height: 1.5;
-  }
-
-  /* Buttons */
-  .product-card button,
-  .product-card .product-button {
-    font-size: 14px;
-    min-height: 42px;
-    padding: 11px 12px;
-  }
-}
-
-@media (max-width: 380px) {
-  .market-category-track > .product-card {
-    width: 200px;
-    min-width: 200px;
-    max-width: 200px;
-  }
-
-  .market-intro h1 {
-    font-size: 27px;
-  }
+/* 20. REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+  .market-section-nav a { transition: none; }
+  .market-section-nav a:hover { transform: none; }
 }
