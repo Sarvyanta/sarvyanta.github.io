@@ -473,3 +473,177 @@
       resultCount.textContent = "Products temporarily unavailable";
     });
 })();
+/* ==========================================
+   SARVYANTA MARKET - IMAGE LIGHTBOX
+   Add this to the end of market.js
+   ========================================== */
+
+(function () {
+  "use strict";
+
+  let currentImages = [];
+  let currentImageIndex = 0;
+  let lightbox = null;
+  let lightboxImage = null;
+  let lightboxCaption = null;
+
+  function createLightbox() {
+    if (document.querySelector(".market-image-lightbox")) {
+      lightbox = document.querySelector(".market-image-lightbox");
+      lightboxImage = lightbox.querySelector(".market-lightbox-image");
+      lightboxCaption = lightbox.querySelector(".market-lightbox-caption");
+      return;
+    }
+
+    lightbox = document.createElement("div");
+    lightbox.className = "market-image-lightbox";
+    lightbox.setAttribute("role", "dialog");
+    lightbox.setAttribute("aria-modal", "true");
+    lightbox.setAttribute("aria-label", "Product image viewer");
+
+    lightbox.innerHTML = `
+      <div class="market-lightbox-content">
+        <button
+          type="button"
+          class="market-lightbox-close"
+          aria-label="Close image viewer"
+        >&times;</button>
+
+        <img
+          class="market-lightbox-image"
+          src=""
+          alt="Enlarged product image"
+        >
+
+        <div class="market-lightbox-caption"></div>
+
+        <div class="market-lightbox-controls">
+          <button type="button" class="market-lightbox-prev">
+            &#8592; Previous
+          </button>
+
+          <button type="button" class="market-lightbox-next">
+            Next &#8594;
+          </button>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(lightbox);
+
+    lightboxImage = lightbox.querySelector(".market-lightbox-image");
+    lightboxCaption = lightbox.querySelector(".market-lightbox-caption");
+
+    lightbox.querySelector(".market-lightbox-close")
+      .addEventListener("click", closeLightbox);
+
+    lightbox.querySelector(".market-lightbox-prev")
+      .addEventListener("click", showPreviousImage);
+
+    lightbox.querySelector(".market-lightbox-next")
+      .addEventListener("click", showNextImage);
+
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (!lightbox.classList.contains("is-open")) return;
+
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowLeft") showPreviousImage();
+      if (event.key === "ArrowRight") showNextImage();
+    });
+  }
+
+  function getProductImages() {
+    return Array.from(document.querySelectorAll(".product-image"))
+      .filter(function (img) {
+        return img.src && !img.dataset.imageError;
+      });
+  }
+
+  function openLightbox(img) {
+    createLightbox();
+
+    currentImages = getProductImages();
+    currentImageIndex = currentImages.indexOf(img);
+
+    if (currentImageIndex < 0) {
+      currentImages.push(img);
+      currentImageIndex = currentImages.length - 1;
+    }
+
+    displayCurrentImage();
+    lightbox.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function displayCurrentImage() {
+    if (!currentImages.length) return;
+
+    const img = currentImages[currentImageIndex];
+
+    lightboxImage.src = img.src;
+    lightboxImage.alt = img.alt || "Product image";
+
+    const card = img.closest(".product-card");
+    const title = card
+      ? card.querySelector(".product-title, h3, h2")
+      : null;
+
+    lightboxCaption.textContent = title
+      ? title.textContent.trim()
+      : (img.alt || "Product image");
+
+    const prevButton = lightbox.querySelector(".market-lightbox-prev");
+    const nextButton = lightbox.querySelector(".market-lightbox-next");
+
+    prevButton.style.display = currentImages.length > 1 ? "" : "none";
+    nextButton.style.display = currentImages.length > 1 ? "" : "none";
+  }
+
+  function showPreviousImage() {
+    if (!currentImages.length) return;
+
+    currentImageIndex =
+      (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+
+    displayCurrentImage();
+  }
+
+  function showNextImage() {
+    if (!currentImages.length) return;
+
+    currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+    displayCurrentImage();
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+
+    lightbox.classList.remove("is-open");
+    document.body.style.overflow = "";
+    lightboxImage.src = "";
+  }
+
+  // Event delegation also supports product cards loaded dynamically.
+  document.addEventListener("click", function (event) {
+    const img = event.target.closest(".product-image");
+
+    if (!img) return;
+
+    event.preventDefault();
+    openLightbox(img);
+  });
+
+  // Mark images that fail to load so they aren't included in navigation.
+  document.addEventListener("error", function (event) {
+    if (event.target && event.target.matches(".product-image")) {
+      event.target.dataset.imageError = "true";
+    }
+  }, true);
+
+})();
