@@ -1430,3 +1430,120 @@ select:focus-visible {
     border-radius: 13px;
   }
 }
+
+/* =========================================
+   HORIZONTAL PRODUCT CAROUSELS BY CATEGORY
+   ========================================= */
+
+/* The section contains category rows, not a multi-row grid. */
+.market-product-section .product-grid {
+  display: block;
+  min-width: 0;
+}
+
+/* Each category has its own row. */
+.market-category-row {
+  min-width: 0;
+  margin-top: 22px;
+}
+
+.market-category-row:first-child {
+  margin-top: 0;
+}
+
+.market-category-title {
+  margin: 0 0 12px;
+  color: #172033;
+  font-size: 16px;
+  font-weight: 750;
+  letter-spacing: -0.2px;
+}
+
+/* A single horizontal scrolling track. */
+.market-category-track {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  gap: 16px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 2px 14px;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #B7C9E5 transparent;
+}
+
+.market-category-track:focus-visible {
+  outline: 2px solid #82B4FF;
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* Fixed card width prevents products wrapping onto a second row. */
+.market-category-track > .product-card {
+  flex: 0 0 245px;
+  width: 245px;
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+/* Keep cards at a consistent height within each row. */
+.market-category-track > .product-card .product-info {
+  flex: 1;
+}
+
+/* Keep the scrollbar subtle but visible on desktop. */
+.market-category-track::-webkit-scrollbar {
+  height: 7px;
+}
+
+.market-category-track::-webkit-scrollbar-track {
+  background: #E5ECF6;
+  border-radius: 10px;
+}
+
+.market-category-track::-webkit-scrollbar-thumb {
+  background: #A9BFDF;
+  border-radius: 10px;
+}
+
+.market-category-track::-webkit-scrollbar-thumb:hover {
+  background: #7899C9;
+}
+
+/* Partner category rows retain their green identity. */
+#partner-products .market-category-title {
+  color: #176B3A;
+}
+
+/* Mobile: show part of the next card to hint at horizontal scrolling. */
+@media (max-width: 620px) {
+  .market-category-row {
+    margin-top: 18px;
+  }
+
+  .market-category-title {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .market-category-track {
+    gap: 10px;
+    padding-bottom: 10px;
+  }
+
+  .market-category-track > .product-card {
+    flex-basis: 190px;
+    width: 190px;
+  }
+}
+
+@media (max-width: 380px) {
+  .market-category-track > .product-card {
+    flex-basis: 170px;
+    width: 170px;
+  }
+}
