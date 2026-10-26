@@ -978,3 +978,67 @@ select,
     font-size: 16px;
   }
 }
+
+/* SARVYANTA MARKET — SMALLER MOBILE TEXT */
+@media (max-width: 600px) {
+
+  /* Welcome section */
+  .market-intro h1,
+  .market-intro h2 {
+    font-size: 23px !important;
+    line-height: 1.3;
+  }
+
+  .market-intro p {
+    font-size: 13px !important;
+    line-height: 1.5;
+  }
+
+  /* Section headings */
+  .market-section h2,
+  .section-title {
+    font-size: 20px !important;
+  }
+
+  /* Category headings */
+  .category-title,
+  .product-category-title {
+    font-size: 16px !important;
+  }
+
+  /* Product names */
+  .product-title,
+  .product-name {
+    font-size: 14px !important;
+    line-height: 1.35;
+  }
+
+  /* Product descriptions */
+  .product-description,
+  .product-desc {
+    font-size: 12px !important;
+    line-height: 1.45;
+  }
+
+  /* Prices */
+  .product-price,
+  .price {
+    font-size: 15px !important;
+  }
+
+  /* Buttons */
+  .product-card button,
+  .product-card .btn,
+  .product-card a.button {
+    font-size: 13px !important;
+  }
+
+  /* Search, filters and category chips */
+  input,
+  select,
+  .search-input,
+  .category-chip,
+  .category-button {
+    font-size: 13px !important;
+  }
+}
