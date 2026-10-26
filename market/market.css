@@ -1195,3 +1195,71 @@ select,
     max-width: 160px !important;
   }
 }
+/* ========================================== SARVYANTA MARKET — FINAL COMPACT MOBILE FIX Paste at the VERY END of market.css ========================================== */
+
+@media (max-width: 620px) {
+
+/* Keep the existing header and footer unchanged */
+
+/* Intro section */ .market-intro { padding: 14px 12px !important; }
+
+.market-intro h1 { font-size: 22px !important; line-height: 1.3 !important; }
+
+.market-intro .eyebrow { font-size: 9px !important; }
+
+.market-intro .intro-description { font-size: 12px !important; line-height: 1.5 !important; }
+
+.intro-note { padding: 9px !important; }
+
+.intro-note strong { font-size: 11px !important; }
+
+.intro-note p { font-size: 10px !important; }
+
+/* Search and sorting */ .search-box, .sort-control { min-height: 40px !important; }
+
+.search-box input, #product-search, .sort-control, .sort-control select, #product-sort { font-size: 13px !important; }
+
+/* Section headings */ .section-heading h2, .market-subheading h2 { font-size: 18px !important; line-height: 1.35 !important; }
+
+.section-heading p, .market-subheading p { font-size: 11px !important; }
+
+.market-section-nav { gap: 7px !important; margin: 14px 0 20px !important; }
+
+.market-section-nav a { padding: 8px 10px !important; font-size: 11px !important; }
+
+/* Product section containers */ .market-product-section { padding: 10px !important; margin: 18px 0 !important; }
+
+/* Category headings */ .market-category-row { margin-top: 15px !important; }
+
+.market-category-title { margin-bottom: 8px !important; font-size: 14px !important; line-height: 1.4 !important; }
+
+/* Compact horizontal product cards */ .market-category-track { gap: 10px !important; }
+
+.market-category-track > .product-card { flex: 0 0 175px !important; width: 175px !important; min-width: 175px !important; max-width: 175px !important; }
+
+.market-category-track .product-image-wrap { flex: 0 0 120px !important; height: 120px !important; min-height: 120px !important; }
+
+.market-category-track .product-image { padding: 8px !important; }
+
+.market-category-track .product-info { padding: 9px !important; }
+
+/* Product text */ .market-category-track .product-category { font-size: 10px !important; line-height: 1.4 !important; }
+
+.market-category-track .product-title { font-size: 13px !important; line-height: 1.4 !important; height: 5.6em !important; min-height: 5.6em !important; max-height: 5.6em !important; }
+
+.market-category-track .product-description { font-size: 11px !important; line-height: 1.45em !important; height: 7.25em !important; min-height: 7.25em !important; max-height: 7.25em !important; }
+
+/* Prices and action buttons */ .market-category-track .product-price { padding-top: 8px !important; font-size: 15px !important; }
+
+.market-category-track .product-price small { font-size: 10px !important; }
+
+.market-category-track .product-info > .product-action { min-height: 36px !important; margin-top: 9px !important; padding: 7px 5px !important; font-size: 11px !important; line-height: 1.35 !important; }
+
+/* Affiliate disclosure */ .market-disclaimer { font-size: 10px !important; line-height: 1.6 !important; } }
+
+/* Extra-small phones */ @media (max-width: 380px) { .market-category-track > .product-card { flex-basis: 160px !important; width: 160px !important; min-width: 160px !important; max-width: 160px !important; }
+
+.market-category-track .product-image-wrap { flex-basis: 110px !important; height: 110px !important; min-height: 110px !important; } }
+
+/* Product details viewer keeps its full text */ .market-lightbox-product .product-title, .market-lightbox-product .product-description { display: block !important; height: auto !important; min-height: 0 !important; max-height: none !important; overflow: visible !important; -webkit-line-clamp: unset !important; line-clamp: unset !important; }
+
