@@ -54,7 +54,7 @@
   "type": "sarvyanta",
   "description": "Sarvyanta ginger-garlic paste. Product details and availability will be confirmed at launch.",
   "imageUrl": "",
-  "active": true,
+  "active": false,
   "featured": true,
   "price": "",
   "currency": "₹",
