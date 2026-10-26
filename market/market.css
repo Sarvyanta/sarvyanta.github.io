@@ -647,497 +647,222 @@
   line-clamp: unset !important;
 }
 
-/* =========================================
-   SARVYANTA MARKET — READABILITY UPGRADE
-========================================= */
 
-/* Base page typography */
+
+/* ==========================================
+   SARVYANTA MARKET — FINAL TYPOGRAPHY
+   One consistent source for font sizes
+========================================== */
+
+/* Base text */
 body {
   font-size: 16px;
-  line-height: 1.65;
-}
-
-/* Main section headings */
-.market-section-title,
-.market-product-section h2 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  line-height: 1.3;
-}
-
-/* Category headings */
-.market-category-title {
-  font-size: 1.2rem;
-  line-height: 1.4;
-}
-
-/* Product category label */
-.market-category-track .product-category {
-  font-size: 0.875rem;
-  line-height: 1.45;
-}
-
-/* Product titles — readable but preserve alignment */
-.market-category-track .product-title {
-  font-size: 1.05rem !important;
-  line-height: 1.4em !important;
-  height: 4.2em !important;
-  min-height: 4.2em !important;
-  max-height: 4.2em !important;
-}
-
-/* Product descriptions */
-.market-category-track .product-description {
-  font-size: 0.95rem !important;
-  line-height: 1.5em !important;
-  height: 9em !important;
-  min-height: 9em !important;
-  max-height: 9em !important;
-}
-
-/* Price */
-.market-category-track .product-price {
-  font-size: 1.1rem !important;
-  line-height: 1.5;
-}
-
-.market-category-track .product-price small {
-  font-size: 0.8rem;
-  line-height: 1.5;
-}
-
-/* Product buttons */
-.market-category-track .product-action {
-  font-size: 0.95rem !important;
-  line-height: 1.4;
-  min-height: 46px;
-  padding: 12px 14px;
-}
-
-/* Search and sorting controls */
-#product-search,
-#product-sort {
-  font-size: 1rem;
-  min-height: 46px;
-}
-
-/* Category filter chips */
-.category-chip {
-  font-size: 0.9rem;
-  min-height: 40px;
-}
-
-/* Result count and supporting text */
-#result-count,
-.market-section-description {
-  font-size: 0.95rem;
   line-height: 1.6;
-}
-
-/* Mobile readability */
-@media (max-width: 600px) {
-  body {
-    font-size: 16px;
-  }
-
-  .market-section-title,
-  .market-product-section h2 {
-    font-size: 1.55rem;
-  }
-
-  .market-category-title {
-    font-size: 1.15rem;
-  }
-
-  .market-category-track .product-title {
-    font-size: 1rem !important;
-  }
-
-  .market-category-track .product-description {
-    font-size: 0.92rem !important;
-  }
-
-  .market-category-track .product-action {
-    font-size: 0.9rem !important;
-    padding: 11px 10px;
-  }
-}
-
-/* =========================================
-   SARVYANTA MARKET — LARGE, READABLE TEXT
-   Strong final override
-========================================= */
-
-/* Overall page text */
-body,
-body p,
-body li,
-body label {
-  font-size: 18px !important;
-  line-height: 1.7 !important;
-}
-
-/* Header and navigation */
-header nav a,
-nav a,
-.market-nav a {
-  font-size: 17px !important;
-}
-
-/* Main headings */
-h1 {
-  font-size: clamp(30px, 5vw, 42px) !important;
-  line-height: 1.25 !important;
-}
-
-h2,
-.market-section-title,
-.market-product-section h2 {
-  font-size: clamp(26px, 4vw, 34px) !important;
-  line-height: 1.3 !important;
-}
-
-h3,
-.market-category-title {
-  font-size: 23px !important;
-  line-height: 1.4 !important;
-}
-
-/* Product category label */
-.market-category-track .product-category {
-  font-size: 15px !important;
-  line-height: 1.5 !important;
-}
-
-/* Product titles: reserve 3 larger lines */
-.market-category-track .product-title {
-  font-size: 19px !important;
-  line-height: 1.4em !important;
-  height: 4.2em !important;
-  min-height: 4.2em !important;
-  max-height: 4.2em !important;
-}
-
-/* Product descriptions: larger text, retain 6-line alignment */
-.market-category-track .product-description {
-  font-size: 17px !important;
-  line-height: 1.5em !important;
-  height: 9em !important;
-  min-height: 9em !important;
-  max-height: 9em !important;
-}
-
-/* Price and price note */
-.market-category-track .product-price {
-  font-size: 20px !important;
-  line-height: 1.5 !important;
-}
-
-.market-category-track .product-price small {
-  font-size: 14px !important;
-}
-
-/* Product action buttons */
-.market-category-track .product-action {
-  font-size: 17px !important;
-  line-height: 1.4 !important;
-  min-height: 50px !important;
-  padding: 13px 12px !important;
-}
-
-/* Search, sorting and filter controls */
-#product-search,
-#product-sort {
-  font-size: 17px !important;
-  min-height: 50px !important;
-}
-
-.category-chip {
-  font-size: 16px !important;
-  min-height: 44px !important;
-  padding: 10px 15px !important;
-}
-
-/* Small supporting information */
-#result-count,
-.market-section-description {
-  font-size: 16px !important;
-  line-height: 1.65 !important;
-}
-
-/* Footer text */
-footer,
-footer p,
-footer a,
-footer li {
-  font-size: 16px !important;
-  line-height: 1.7 !important;
-}
-
-/* Mobile adjustments */
-@media (max-width: 600px) {
-  body,
-  body p,
-  body li,
-  body label {
-    font-size: 17px !important;
-  }
-
-  h1 {
-    font-size: 32px !important;
-  }
-
-  h2,
-  .market-section-title,
-  .market-product-section h2 {
-    font-size: 27px !important;
-  }
-
-  h3,
-  .market-category-title {
-    font-size: 22px !important;
-  }
-
-  .market-category-track .product-title {
-    font-size: 18px !important;
-  }
-
-  .market-category-track .product-description {
-    font-size: 16px !important;
-  }
-
-  .market-category-track .product-price {
-    font-size: 19px !important;
-  }
-
-  .market-category-track .product-action {
-    font-size: 16px !important;
-  }
-}
-
-/* =========================================
-   SARVYANTA MARKET — EXTRA-LARGE READABILITY
-   Paste at the VERY END of market.css
-========================================= */
-
-/* General page text */
-body {
-  font-size: 20px !important;
-  line-height: 1.75 !important;
-}
-
-/* Header and navigation */
-.brand-name {
-  font-size: 22px !important;
-}
-
-.header-nav,
-.header-nav a,
-.market-section-nav a {
-  font-size: 18px !important;
-  line-height: 1.5 !important;
 }
 
 /* Main introduction */
 .market-intro h1 {
-  font-size: clamp(34px, 5vw, 48px) !important;
-  line-height: 1.25 !important;
+  font-size: clamp(30px, 3.5vw, 42px);
+  line-height: 1.2;
 }
 
 .market-intro .eyebrow {
-  font-size: 15px !important;
+  font-size: 13px;
 }
 
 .market-intro .intro-description {
-  font-size: 19px !important;
-  line-height: 1.75 !important;
+  font-size: 17px;
+  line-height: 1.7;
 }
 
 .intro-note strong {
-  font-size: 18px !important;
+  font-size: 16px;
 }
 
 .intro-note p {
-  font-size: 16px !important;
-  line-height: 1.6 !important;
-}
-
-/* Search and sorting */
-#product-search,
-.search-box input,
-.sort-control,
-.sort-control select,
-#product-sort {
-  font-size: 18px !important;
-}
-
-.search-box,
-.sort-control {
-  min-height: 54px !important;
+  font-size: 14px;
 }
 
 /* Section headings */
 .section-heading h2,
 .market-subheading h2 {
-  font-size: clamp(27px, 3.5vw, 34px) !important;
-  line-height: 1.35 !important;
+  font-size: 26px;
+  line-height: 1.35;
 }
 
 .section-heading p,
 .market-subheading p {
-  font-size: 17px !important;
-  line-height: 1.65 !important;
+  font-size: 16px;
 }
 
-/* Category filters */
-.category-chip {
-  font-size: 17px !important;
-  line-height: 1.5 !important;
-  min-height: 48px !important;
-  padding: 11px 17px !important;
-}
-
-/* Category headings above carousels */
+/* Category headings */
 .market-category-title {
-  font-size: 25px !important;
-  line-height: 1.4 !important;
+  font-size: 21px;
+  line-height: 1.4;
 }
 
-/* Product category */
+/* Product category, title and description */
 .market-category-track .product-category {
-  font-size: 17px !important;
-  line-height: 1.5 !important;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-/* Product title: keep three-line space for alignment */
 .market-category-track .product-title {
-  font-size: 21px !important;
-  line-height: 1.4em !important;
-  height: 4.2em !important;
-  min-height: 4.2em !important;
-  max-height: 4.2em !important;
+  font-size: 18px;
+  line-height: 1.4;
+  height: 4.2em;
+  min-height: 4.2em;
+  max-height: 4.2em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  overflow-wrap: anywhere;
 }
 
-/* Product description: retain six-line alignment */
 .market-category-track .product-description {
-  font-size: 19px !important;
-  line-height: 1.5em !important;
-  height: 9em !important;
-  min-height: 9em !important;
-  max-height: 9em !important;
+  font-size: 15px;
+  line-height: 1.5;
+  height: 9em;
+  min-height: 9em;
+  max-height: 9em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  line-clamp: 6;
+  overflow: hidden;
+  overflow-wrap: anywhere;
 }
 
-/* Price */
+/* Align prices and action buttons */
 .market-category-track .product-price {
-  font-size: 23px !important;
-  line-height: 1.5 !important;
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: 19px;
 }
 
 .market-category-track .product-price small {
-  font-size: 16px !important;
+  font-size: 13px;
 }
 
-/* Product buttons */
-.market-category-track .product-action {
-  font-size: 19px !important;
-  line-height: 1.45 !important;
-  min-height: 56px !important;
-  padding: 14px 12px !important;
+.market-category-track .product-info > .product-action {
+  min-height: 48px;
+  margin-top: 12px;
+  padding: 12px;
+  font-size: 16px;
+  line-height: 1.4;
 }
 
-/* Result count and supporting information */
-#result-count,
-.result-count,
-.market-section-description,
-.market-disclaimer {
-  font-size: 17px !important;
-  line-height: 1.75 !important;
+/* Search and sorting */
+#product-search,
+#product-sort,
+.search-box input,
+.sort-control,
+.sort-control select {
+  font-size: 16px;
 }
 
-/* Footer readability */
-.site-footer,
-.site-footer p,
-.site-footer a,
-.site-footer li,
-.footer-column h3,
-.footer-brand,
+.search-box,
+.sort-control {
+  min-height: 48px;
+}
+
+/* Category filter buttons */
+.category-chip {
+  font-size: 15px;
+  min-height: 42px;
+}
+
+/* Product carousel card dimensions */
+.market-category-track {
+  align-items: stretch;
+}
+
+.market-category-track > .product-card {
+  display: flex;
+  flex: 0 0 260px;
+  flex-direction: column;
+  width: 260px;
+  min-width: 260px;
+  max-width: 260px;
+}
+
+.market-category-track > .product-card > .product-info {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.market-category-track .product-image-wrap {
+  flex: 0 0 190px;
+  height: 190px;
+  min-height: 190px;
+}
+
+/* Footer */
+.footer-about p,
+.footer-column a,
 .footer-bottom p {
-  font-size: 17px !important;
-  line-height: 1.75 !important;
+  font-size: 13px;
+  line-height: 1.7;
 }
 
-/* Mobile: larger text, with wider carousel cards */
+/* Mobile */
 @media (max-width: 620px) {
-  .market-category-track {
-    gap: 14px !important;
+  .market-intro h1 {
+    font-size: 29px;
   }
 
-  .market-category-track .product-card {
-    flex-basis: 245px !important;
-    width: 245px !important;
-    min-width: 245px !important;
-    max-width: 245px !important;
-  }
-
-  .market-category-track .product-image-wrap {
-    flex-basis: 175px !important;
-    height: 175px !important;
-    min-height: 175px !important;
-  }
-
-  .market-category-title {
-    font-size: 24px !important;
-  }
-
-  .market-category-track .product-category {
-    font-size: 17px !important;
-  }
-
-  .market-category-track .product-title {
-    font-size: 21px !important;
-  }
-
-  .market-category-track .product-description {
-    font-size: 18px !important;
-  }
-
-  .market-category-track .product-price {
-    font-size: 22px !important;
-  }
-
-  .market-category-track .product-action {
-    font-size: 18px !important;
-    min-height: 54px !important;
+  .market-intro .intro-description {
+    font-size: 15px;
   }
 
   .section-heading h2,
   .market-subheading h2 {
-    font-size: 28px !important;
+    font-size: 23px;
   }
 
-  .section-heading p,
-  .market-subheading p,
-  .market-disclaimer {
-    font-size: 17px !important;
+  .market-category-title {
+    font-size: 19px;
   }
 
-  .category-chip {
-    font-size: 17px !important;
+  .market-category-track > .product-card {
+    flex-basis: 240px;
+    width: 240px;
+    min-width: 240px;
+    max-width: 240px;
   }
 
-  .site-footer,
-  .site-footer p,
-  .site-footer a,
-  .footer-bottom p {
-    font-size: 16px !important;
+  .market-category-track .product-image-wrap {
+    flex-basis: 170px;
+    height: 170px;
+    min-height: 170px;
+  }
+
+  .market-category-track .product-title {
+    font-size: 17px;
+  }
+
+  .market-category-track .product-description {
+    font-size: 14px;
+  }
+
+  .market-category-track .product-action {
+    font-size: 15px;
+    min-height: 46px;
   }
 }
 
-/* Very narrow screens */
-@media (max-width: 380px) {
-  .market-category-track .product-card {
-    flex-basis: 230px !important;
-    width: 230px !important;
-    min-width: 230px !important;
-    max-width: 230px !important;
-  }
+/* Product details viewer: display full text */
+.market-lightbox-product .product-title,
+.market-lightbox-product .product-description {
+  display: block;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
 }
