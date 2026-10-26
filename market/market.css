@@ -1136,3 +1136,148 @@ select:focus-visible {
     animation-iteration-count: 1 !important;
   }
 }
+/* =========================================
+   MARKET SECTIONS — APPROVED BLUE + GREEN
+   ========================================= */
+
+.market-section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 28px;
+}
+
+.market-section-nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 15px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: #FFFFFF;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.market-section-nav a:hover {
+  background: var(--blue-light);
+}
+
+.market-product-section {
+  margin: 30px 0;
+  scroll-margin-top: 95px;
+}
+
+.market-subheading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.market-subheading h2 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: -0.4px;
+}
+
+.market-subheading p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.section-label {
+  display: inline-block;
+  flex-shrink: 0;
+  padding: 7px 10px;
+  border-radius: 7px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.35px;
+}
+
+.amazon-label {
+  background: #EAF2FF;
+  color: #1246A8;
+}
+
+.partner-label,
+.product-badge.partner-badge {
+  background: #DDF7E8;
+  color: #167647;
+}
+
+.own-label,
+.product-badge.own-badge {
+  background: #E8F5E9;
+  color: #176B3A;
+}
+
+/* Green partner order button */
+
+.product-action.partner-action {
+  background: #167647;
+  border-color: #167647;
+  color: #FFFFFF;
+}
+
+.product-action.partner-action:hover {
+  background: #105C35;
+  border-color: #105C35;
+}
+
+.product-card.partner-card {
+  border-color: #D1EBDD;
+}
+
+.product-card.partner-card:hover {
+  border-color: #9BD7B5;
+  box-shadow: 0 10px 26px rgba(22, 118, 71, 0.10);
+}
+
+/* Keep the own-product style distinct from partner listings */
+
+.product-action.own-action {
+  background: #FFFFFF;
+  border-color: #176B3A;
+  color: #176B3A;
+}
+
+.product-action.own-action:hover {
+  background: #176B3A;
+  color: #FFFFFF;
+}
+
+@media (max-width: 620px) {
+  .market-section-nav {
+    gap: 7px;
+    margin: 16px 0 23px;
+  }
+
+  .market-section-nav a {
+    padding: 9px 10px;
+    font-size: 11px;
+  }
+
+  .market-product-section {
+    margin: 25px 0;
+    scroll-margin-top: 75px;
+  }
+
+  .market-subheading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .market-subheading h2 {
+    font-size: 19px;
+  }
+
+  .market-subheading p {
+    font-size: 11px;
+  }
+   }
