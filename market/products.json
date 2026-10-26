@@ -124,5 +124,18 @@
   "featured": false,
   "currency": "₹",
   "buttonLabel": "Check on Amazon"
+  },
+  {
+  "id": "personalized-baby-memories-and-keepsake-display-board",
+  "name": "Personalized Baby Memories & Keepsake Display Board",
+  "category": "other",
+  "type": "partner",
+  "description": "A beautiful personalized baby memory display board designed to preserve and showcase your little one's precious moments. This round decorative board features multiple photo spaces for displaying adorable baby pictures, along with dedicated space to keep small sentimental items such as bangles, bracelets, necklaces, and other baby keepsakes. Personalize it with your baby's name and create a unique display that celebrates your child's growth and unforgettable memories.",
+  "affiliateUrl": "",
+  "imageUrl": "https://sarvyanta.com/market/images/vidhmahi.png",
+  "active": true,
+  "featured": false,
+  "currency": "₹",
+  "buttonLabel": "Enquire & Order on WhatsApp"
   }
 ]
