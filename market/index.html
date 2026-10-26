@@ -41,11 +41,11 @@
         <p class="eyebrow">WELCOME TO SARVYANTA MARKET</p>
 
         <h1>Useful finds for <span>everyday life.</span></h1>
-
-        <p class="intro-description">
-          Explore practical picks for your home and family, along with
-          products we create under the Sarvyanta name.
-        </p>
+<p class="intro-description">
+  Discover useful Amazon finds, explore products from businesses
+  working with Sarvyanta, and shop our own products as they launch.
+</p>
+        
       </div>
 
       <div class="intro-note">
@@ -95,7 +95,44 @@
         aria-label="Filter by category"
       ></div>
 
-      <div id="product-grid" class="product-grid"></div>
+      <nav class="market-section-nav" aria-label="Market sections">
+  <a href="#amazon-finds">Amazon Finds</a>
+  <a href="#partner-products">Sarvyanta Partner Products</a>
+  <a href="#sarvyanta-products">Our Products</a>
+</nav>
+
+<section class="market-product-section" id="amazon-finds">
+  <div class="market-subheading">
+    <div>
+      <h2>Amazon Finds</h2>
+      <p>Useful products selected from Amazon.</p>
+    </div>
+    <span class="section-label amazon-label">AMAZON FINDS</span>
+  </div>
+  <div id="amazon-product-grid" class="product-grid"></div>
+</section>
+
+<section class="market-product-section" id="partner-products">
+  <div class="market-subheading">
+    <div>
+      <h2>Sarvyanta Partner Products</h2>
+      <p>Discover products from businesses working with Sarvyanta.</p>
+    </div>
+    <span class="section-label partner-label">SARVYANTA PARTNER</span>
+  </div>
+  <div id="partner-product-grid" class="product-grid"></div>
+</section>
+
+<section class="market-product-section" id="sarvyanta-products">
+  <div class="market-subheading">
+    <div>
+      <h2>Our Sarvyanta Products</h2>
+      <p>Discover products offered under the Sarvyanta brand.</p>
+    </div>
+    <span class="section-label own-label">SARVYANTA PRODUCTS</span>
+  </div>
+  <div id="sarvyanta-product-grid" class="product-grid"></div>
+</section>
 
       <div id="empty-state" class="empty-state" hidden>
         <h3>No products found</h3>
