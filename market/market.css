@@ -156,3 +156,35 @@ a[href*="whatsapp"].product-button:hover {
   border-color: #1FBA59 !important;
   color: #103B24 !important;
 }
+
+/* Amazon affiliate button — Amazon brand styling */
+.product-card:not(.partner-card) .product-action:not(.own-action) {
+  background: #FF9900 !important;
+  background-color: #FF9900 !important;
+  color: #172337 !important;
+  border: 1px solid #FF9900 !important;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(255, 153, 0, 0.22);
+}
+
+.product-card:not(.partner-card) .product-action:not(.own-action):hover {
+  background: #F3A847 !important;
+  background-color: #F3A847 !important;
+  border-color: #F3A847 !important;
+  color: #172337 !important;
+}
+
+/* Keep WhatsApp partner buttons green */
+.product-card .product-action.partner-action {
+  background: #25D366 !important;
+  background-color: #25D366 !important;
+  color: #103B24 !important;
+  border-color: #25D366 !important;
+}
+
+/* Keep Sarvyanta-owned product buttons in brand blue */
+.product-card .product-action.own-action {
+  background: #0B347F;
+  color: #FFFFFF;
+  border-color: #0B347F;
+}
