@@ -19,7 +19,7 @@
     "description": "Add useful recommendations that help visitors make informed choices.",
     "affiliateUrl": "",
     "imageUrl": "",
-    "active": true,
+    "active": false,
     "featured": false
   },
   {
@@ -30,7 +30,7 @@
     "description": "Our own product listing will appear here when it is ready to launch.",
     "affiliateUrl": "",
     "imageUrl": "",
-    "active": true,
+    "active": false,
     "featured": false
   },
 {
@@ -41,7 +41,7 @@
   "description": "A short, accurate description of the product and its key benefits.",
   "affiliateUrl": "",
   "imageUrl": "",
-  "active": true,
+  "active": false,
   "featured": true,
   "price": "",
   "currency": "₹",
@@ -54,7 +54,7 @@
   "type": "sarvyanta",
   "description": "Sarvyanta ginger-garlic paste. Product details and availability will be confirmed at launch.",
   "imageUrl": "",
-  "active": true,
+  "active": false,
   "featured": true,
   "price": "",
   "currency": "₹",
