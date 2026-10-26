@@ -543,3 +543,24 @@
   max-height: none !important;
   overflow: visible !important;
     }
+/* Fix: Align product titles, prices and buttons across cards */
+
+.market-category-track .product-title {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 3 !important;
+  line-clamp: 3 !important;
+  min-height: 4.2em !important;
+  max-height: 4.2em !important;
+  line-height: 1.4em !important;
+  overflow: hidden !important;
+}
+
+/* Keep the price and Amazon button aligned at the bottom */
+.market-category-track .product-price {
+  margin-top: auto !important;
+}
+
+.market-category-track .product-info .product-action {
+  margin-top: 12px !important;
+}
