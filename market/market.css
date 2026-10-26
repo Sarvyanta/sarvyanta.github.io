@@ -276,3 +276,51 @@
   background: #173b70;
   color: #fff;
 }
+/* Product image interaction */
+.product-image-wrap {
+  position: relative;
+  cursor: zoom-in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Make mobile cards easier to read */
+@media (max-width: 600px) {
+  .product-card {
+    width: 220px;
+    min-width: 220px;
+  }
+
+  .product-image-wrap {
+    height: 165px;
+  }
+
+  .product-info {
+    padding: 13px;
+  }
+
+  .product-title {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .product-description {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .product-action {
+    min-height: 42px;
+    font-size: 14px;
+  }
+  }
