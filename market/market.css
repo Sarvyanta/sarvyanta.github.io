@@ -1,164 +1,11 @@
 /* ========================================= SARVYANTA MARKET — COMPLETE STYLESHEET Brand: Rainbow + Navy Shopping: Bright, clean, blue accents Footer: Coordinated navy design Navigation: Amazon Orange / Partner Green / Sarvyanta Blue ========================================= */ /* ========================================= 1. DESIGN TOKENS ========================================= */ :root { --blue: #1246A8; --blue-dark: #0B347F; --blue-light: #EAF2FF; --navy: #031638; --navy-light: #0A2147; --amazon-orange: #FF9900; --amazon-orange-hover: #F3A847; --amazon-text: #172337; --partner-green: #167647; --partner-green-dark: #105C35; --partner-green-light: #DDF7E8; --page: #F5F7FB; --surface: #FFFFFF; --text: #172033; --muted: #64748B; --border: #E1E7F0; --footer-text: #D5E0F3; --footer-muted: #AFC1DE; --footer-border: #263E65; --radius: 14px; --shadow: 0 4px 16px rgba(15, 35, 70, 0.055); --shadow-hover: 0 10px 26px rgba(15, 35, 70, 0.11); } /* ========================================= 2. RESET AND GLOBAL STYLES ========================================= */ * { box-sizing: border-box; } html { scroll-behavior: smooth; scroll-padding-top: 90px; } body { margin: 0; background: var(--page); color: var(--text); font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; font-size: 14px; line-height: 1.5; -webkit-font-smoothing: antialiased; } img { max-width: 100%; } a { color: inherit; text-decoration: none; } button, input, select { font: inherit; } button, select { cursor: pointer; } button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #82B4FF; outline-offset: 3px; } [hidden] { display: none !important; } /* ========================================= 3. HEADER — APPROVED NAVY DESIGN ========================================= */ .site-header { position: sticky; top: 0; z-index: 50; min-height: 76px; padding: 10px clamp(16px, 4vw, 48px); display: flex; align-items: center; justify-content: space-between; gap: 18px; background: #031638; color: #FFFFFF; border-bottom: 1px solid #1E3560; box-shadow: 0 4px 16px rgba(3, 22, 56, 0.18); } .brand { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; min-width: 0; text-decoration: none; } .brand-logo { display: block; width: 145px; height: 50px; object-fit: contain; object-position: left center; flex-shrink: 0; } .brand-name { color: #FFFFFF; font-size: 19px; font-weight: 700; letter-spacing: 0.1px; white-space: nowrap; } .brand-name span { color: #EAF2FF; } .header-nav { display: flex; align-items: center; gap: 10px; color: #FFFFFF; font-size: 13px; font-weight: 600; } .header-nav a { padding: 9px 12px; color: #E8EEFB; border-radius: 8px; text-decoration: none; transition: background 0.2s ease, color 0.2s ease; } .header-nav a:hover, .header-nav a:focus-visible { background: rgba(255, 255, 255, 0.12); color: #FFFFFF; } /* ========================================= 4. MARKET INTRODUCTION ========================================= */ .market-intro { width: min(1200px, calc(100% - 32px)); margin: 22px auto 0; padding: clamp(22px, 4vw, 38px); display: flex; align-items: center; justify-content: space-between; gap: 28px; background: linear-gradient(115deg, #EAF2FF 0%, #FFFFFF 72%); border: 1px solid #DCE8FB; border-radius: 16px; box-shadow: 0 4px 16px rgba(23, 92, 211, 0.04); } .intro-copy { max-width: 690px; } .eyebrow { margin: 0 0 9px; color: var(--blue); font-size: 11px; font-weight: 800; letter-spacing: 1.2px; } .market-intro h1 { margin: 0; color: var(--text); font-size: clamp(28px, 3.5vw, 42px); line-height: 1.18; letter-spacing: -1px; } .market-intro h1 span { color: var(--blue); } .intro-description { max-width: 590px; margin: 12px 0 0; color: var(--muted); font-size: 14px; line-height: 1.7; } .intro-note { min-width: 225px; max-width: 270px; display: flex; align-items: center; gap: 12px; padding: 16px; background: #FFFFFF; border: 1px solid #DCE8FB; border-radius: 13px; box-shadow: var(--shadow); } .note-icon { width: 42px; height: 42px; flex-shrink: 0; display: grid; place-items: center; background: var(--blue-light); border-radius: 11px; color: var(--blue); font-size: 23px; } .intro-note strong { display: block; color: var(--text); font-size: 13px; } .intro-note p { margin: 4px 0 0; color: var(--muted); font-size: 11px; } /* ========================================= 5. SHOPPING AREA ========================================= */ .shopping-area { width: min(1200px, calc(100% - 32px)); margin: 28px auto 32px; } .search-row { display: flex; align-items: center; gap: 12px; } .search-box { flex: 1; min-width: 0; min-height: 48px; padding: 0 15px; display: flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid #D9E0EA; border-radius: 11px; box-shadow: 0 2px 6px rgba(16, 24, 40, 0.025); } .search-box:focus-within { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(18, 70, 168, 0.09); } .search-box > span { color: var(--blue); font-size: 25px; line-height: 1; } .search-box input, #product-search { width: 100%; min-width: 0; padding: 10px 0; background: transparent; border: 0; outline: 0; color: var(--text); font-size: 13px; } .search-box input:focus-visible, #product-search:focus-visible { outline: none; } #product-search::placeholder { color: #98A2B3; } .sort-control { min-height: 46px; display: flex; align-items: center; gap: 8px; padding: 0 13px; border: 1px solid var(--border); border-radius: 10px; background: #FFFFFF; color: var(--muted); font-size: 12px; } .sort-control select, #product-sort { max-width: 160px; border: 0; outline: 0; background: transparent; color: var(--text); font-size: 12px; cursor: pointer; } /* ========================================= 6. SECTION HEADING ========================================= */ .section-heading { margin: 28px 0 15px; display: flex; align-items: center; justify-content: space-between; gap: 12px; } .section-heading h2 { margin: 0; font-size: 23px; letter-spacing: -0.5px; } .section-heading p { margin: 4px 0 0; color: var(--muted); font-size: 13px; } .result-count, #result-count { color: var(--muted); font-size: 12px; white-space: nowrap; } /* ========================================= 7. CATEGORY FILTERS ========================================= */ .category-filters, #categories { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 21px; } .category-chip { min-height: 37px; padding: 8px 15px; background: #FFFFFF; border: 1px solid #DFE5EE; border-radius: 24px; color: #475467; font-size: 12px; font-weight: 600; white-space: nowrap; cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease; } .category-chip:hover, .category-chip.selected { background: var(--blue); border-color: var(--blue); color: #FFFFFF; } /* ========================================= 8. PRODUCT GRID AND CARDS ========================================= */ .product-grid, #product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; } .product-card { min-width: 0; overflow: hidden; display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; } .product-card:hover { transform: translateY(-3px); border-color: #D4E2FB; box-shadow: var(--shadow-hover); } .product-image-wrap { height: 205px; position: relative; display: grid; place-items: center; overflow: hidden; background: #FFFFFF; border-bottom: 1px solid #F0F2F5; } .product-image { width: 100%; height: 100%; padding: 15px; object-fit: contain; transition: transform 0.25s ease; } .product-card:hover .product-image { transform: scale(1.035); } .product-placeholder { width: 100%; height: 100%; display: grid; place-items: center; background: linear-gradient(135deg, #F2F6FF, #FAFBFE); color: #9BB9EE; font-size: 38px; } .product-badge { position: absolute; left: 10px; top: 10px; max-width: calc(100% - 20px); padding: 5px 8px; border-radius: 6px; background: #EAF2FF; color: var(--blue-dark); font-size: 9px; font-weight: 800; letter-spacing: 0.2px; } .product-info { flex: 1; padding: 14px; display: flex; flex-direction: column; align-items: stretch; } .product-category { margin: 0 0 6px; color: var(--blue); font-size: 11px; font-weight: 700; text-transform: capitalize; } .product-title { margin: 0; color: var(--text); font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; } .product-description { margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; } .product-price { margin: 12px 0 0; color: var(--text); font-size: 17px; font-weight: 800; } .product-price small { color: var(--muted); font-size: 10px; font-weight: 400; } /* ========================================= 9. PRODUCT ACTION BUTTONS ========================================= */ .product-action { width: 100%; min-height: 40px; margin-top: auto; padding: 10px 12px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--blue); border-radius: 9px; background: var(--blue); color: #FFFFFF; font-size: 12px; font-weight: 700; text-align: center; cursor: pointer; transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease; } .product-info .product-action { margin-top: 14px; } .product-action:hover { background: var(--blue-dark); border-color: var(--blue-dark); } .product-action[aria-disabled="true"], .product-action:disabled { opacity: 0.6; cursor: not-allowed; } .product-action.own-action, .own-action { background: #FFFFFF; color: var(--blue); } .product-action.own-action:hover, .own-action:hover { background: var(--blue); border-color: var(--blue); color: #FFFFFF; } /* ========================================= 10. EMPTY AND LOADING STATES ========================================= */ .empty-state, #empty-state { padding: 34px 18px; text-align: center; background: #FFFFFF; border: 1px dashed #D6DCE6; border-radius: 14px; } .empty-state h3, #empty-state h3 { margin: 0; font-size: 19px; } .empty-state p, #empty-state p { margin: 7px 0 16px; color: var(--muted); font-size: 13px; } .empty-state[hidden], #empty-state[hidden] { display: none !important; } .clear-button, #clear-filters { padding: 9px 16px; border: 0; border-radius: 8px; background: var(--blue); color: #FFFFFF; font-size: 12px; font-weight: 700; cursor: pointer; } .clear-button:hover, #clear-filters:hover { background: var(--blue-dark); } .loading-card { grid-column: 1 / -1; padding: 30px 18px; text-align: center; background: #FFFFFF; border: 1px solid var(--border); border-radius: 12px; color: var(--muted); font-size: 13px; } /* ========================================= 11. AFFILIATE DISCLOSURE ========================================= */ .market-disclaimer { width: min(1200px, calc(100% - 32px)); margin: 22px auto 30px; color: var(--muted); font-size: 11px; line-height: 1.8; text-align: center; } /* ========================================= 12. FOOTER — MATCHES THE HEADER ========================================= */ .site-footer { margin-top: 38px; padding: 40px clamp(16px, 4vw, 48px) 18px; background: var(--navy); color: var(--footer-text); border-top: 3px solid var(--blue); } .footer-content { width: min(1200px, 100%); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(130px, 0.8fr) minmax(160px, 1fr); gap: 42px; align-items: start; } .footer-about { min-width: 0; } .footer-brand { display: inline-block; margin-bottom: 12px; color: #FFFFFF; font-size: 19px; font-weight: 800; letter-spacing: 0.7px; text-decoration: none; } .site-footer .footer-brand span { margin-left: 5px; color: #AFCBFF; font-weight: 600; letter-spacing: 1px; } .footer-about p { max-width: 340px; margin: 5px 0; color: var(--footer-muted); font-size: 12px; line-height: 1.9; } .footer-column { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 11px; } .footer-column h3 { margin: 0 0 5px; color: #FFFFFF; font-size: 13px; font-weight: 700; letter-spacing: 0.2px; } .footer-column a { color: var(--footer-text); font-size: 12px; line-height: 1.6; text-decoration: none; transition: color 0.18s ease; } .footer-column a:hover, .footer-column a:focus-visible { color: #FFFFFF; text-decoration: underline; text-underline-offset: 3px; } .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; margin: 14px 0; font-size: 12px; font-weight: 600; } .footer-links a { color: var(--footer-text); } .footer-links a:hover { color: #FFFFFF; } .site-footer > p { margin: 5px 0; color: var(--footer-muted); font-size: 12px; line-height: 1.8; } .footer-bottom { width: min(1200px, 100%); margin: 32px auto 0; padding-top: 19px; border-top: 1px solid var(--footer-border); text-align: center; } .footer-bottom p { margin: 6px 0; color: var(--footer-muted); font-size: 11px; line-height: 1.8; } .footer-bottom p:last-child { margin-top: 12px; color: #E3EBF8; } .copyright { margin-top: 14px !important; } /* ========================================= 13. TABLET ========================================= */ @media (max-width: 950px) { .product-grid, #product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; } .product-image-wrap { height: 175px; } .intro-note { min-width: 200px; } .footer-content { gap: 26px; } } /* ========================================= 14. MOBILE ========================================= */ @media (max-width: 620px) { .site-header { min-height: 64px; padding: 9px 14px; gap: 8px; } .brand { gap: 8px; } .brand-logo { width: 100px; height: 40px; } .brand-name { font-size: 15px; } .header-nav { gap: 2px; font-size: 12px; } .header-nav a { padding: 8px; } .header-nav a:first-child { display: none; } .market-intro { width: calc(100% - 22px); margin-top: 12px; padding: 18px 15px; display: block; border-radius: 12px; } .eyebrow { margin-bottom: 6px; font-size: 9px; } .market-intro h1 { font-size: 27px; letter-spacing: -0.6px; } .intro-description { margin-top: 8px; font-size: 12px; line-height: 1.7; } .intro-note { min-width: 0; max-width: none; margin-top: 14px; padding: 11px; } .note-icon { width: 34px; height: 34px; font-size: 19px; } .intro-note strong { font-size: 12px; } .intro-note p { font-size: 10px; } .shopping-area { width: calc(100% - 22px); margin-top: 19px; margin-bottom: 25px; } .search-row { align-items: stretch; flex-direction: column; gap: 8px; } .search-box { min-height: 43px; } .sort-control { min-height: 38px; justify-content: space-between; } .sort-control select, #product-sort { max-width: 180px; } .section-heading { margin-top: 22px; margin-bottom: 13px; } .section-heading h2 { font-size: 19px; } .section-heading p { font-size: 11px; } .result-count, #result-count { font-size: 10px; } .category-filters, #categories { flex-wrap: nowrap; overflow-x: auto; padding: 1px 0 9px; margin-bottom: 12px; scrollbar-width: thin; } .category-chip { flex: 0 0 auto; min-height: 33px; padding: 7px 12px; font-size: 11px; } .product-grid, #product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .product-card { border-radius: 11px; } .product-image-wrap { height: 135px; } .product-image { padding: 9px; } .product-badge { left: 6px; top: 6px; padding: 4px 5px; font-size: 7px; } .product-info { padding: 10px; } .product-category { font-size: 9px; } .product-title { font-size: 12px; } .product-description { font-size: 10px; line-height: 1.5; } .product-price { margin-top: 9px; font-size: 14px; } .product-price small { font-size: 8px; } .product-info .product-action { min-height: 35px; margin-top: 10px; padding: 7px 5px; font-size: 10px; } .market-disclaimer { width: calc(100% - 24px); margin: 17px auto 23px; font-size: 10px; } .site-footer { margin-top: 26px; padding: 28px 18px 16px; } .footer-content { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px 18px; } .footer-about { grid-column: 1 / -1; padding-bottom: 17px; border-bottom: 1px solid var(--footer-border); } .footer-brand { font-size: 18px; } .footer-about p, .footer-column a { font-size: 11px; } .footer-column h3 { font-size: 12px; } .footer-column { gap: 10px; } .footer-bottom { margin-top: 25px; padding-top: 15px; } .footer-bottom p { font-size: 10px; } } /* ========================================= 15. EXTRA-SMALL MOBILE ========================================= */ @media (max-width: 380px) { .brand-logo { width: 78px; height: 34px; } .brand-name { font-size: 14px; } .header-nav a { padding: 7px 5px; } } @media (max-width: 360px) { .brand-name { font-size: 13px; } .header-nav { gap: 0; font-size: 9px; } .header-nav a { padding: 7px 6px; } .market-intro h1 { font-size: 24px; } .product-image-wrap { height: 115px; } .product-info { padding: 8px; } .product-title { font-size: 11px; } .product-info .product-action { font-size: 9px; } } /* ========================================= 16. ACCESSIBILITY — REDUCED MOTION ========================================= */ @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; } } /* ========================================= 17. MARKET SECTIONS — APPROVED BLUE + GREEN ========================================= */ .market-section-nav { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 28px; } /* Base navigation-button design */ .market-section-nav a { display: inline-flex; align-items: center; justify-content: center; padding: 11px 16px; border: 1px solid transparent; border-radius: 10px; background: #FFFFFF; color: var(--blue); font-size: 12px; font-weight: 800; box-shadow: 0 4px 12px rgba(15, 35, 70, 0.07); transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease; } .market-section-nav a:hover { transform: translateY(-2px); box-shadow: 0 7px 16px rgba(15, 35, 70, 0.12); } /* Navigation order: 1. Amazon Finds 2. Sarvyanta Partner Products 3. Our Products These styles assume the links appear in this order. */ .market-section-nav a:nth-child(1) { background: var(--amazon-orange); border-color: var(--amazon-orange); color: var(--amazon-text); } .market-section-nav a:nth-child(1):hover, .market-section-nav a:nth-child(1):focus-visible { background: var(--amazon-orange-hover); border-color: var(--amazon-orange-hover); color: var(--amazon-text); } .market-section-nav a:nth-child(2) { background: var(--partner-green); border-color: var(--partner-green); color: #FFFFFF; } .market-section-nav a:nth-child(2):hover, .market-section-nav a:nth-child(2):focus-visible { background: var(--partner-green-dark); border-color: var(--partner-green-dark); color: #FFFFFF; } .market-section-nav a:nth-child(3) { background: var(--blue); border-color: var(--blue); color: #FFFFFF; } .market-section-nav a:nth-child(3):hover, .market-section-nav a:nth-child(3):focus-visible { background: var(--blue-dark); border-color: var(--blue-dark); color: #FFFFFF; } /* Keyboard focus stays clear against colored buttons */ .market-section-nav a:focus-visible { outline: 3px solid #82B4FF; outline-offset: 3px; } .market-product-section { margin: 30px 0; scroll-margin-top: 95px; } .market-subheading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; } .market-subheading h2 { margin: 0; font-size: 22px; letter-spacing: -0.4px; } /* Highlight "Amazon" in the Amazon Finds heading. Add class="amazon-word" to the word Amazon in the HTML. */ .amazon-word { color: var(--amazon-orange); font-weight: 800; } .market-subheading p { margin: 5px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; } .section-label { display: inline-block; flex-shrink: 0; padding: 7px 10px; border-radius: 7px; font-size: 9px; font-weight: 800; letter-spacing: 0.35px; } .amazon-label { background: #FFF0D6; color: #7A4300; } .partner-label, .product-badge.partner-badge { background: #DDF7E8; color: #167647; } .own-label, .product-badge.own-badge { background: #E8F5E9; color: #176B3A; } /* Green partner order button */ .product-action.partner-action { background: #167647; border-color: #167647; color: #FFFFFF; } .product-action.partner-action:hover { background: #105C35; border-color: #105C35; } .product-card.partner-card { border-color: #D1EBDD; } .product-card.partner-card:hover { border-color: #9BD7B5; box-shadow: 0 10px 26px rgba(22, 118, 71, 0.10); } /* Keep the own-product style distinct from partner listings */ .product-action.own-action { background: #FFFFFF; border-color: #176B3A; color: #176B3A; } .product-action.own-action:hover { background: #176B3A; color: #FFFFFF; } @media (max-width: 620px) { .market-section-nav { gap: 7px; margin: 16px 0 23px; } .market-section-nav a { padding: 9px 10px; font-size: 11px; } .market-product-section { margin: 25px 0; scroll-margin-top: 75px; } .market-subheading { align-items: flex-start; flex-direction: column; gap: 9px; } .market-subheading h2 { font-size: 19px; } .market-subheading p { font-size: 11px; } } /* ========================================= 18. CLEAR SEPARATION BETWEEN SECTIONS ========================================= */ .market-product-section { padding-bottom: 28px; margin-bottom: 30px; border-bottom: 1px solid #DCE5F0; } .market-product-section:last-of-type { border-bottom: none; } .market-subheading { padding-bottom: 12px; border-bottom: 2px solid #EAF0F8; } #partner-products .market-subheading { border-bottom-color: #D1EBDD; } #sarvyanta-products .market-subheading { border-bottom-color: #D7EAD9; } /* ========================================= 19. PREMIUM MARKET INTRODUCTION ========================================= */ .market-intro { background: linear-gradient(120deg, #0B347F 0%, #1246A8 62%, #2368C7 100%); border: 1px solid #0B347F; border-radius: 18px; box-shadow: 0 12px 30px rgba(11, 52, 127, 0.18); } .market-intro .eyebrow { color: #C7DCFF; } .market-intro h1, .market-intro h1 span { color: #FFFFFF; } .market-intro .intro-description { color: #E0EAFA; } .market-intro .intro-note { background: rgba(255, 255, 255, 0.97); border-color: rgba(255, 255, 255, 0.5); box-shadow: 0 8px 22px rgba(3, 22, 56, 0.15); } /* Elevated shopping controls */ .shopping-area > .search-row, .shopping-area > .section-heading, .shopping-area > #categories { position: relative; } .shopping-area > .search-row { padding: 18px 18px 12px; background: #FFFFFF; border: 1px solid #DCE6F5; border-radius: 16px 16px 0 0; box-shadow: 0 8px 24px rgba(15, 35, 70, 0.06); } .shopping-area > .section-heading { margin: 0; padding: 16px 18px 12px; background: #FFFFFF; } .shopping-area > #categories { margin: 0; padding: 0 18px 18px; background: #FFFFFF; border: 1px solid #DCE6F5; border-top: 0; border-radius: 0 0 16px 16px; box-shadow: 0 8px 24px rgba(15, 35, 70, 0.06); } /* Give the product area more room after the controls */ .shopping-area > .market-section-nav { margin-top: 28px; } /* Stronger separation for product sections */ .market-product-section { padding: 20px; background: linear-gradient(180deg, #EDF3FC 0%, #F5F8FD 100%); border: 1px solid #DFE8F6; border-radius: 16px; box-shadow: 0 5px 18px rgba(15, 35, 70, 0.035); } .market-product-section .product-card { background: #FFFFFF; box-shadow: 0 5px 16px rgba(15, 35, 70, 0.075); } .market-product-section .product-card:hover { box-shadow: 0 12px 26px rgba(15, 35, 70, 0.12); } /* Keep the partner section recognisably green */ #partner-products { background: linear-gradient(180deg, #F0FAF4 0%, #F7FCF8 100%); border-color: #D6EBDD; } @media (max-width: 620px) { .market-intro { background: linear-gradient(145deg, #0B347F 0%, #1246A8 100%); box-shadow: 0 7px 18px rgba(11, 52, 127, 0.14); } .shopping-area > .search-row { padding: 12px 12px 9px; } .shopping-area > .section-heading { padding: 12px 12px 9px; } .shopping-area > #categories { padding: 0 12px 13px; } .market-product-section { padding: 12px; border-radius: 13px; } } /* ========================================= 20. HORIZONTAL PRODUCT CAROUSELS BY CATEGORY ========================================= */ .market-product-section .product-grid { display: block; min-width: 0; } .market-category-row { min-width: 0; margin-top: 22px; } .market-category-row:first-child { margin-top: 0; } .market-category-title { margin: 0 0 12px; color: #172033; font-size: 16px; font-weight: 750; letter-spacing: -0.2px; } .market-category-track { display: flex; flex-flow: row nowrap; align-items: stretch; gap: 16px; width: 100%; overflow-x: auto; overflow-y: hidden; padding: 2px 2px 14px; scroll-snap-type: x proximity; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: #B7C9E5 transparent; } .market-category-track:focus-visible { outline: 2px solid #82B4FF; outline-offset: 3px; border-radius: 8px; } .market-category-track > .product-card { flex: 0 0 245px; width: 245px; min-width: 0; scroll-snap-align: start; } .market-category-track > .product-card .product-info { flex: 1; } .market-category-track::-webkit-scrollbar { height: 7px; } .market-category-track::-webkit-scrollbar-track { background: #E5ECF6; border-radius: 10px; } .market-category-track::-webkit-scrollbar-thumb { background: #A9BFDF; border-radius: 10px; } .market-category-track::-webkit-scrollbar-thumb:hover { background: #7899C9; } #partner-products .market-category-title { color: #176B3A; } /* Amazon category headings can use this class if needed */ #amazon-products .market-category-title { color: #7A4300; } @media (max-width: 620px) { .market-category-row { margin-top: 18px; } .market-category-title { margin-bottom: 10px; font-size: 14px; } .market-category-track { gap: 10px; padding-bottom: 10px; } .market-category-track > .product-card { flex-basis: 190px; width: 190px; } } @media (max-width: 380px) { .market-category-track > .product-card { flex-basis: 170px; width: 170px; } } /* ========================================= 21. AMAZON FINDS — HEADING AND SUBTITLE ========================================= */ /* Applies if the Amazon section uses id="amazon-products". */ #amazon-products .market-subheading h2 { color: var(--navy); } /* Highlight only the word "Amazon" when it has class="amazon-word". */ #amazon-products .market-subheading h2 .amazon-word { color: var(--amazon-orange); } /* If a small Amazon label appears beside the heading */ #amazon-products .section-label { background: #FFF0D6; color: #7A4300; } /* Keep all section titles readable and visually consistent */ #amazon-products .market-subheading { border-bottom-color: #FFD58A; } /* ========================================= 22. REDUCED-MOTION SUPPORT FOR NEW NAV ========================================= */ @media (prefers-reduced-motion: reduce) { .market-section-nav a { transition: none; } .market-section-nav a:hover { transform: none; } } 
-
+  
 /* =========================================
-   MARKET SECTION NAVIGATION — BRAND COLORS
+   FINAL MARKET BUTTON COLORS
    ========================================= */
 
-.market-section-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 28px 0;
-}
-
-.market-section-nav a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  min-height: 44px;
-  padding: 11px 17px;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  font-size: 13px;
-  font-weight: 750;
-  line-height: 1.4;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(15, 35, 70, 0.09);
-  transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease,
-    background 0.18s ease;
-}
-
-/* Primary: Amazon orange */
-.market-section-nav .market-nav-amazon {
-  background: #FF9900;
-  border-color: #FF9900;
-  color: #172337;
-}
-
-.market-section-nav .market-nav-amazon .amazon-word {
-  color: #172337;
-  font-weight: 850;
-}
-
-.market-section-nav .market-nav-amazon:hover {
-  background: #F3A847;
-  border-color: #F3A847;
-}
-
-/* Partner products: green */
-.market-section-nav .market-nav-partner {
-  background: #167647;
-  border-color: #167647;
-  color: #FFFFFF;
-}
-
-.market-section-nav .market-nav-partner:hover {
-  background: #105C35;
-  border-color: #105C35;
-}
-
-/* Our products: Sarvyanta navy blue */
-.market-section-nav .market-nav-own {
-  background: #0B347F;
-  border-color: #0B347F;
-  color: #FFFFFF;
-}
-
-.market-section-nav .market-nav-own:hover {
-  background: #1246A8;
-  border-color: #1246A8;
-}
-
-/* Consistent hover and keyboard feedback */
-.market-section-nav a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 7px 17px rgba(15, 35, 70, 0.14);
-}
-
-.market-section-nav a:focus-visible {
-  outline: 3px solid #82B4FF;
-  outline-offset: 3px;
-}
-
-/* Amazon heading accent */
-#amazon-finds .market-subheading h2 {
-  color: #172033;
-}
-
-#amazon-finds .amazon-heading-word {
-  color: #FF9900;
-  font-weight: 850;
-}
-
-/* Mobile layout */
-@media (max-width: 620px) {
-  .market-section-nav {
-    gap: 8px;
-    margin: 22px 0;
-  }
-
-  .market-section-nav a {
-    min-height: 40px;
-    padding: 10px 12px;
-    border-radius: 9px;
-    font-size: 11px;
-  }
-}
-
-/* Respect reduced-motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  .market-section-nav a {
-    transition: none;
-  }
-
-  .market-section-nav a:hover {
-    transform: none;
-  }
-}
-
-/* Amazon affiliate button */
-a.check-on-amazon,
-a[href*="amzn.to"].product-button,
-a[href*="amazon.in"].product-button,
-a[href*="amazon.com"].product-button {
-  background: #FF9900 !important;
-  background-color: #FF9900 !important;
-  color: #172337 !important;
-  border-color: #FF9900 !important;
-  font-weight: 800;
-}
-
-a.check-on-amazon:hover,
-a[href*="amzn.to"].product-button:hover,
-a[href*="amazon.in"].product-button:hover,
-a[href*="amazon.com"].product-button:hover {
-  background: #F3A847 !important;
-  border-color: #F3A847 !important;
-  color: #172337 !important;
-}
-
-/* Order on WhatsApp button */
-a[href*="wa.me"],
-a[href*="whatsapp"].product-button {
-  background: #25D366 !important;
-  background-color: #25D366 !important;
-  color: #103B24 !important;
-  border-color: #25D366 !important;
-  font-weight: 800;
-}
-
-a[href*="wa.me"]:hover,
-a[href*="whatsapp"].product-button:hover {
-  background: #1FBA59 !important;
-  border-color: #1FBA59 !important;
-  color: #103B24 !important;
-}
-
-/* Amazon affiliate button — Amazon brand styling */
-.product-card:not(.partner-card) .product-action:not(.own-action) {
+/* Amazon affiliate buttons: Amazon orange */
+.product-card .product-action:not(.partner-action):not(.own-action) {
   background: #FF9900 !important;
   background-color: #FF9900 !important;
   color: #172337 !important;
@@ -167,24 +14,80 @@ a[href*="whatsapp"].product-button:hover {
   box-shadow: 0 4px 12px rgba(255, 153, 0, 0.22);
 }
 
-.product-card:not(.partner-card) .product-action:not(.own-action):hover {
+.product-card .product-action:not(.partner-action):not(.own-action):hover {
   background: #F3A847 !important;
   background-color: #F3A847 !important;
   border-color: #F3A847 !important;
   color: #172337 !important;
 }
 
-/* Keep WhatsApp partner buttons green */
+/* Sarvyanta partner products: WhatsApp-style green */
 .product-card .product-action.partner-action {
   background: #25D366 !important;
   background-color: #25D366 !important;
-  color: #103B24 !important;
   border-color: #25D366 !important;
+  color: #103B24 !important;
+  font-weight: 800;
 }
 
-/* Keep Sarvyanta-owned product buttons in brand blue */
+.product-card .product-action.partner-action:hover {
+  background: #1FBA59 !important;
+  background-color: #1FBA59 !important;
+  border-color: #1FBA59 !important;
+  color: #103B24 !important;
+}
+
+/* Sarvyanta-owned products: brand navy blue */
 .product-card .product-action.own-action {
-  background: #0B347F;
+  background: #0B347F !important;
+  background-color: #0B347F !important;
+  border-color: #0B347F !important;
+  color: #FFFFFF !important;
+}
+
+.product-card .product-action.own-action:hover {
+  background: #1246A8 !important;
+  background-color: #1246A8 !important;
+  border-color: #1246A8 !important;
+  color: #FFFFFF !important;
+}
+
+/* Keep disabled buttons visibly inactive */
+.product-card .product-action[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Navigation buttons: Amazon orange, partner green, own blue */
+.market-section-nav .market-nav-amazon {
+  background: #FF9900;
+  border-color: #FF9900;
+  color: #172337;
+}
+
+.market-section-nav .market-nav-partner {
+  background: #167647;
+  border-color: #167647;
   color: #FFFFFF;
+}
+
+.market-section-nav .market-nav-own {
+  background: #0B347F;
   border-color: #0B347F;
+  color: #FFFFFF;
+}
+
+.market-section-nav .market-nav-amazon:hover {
+  background: #F3A847;
+  border-color: #F3A847;
+}
+
+.market-section-nav .market-nav-partner:hover {
+  background: #105C35;
+  border-color: #105C35;
+}
+
+.market-section-nav .market-nav-own:hover {
+  background: #1246A8;
+  border-color: #1246A8;
 }
