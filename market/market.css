@@ -1307,4 +1307,16 @@ select:focus-visible {
   border-bottom-color: #D7EAD9;
 }
 
+/* Amazon-inspired orange action button */
+.product-action:not(.partner-action):not(.own-action) {
+  background: #FF9900;
+  border-color: #FF9900;
+  color: #172337;
+  font-weight: 700;
+}
 
+.product-action:not(.partner-action):not(.own-action):hover {
+  background: #F3A847;
+  border-color: #F3A847;
+  color: #172337;
+     }
