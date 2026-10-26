@@ -32,5 +32,19 @@
     "imageUrl": "",
     "active": false,
     "featured": false
-  }
+  },
+{
+  "id": "partner-business-product-001",
+  "name": "Example Partner Product",
+  "category": "home-essentials",
+  "type": "partner",
+  "description": "A short, accurate description of the product and its key benefits.",
+  "affiliateUrl": "",
+  "imageUrl": "",
+  "active": true,
+  "featured": true,
+  "price": "",
+  "currency": "₹",
+  "buttonLabel": "Enquire & Order on WhatsApp"
+}
 ]
