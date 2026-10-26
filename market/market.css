@@ -375,3 +375,24 @@
   border-color: #0B347F;
   color: #FFFFFF;
 }
+
+
+/* Definitive Amazon Finds navigation fix */
+.market-section-nav a.market-nav-amazon,
+.market-section-nav a.market-nav-amazon:link,
+.market-section-nav a.market-nav-amazon:visited,
+.market-section-nav a.market-nav-amazon:hover,
+.market-section-nav a.market-nav-amazon:focus,
+.market-section-nav a.market-nav-amazon:active {
+  background: #FF9900 !important;
+  background-color: #FF9900 !important;
+  border-color: #FF9900 !important;
+  color: #172337 !important;
+  -webkit-text-fill-color: #172337 !important;
+}
+
+.market-section-nav a.market-nav-amazon .amazon-nav-label {
+  color: #172337 !important;
+  -webkit-text-fill-color: #172337 !important;
+}
+
