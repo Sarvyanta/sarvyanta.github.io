@@ -398,61 +398,70 @@
 
 
 /* ==========================================
-   SARVYANTA MARKET — UNIFORM PRODUCT CARDS
-   Catalogue: maximum 6 description lines
-   Popup: complete description
+   SARVYANTA MARKET — PRODUCT DESCRIPTION FIX
+   Catalogue: exactly 6 lines of space
+   Details popup: full description
    ========================================== */
 
-/* Make all cards stretch evenly within each category carousel */
+/* Keep catalogue cards stretched consistently */
 .market-category-track {
-  align-items: stretch;
+  align-items: stretch !important;
 }
 
 .market-category-track > .product-card {
-  display: flex;
-  flex-direction: column;
+  display: flex !important;
+  flex-direction: column !important;
+  align-self: stretch !important;
 }
 
-/* Product information fills the available card height */
+/* Let product information fill the card */
 .market-category-track > .product-card > .product-info {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  align-items: stretch;
+  display: flex !important;
+  flex: 1 1 auto !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
 }
 
-/* Catalogue descriptions: reserve exactly 6 lines */
-.market-category-track > .product-card .product-description {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
-  line-clamp: 6;
-  overflow: hidden;
-  overflow-wrap: anywhere;
-  line-height: 1.5;
-  min-height: calc(1.5em * 6);
-  max-height: calc(1.5em * 6);
+/* Catalogue descriptions: clamp at 6 lines and reserve 6 lines */
+.market-category-track > .product-card > .product-info > .product-description {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 6 !important;
+  line-clamp: 6 !important;
+
+  height: calc(1.5em * 6) !important;
+  min-height: calc(1.5em * 6) !important;
+  max-height: calc(1.5em * 6) !important;
+
+  overflow: hidden !important;
+  line-height: 1.5 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  box-sizing: border-box !important;
 }
 
-/* Keep price and action areas aligned consistently */
-.market-category-track > .product-card .product-price {
-  margin-top: auto;
-  padding-top: 12px;
+/* Keep price and buttons below the description */
+.market-category-track > .product-card > .product-info > .product-price {
+  margin-top: auto !important;
+  padding-top: 12px !important;
 }
 
-.market-category-track > .product-card .product-info > .product-action {
-  margin-top: 12px;
+.market-category-track > .product-card > .product-info > .product-action {
+  margin-top: 12px !important;
 }
 
-/* Popup: never truncate the full product description */
+/* Details popup: show the entire description */
 .market-lightbox-product .product-description {
   display: block !important;
-  -webkit-box-orient: initial !important;
-  -webkit-line-clamp: unset !important;
-  line-clamp: unset !important;
+  height: auto !important;
   min-height: 0 !important;
   max-height: none !important;
+
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  -webkit-box-orient: initial !important;
+
   overflow: visible !important;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
+  white-space: pre-wrap !important;
+  overflow-wrap: anywhere !important;
 }
