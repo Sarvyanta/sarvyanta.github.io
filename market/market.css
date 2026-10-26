@@ -866,3 +866,115 @@ body {
   -webkit-line-clamp: unset;
   line-clamp: unset;
 }
+
+/* =========================================
+   SARVYANTA MARKET — SMALLER INNER TEXT
+   Keep header and footer unchanged
+========================================= */
+
+/* General content text */
+body {
+  font-size: 15px;
+}
+
+/* Welcome heading */
+.market-intro h1,
+.market-intro h2 {
+  font-size: clamp(27px, 3vw, 38px);
+}
+
+/* Welcome description */
+.market-intro p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Main section headings */
+.market-section h2,
+.section-title {
+  font-size: 24px;
+}
+
+/* Category headings */
+.category-title,
+.product-category-title {
+  font-size: 19px;
+}
+
+/* Product cards */
+.product-title,
+.product-name {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.product-description,
+.product-desc {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Product prices */
+.product-price,
+.price {
+  font-size: 17px;
+}
+
+/* Product buttons */
+.product-card button,
+.product-card .btn,
+.product-card a.button {
+  font-size: 14px;
+}
+
+/* Search and filter controls */
+input,
+select,
+.search-input {
+  font-size: 14px;
+}
+
+/* Category/filter chips */
+.category-chip,
+.category-button {
+  font-size: 14px;
+}
+
+/* Keep product images and card layout unchanged */
+
+/* Mobile adjustment */
+@media (max-width: 600px) {
+  .market-intro h1,
+  .market-intro h2 {
+    font-size: 26px;
+  }
+
+  .market-intro p {
+    font-size: 14px;
+  }
+
+  .market-section h2,
+  .section-title {
+    font-size: 22px;
+  }
+
+  .category-title,
+  .product-category-title {
+    font-size: 18px;
+  }
+
+  .product-title,
+  .product-name {
+    font-size: 15px;
+  }
+
+  .product-description,
+  .product-desc {
+    font-size: 12px;
+  }
+
+  .product-price,
+  .price {
+    font-size: 16px;
+  }
+}
