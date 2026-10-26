@@ -327,3 +327,105 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .market-section-nav a { transition: none; }
   .market-section-nav a:hover { transform: none; }
 }
+/* =========================================
+   MOBILE FONT SIZE FIX — SARVYANTA MARKET
+   ========================================= */
+
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  header,
+  nav,
+  .navbar {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 25px;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 22px;
+    line-height: 1.35;
+  }
+
+  h3 {
+    font-size: 19px;
+    line-height: 1.4;
+  }
+
+  p,
+  label,
+  li {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .product-title,
+  .product-name {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .product-description,
+  .product-card p {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .product-price,
+  .price {
+    font-size: 19px;
+    line-height: 1.4;
+  }
+
+  button,
+  .btn,
+  .product-button,
+  a.button {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .category-title,
+  .section-title {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  footer,
+  footer p,
+  footer a {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 23px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .product-title,
+  .product-name {
+    font-size: 15px;
+  }
+}
