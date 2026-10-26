@@ -118,3 +118,41 @@
     transform: none;
   }
 }
+
+/* Amazon affiliate button */
+a.check-on-amazon,
+a[href*="amzn.to"].product-button,
+a[href*="amazon.in"].product-button,
+a[href*="amazon.com"].product-button {
+  background: #FF9900 !important;
+  background-color: #FF9900 !important;
+  color: #172337 !important;
+  border-color: #FF9900 !important;
+  font-weight: 800;
+}
+
+a.check-on-amazon:hover,
+a[href*="amzn.to"].product-button:hover,
+a[href*="amazon.in"].product-button:hover,
+a[href*="amazon.com"].product-button:hover {
+  background: #F3A847 !important;
+  border-color: #F3A847 !important;
+  color: #172337 !important;
+}
+
+/* Order on WhatsApp button */
+a[href*="wa.me"],
+a[href*="whatsapp"].product-button {
+  background: #25D366 !important;
+  background-color: #25D366 !important;
+  color: #103B24 !important;
+  border-color: #25D366 !important;
+  font-weight: 800;
+}
+
+a[href*="wa.me"]:hover,
+a[href*="whatsapp"].product-button:hover {
+  background: #1FBA59 !important;
+  border-color: #1FBA59 !important;
+  color: #103B24 !important;
+}
