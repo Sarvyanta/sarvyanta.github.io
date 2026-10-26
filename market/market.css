@@ -324,3 +324,20 @@
     font-size: 14px;
   }
   }
+
+/* Fix: Amazon Finds navigation button text contrast */
+.market-section-nav a:nth-child(1),
+.market-section-nav a:nth-child(1):hover,
+.market-section-nav a:nth-child(1):focus-visible,
+.market-section-nav .market-nav-amazon,
+.market-section-nav .market-nav-amazon:hover {
+  background: #FF9900;
+  border-color: #FF9900;
+  color: #172337;
+}
+
+/* Ensure nested text is also readable */
+.market-section-nav a:nth-child(1) *,
+.market-section-nav .market-nav-amazon * {
+  color: #172337 !important;
+}
