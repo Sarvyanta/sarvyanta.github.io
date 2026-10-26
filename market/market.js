@@ -16,21 +16,25 @@
   const clearButton = document.getElementById("clear-filters");
   const year = document.getElementById("current-year");
 
+  // Confirm this is still the correct Sarvyanta WhatsApp number.
   const WHATSAPP_NUMBER = "917386406514";
 
   let products = [];
   let selectedCategory = "all";
   let searchTerm = "";
 
-  if (year) year.textContent = new Date().getFullYear();
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
 
   const safeText = value => String(value ?? "");
 
-  const titleCase = value => String(value || "")
-    .split(/[-_\s]+/)
-    .filter(Boolean)
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
+  const titleCase = value =>
+    String(value || "")
+      .split(/[-_\s]+/)
+      .filter(Boolean)
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
 
   function productType(product) {
     if (product.type === "partner") return "partner";
@@ -72,12 +76,23 @@
     }
   }
 
+  function addPlaceholder(imageWrap) {
+    const placeholder = document.createElement("div");
+    placeholder.className = "product-placeholder";
+    placeholder.textContent = "✦";
+    placeholder.setAttribute("aria-hidden", "true");
+    imageWrap.appendChild(placeholder);
+  }
+
   function createProductCard(product) {
     const type = productType(product);
+
     const card = document.createElement("article");
     card.className = "product-card";
 
-    if (type === "partner") card.classList.add("partner-card");
+    if (type === "partner") {
+      card.classList.add("partner-card");
+    }
 
     const imageWrap = document.createElement("div");
     imageWrap.className = "product-image-wrap";
@@ -150,6 +165,7 @@
       info.appendChild(price);
     }
 
+    // Amazon affiliate product
     if (type === "affiliate") {
       const action = document.createElement("a");
       action.className = "product-action";
@@ -161,19 +177,29 @@
         action.href = url;
         action.target = "_blank";
         action.rel = "sponsored nofollow noopener noreferrer";
-        action.addEventListener("click", () => trackAffiliateClick(product));
+
+        action.addEventListener("click", () => {
+          trackAffiliateClick(product);
+        });
       } else {
         action.href = "#";
         action.setAttribute("aria-disabled", "true");
         action.textContent = "Link coming soon";
-        action.addEventListener("click", event => event.preventDefault());
+
+        action.addEventListener("click", event => {
+          event.preventDefault();
+        });
       }
 
       info.appendChild(action);
-    } else if (type === "partner") {
+    }
+
+    // Partner product — enquiries go to Sarvyanta WhatsApp
+    else if (type === "partner") {
       const action = document.createElement("a");
       action.className = "product-action partner-action";
-      action.textContent = product.buttonLabel || "Enquire & Order on WhatsApp";
+      action.textContent =
+        product.buttonLabel || "Enquire & Order on WhatsApp";
 
       if (product.active === false) {
         action.textContent = "Coming soon";
@@ -190,15 +216,20 @@
         ].join("\n");
 
         action.href =
-          "https://wa.me/" + WHATSAPP_NUMBER +
-          "?text=" + encodeURIComponent(message);
+          "https://wa.me/" +
+          WHATSAPP_NUMBER +
+          "?text=" +
+          encodeURIComponent(message);
 
         action.target = "_blank";
         action.rel = "noopener noreferrer";
       }
 
       info.appendChild(action);
-    } else {
+    }
+
+    // Sarvyanta-owned product
+    else {
       const action = document.createElement("a");
       action.className = "product-action own-action";
 
@@ -222,14 +253,6 @@
     return card;
   }
 
-  function addPlaceholder(imageWrap) {
-    const placeholder = document.createElement("div");
-    placeholder.className = "product-placeholder";
-    placeholder.textContent = "✦";
-    placeholder.setAttribute("aria-hidden", "true");
-    imageWrap.appendChild(placeholder);
-  }
-
   function buildCategories() {
     const categories = [
       ...new Set(
@@ -237,9 +260,10 @@
           .filter(product => product.active !== false)
           .map(product => product.category || "general")
       )
-    ].sort();
+    ].sort((a, b) => titleCase(a).localeCompare(titleCase(b)));
 
     categoryContainer.replaceChildren();
+
     categoryContainer.appendChild(
       makeCategoryButton("all", "All products")
     );
@@ -275,6 +299,7 @@
       .querySelectorAll("button[data-category]")
       .forEach(button => {
         const selected = button.dataset.category === selectedCategory;
+
         button.classList.toggle("selected", selected);
         button.setAttribute("aria-pressed", String(selected));
       });
@@ -283,6 +308,7 @@
   function renderProducts() {
     const query = searchTerm.trim().toLowerCase();
 
+    // Apply active status, category filter and search.
     const visible = products.filter(product => {
       if (product.active === false) return false;
 
@@ -295,31 +321,86 @@
         product.description,
         product.category,
         product.type
-      ].join(" ").toLowerCase();
+      ]
+        .map(value => safeText(value))
+        .join(" ")
+        .toLowerCase();
 
       return categoryMatches && (!query || searchable.includes(query));
     });
 
+    // Sort the complete filtered list before grouping it.
     if (sortSelect.value === "name") {
       visible.sort((a, b) =>
         safeText(a.name).localeCompare(safeText(b.name))
       );
     } else {
-      visible.sort((a, b) =>
-        Number(Boolean(b.featured)) - Number(Boolean(a.featured))
+      visible.sort(
+        (a, b) =>
+          Number(Boolean(b.featured)) -
+          Number(Boolean(a.featured))
       );
     }
 
-    Object.values(grids).forEach(grid => grid.replaceChildren());
+    // Clear the previous rows.
+    Object.values(grids).forEach(grid => {
+      grid.replaceChildren();
+    });
+
+    // Group products by market section and then by category.
+    const grouped = {
+      affiliate: new Map(),
+      partner: new Map(),
+      sarvyanta: new Map()
+    };
 
     visible.forEach(product => {
       const type = productType(product);
-      grids[type].appendChild(createProductCard(product));
+      const category = product.category || "general";
+
+      if (!grouped[type].has(category)) {
+        grouped[type].set(category, []);
+      }
+
+      grouped[type].get(category).push(product);
     });
 
-    Object.entries(grids).forEach(([type, grid]) => {
+    // Render one horizontal scrolling row for every non-empty category.
+    Object.entries(grouped).forEach(([type, categories]) => {
+      const grid = grids[type];
       const section = grid.closest(".market-product-section");
-      section.hidden = grid.children.length === 0;
+
+      const sortedCategories = [...categories.entries()].sort(
+        ([a], [b]) => titleCase(a).localeCompare(titleCase(b))
+      );
+
+      sortedCategories.forEach(([category, categoryProducts]) => {
+        const row = document.createElement("div");
+        row.className = "market-category-row";
+
+        const heading = document.createElement("h3");
+        heading.className = "market-category-title";
+        heading.textContent = titleCase(category);
+
+        const track = document.createElement("div");
+        track.className = "market-category-track";
+        track.setAttribute(
+          "aria-label",
+          titleCase(category) + " products"
+        );
+        track.setAttribute("tabindex", "0");
+        track.setAttribute("role", "region");
+
+        categoryProducts.forEach(product => {
+          track.appendChild(createProductCard(product));
+        });
+
+        row.append(heading, track);
+        grid.appendChild(row);
+      });
+
+      // Hide the whole section when no products match.
+      section.hidden = categories.size === 0;
     });
 
     resultCount.textContent =
@@ -339,6 +420,7 @@
     selectedCategory = "all";
     searchTerm = "";
     sortSelect.value = "featured";
+
     updateCategoryButtons();
     renderProducts();
   }
@@ -356,6 +438,7 @@
       if (!response.ok) {
         throw new Error("Could not load products.json");
       }
+
       return response.json();
     })
     .then(data => {
@@ -364,7 +447,10 @@
       }
 
       products = data.filter(
-        product => product && typeof product === "object" && product.name
+        product =>
+          product &&
+          typeof product === "object" &&
+          product.name
       );
 
       buildCategories();
@@ -375,10 +461,12 @@
 
       Object.values(grids).forEach(grid => {
         grid.replaceChildren();
+
         const message = document.createElement("div");
         message.className = "loading-card";
         message.textContent =
           "We're updating the market. Please check back soon.";
+
         grid.appendChild(message);
       });
 
