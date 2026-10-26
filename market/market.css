@@ -396,3 +396,63 @@
   -webkit-text-fill-color: #172337 !important;
 }
 
+
+/* ==========================================
+   SARVYANTA MARKET — UNIFORM PRODUCT CARDS
+   Catalogue: maximum 6 description lines
+   Popup: complete description
+   ========================================== */
+
+/* Make all cards stretch evenly within each category carousel */
+.market-category-track {
+  align-items: stretch;
+}
+
+.market-category-track > .product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Product information fills the available card height */
+.market-category-track > .product-card > .product-info {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Catalogue descriptions: reserve exactly 6 lines */
+.market-category-track > .product-card .product-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  line-clamp: 6;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+  min-height: calc(1.5em * 6);
+  max-height: calc(1.5em * 6);
+}
+
+/* Keep price and action areas aligned consistently */
+.market-category-track > .product-card .product-price {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.market-category-track > .product-card .product-info > .product-action {
+  margin-top: 12px;
+}
+
+/* Popup: never truncate the full product description */
+.market-lightbox-product .product-description {
+  display: block !important;
+  -webkit-box-orient: initial !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
