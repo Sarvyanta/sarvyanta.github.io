@@ -229,7 +229,7 @@
       info.appendChild(action);
     }
 
-    // Partner product: WhatsApp enquiry.
+    // Partner product: WhatsApp enquiry + optional partner page button.
     else if (type === "partner") {
       const action = document.createElement("a");
       action.className = "product-action partner-action";
@@ -267,7 +267,8 @@
       }
 
       info.appendChild(action);
-            // Optional: explore more products from the same partner.
+
+      // Optional: explore more products from the same partner.
       if (
         product.active !== false &&
         typeof product.partnerPageUrl === "string" &&
@@ -294,8 +295,9 @@
         } catch (_) {
           // Ignore an invalid partner page URL.
         }
-  }
+      }
     }
+
 
     // Sarvyanta-owned product.
     else {
