@@ -267,6 +267,34 @@
       }
 
       info.appendChild(action);
+            // Optional: explore more products from the same partner.
+      if (
+        product.active !== false &&
+        typeof product.partnerPageUrl === "string" &&
+        product.partnerPageUrl.trim()
+      ) {
+        try {
+          const partnerUrl = new URL(product.partnerPageUrl);
+
+          if (partnerUrl.protocol === "https:") {
+            const exploreButton = document.createElement("a");
+
+            exploreButton.className =
+              "product-action partner-explore-action";
+
+            exploreButton.textContent =
+              "Explore Other Products ↗";
+
+            exploreButton.href = partnerUrl.href;
+            exploreButton.target = "_blank";
+            exploreButton.rel = "noopener noreferrer";
+
+            info.appendChild(exploreButton);
+          }
+        } catch (_) {
+          // Ignore an invalid partner page URL.
+        }
+  }
     }
 
     // Sarvyanta-owned product.
