@@ -133,7 +133,7 @@
   "description": "A beautiful personalized baby memory display board designed to preserve and showcase your little one's precious moments. This round decorative board features multiple photo spaces for displaying adorable baby pictures, along with dedicated space to keep small sentimental items such as bangles, bracelets, necklaces, and other baby keepsakes. Personalize it with your baby's name and create a unique display that celebrates your child's growth and unforgettable memories.",
   "affiliateUrl": "",
   "imageUrl": "https://sarvyanta.com/market/images/vidhmahi.png",
-  "active": true,
+  "active": false,
   "featured": false,
   "currency": "₹",
   "buttonLabel": "Enquire & Order on WhatsApp"
@@ -163,6 +163,6 @@
   "featured": false,
   "currency": "₹",
   "buttonLabel": "Enquire & Order on WhatsApp",
-  "partnerPageUrl": "https://sarvyanta.com/partners/your-real-partner-page/"
+  "partnerPageUrl": "https://resin-art-works.sarvyanta.com/"
 }
 ]
