@@ -419,6 +419,23 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   h1 {
     font-size: 23px;
   }
+/* Explore other products from a partner */
+.partner-explore-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  background: #ffffff;
+  color: var(--blue, #1246A8);
+  border: 1px solid var(--blue, #1246A8);
+  text-decoration: none;
+}
+
+.partner-explore-action:hover {
+  background: var(--blue-light, #EAF2FF);
+  color: var(--blue-dark, #0B347F);
+}
+   
 
   h2 {
     font-size: 20px;
