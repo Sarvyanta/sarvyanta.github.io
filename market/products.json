@@ -150,5 +150,19 @@
   "featured": false,
   "currency": "₹",
   "buttonLabel": "Enquire & Order on WhatsApp"
-  }
+  },
+  {
+  "id": "personalized-baby-memories-and-keepsake-display-board",
+  "name": "Personalized Baby Memories & Keepsake Display Board",
+  "category": "other",
+  "type": "partner",
+  "description": "A personalized baby memory board featuring photo spaces and keepsake storage.",
+  "affiliateUrl": "",
+  "imageUrl": "https://sarvyanta.com/market/images/vidhmahi.png",
+  "active": true,
+  "featured": false,
+  "currency": "₹",
+  "buttonLabel": "Enquire & Order on WhatsApp",
+  "partnerPageUrl": "https://sarvyanta.com/partners/your-real-partner-page/"
+}
 ]
