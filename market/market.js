@@ -20,6 +20,8 @@
   let products = [];
   let selectedCategory = "all";
   let searchTerm = "";
+  let searchTrackingTimeout = null;
+  let lastTrackedSearch = "";
 
   // ========================================
   // BASIC PAGE SETUP
@@ -40,6 +42,30 @@
     if (product.type === "partner") return "partner";
     if (product.type === "sarvyanta") return "sarvyanta";
     return "affiliate";
+  }
+
+  // ========================================
+  // GOOGLE ANALYTICS 4 EVENT TRACKING
+  // ========================================
+
+  function trackMarketEvent(eventName, product = null, extra = {}) {
+    if (typeof window.gtag !== "function") return;
+
+    const eventData = {
+      page_type: "market",
+      ...extra
+    };
+
+    if (product && typeof product === "object") {
+      eventData.product_id = safeText(product.id || "unknown");
+      eventData.product_name = safeText(product.name || "unknown");
+      eventData.product_category = safeText(
+        product.category || "uncategorized"
+      );
+      eventData.product_type = productType(product);
+    }
+
+    window.gtag("event", eventName, eventData);
   }
 
   // ========================================
@@ -72,14 +98,10 @@
   }
 
   function trackAffiliateClick(product) {
-    if (typeof window.gtag === "function") {
-      window.gtag("event", "affiliate_click", {
-        product_id: product.id || "unknown",
-        product_name: product.name || "unknown",
-        product_category: product.category || "uncategorized",
-        affiliate_program: "amazon"
-      });
-    }
+    trackMarketEvent("affiliate_click", product, {
+      affiliate_program: "amazon",
+      link_url: product.affiliateUrl || ""
+    });
   }
 
   // ========================================
@@ -264,6 +286,13 @@
 
         action.target = "_blank";
         action.rel = "noopener noreferrer";
+
+        action.addEventListener("click", () => {
+          trackMarketEvent("whatsapp_enquiry", product, {
+            enquiry_type: "partner_product",
+            contact_method: "whatsapp"
+          });
+        });
       }
 
       info.appendChild(action);
@@ -290,6 +319,12 @@
             exploreButton.target = "_blank";
             exploreButton.rel = "noopener noreferrer";
 
+            exploreButton.addEventListener("click", () => {
+              trackMarketEvent("partner_page_click", product, {
+                destination_url: partnerUrl.href
+              });
+            });
+
             info.appendChild(exploreButton);
           }
         } catch (_) {
@@ -297,7 +332,6 @@
         }
       }
     }
-
 
     // Sarvyanta-owned product.
     else {
@@ -319,6 +353,12 @@
         action.href = product.orderUrl;
         action.target = "_blank";
         action.rel = "noopener noreferrer";
+
+        action.addEventListener("click", () => {
+          trackMarketEvent("own_product_click", product, {
+            destination_url: product.orderUrl
+          });
+        });
       } else {
         action.href = "#";
         action.textContent = "More details soon";
@@ -380,6 +420,11 @@
       selectedCategory = value;
       updateCategoryButtons();
       renderProducts();
+
+      trackMarketEvent("select_category", null, {
+        selected_category: value,
+        category_label: label
+      });
     });
 
     return button;
@@ -525,8 +570,14 @@
   function clearFilters() {
     if (searchInput) searchInput.value = "";
 
+    if (searchTrackingTimeout) {
+      clearTimeout(searchTrackingTimeout);
+      searchTrackingTimeout = null;
+    }
+
     selectedCategory = "all";
     searchTerm = "";
+    lastTrackedSearch = "";
 
     if (sortSelect) sortSelect.value = "featured";
 
@@ -538,15 +589,48 @@
     searchInput.addEventListener("input", () => {
       searchTerm = searchInput.value;
       renderProducts();
+
+      if (searchTrackingTimeout) {
+        clearTimeout(searchTrackingTimeout);
+      }
+
+      const query = searchTerm.trim();
+
+      if (query.length < 2) return;
+
+      searchTrackingTimeout = setTimeout(() => {
+        const normalizedQuery = query.toLowerCase();
+
+        if (normalizedQuery === lastTrackedSearch) return;
+
+        lastTrackedSearch = normalizedQuery;
+
+        trackMarketEvent("search", null, {
+          search_term: query,
+          selected_category: selectedCategory
+        });
+      }, 700);
     });
   }
 
   if (sortSelect) {
-    sortSelect.addEventListener("change", renderProducts);
+    sortSelect.addEventListener("change", () => {
+      renderProducts();
+
+      trackMarketEvent("market_sort", null, {
+        sort_option: sortSelect.value
+      });
+    });
   }
 
   if (clearButton) {
-    clearButton.addEventListener("click", clearFilters);
+    clearButton.addEventListener("click", () => {
+      clearFilters();
+
+      trackMarketEvent("clear_market_filters", null, {
+        page_type: "market"
+      });
+    });
   }
 
   // ========================================
@@ -1174,6 +1258,16 @@
 
     lightbox.classList.add("is-open");
 
+    const product = products.find(item =>
+      safeText(item.id) === card.dataset.productId
+    );
+
+    if (product) {
+      trackMarketEvent("view_item", product, {
+        viewer: "product_details"
+      });
+    }
+
     lightbox
       .querySelector(".market-lightbox-close")
       .focus();
@@ -1220,6 +1314,7 @@
     productViewerContent.replaceChildren(productClone);
 
     // Restore affiliate click tracking on the cloned Amazon link.
+    // Also restore partner and own-product tracking in the viewer.
     const originalAction = originalCard.querySelector(".product-action");
     const clonedAction = productClone.querySelector(".product-action");
 
@@ -1232,13 +1327,59 @@
         safeText(item.id) === originalCard.dataset.productId
       );
 
-      if (
-        product &&
-        productType(product) === "affiliate" &&
-        validAffiliateUrl(product.affiliateUrl)
-      ) {
-        clonedAction.addEventListener("click", () => {
-          trackAffiliateClick(product);
+      if (product) {
+        if (
+          productType(product) === "affiliate" &&
+          validAffiliateUrl(product.affiliateUrl)
+        ) {
+          clonedAction.addEventListener("click", () => {
+            trackAffiliateClick(product);
+          });
+        } else if (
+          productType(product) === "partner" &&
+          product.active !== false
+        ) {
+          clonedAction.addEventListener("click", () => {
+            trackMarketEvent("whatsapp_enquiry", product, {
+              enquiry_type: "partner_product",
+              contact_method: "whatsapp",
+              viewer: "product_details"
+            });
+          });
+        } else if (
+          productType(product) === "sarvyanta" &&
+          product.active !== false &&
+          product.orderUrl
+        ) {
+          clonedAction.addEventListener("click", () => {
+            trackMarketEvent("own_product_click", product, {
+              destination_url: product.orderUrl,
+              viewer: "product_details"
+            });
+          });
+        }
+      }
+    }
+
+    // Track partner page button clicks in the cloned viewer.
+    const originalExploreButton = originalCard.querySelector(
+      ".partner-explore-action"
+    );
+    const clonedExploreButton = productClone.querySelector(
+      ".partner-explore-action"
+    );
+
+    if (originalExploreButton && clonedExploreButton) {
+      const product = products.find(item =>
+        safeText(item.id) === originalCard.dataset.productId
+      );
+
+      if (product) {
+        clonedExploreButton.addEventListener("click", () => {
+          trackMarketEvent("partner_page_click", product, {
+            destination_url: clonedExploreButton.href,
+            viewer: "product_details"
+          });
         });
       }
     }
@@ -1280,6 +1421,18 @@
       currentCards.length;
 
     displayCurrentProduct();
+
+    const card = currentCards[currentCardIndex];
+    const product = products.find(item =>
+      safeText(item.id) === card?.dataset.productId
+    );
+
+    if (product) {
+      trackMarketEvent("view_item", product, {
+        viewer: "product_details",
+        navigation: "previous"
+      });
+    }
   }
 
   function showNextProduct() {
@@ -1289,6 +1442,18 @@
       (currentCardIndex + 1) % currentCards.length;
 
     displayCurrentProduct();
+
+    const card = currentCards[currentCardIndex];
+    const product = products.find(item =>
+      safeText(item.id) === card?.dataset.productId
+    );
+
+    if (product) {
+      trackMarketEvent("view_item", product, {
+        viewer: "product_details",
+        navigation: "next"
+      });
+    }
   }
 
   // ========================================
@@ -1408,6 +1573,12 @@
 
       buildCategories();
       renderProducts();
+
+      trackMarketEvent("market_catalogue_loaded", null, {
+        product_count: products.filter(
+          product => product.active !== false
+        ).length
+      });
     })
     .catch(error => {
       console.error("Sarvyanta Market catalogue error:", error);
@@ -1429,5 +1600,9 @@
         resultCount.textContent =
           "Products temporarily unavailable";
       }
+
+      trackMarketEvent("market_catalogue_error", null, {
+        error_message: safeText(error.message || "Unknown error")
+      });
     });
 })();
