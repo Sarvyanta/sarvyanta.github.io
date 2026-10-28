@@ -2,6 +2,11 @@
 (() => {
   "use strict";
 
+  // =========================================================
+  // SARVYANTA MARKET
+  // Product catalogue, filters, viewer, image zoom and GA4
+  // =========================================================
+
   const grids = {
     affiliate: document.getElementById("amazon-product-grid"),
     partner: document.getElementById("partner-product-grid"),
@@ -15,6 +20,7 @@
   const emptyState = document.getElementById("empty-state");
   const clearButton = document.getElementById("clear-filters");
   const year = document.getElementById("current-year");
+
   const WHATSAPP_NUMBER = "917386406514";
 
   let products = [];
@@ -23,11 +29,28 @@
   let searchTrackingTimeout = null;
   let lastTrackedSearch = "";
 
-  // ========================================
-  // BASIC PAGE SETUP
-  // ========================================
+  let lightbox = null;
+  let productViewerContent = null;
+  let viewerCounter = null;
+
+  let imageLightbox = null;
+  let zoomedImage = null;
+
+  let currentCards = [];
+  let currentCardIndex = 0;
+
+  let previousBodyOverflow = "";
+  let previouslyFocusedElement = null;
+  let previouslyFocusedImageControl = null;
+
+  let touchStartX = 0;
+  let touchStartY = 0;
 
   if (year) year.textContent = new Date().getFullYear();
+
+  // =========================================================
+  // GENERAL HELPERS
+  // =========================================================
 
   const safeText = value => String(value ?? "");
 
@@ -44,33 +67,76 @@
     return "affiliate";
   }
 
-  // ========================================
-  // GOOGLE ANALYTICS 4 EVENT TRACKING
-  // ========================================
+  function getProduct(productId) {
+    return products.find(
+      product => safeText(product.id) === safeText(productId)
+    );
+  }
+
+  function getPartnerName(product) {
+    return safeText(
+      product.partnerName ||
+      product.partner ||
+      product.businessName ||
+      ""
+    );
+  }
+
+  function getActionLocation(element) {
+    return element?.closest(".market-lightbox-product")
+      ? "product_viewer"
+      : "product_card";
+  }
+
+  // =========================================================
+  // GA4 TRACKING
+  // Requires the existing GA4 tag and window.gtag.
+  // =========================================================
 
   function trackMarketEvent(eventName, product = null, extra = {}) {
     if (typeof window.gtag !== "function") return;
 
-    const eventData = {
+    const data = {
       page_type: "market",
       ...extra
     };
 
     if (product && typeof product === "object") {
-      eventData.product_id = safeText(product.id || "unknown");
-      eventData.product_name = safeText(product.name || "unknown");
-      eventData.product_category = safeText(
+      data.product_id = safeText(product.id || "unknown");
+      data.product_name = safeText(product.name || "unknown");
+      data.product_category = safeText(
         product.category || "uncategorized"
       );
-      eventData.product_type = productType(product);
+      data.product_type = productType(product);
+
+      const partnerName = getPartnerName(product);
+      if (partnerName) data.partner_name = partnerName;
     }
 
-    window.gtag("event", eventName, eventData);
+    // GA4 event parameters should be scalar values.
+    Object.keys(data).forEach(key => {
+      if (data[key] === undefined || data[key] === null) {
+        delete data[key];
+      } else if (typeof data[key] === "boolean") {
+        data[key] = data[key] ? "true" : "false";
+      } else if (typeof data[key] === "object") {
+        data[key] = safeText(data[key]);
+      }
+    });
+
+    window.gtag("event", eventName, data);
   }
 
-  // ========================================
+  function trackProductAction(eventName, product, element, extra = {}) {
+    trackMarketEvent(eventName, product, {
+      action_location: getActionLocation(element),
+      ...extra
+    });
+  }
+
+  // =========================================================
   // AMAZON AFFILIATE URL VALIDATION
-  // ========================================
+  // =========================================================
 
   function validAffiliateUrl(value) {
     if (!value || typeof value !== "string") return null;
@@ -97,16 +163,17 @@
     return null;
   }
 
-  function trackAffiliateClick(product) {
-    trackMarketEvent("affiliate_click", product, {
+  function trackAffiliateClick(product, element) {
+    trackProductAction("affiliate_click", product, element, {
       affiliate_program: "amazon",
-      link_url: product.affiliateUrl || ""
+      destination_url: safeText(product.affiliateUrl || ""),
+      link_url: safeText(product.affiliateUrl || "")
     });
   }
 
-  // ========================================
-  // PRODUCT IMAGE PLACEHOLDER
-  // ========================================
+  // =========================================================
+  // IMAGE PLACEHOLDER
+  // =========================================================
 
   function addPlaceholder(imageWrap) {
     if (imageWrap.querySelector(".product-placeholder")) return;
@@ -119,9 +186,9 @@
     imageWrap.appendChild(placeholder);
   }
 
-  // ========================================
+  // =========================================================
   // CREATE PRODUCT CARD
-  // ========================================
+  // =========================================================
 
   function createProductCard(product) {
     const type = productType(product);
@@ -136,11 +203,9 @@
       "View product details: " + safeText(product.name)
     );
 
-    if (type === "partner") {
-      card.classList.add("partner-card");
-    }
+    if (type === "partner") card.classList.add("partner-card");
 
-    // Product image.
+    // Image
     const imageWrap = document.createElement("div");
     imageWrap.className = "product-image-wrap";
 
@@ -164,7 +229,7 @@
       addPlaceholder(imageWrap);
     }
 
-    // Product badge.
+    // Badge
     const badge = document.createElement("span");
     badge.className = "product-badge";
 
@@ -180,7 +245,7 @@
 
     imageWrap.appendChild(badge);
 
-    // Product information.
+    // Information
     const info = document.createElement("div");
     info.className = "product-info";
 
@@ -198,7 +263,7 @@
 
     info.append(category, title, description);
 
-    // Price.
+    // Price
     if (
       product.price !== undefined &&
       product.price !== null &&
@@ -212,7 +277,6 @@
         safeText(product.price);
 
       const note = document.createElement("small");
-
       note.textContent = product.priceNote
         ? " " + safeText(product.priceNote)
         : " · Check current price";
@@ -221,7 +285,10 @@
       info.appendChild(price);
     }
 
-    // Amazon affiliate product.
+    // -------------------------------------------------------
+    // AMAZON AFFILIATE PRODUCT
+    // -------------------------------------------------------
+
     if (type === "affiliate") {
       const action = document.createElement("a");
       action.className = "product-action";
@@ -236,7 +303,7 @@
         action.rel = "sponsored nofollow noopener noreferrer";
 
         action.addEventListener("click", () => {
-          trackAffiliateClick(product);
+          trackAffiliateClick(product, action);
         });
       } else {
         action.href = "#";
@@ -251,11 +318,13 @@
       info.appendChild(action);
     }
 
-    // Partner product: WhatsApp enquiry + optional partner page button.
+    // -------------------------------------------------------
+    // PARTNER PRODUCT
+    // -------------------------------------------------------
+
     else if (type === "partner") {
       const action = document.createElement("a");
       action.className = "product-action partner-action";
-
       action.textContent =
         product.buttonLabel || "Enquire & Order on WhatsApp";
 
@@ -288,16 +357,17 @@
         action.rel = "noopener noreferrer";
 
         action.addEventListener("click", () => {
-          trackMarketEvent("whatsapp_enquiry", product, {
+          trackProductAction("whatsapp_enquiry", product, action, {
             enquiry_type: "partner_product",
-            contact_method: "whatsapp"
+            contact_method: "whatsapp",
+            destination_url: action.href
           });
         });
       }
 
       info.appendChild(action);
 
-      // Optional: explore more products from the same partner.
+      // Partner page
       if (
         product.active !== false &&
         typeof product.partnerPageUrl === "string" &&
@@ -312,28 +382,35 @@
             exploreButton.className =
               "product-action partner-explore-action";
 
-            exploreButton.textContent =
-              "Explore Other Products ↗";
-
+            exploreButton.textContent = "Explore Other Products ↗";
             exploreButton.href = partnerUrl.href;
             exploreButton.target = "_blank";
             exploreButton.rel = "noopener noreferrer";
 
             exploreButton.addEventListener("click", () => {
-              trackMarketEvent("partner_page_click", product, {
-                destination_url: partnerUrl.href
-              });
+              trackProductAction(
+                "partner_page_click",
+                product,
+                exploreButton,
+                {
+                  destination_url: partnerUrl.href,
+                  partner_page_url: partnerUrl.href
+                }
+              );
             });
 
             info.appendChild(exploreButton);
           }
         } catch (_) {
-          // Ignore an invalid partner page URL.
+          // Ignore invalid partner page URL.
         }
       }
     }
 
-    // Sarvyanta-owned product.
+    // -------------------------------------------------------
+    // SARVYANTA-OWNED PRODUCT
+    // -------------------------------------------------------
+
     else {
       const action = document.createElement("a");
       action.className = "product-action own-action";
@@ -355,7 +432,7 @@
         action.rel = "noopener noreferrer";
 
         action.addEventListener("click", () => {
-          trackMarketEvent("own_product_click", product, {
+          trackProductAction("own_product_click", product, action, {
             destination_url: product.orderUrl
           });
         });
@@ -373,13 +450,12 @@
     }
 
     card.append(imageWrap, info);
-
     return card;
   }
 
-  // ========================================
+  // =========================================================
   // CATEGORY FILTERS
-  // ========================================
+  // =========================================================
 
   function buildCategories() {
     if (!categoryContainer) return;
@@ -393,7 +469,6 @@
     ].sort((a, b) => titleCase(a).localeCompare(titleCase(b)));
 
     categoryContainer.replaceChildren();
-
     categoryContainer.appendChild(
       makeCategoryButton("all", "All products")
     );
@@ -417,13 +492,16 @@
     button.setAttribute("aria-pressed", "false");
 
     button.addEventListener("click", () => {
+      const previousCategory = selectedCategory;
+
       selectedCategory = value;
       updateCategoryButtons();
       renderProducts();
 
       trackMarketEvent("select_category", null, {
         selected_category: value,
-        category_label: label
+        category_label: label,
+        previous_category: previousCategory
       });
     });
 
@@ -444,9 +522,9 @@
       });
   }
 
-  // ========================================
+  // =========================================================
   // RENDER PRODUCTS
-  // ========================================
+  // =========================================================
 
   function renderProducts() {
     const query = searchTerm.trim().toLowerCase();
@@ -464,7 +542,7 @@
         product.category,
         product.type
       ]
-        .map(value => safeText(value))
+        .map(safeText)
         .join(" ")
         .toLowerCase();
 
@@ -524,6 +602,7 @@
 
         const track = document.createElement("div");
         track.className = "market-category-track";
+
         track.setAttribute(
           "aria-label",
           titleCase(category) + " products"
@@ -537,11 +616,19 @@
 
         row.append(heading, track);
         grid.appendChild(row);
+
+        // Track which product list was rendered.
+        trackMarketEvent("product_list_view", null, {
+          item_list_name: type + "_" + category,
+          item_list_type: type,
+          list_category: category,
+          item_count: categoryProducts.length,
+          search_term: searchTerm.trim(),
+          selected_category: selectedCategory
+        });
       });
 
-      if (section) {
-        section.hidden = categories.size === 0;
-      }
+      if (section) section.hidden = categories.size === 0;
     });
 
     if (resultCount) {
@@ -549,25 +636,26 @@
         `${visible.length} ${visible.length === 1 ? "product" : "products"}`;
     }
 
-    if (emptyState) {
-      emptyState.hidden = visible.length !== 0;
-    }
+    if (emptyState) emptyState.hidden = visible.length !== 0;
 
     if (visible.length === 0) {
       Object.values(grids).forEach(grid => {
         if (!grid) return;
-
         const section = grid.closest(".market-product-section");
         if (section) section.hidden = true;
       });
     }
   }
 
-  // ========================================
-  // CLEAR FILTERS
-  // ========================================
+  // =========================================================
+  // SEARCH, SORTING AND CLEAR FILTERS
+  // =========================================================
 
   function clearFilters() {
+    const previousCategory = selectedCategory;
+    const previousSearch = searchTerm;
+    const previousSort = sortSelect?.value || "featured";
+
     if (searchInput) searchInput.value = "";
 
     if (searchTrackingTimeout) {
@@ -583,6 +671,12 @@
 
     updateCategoryButtons();
     renderProducts();
+
+    trackMarketEvent("clear_market_filters", null, {
+      previous_category: previousCategory,
+      previous_search_term: previousSearch,
+      previous_sort_option: previousSort
+    });
   }
 
   if (searchInput) {
@@ -595,14 +689,12 @@
       }
 
       const query = searchTerm.trim();
-
       if (query.length < 2) return;
 
       searchTrackingTimeout = setTimeout(() => {
         const normalizedQuery = query.toLowerCase();
 
         if (normalizedQuery === lastTrackedSearch) return;
-
         lastTrackedSearch = normalizedQuery;
 
         trackMarketEvent("search", null, {
@@ -618,52 +710,28 @@
       renderProducts();
 
       trackMarketEvent("market_sort", null, {
-        sort_option: sortSelect.value
+        sort_option: sortSelect.value,
+        selected_category: selectedCategory,
+        search_term: searchTerm.trim()
       });
     });
   }
 
   if (clearButton) {
-    clearButton.addEventListener("click", () => {
-      clearFilters();
-
-      trackMarketEvent("clear_market_filters", null, {
-        page_type: "market"
-      });
-    });
+    clearButton.addEventListener("click", clearFilters);
   }
 
-  // ========================================
-  // PRODUCT DETAILS VIEWER + IMAGE LIGHTBOX
-  // ========================================
-
-  let lightbox = null;
-  let productViewerContent = null;
-  let viewerCounter = null;
-
-  let imageLightbox = null;
-  let zoomedImage = null;
-
-  let currentCards = [];
-  let currentCardIndex = 0;
-
-  let previousBodyOverflow = "";
-  let previouslyFocusedElement = null;
-  let previouslyFocusedImageControl = null;
-
-  let touchStartX = 0;
-  let touchStartY = 0;
+  // =========================================================
+  // VIEWER STYLES
+  // =========================================================
 
   function addViewerStyles() {
-    if (document.getElementById("market-product-viewer-styles")) {
-      return;
-    }
+    if (document.getElementById("market-product-viewer-styles")) return;
 
     const style = document.createElement("style");
     style.id = "market-product-viewer-styles";
 
     style.textContent = `
-      /* Product details overlay */
       .market-image-lightbox {
         position: fixed;
         inset: 0;
@@ -673,328 +741,134 @@
         justify-content: center;
         padding: 16px;
         overflow-y: auto;
-        background: rgba(10, 18, 32, 0.82);
+        background: rgba(10,18,32,.82);
         -webkit-overflow-scrolling: touch;
         overscroll-behavior: contain;
       }
-
-      .market-image-lightbox.is-open {
-        display: flex;
-      }
-
+      .market-image-lightbox.is-open { display:flex; }
       .market-image-lightbox *,
-      .market-image-lightbox *::before,
-      .market-image-lightbox *::after,
-      .market-image-zoom-overlay *,
-      .market-image-zoom-overlay *::before,
-      .market-image-zoom-overlay *::after {
-        box-sizing: border-box;
-      }
+      .market-image-zoom-overlay * { box-sizing:border-box; }
 
       .market-lightbox-content {
-        position: relative;
-        flex: 0 0 auto;
-        width: min(100%, 820px);
-        max-height: none;
-        margin: auto;
-        padding: 58px 54px 20px;
-        overflow: visible;
-        border-radius: 20px;
-        background: #ffffff;
-        color: #172337;
-        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+        position:relative;
+        flex:0 0 auto;
+        width:min(100%,820px);
+        margin:auto;
+        padding:58px 54px 20px;
+        overflow:visible;
+        border-radius:20px;
+        background:#fff;
+        color:#172337;
+        box-shadow:0 24px 80px rgba(0,0,0,.3);
       }
-
       .market-lightbox-close {
-        position: absolute;
-        top: 10px;
-        right: 12px;
-        z-index: 8;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 42px;
-        height: 42px;
-        border: 0;
-        border-radius: 50%;
-        background: #edf1f7;
-        color: #172337;
-        font-size: 30px;
-        line-height: 1;
-        cursor: pointer;
+        position:absolute; top:10px; right:12px; z-index:8;
+        display:flex; align-items:center; justify-content:center;
+        width:42px; height:42px; border:0; border-radius:50%;
+        background:#edf1f7; color:#172337; font-size:30px;
+        cursor:pointer;
       }
-
-      .market-lightbox-close:hover {
-        background: #dce5f1;
-      }
-
-      .market-lightbox-product-container {
-        min-width: 0;
-        touch-action: pan-y;
-      }
-
+      .market-lightbox-product-container { min-width:0; touch-action:pan-y; }
       .market-lightbox-product {
-        display: block;
-        width: 100%;
-        min-width: 0;
-        max-width: 100%;
-        margin: 0;
-        overflow: hidden;
-        border-radius: 14px;
+        display:block; width:100%; max-width:100%; margin:0;
+        overflow:hidden; border-radius:14px;
       }
-
       .market-lightbox-product .product-image-wrap {
-        position: relative;
-        width: 100%;
-        height: auto;
-        min-height: 0;
-        max-height: none;
-        overflow: hidden;
+        position:relative; width:100%; height:auto;
+        min-height:0; max-height:none; overflow:hidden;
       }
-
       .market-lightbox-product .product-image {
-        display: block;
-        width: 100%;
-        height: auto;
-        max-height: 48vh;
-        min-height: 180px;
-        object-fit: contain;
-        cursor: zoom-in;
+        display:block; width:100%; height:auto; max-height:48vh;
+        min-height:180px; object-fit:contain; cursor:zoom-in;
       }
-
       .market-lightbox-product .product-placeholder {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 200px;
+        display:flex; align-items:center; justify-content:center;
+        min-height:200px;
       }
-
-      .market-lightbox-product .product-info {
-        width: 100%;
-        padding: 18px;
-      }
-
+      .market-lightbox-product .product-info { width:100%; padding:18px; }
       .market-lightbox-product .product-title,
-      .market-lightbox-product .product-description {
-        overflow-wrap: anywhere;
-      }
+      .market-lightbox-product .product-description,
+      .market-lightbox-product .product-action { overflow-wrap:anywhere; }
+      .market-lightbox-product .product-description { white-space:pre-wrap; }
 
-      .market-lightbox-product .product-description {
-        white-space: pre-wrap;
-      }
-
-      .market-lightbox-product .product-action {
-        display: inline-block;
-        max-width: 100%;
-        overflow-wrap: anywhere;
-      }
-
-      /* Image enlargement button */
       .market-enlarge-image {
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-        z-index: 5;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        min-height: 38px;
-        padding: 8px 12px;
-        border: 1px solid rgba(255, 255, 255, 0.65);
-        border-radius: 999px;
-        background: rgba(18, 29, 47, 0.88);
-        color: #ffffff;
-        font-size: 13px;
-        font-weight: 700;
-        cursor: zoom-in;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+        position:absolute; right:10px; bottom:10px; z-index:5;
+        display:inline-flex; align-items:center; justify-content:center;
+        gap:6px; min-height:38px; padding:8px 12px;
+        border:1px solid rgba(255,255,255,.65); border-radius:999px;
+        background:rgba(18,29,47,.88); color:#fff;
+        font-size:13px; font-weight:700; cursor:zoom-in;
       }
-
-      .market-enlarge-image:hover {
-        background: #172337;
-      }
-
-      /* Left and right product navigation */
       .market-lightbox-nav {
-        position: absolute;
-        top: 50%;
-        z-index: 7;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 42px;
-        height: 52px;
-        padding: 0;
-        transform: translateY(-50%);
-        border: 0;
-        border-radius: 12px;
-        background: #172337;
-        color: #ffffff;
-        font-size: 29px;
-        line-height: 1;
-        cursor: pointer;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+        position:absolute; top:50%; z-index:7;
+        display:flex; align-items:center; justify-content:center;
+        width:42px; height:52px; padding:0;
+        transform:translateY(-50%); border:0; border-radius:12px;
+        background:#172337; color:#fff; font-size:29px; cursor:pointer;
       }
-
-      .market-lightbox-nav:hover {
-        background: #24466f;
+      .market-lightbox-prev { left:5px; }
+      .market-lightbox-next { right:5px; }
+      .market-lightbox-caption {
+        margin-top:12px; text-align:center; font-size:13px; color:#5c6b80;
       }
-
+      .market-lightbox-counter {
+        margin-top:8px; text-align:center; font-size:12px; color:#6b7789;
+      }
+      .market-image-zoom-overlay {
+        position:fixed; inset:0; z-index:10000; display:none;
+        align-items:center; justify-content:center; padding:24px;
+        background:rgba(4,9,18,.96); touch-action:manipulation;
+      }
+      .market-image-zoom-overlay.is-open { display:flex; }
+      .market-zoomed-image {
+        display:block; max-width:96vw; max-height:88vh;
+        width:auto; height:auto; object-fit:contain; border-radius:8px;
+        cursor:zoom-out;
+      }
+      .market-image-zoom-close {
+        position:absolute; top:14px; right:14px; z-index:2;
+        width:46px; height:46px; border:1px solid rgba(255,255,255,.4);
+        border-radius:50%; background:rgba(255,255,255,.12);
+        color:#fff; font-size:31px; cursor:pointer;
+      }
+      .market-image-zoom-caption {
+        position:absolute; right:60px; bottom:14px; left:60px;
+        color:#fff; font-size:13px; text-align:center; overflow-wrap:anywhere;
+      }
       .market-lightbox-nav:focus-visible,
       .market-lightbox-close:focus-visible,
-      .market-enlarge-image:focus-visible {
-        outline: 3px solid #3c91ff;
-        outline-offset: 3px;
+      .market-enlarge-image:focus-visible,
+      .market-image-zoom-close:focus-visible {
+        outline:3px solid #3c91ff; outline-offset:3px;
       }
-
-      .market-lightbox-prev {
-        left: 5px;
-      }
-
-      .market-lightbox-next {
-        right: 5px;
-      }
-
-      .market-lightbox-caption {
-        margin-top: 12px;
-        text-align: center;
-        font-size: 13px;
-        color: #5c6b80;
-      }
-
-      .market-lightbox-counter {
-        margin-top: 8px;
-        text-align: center;
-        font-size: 12px;
-        color: #6b7789;
-      }
-
-      /* Separate enlarged-image overlay */
-      .market-image-zoom-overlay {
-        position: fixed;
-        inset: 0;
-        z-index: 10000;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        padding: 24px;
-        background: rgba(4, 9, 18, 0.96);
-        touch-action: manipulation;
-      }
-
-      .market-image-zoom-overlay.is-open {
-        display: flex;
-      }
-
-      .market-zoomed-image {
-        display: block;
-        max-width: 96vw;
-        max-height: 88vh;
-        width: auto;
-        height: auto;
-        object-fit: contain;
-        border-radius: 8px;
-        cursor: zoom-out;
-      }
-
-      .market-image-zoom-close {
-        position: absolute;
-        top: max(14px, env(safe-area-inset-top));
-        right: max(14px, env(safe-area-inset-right));
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 46px;
-        height: 46px;
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.12);
-        color: #ffffff;
-        font-size: 31px;
-        line-height: 1;
-        cursor: pointer;
-      }
-
-      .market-image-zoom-close:hover {
-        background: rgba(255, 255, 255, 0.25);
-      }
-
-      .market-image-zoom-caption {
-        position: absolute;
-        right: 60px;
-        bottom: max(14px, env(safe-area-inset-bottom));
-        left: 60px;
-        color: #ffffff;
-        font-size: 13px;
-        text-align: center;
-        overflow-wrap: anywhere;
-      }
-
-      @media (max-width: 600px) {
-        .market-image-lightbox {
-          align-items: center;
-          padding: 10px;
-        }
-
+      @media(max-width:600px) {
+        .market-image-lightbox { padding:10px; }
         .market-lightbox-content {
-          width: 100%;
-          padding: 54px 42px 16px;
-          border-radius: 16px;
+          width:100%; padding:54px 42px 16px; border-radius:16px;
         }
-
-        .market-lightbox-product .product-info {
-          padding: 13px;
-        }
-
+        .market-lightbox-product .product-info { padding:13px; }
         .market-lightbox-product .product-image {
-          max-height: 38vh;
-          min-height: 130px;
+          max-height:38vh; min-height:130px;
         }
-
         .market-lightbox-nav {
-          width: 34px;
-          height: 44px;
-          border-radius: 10px;
-          font-size: 25px;
+          width:34px; height:44px; border-radius:10px; font-size:25px;
         }
-
-        .market-lightbox-prev {
-          left: 3px;
-        }
-
-        .market-lightbox-next {
-          right: 3px;
-        }
-
+        .market-lightbox-prev { left:3px; }
+        .market-lightbox-next { right:3px; }
         .market-enlarge-image {
-          right: 7px;
-          bottom: 7px;
-          min-height: 34px;
-          padding: 7px 9px;
-          font-size: 12px;
+          right:7px; bottom:7px; min-height:34px;
+          padding:7px 9px; font-size:12px;
         }
-
-        .market-image-zoom-overlay {
-          padding: 12px;
-        }
-
-        .market-zoomed-image {
-          max-width: 98vw;
-          max-height: 84vh;
-        }
+        .market-image-zoom-overlay { padding:12px; }
+        .market-zoomed-image { max-width:98vw; max-height:84vh; }
       }
-
-      @media (prefers-reduced-motion: no-preference) {
+      @media(prefers-reduced-motion:no-preference) {
         .market-image-lightbox.is-open,
         .market-image-zoom-overlay.is-open {
-          animation: market-overlay-in 160ms ease-out;
+          animation:market-overlay-in 160ms ease-out;
         }
-
         @keyframes market-overlay-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
+          from { opacity:0; } to { opacity:1; }
         }
       }
     `;
@@ -1002,9 +876,9 @@
     document.head.appendChild(style);
   }
 
-  // ========================================
-  // CREATE PRODUCT DETAILS VIEWER
-  // ========================================
+  // =========================================================
+  // PRODUCT DETAILS VIEWER
+  // =========================================================
 
   function createLightbox() {
     if (lightbox) return;
@@ -1019,31 +893,13 @@
 
     lightbox.innerHTML = `
       <div class="market-lightbox-content">
-        <button
-          type="button"
-          class="market-lightbox-close"
-          aria-label="Close product details"
-        >&times;</button>
-
-        <button
-          type="button"
-          class="market-lightbox-nav market-lightbox-prev"
-          aria-label="Previous product"
-          title="Previous product"
-        >&#8249;</button>
-
-        <div
-          class="market-lightbox-product-container"
-          aria-live="polite"
-        ></div>
-
-        <button
-          type="button"
-          class="market-lightbox-nav market-lightbox-next"
-          aria-label="Next product"
-          title="Next product"
-        >&#8250;</button>
-
+        <button type="button" class="market-lightbox-close"
+          aria-label="Close product details">&times;</button>
+        <button type="button" class="market-lightbox-nav market-lightbox-prev"
+          aria-label="Previous product" title="Previous product">&#8249;</button>
+        <div class="market-lightbox-product-container" aria-live="polite"></div>
+        <button type="button" class="market-lightbox-nav market-lightbox-next"
+          aria-label="Next product" title="Next product">&#8250;</button>
         <div class="market-lightbox-caption"></div>
         <div class="market-lightbox-counter"></div>
       </div>
@@ -1054,56 +910,40 @@
     productViewerContent = lightbox.querySelector(
       ".market-lightbox-product-container"
     );
+    viewerCounter = lightbox.querySelector(".market-lightbox-counter");
 
-    viewerCounter = lightbox.querySelector(
-      ".market-lightbox-counter"
-    );
-
-    lightbox
-      .querySelector(".market-lightbox-close")
+    lightbox.querySelector(".market-lightbox-close")
       .addEventListener("click", closeLightbox);
-
-    lightbox
-      .querySelector(".market-lightbox-prev")
+    lightbox.querySelector(".market-lightbox-prev")
       .addEventListener("click", showPreviousProduct);
-
-    lightbox
-      .querySelector(".market-lightbox-next")
+    lightbox.querySelector(".market-lightbox-next")
       .addEventListener("click", showNextProduct);
 
     lightbox.addEventListener("click", event => {
-      if (event.target === lightbox) {
-        closeLightbox();
-      }
+      if (event.target === lightbox) closeLightbox();
     });
 
-    // Click or tap the product image to enlarge it.
     productViewerContent.addEventListener("click", event => {
       const enlargeButton = event.target.closest(".market-enlarge-image");
-
       const image = event.target.closest(
         ".market-lightbox-product .product-image"
       );
 
-      if (enlargeButton || image) {
-        event.preventDefault();
-        event.stopPropagation();
+      if (!enlargeButton && !image) return;
 
-        const targetImage = image ||
-          productViewerContent.querySelector(
-            ".market-lightbox-product .product-image"
-          );
+      event.preventDefault();
+      event.stopPropagation();
 
-        if (targetImage) {
-          openImageLightbox(targetImage);
-        }
-      }
+      const targetImage = image ||
+        productViewerContent.querySelector(
+          ".market-lightbox-product .product-image"
+        );
+
+      if (targetImage) openImageLightbox(targetImage);
     });
 
-    // Swipe horizontally to navigate between products.
     lightbox.addEventListener("touchstart", event => {
       if (event.touches.length !== 1) return;
-
       touchStartX = event.touches[0].clientX;
       touchStartY = event.touches[0].clientY;
     }, { passive: true });
@@ -1113,29 +953,18 @@
       if (imageLightbox?.classList.contains("is-open")) return;
       if (!event.changedTouches.length) return;
 
-      const endX = event.changedTouches[0].clientX;
-      const endY = event.changedTouches[0].clientY;
+      const deltaX = event.changedTouches[0].clientX - touchStartX;
+      const deltaY = event.changedTouches[0].clientY - touchStartY;
 
-      const deltaX = endX - touchStartX;
-      const deltaY = endY - touchStartY;
-
-      // Avoid interpreting vertical scrolling as a product swipe.
       if (
         Math.abs(deltaX) > 55 &&
         Math.abs(deltaX) > Math.abs(deltaY) * 1.25
       ) {
-        if (deltaX < 0) {
-          showNextProduct();
-        } else {
-          showPreviousProduct();
-        }
+        if (deltaX < 0) showNextProduct();
+        else showPreviousProduct();
       }
     }, { passive: true });
   }
-
-  // ========================================
-  // CREATE IMAGE ENLARGEMENT LIGHTBOX
-  // ========================================
 
   function createImageLightbox() {
     if (imageLightbox) return;
@@ -1149,30 +978,20 @@
     imageLightbox.setAttribute("aria-label", "Enlarged product image");
 
     imageLightbox.innerHTML = `
-      <button
-        type="button"
-        class="market-image-zoom-close"
-        aria-label="Close enlarged image"
-      >&times;</button>
-
+      <button type="button" class="market-image-zoom-close"
+        aria-label="Close enlarged image">&times;</button>
       <img class="market-zoomed-image" alt="" />
-
       <div class="market-image-zoom-caption"></div>
     `;
 
     document.body.appendChild(imageLightbox);
-
     zoomedImage = imageLightbox.querySelector(".market-zoomed-image");
 
-    imageLightbox
-      .querySelector(".market-image-zoom-close")
+    imageLightbox.querySelector(".market-image-zoom-close")
       .addEventListener("click", closeImageLightbox);
 
     imageLightbox.addEventListener("click", event => {
-      if (
-        event.target === imageLightbox ||
-        event.target === zoomedImage
-      ) {
+      if (event.target === imageLightbox || event.target === zoomedImage) {
         closeImageLightbox();
       }
     });
@@ -1188,24 +1007,26 @@
     zoomedImage.src = sourceImage.currentSrc || sourceImage.src;
     zoomedImage.alt = sourceImage.alt || "Enlarged product image";
 
-    const caption = imageLightbox.querySelector(
-      ".market-image-zoom-caption"
-    );
+    imageLightbox.querySelector(".market-image-zoom-caption")
+      .textContent = sourceImage.alt || "";
 
-    caption.textContent = sourceImage.alt || "";
+    const card = sourceImage.closest(".product-card");
+    const product = card ? getProduct(card.dataset.productId) : null;
+
+    if (product) {
+      trackProductAction("product_image_zoom", product, sourceImage, {
+        image_url: sourceImage.currentSrc || sourceImage.src
+      });
+    }
 
     imageLightbox.classList.add("is-open");
-
-    imageLightbox
-      .querySelector(".market-image-zoom-close")
-      .focus();
+    imageLightbox.querySelector(".market-image-zoom-close").focus();
   }
 
   function closeImageLightbox() {
     if (!imageLightbox) return;
 
     imageLightbox.classList.remove("is-open");
-
     zoomedImage.removeAttribute("src");
     zoomedImage.alt = "";
 
@@ -1219,28 +1040,20 @@
     previouslyFocusedImageControl = null;
   }
 
-  // ========================================
-  // FIND VISIBLE PRODUCT CARDS
-  // ========================================
-
   function getVisibleProductCards() {
     return Array.from(document.querySelectorAll(".product-card"))
-      .filter(card => {
-        if (!card.isConnected) return false;
-
-        if (card.closest(".market-image-lightbox")) return false;
-        if (card.closest("[hidden]")) return false;
-
-        return true;
-      });
+      .filter(card =>
+        card.isConnected &&
+        !card.closest(".market-image-lightbox") &&
+        !card.closest("[hidden]")
+      );
   }
-
-  // ========================================
-  // OPEN PRODUCT DETAILS
-  // ========================================
 
   function openProductViewer(card) {
     if (!card) return;
+
+    const product = getProduct(card.dataset.productId);
+    if (!product) return;
 
     createLightbox();
 
@@ -1251,38 +1064,36 @@
 
     previouslyFocusedElement = card;
     previousBodyOverflow = document.body.style.overflow;
-
     document.body.style.overflow = "hidden";
 
     displayCurrentProduct();
-
     lightbox.classList.add("is-open");
 
-    const product = products.find(item =>
-      safeText(item.id) === card.dataset.productId
-    );
+    trackMarketEvent("view_item", product, {
+      viewer: "product_details",
+      action_location: "product_card"
+    });
 
-    if (product) {
-      trackMarketEvent("view_item", product, {
-        viewer: "product_details"
-      });
-    }
+    trackMarketEvent("select_item", product, {
+      item_list_name: productType(product) + "_products",
+      action_location: "product_card"
+    });
 
-    lightbox
-      .querySelector(".market-lightbox-close")
-      .focus();
+    trackMarketEvent("product_card_click", product, {
+      action_location: "product_card"
+    });
+
+    lightbox.querySelector(".market-lightbox-close").focus();
   }
-
-  // ========================================
-  // DISPLAY CURRENT PRODUCT
-  // ========================================
 
   function displayCurrentProduct() {
     if (!currentCards.length) return;
 
     const originalCard = currentCards[currentCardIndex];
-
     if (!originalCard || !originalCard.isConnected) return;
+
+    const product = getProduct(originalCard.dataset.productId);
+    if (!product) return;
 
     const productClone = originalCard.cloneNode(true);
 
@@ -1291,7 +1102,6 @@
     productClone.removeAttribute("aria-label");
     productClone.removeAttribute("id");
 
-    // Add an explicit image enlargement control.
     const imageWrap = productClone.querySelector(".product-image-wrap");
     const productImage = productClone.querySelector(".product-image");
 
@@ -1302,169 +1112,117 @@
       enlargeButton.className = "market-enlarge-image";
       enlargeButton.setAttribute(
         "aria-label",
-        "Enlarge image of " +
-          safeText(productImage.alt || "product")
+        "Enlarge image of " + safeText(productImage.alt || "product")
       );
       enlargeButton.title = "Enlarge product image";
-      enlargeButton.innerHTML = "<span aria-hidden='true'>⤢</span> Enlarge image";
+      enlargeButton.innerHTML =
+        "<span aria-hidden='true'>⤢</span> Enlarge image";
 
       imageWrap.appendChild(enlargeButton);
     }
 
     productViewerContent.replaceChildren(productClone);
 
-    // Restore affiliate click tracking on the cloned Amazon link.
-    // Also restore partner and own-product tracking in the viewer.
-    const originalAction = originalCard.querySelector(".product-action");
+    // Reattach tracking to cloned outbound links.
     const clonedAction = productClone.querySelector(".product-action");
 
-    if (
-      originalAction &&
-      clonedAction &&
-      !clonedAction.hasAttribute("aria-disabled")
-    ) {
-      const product = products.find(item =>
-        safeText(item.id) === originalCard.dataset.productId
-      );
-
-      if (product) {
-        if (
-          productType(product) === "affiliate" &&
-          validAffiliateUrl(product.affiliateUrl)
-        ) {
+    if (clonedAction && !clonedAction.hasAttribute("aria-disabled")) {
+      if (productType(product) === "affiliate") {
+        if (validAffiliateUrl(product.affiliateUrl)) {
           clonedAction.addEventListener("click", () => {
-            trackAffiliateClick(product);
-          });
-        } else if (
-          productType(product) === "partner" &&
-          product.active !== false
-        ) {
-          clonedAction.addEventListener("click", () => {
-            trackMarketEvent("whatsapp_enquiry", product, {
-              enquiry_type: "partner_product",
-              contact_method: "whatsapp",
-              viewer: "product_details"
-            });
-          });
-        } else if (
-          productType(product) === "sarvyanta" &&
-          product.active !== false &&
-          product.orderUrl
-        ) {
-          clonedAction.addEventListener("click", () => {
-            trackMarketEvent("own_product_click", product, {
-              destination_url: product.orderUrl,
-              viewer: "product_details"
-            });
+            trackAffiliateClick(product, clonedAction);
           });
         }
-      }
-    }
-
-    // Track partner page button clicks in the cloned viewer.
-    const originalExploreButton = originalCard.querySelector(
-      ".partner-explore-action"
-    );
-    const clonedExploreButton = productClone.querySelector(
-      ".partner-explore-action"
-    );
-
-    if (originalExploreButton && clonedExploreButton) {
-      const product = products.find(item =>
-        safeText(item.id) === originalCard.dataset.productId
-      );
-
-      if (product) {
-        clonedExploreButton.addEventListener("click", () => {
-          trackMarketEvent("partner_page_click", product, {
-            destination_url: clonedExploreButton.href,
-            viewer: "product_details"
+      } else if (productType(product) === "partner") {
+        clonedAction.addEventListener("click", () => {
+          trackProductAction("whatsapp_enquiry", product, clonedAction, {
+            enquiry_type: "partner_product",
+            contact_method: "whatsapp",
+            destination_url: clonedAction.href
+          });
+        });
+      } else if (product.orderUrl && product.active !== false) {
+        clonedAction.addEventListener("click", () => {
+          trackProductAction("own_product_click", product, clonedAction, {
+            destination_url: product.orderUrl
           });
         });
       }
     }
 
-    const title = productClone.querySelector(".product-title");
-
-    const caption = lightbox.querySelector(
-      ".market-lightbox-caption"
+    const clonedExploreButton = productClone.querySelector(
+      ".partner-explore-action"
     );
 
-    caption.textContent = title
-      ? title.textContent.trim()
-      : "Product details";
+    if (clonedExploreButton) {
+      clonedExploreButton.addEventListener("click", () => {
+        trackProductAction(
+          "partner_page_click",
+          product,
+          clonedExploreButton,
+          {
+            destination_url: clonedExploreButton.href,
+            partner_page_url: clonedExploreButton.href
+          }
+        );
+      });
+    }
+
+    const title = productClone.querySelector(".product-title");
+    lightbox.querySelector(".market-lightbox-caption").textContent =
+      title ? title.textContent.trim() : "Product details";
 
     viewerCounter.textContent =
       `${currentCardIndex + 1} of ${currentCards.length}`;
 
     const multipleProducts = currentCards.length > 1;
+    lightbox.querySelector(".market-lightbox-prev").hidden = !multipleProducts;
+    lightbox.querySelector(".market-lightbox-next").hidden = !multipleProducts;
 
-    lightbox.querySelector(".market-lightbox-prev").hidden =
-      !multipleProducts;
-
-    lightbox.querySelector(".market-lightbox-next").hidden =
-      !multipleProducts;
-
-    // Start at the top when changing products.
     lightbox.scrollTop = 0;
   }
 
-  // ========================================
-  // HORIZONTAL PRODUCT NAVIGATION
-  // ========================================
-
-  function showPreviousProduct() {
+  function navigateProduct(direction) {
     if (currentCards.length < 2) return;
 
     currentCardIndex =
-      (currentCardIndex - 1 + currentCards.length) %
+      (currentCardIndex + direction + currentCards.length) %
       currentCards.length;
 
     displayCurrentProduct();
 
     const card = currentCards[currentCardIndex];
-    const product = products.find(item =>
-      safeText(item.id) === card?.dataset.productId
-    );
+    const product = card ? getProduct(card.dataset.productId) : null;
 
     if (product) {
       trackMarketEvent("view_item", product, {
         viewer: "product_details",
-        navigation: "previous"
+        navigation: direction > 0 ? "next" : "previous"
       });
     }
+  }
+
+  function showPreviousProduct() {
+    navigateProduct(-1);
   }
 
   function showNextProduct() {
-    if (currentCards.length < 2) return;
-
-    currentCardIndex =
-      (currentCardIndex + 1) % currentCards.length;
-
-    displayCurrentProduct();
-
-    const card = currentCards[currentCardIndex];
-    const product = products.find(item =>
-      safeText(item.id) === card?.dataset.productId
-    );
-
-    if (product) {
-      trackMarketEvent("view_item", product, {
-        viewer: "product_details",
-        navigation: "next"
-      });
-    }
+    navigateProduct(1);
   }
 
-  // ========================================
-  // CLOSE PRODUCT DETAILS
-  // ========================================
-
   function closeLightbox() {
-    if (!lightbox) return;
+    if (!lightbox || !lightbox.classList.contains("is-open")) return;
+
+    const card = currentCards[currentCardIndex];
+    const product = card ? getProduct(card.dataset.productId) : null;
+
+    if (product) {
+      trackProductAction("product_viewer_close", product, lightbox, {
+        viewer: "product_details"
+      });
+    }
 
     closeImageLightbox();
-
     lightbox.classList.remove("is-open");
     productViewerContent.replaceChildren();
 
@@ -1482,41 +1240,32 @@
     currentCardIndex = 0;
   }
 
-  // ========================================
-  // PRODUCT CARD CLICK HANDLING
-  // ========================================
+  // =========================================================
+  // CARD CLICK AND KEYBOARD HANDLING
+  // =========================================================
 
   document.addEventListener("click", event => {
     const card = event.target.closest(".product-card");
-
     if (!card) return;
 
-    // Let links and buttons perform their normal actions.
+    // Product action links must not also count as card clicks.
     if (event.target.closest("a, button")) return;
 
-    // Don't open another viewer from inside the current viewer.
     if (event.target.closest(".market-image-lightbox")) return;
 
     event.preventDefault();
     openProductViewer(card);
   });
 
-  // ========================================
-  // KEYBOARD SUPPORT
-  // ========================================
-
   document.addEventListener("keydown", event => {
-    // The image lightbox has priority over the product viewer.
     if (imageLightbox?.classList.contains("is-open")) {
       if (event.key === "Escape") {
         event.preventDefault();
         closeImageLightbox();
       }
-
       return;
     }
 
-    // Open a focused product card with Enter or Space.
     const card = event.target.closest?.(
       ".product-card:not(.market-lightbox-product)"
     );
@@ -1531,9 +1280,7 @@
       return;
     }
 
-    if (!lightbox || !lightbox.classList.contains("is-open")) {
-      return;
-    }
+    if (!lightbox?.classList.contains("is-open")) return;
 
     if (event.key === "Escape") {
       event.preventDefault();
@@ -1547,16 +1294,15 @@
     }
   });
 
-  // ========================================
+  // =========================================================
   // LOAD PRODUCT CATALOGUE
-  // ========================================
+  // =========================================================
 
   fetch("products.json", { cache: "no-cache" })
     .then(response => {
       if (!response.ok) {
         throw new Error("Could not load products.json");
       }
-
       return response.json();
     })
     .then(data => {
@@ -1597,8 +1343,7 @@
       });
 
       if (resultCount) {
-        resultCount.textContent =
-          "Products temporarily unavailable";
+        resultCount.textContent = "Products temporarily unavailable";
       }
 
       trackMarketEvent("market_catalogue_error", null, {
