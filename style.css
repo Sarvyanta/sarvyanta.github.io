@@ -546,32 +546,29 @@ section {
   width: 82px;
   height: 82px;
 
-  padding: 5px;
-
   display: grid;
   place-items: center;
 
   overflow: hidden;
   border-radius: 50%;
 
-  background: linear-gradient(
-    135deg,
-    #45c8ff,
-    #8d7bff
-  );
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(142,231,255,.95),
+      rgba(84,201,255,.45) 35%,
+      rgba(89,91,190,.35) 70%,
+      rgba(10,24,48,.15)
+    );
 
-  box-shadow: 0 0 45px rgba(84,201,255,.30);
+  border: 1px solid rgba(142,231,255,.55);
+
+  box-shadow:
+    0 0 25px rgba(84,201,255,.45),
+    0 0 65px rgba(84,201,255,.25),
+    inset 0 0 22px rgba(255,255,255,.18);
 }
 
-.center-tree-logo {
-  width: 100%;
-  height: 100%;
-
-  object-fit: contain;
-
-  border-radius: 50%;
-  background: #ffffff;
-}
 
 @keyframes breathe {
   0%, 100% {
@@ -1795,4 +1792,22 @@ section {
     transition-duration: .01ms !important;
   }
 
+}
+/* Space between Market and closing CTA */
+.market-section {
+  margin-bottom: 80px;
+}
+
+.closing-section {
+  margin-top: 80px;
+}
+
+@media (max-width: 768px) {
+  .market-section {
+    margin-bottom: 48px;
+  }
+
+  .closing-section {
+    margin-top: 48px;
+  }
 }
