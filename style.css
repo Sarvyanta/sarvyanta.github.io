@@ -1,12 +1,11 @@
+
 /* =========================================================
-   SARVYANTA
+   SARVYANTA HOMEPAGE
    Building an Intelligent World
    ========================================================= */
 
 :root {
   --ink: #08111f;
-  --ink-soft: #101d31;
-
   --navy: #0a1830;
   --navy-2: #10284b;
 
@@ -14,26 +13,21 @@
   --blue-bright: #72ddff;
 
   --violet: #8d7bff;
-  --violet-soft: #b09cff;
-
   --cyan: #61e4d6;
 
   --white: #ffffff;
-  --white-soft: #eaf1fb;
-
   --muted: #91a0b7;
   --muted-dark: #536277;
 
-  --border-dark: rgba(255, 255, 255, 0.10);
+  --border-dark: rgba(255,255,255,.10);
   --border-light: #dfe7f1;
-
-  --shadow: 0 25px 70px rgba(3, 12, 28, 0.18);
 
   --container: 1180px;
 
   --radius-lg: 32px;
   --radius-md: 22px;
-  --radius-sm: 15px;
+
+  --shadow: 0 25px 70px rgba(3,12,28,.18);
 }
 
 
@@ -49,6 +43,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
@@ -74,8 +69,8 @@ a {
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 button,
@@ -83,9 +78,17 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+button {
+  font: inherit;
+}
+
 .container {
   width: min(var(--container), calc(100% - 40px));
   margin: 0 auto;
+}
+
+section {
+  position: relative;
 }
 
 
@@ -95,81 +98,107 @@ a {
 
 .site-header {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 20;
+  inset: 0 0 auto;
+  z-index: 30;
 
-  color: var(--white);
+  color: #ffffff;
 
   background: linear-gradient(
     to bottom,
-    rgba(5, 14, 29, 0.82),
-    rgba(5, 14, 29, 0)
+    rgba(5,14,29,.88),
+    rgba(5,14,29,0)
   );
 }
 
 .nav-wrap {
-  height: 82px;
+  min-height: 88px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  gap: 24px;
 }
 
 .brand {
   display: inline-flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  flex: 0 0 auto;
+  gap: 2px;
 }
 
-.brand-mark {
-  width: 38px;
-  height: 38px;
+.brand-logo {
+  width: 132px;
+  height: 48px;
 
-  display: grid;
-  place-items: center;
-
-  border-radius: 12px;
-
-  color: white;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--blue),
-      var(--violet)
-    );
-
-  box-shadow:
-    0 0 30px rgba(84, 201, 255, 0.28);
+  object-fit: contain;
+  object-position: left center;
 }
 
-.brand-name {
-  font-size: 14px;
+.brand-tagline {
+  color: #c8eaff;
+
+  font-size: 9px;
+  line-height: 1.3;
+  font-weight: 600;
+
+  letter-spacing: .02em;
+  white-space: nowrap;
 }
 
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 32px;
+
+  gap: 30px;
 
   font-size: 14px;
-  color: rgba(255,255,255,0.72);
+  color: rgba(255,255,255,.76);
 }
 
 .main-nav a {
   transition:
-    color 0.25s ease,
-    transform 0.25s ease;
+    color .2s ease,
+    transform .2s ease;
 }
 
 .main-nav a:hover {
-  color: white;
+  color: #ffffff;
   transform: translateY(-1px);
+}
+
+.main-nav a[href="/market/"] {
+  color: #8ee4ff;
+  font-weight: 750;
+}
+
+.menu-toggle {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 12px;
+
+  background: rgba(255,255,255,.07);
+
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+
+  width: 18px;
+  height: 2px;
+
+  margin: 4px auto;
+
+  border-radius: 2px;
+  background: #ffffff;
 }
 
 
@@ -186,17 +215,17 @@ a {
   display: flex;
   align-items: center;
 
-  color: white;
+  color: #ffffff;
 
   background:
     radial-gradient(
       circle at 75% 30%,
-      rgba(84, 201, 255, 0.18),
+      rgba(84,201,255,.18),
       transparent 28%
     ),
     radial-gradient(
       circle at 30% 20%,
-      rgba(141, 123, 255, 0.18),
+      rgba(141,123,255,.18),
       transparent 28%
     ),
     linear-gradient(
@@ -215,31 +244,28 @@ a {
 
   background-image:
     radial-gradient(
-      rgba(255,255,255,0.16) 1px,
+      rgba(255,255,255,.16) 1px,
       transparent 1px
     );
 
   background-size: 36px 36px;
 
-  opacity: 0.12;
+  opacity: .12;
 }
 
 .hero::after {
   content: "";
 
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
+  inset: auto 0 -1px;
 
   height: 150px;
 
-  background:
-    linear-gradient(
-      to bottom,
-      transparent,
-      #ffffff
-    );
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #ffffff
+  );
 }
 
 .hero-glow {
@@ -249,7 +275,6 @@ a {
   height: 420px;
 
   border-radius: 50%;
-
   filter: blur(100px);
 
   pointer-events: none;
@@ -259,14 +284,14 @@ a {
   top: 10%;
   right: -120px;
 
-  background: rgba(84, 201, 255, 0.14);
+  background: rgba(84,201,255,.14);
 }
 
 .glow-two {
   bottom: 5%;
   left: -150px;
 
-  background: rgba(141, 123, 255, 0.13);
+  background: rgba(141,123,255,.13);
 }
 
 .hero-grid {
@@ -274,13 +299,12 @@ a {
   z-index: 2;
 
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-columns: .95fr 1.05fr;
 
   align-items: center;
-
   gap: 30px;
 
-  padding-top: 90px;
+  padding-top: 115px;
   padding-bottom: 130px;
 }
 
@@ -299,7 +323,7 @@ a {
 
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.22em;
+  letter-spacing: .22em;
 }
 
 .eyebrow span {
@@ -314,9 +338,8 @@ a {
 
   font-size: clamp(52px, 7vw, 88px);
 
-  line-height: 0.98;
-
-  letter-spacing: -0.055em;
+  line-height: .98;
+  letter-spacing: -.055em;
 
   font-weight: 300;
 }
@@ -326,13 +349,12 @@ a {
 
   font-weight: 800;
 
-  background:
-    linear-gradient(
-      90deg,
-      #ffffff,
-      #8ee7ff 45%,
-      #a697ff
-    );
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #8ee7ff 45%,
+    #a697ff
+  );
 
   -webkit-background-clip: text;
   background-clip: text;
@@ -345,7 +367,7 @@ a {
 
   margin-top: 28px;
 
-  color: rgba(235, 243, 255, 0.74);
+  color: rgba(235,243,255,.74);
 
   font-size: 19px;
   line-height: 1.75;
@@ -356,7 +378,6 @@ a {
   flex-wrap: wrap;
 
   gap: 13px;
-
   margin-top: 36px;
 }
 
@@ -367,7 +388,6 @@ a {
   gap: 12px;
 
   min-height: 50px;
-
   padding: 0 21px;
 
   border-radius: 999px;
@@ -376,9 +396,9 @@ a {
   font-weight: 700;
 
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+    transform .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
 }
 
 .btn span {
@@ -388,38 +408,32 @@ a {
 .btn-primary {
   color: #061221;
 
-  background:
-    linear-gradient(
-      135deg,
-      #77e1ff,
-      #a69bff
-    );
+  background: linear-gradient(
+    135deg,
+    #77e1ff,
+    #a69bff
+  );
 
-  box-shadow:
-    0 12px 35px rgba(84, 201, 255, 0.20);
+  box-shadow: 0 12px 35px rgba(84,201,255,.20);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
-
-  box-shadow:
-    0 18px 45px rgba(84, 201, 255, 0.28);
+  box-shadow: 0 18px 45px rgba(84,201,255,.28);
 }
 
 .btn-ghost {
-  color: white;
+  color: #ffffff;
 
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,.18);
 
-  background: rgba(255,255,255,0.045);
-
+  background: rgba(255,255,255,.045);
   backdrop-filter: blur(10px);
 }
 
 .btn-ghost:hover {
   transform: translateY(-3px);
-
-  background: rgba(255,255,255,0.09);
+  background: rgba(255,255,255,.09);
 }
 
 .hero-note {
@@ -429,7 +443,7 @@ a {
 
   margin-top: 28px;
 
-  color: rgba(255,255,255,0.47);
+  color: rgba(255,255,255,.47);
 
   font-size: 12px;
 }
@@ -442,8 +456,7 @@ a {
 
   background: var(--cyan);
 
-  box-shadow:
-    0 0 15px var(--cyan);
+  box-shadow: 0 0 15px var(--cyan);
 }
 
 
@@ -455,14 +468,13 @@ a {
   position: relative;
 
   width: min(100%, 600px);
-  aspect-ratio: 1 / 0.87;
+  aspect-ratio: 1 / .87;
 
   margin-left: auto;
 }
 
 .connection-svg {
   position: absolute;
-
   inset: 0;
 
   width: 100%;
@@ -475,13 +487,10 @@ a {
   left: 50%;
   top: 50%;
 
-  border: 1px solid rgba(117, 216, 255, 0.12);
-
+  border: 1px solid rgba(117,216,255,.12);
   border-radius: 50%;
 
-  transform:
-    translate(-50%, -50%)
-    rotate(-12deg);
+  transform: translate(-50%,-50%) rotate(-12deg);
 }
 
 .orbit-one {
@@ -493,18 +502,14 @@ a {
   width: 88%;
   height: 62%;
 
-  transform:
-    translate(-50%, -50%)
-    rotate(26deg);
+  transform: translate(-50%,-50%) rotate(26deg);
 }
 
 .orbit-three {
   width: 52%;
   height: 80%;
 
-  transform:
-    translate(-50%, -50%)
-    rotate(62deg);
+  transform: translate(-50%,-50%) rotate(62deg);
 }
 
 .connection-center {
@@ -513,10 +518,10 @@ a {
   left: 50%;
   top: 50%;
 
-  width: 120px;
-  height: 120px;
+  width: 126px;
+  height: 126px;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
 
   display: grid;
   place-items: center;
@@ -527,11 +532,9 @@ a {
   inset: 0;
 
   border-radius: 50%;
+  border: 1px solid rgba(110,222,255,.4);
 
-  border: 1px solid rgba(110, 222, 255, 0.4);
-
-  box-shadow:
-    0 0 60px rgba(84, 201, 255, 0.18);
+  box-shadow: 0 0 60px rgba(84,201,255,.18);
 
   animation: breathe 4s ease-in-out infinite;
 }
@@ -540,34 +543,40 @@ a {
   position: relative;
   z-index: 2;
 
-  width: 64px;
-  height: 64px;
+  width: 82px;
+  height: 82px;
+
+  padding: 5px;
 
   display: grid;
   place-items: center;
 
-  border-radius: 22px;
+  overflow: hidden;
+  border-radius: 50%;
 
-  font-size: 27px;
-  font-weight: 800;
+  background: linear-gradient(
+    135deg,
+    #45c8ff,
+    #8d7bff
+  );
 
-  color: white;
+  box-shadow: 0 0 45px rgba(84,201,255,.30);
+}
 
-  background:
-    linear-gradient(
-      135deg,
-      #45c8ff,
-      #8d7bff
-    );
+.center-tree-logo {
+  width: 100%;
+  height: 100%;
 
-  box-shadow:
-    0 0 45px rgba(84, 201, 255, 0.30);
+  object-fit: contain;
+
+  border-radius: 50%;
+  background: #ffffff;
 }
 
 @keyframes breathe {
   0%, 100% {
-    transform: scale(0.94);
-    opacity: 0.65;
+    transform: scale(.94);
+    opacity: .65;
   }
 
   50% {
@@ -581,22 +590,19 @@ a {
 
   padding: 8px 12px;
 
-  border: 1px solid rgba(255,255,255,0.10);
-
+  border: 1px solid rgba(255,255,255,.10);
   border-radius: 999px;
 
-  color: rgba(255,255,255,0.76);
+  color: rgba(255,255,255,.76);
 
-  background: rgba(255,255,255,0.055);
-
+  background: rgba(255,255,255,.055);
   backdrop-filter: blur(12px);
 
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: .06em;
 
-  box-shadow:
-    0 10px 35px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 35px rgba(0,0,0,.12);
 }
 
 .label-one {
@@ -621,16 +627,11 @@ a {
 
 
 /* =========================================================
-   SECTION COMMON
+   COMMON SECTION HEADINGS
    ========================================================= */
-
-section {
-  position: relative;
-}
 
 .section-heading {
   max-width: 760px;
-
   margin-bottom: 48px;
 }
 
@@ -643,16 +644,14 @@ section {
 
   font-size: 11px;
   font-weight: 800;
-
-  letter-spacing: 0.2em;
+  letter-spacing: .2em;
 }
 
 .section-heading h2 {
   font-size: clamp(36px, 5vw, 58px);
 
   line-height: 1.05;
-
-  letter-spacing: -0.045em;
+  letter-spacing: -.045em;
 }
 
 .section-heading h2 span {
@@ -670,6 +669,13 @@ section {
   line-height: 1.75;
 }
 
+.section-heading .section-disclaimer {
+  margin-top: 12px;
+
+  color: #778397;
+  font-size: 14px;
+}
+
 
 /* =========================================================
    ABOUT
@@ -681,7 +687,7 @@ section {
   background:
     radial-gradient(
       circle at 80% 15%,
-      rgba(111, 140, 255, 0.08),
+      rgba(111,140,255,.08),
       transparent 30%
     ),
     #ffffff;
@@ -689,10 +695,7 @@ section {
 
 .about-grid {
   display: grid;
-
-  grid-template-columns:
-    1.25fr
-    0.75fr;
+  grid-template-columns: 1.25fr .75fr;
 
   gap: 22px;
 }
@@ -703,15 +706,13 @@ section {
   padding: 38px;
 
   border-radius: var(--radius-lg);
-
   overflow: hidden;
 
   border: 1px solid var(--border-light);
 
   background: #ffffff;
 
-  box-shadow:
-    0 20px 55px rgba(15, 36, 70, 0.07);
+  box-shadow: 0 20px 55px rgba(15,36,70,.07);
 }
 
 .about-main {
@@ -731,28 +732,18 @@ section {
 
   border-radius: 50%;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(84,201,255,0.12),
-      transparent 70%
-    );
-}
-
-.card-number {
-  color: #a0acbc;
-
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.15em;
+  background: radial-gradient(
+    circle,
+    rgba(84,201,255,.12),
+    transparent 70%
+  );
 }
 
 .about-card h3 {
-  margin-top: 28px;
+  margin-top: 10px;
 
   font-size: 27px;
-
-  letter-spacing: -0.03em;
+  letter-spacing: -.03em;
 }
 
 .about-card p {
@@ -769,12 +760,12 @@ section {
 }
 
 .philosophy-card {
-  color: white;
+  color: #ffffff;
 
   background:
     radial-gradient(
       circle at 80% 10%,
-      rgba(141,123,255,0.34),
+      rgba(141,123,255,.34),
       transparent 35%
     ),
     linear-gradient(
@@ -783,7 +774,7 @@ section {
       #162b4b
     );
 
-  border-color: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,.08);
 }
 
 .philosophy-symbol {
@@ -797,31 +788,31 @@ section {
 
   border-radius: 50%;
 
-  background:
-    linear-gradient(
-      135deg,
-      var(--blue),
-      var(--violet)
-    );
+  background: linear-gradient(
+    135deg,
+    var(--blue),
+    var(--violet)
+  );
 }
 
 .philosophy-card h3 {
+  margin-top: 28px;
   font-size: 31px;
 }
 
 .philosophy-card p {
-  color: rgba(255,255,255,0.68);
+  color: rgba(255,255,255,.68);
 }
 
 .philosophy-line {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
 
+  gap: 8px;
   margin-top: 30px;
 
-  color: rgba(255,255,255,0.9);
+  color: rgba(255,255,255,.9);
 
   font-size: 12px;
   font-weight: 700;
@@ -840,17 +831,17 @@ section {
 .build-section {
   padding: 125px 0;
 
-  color: white;
+  color: #ffffff;
 
   background:
     radial-gradient(
       circle at 10% 15%,
-      rgba(84,201,255,0.10),
+      rgba(84,201,255,.10),
       transparent 28%
     ),
     radial-gradient(
       circle at 90% 80%,
-      rgba(141,123,255,0.12),
+      rgba(141,123,255,.12),
       transparent 28%
     ),
     #091526;
@@ -861,7 +852,7 @@ section {
 }
 
 .build-heading h2 {
-  color: white;
+  color: #ffffff;
 }
 
 .build-heading h2::after {
@@ -876,23 +867,20 @@ section {
 
   border-radius: 999px;
 
-  background:
-    linear-gradient(
-      90deg,
-      var(--blue),
-      var(--violet)
-    );
+  background: linear-gradient(
+    90deg,
+    var(--blue),
+    var(--violet)
+  );
 }
 
 .build-heading p {
-  color: rgba(226,236,250,0.64);
+  color: rgba(226,236,250,.64);
 }
 
 .build-grid {
   display: grid;
-
-  grid-template-columns:
-    repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 
   gap: 16px;
 }
@@ -900,51 +888,46 @@ section {
 .build-card {
   position: relative;
 
-  min-height: 330px;
-
+  min-height: 310px;
   padding: 31px;
 
   overflow: hidden;
 
   border-radius: var(--radius-md);
-
   border: 1px solid var(--border-dark);
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,0.075),
-      rgba(255,255,255,0.025)
-    );
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,.075),
+    rgba(255,255,255,.025)
+  );
 
   transition:
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    background 0.3s ease;
+    transform .3s ease,
+    border-color .3s ease,
+    background .3s ease;
 }
 
 .build-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-7px);
 
-  border-color:
-    rgba(104,215,255,0.32);
+  border-color: rgba(104,215,255,.32);
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(84,201,255,0.11),
-      rgba(141,123,255,0.06)
-    );
+  background: linear-gradient(
+    145deg,
+    rgba(84,201,255,.11),
+    rgba(141,123,255,.06)
+  );
 }
 
 .featured-card {
   background:
     radial-gradient(
       circle at 85% 15%,
-      rgba(84,201,255,0.17),
+      rgba(84,201,255,.17),
       transparent 34%
     ),
-    rgba(255,255,255,0.065);
+    rgba(255,255,255,.065);
 }
 
 .build-icon {
@@ -958,9 +941,8 @@ section {
 
   color: #9beaff;
 
-  background: rgba(84,201,255,0.09);
-
-  border: 1px solid rgba(84,201,255,0.14);
+  background: rgba(84,201,255,.09);
+  border: 1px solid rgba(84,201,255,.14);
 
   font-size: 23px;
 }
@@ -968,36 +950,21 @@ section {
 .connection-icon {
   color: #bcaeff;
 
-  background: rgba(141,123,255,0.10);
-
-  border-color: rgba(141,123,255,0.16);
-}
-
-.build-index {
-  position: absolute;
-
-  top: 30px;
-  right: 30px;
-
-  color: rgba(255,255,255,0.25);
-
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  background: rgba(141,123,255,.10);
+  border-color: rgba(141,123,255,.16);
 }
 
 .build-card h3 {
   margin-top: 35px;
 
   font-size: 22px;
-
-  letter-spacing: -0.025em;
+  letter-spacing: -.025em;
 }
 
 .build-card p {
   margin-top: 12px;
 
-  color: rgba(226,236,250,0.62);
+  color: rgba(226,236,250,.62);
 
   font-size: 14px;
   line-height: 1.7;
@@ -1012,12 +979,175 @@ section {
 
   height: 1px;
 
+  background: linear-gradient(
+    90deg,
+    rgba(84,201,255,.25),
+    transparent
+  );
+}
+
+
+/* =========================================================
+   SARVYANTA MARKET
+   ========================================================= */
+
+.market-section {
+  padding: 115px 0;
+
+  color: #ffffff;
+  overflow: hidden;
+
   background:
+    radial-gradient(
+      circle at 10% 80%,
+      rgba(84,201,255,.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(141,123,255,.16),
+      transparent 30%
+    ),
     linear-gradient(
-      90deg,
-      rgba(84,201,255,0.25),
-      transparent
+      135deg,
+      #0b1b34,
+      #10284b
     );
+}
+
+.market-layout {
+  display: grid;
+  grid-template-columns: 1fr .9fr;
+
+  align-items: center;
+  gap: 65px;
+}
+
+.market-content {
+  max-width: 600px;
+}
+
+.market-content .section-kicker {
+  color: #76ddff;
+}
+
+.market-content h2 {
+  font-size: clamp(38px, 5vw, 59px);
+
+  line-height: 1.08;
+  letter-spacing: -.045em;
+}
+
+.market-content h2 span {
+  display: block;
+  margin-top: 8px;
+
+  color: #83dcff;
+}
+
+.market-content p {
+  max-width: 530px;
+
+  margin-top: 22px;
+
+  color: rgba(235,243,255,.7);
+
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.market-content .btn {
+  margin-top: 30px;
+}
+
+.market-categories {
+  display: grid;
+  gap: 14px;
+}
+
+.market-category {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+
+  min-height: 100px;
+  padding: 20px 22px;
+
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 20px;
+
+  background: rgba(255,255,255,.055);
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    border-color .25s ease;
+}
+
+.market-category:hover {
+  transform: translateX(6px);
+
+  background: rgba(255,255,255,.11);
+  border-color: rgba(116,221,255,.38);
+}
+
+.market-category-icon {
+  flex: 0 0 48px;
+
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 15px;
+
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.amazon-category .market-category-icon {
+  color: #ffca83;
+  background: rgba(255,165,65,.13);
+}
+
+.partner-category .market-category-icon {
+  color: #78e3bd;
+  background: rgba(77,211,157,.12);
+}
+
+.sarvyanta-category .market-category-icon {
+  color: #9bdeff;
+  background: rgba(84,201,255,.13);
+}
+
+.market-category-copy {
+  min-width: 0;
+}
+
+.market-category strong,
+.market-category small {
+  display: block;
+}
+
+.market-category strong {
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.market-category small {
+  margin-top: 4px;
+
+  color: rgba(235,243,255,.58);
+  font-size: 12px;
+}
+
+.market-arrow {
+  margin-left: auto;
+
+  color: #8edfff;
+  font-size: 21px;
 }
 
 
@@ -1030,12 +1160,11 @@ section {
 
   overflow: hidden;
 
-  background:
-    linear-gradient(
-      180deg,
-      #ffffff,
-      #f4f7fb
-    );
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #f4f7fb
+  );
 }
 
 .journey-background {
@@ -1049,12 +1178,11 @@ section {
 
   border-radius: 50%;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(141,123,255,0.09),
-      transparent 65%
-    );
+  background: radial-gradient(
+    circle,
+    rgba(141,123,255,.09),
+    transparent 65%
+  );
 
   pointer-events: none;
 }
@@ -1063,12 +1191,9 @@ section {
   position: relative;
 
   display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 
   gap: 20px;
-
   padding-top: 45px;
 }
 
@@ -1081,14 +1206,13 @@ section {
 
   height: 1px;
 
-  background:
-    linear-gradient(
-      90deg,
-      #c8d4e2,
-      #8bcff3,
-      #a99bff,
-      #c8d4e2
-    );
+  background: linear-gradient(
+    90deg,
+    #c8d4e2,
+    #8bcff3,
+    #a99bff,
+    #c8d4e2
+  );
 }
 
 .journey-step {
@@ -1109,17 +1233,27 @@ section {
 
   border-radius: 50%;
 
-  color: #16233a;
-
-  background: white;
-
+  background: #ffffff;
   border: 1px solid #d6e1ee;
 
-  box-shadow:
-    0 10px 25px rgba(20, 50, 90, 0.10);
+  box-shadow: 0 10px 25px rgba(20,50,90,.10);
+}
 
-  font-size: 12px;
-  font-weight: 800;
+.journey-node span {
+  display: block;
+
+  width: 11px;
+  height: 11px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #54c9ff,
+    #8d7bff
+  );
+
+  box-shadow: 0 0 18px rgba(84,201,255,.3);
 }
 
 .journey-content {
@@ -1132,14 +1266,13 @@ section {
   font-size: 10px;
   font-weight: 800;
 
-  letter-spacing: 0.18em;
+  letter-spacing: .18em;
 }
 
 .journey-content h3 {
   margin-top: 10px;
 
   font-size: 23px;
-
   line-height: 1.2;
 }
 
@@ -1159,7 +1292,6 @@ section {
 
 .closing-section {
   padding: 0 0 100px;
-
   background: #f4f7fb;
 }
 
@@ -1175,17 +1307,17 @@ section {
 
   border-radius: 38px;
 
-  color: white;
+  color: #ffffff;
 
   background:
     radial-gradient(
       circle at 85% 20%,
-      rgba(84,201,255,0.23),
+      rgba(84,201,255,.23),
       transparent 28%
     ),
     radial-gradient(
       circle at 15% 80%,
-      rgba(141,123,255,0.20),
+      rgba(141,123,255,.20),
       transparent 30%
     ),
     linear-gradient(
@@ -1194,8 +1326,7 @@ section {
       #101e3a
     );
 
-  box-shadow:
-    0 30px 80px rgba(7, 22, 45, 0.18);
+  box-shadow: 0 30px 80px rgba(7,22,45,.18);
 }
 
 .closing-card::before {
@@ -1204,15 +1335,14 @@ section {
   position: absolute;
   inset: 0;
 
-  background-image:
-    radial-gradient(
-      rgba(255,255,255,0.18) 1px,
-      transparent 1px
-    );
+  background-image: radial-gradient(
+    rgba(255,255,255,.18) 1px,
+    transparent 1px
+  );
 
   background-size: 30px 30px;
 
-  opacity: 0.10;
+  opacity: .10;
 }
 
 .closing-content {
@@ -1220,7 +1350,6 @@ section {
   z-index: 2;
 
   max-width: 760px;
-
   padding: 70px;
 }
 
@@ -1234,8 +1363,7 @@ section {
   font-size: clamp(40px, 6vw, 67px);
 
   line-height: 1;
-
-  letter-spacing: -0.05em;
+  letter-spacing: -.05em;
 }
 
 .closing-content h2 span {
@@ -1247,7 +1375,7 @@ section {
 
   margin-top: 24px;
 
-  color: rgba(235,243,255,0.65);
+  color: rgba(235,243,255,.65);
 
   font-size: 17px;
 }
@@ -1256,25 +1384,21 @@ section {
   margin-top: 30px;
 
   color: #091525;
-
-  background: white;
+  background: #ffffff;
 }
 
 .btn-light:hover {
   transform: translateY(-3px);
-
-  box-shadow:
-    0 15px 40px rgba(0,0,0,0.18);
+  box-shadow: 0 15px 40px rgba(0,0,0,.18);
 }
 
 .closing-orb {
   position: absolute;
 
   border-radius: 50%;
-
   filter: blur(3px);
 
-  opacity: 0.7;
+  opacity: .7;
 }
 
 .orb-a {
@@ -1284,11 +1408,9 @@ section {
   right: 8%;
   top: 12%;
 
-  border:
-    1px solid rgba(120,220,255,0.2);
+  border: 1px solid rgba(120,220,255,.2);
 
-  box-shadow:
-    inset 0 0 60px rgba(84,201,255,0.08);
+  box-shadow: inset 0 0 60px rgba(84,201,255,.08);
 }
 
 .orb-b {
@@ -1298,8 +1420,7 @@ section {
   right: 24%;
   bottom: 15%;
 
-  border:
-    1px solid rgba(160,140,255,0.25);
+  border: 1px solid rgba(160,140,255,.25);
 }
 
 
@@ -1308,7 +1429,7 @@ section {
    ========================================================= */
 
 .site-footer {
-  color: rgba(255,255,255,0.58);
+  color: rgba(255,255,255,.58);
 
   background: #050c17;
 
@@ -1317,35 +1438,36 @@ section {
 
 .footer-wrap {
   display: grid;
-
-  grid-template-columns:
-    1fr
-    auto
-    auto;
+  grid-template-columns: 1fr auto auto;
 
   gap: 35px;
-
   align-items: end;
 }
 
 .footer-brand {
-  color: white;
+  display: inline-block;
+  margin-bottom: 8px;
+}
 
-  font-size: 15px;
-  font-weight: 800;
+.footer-logo {
+  width: 145px;
+  height: 52px;
 
-  letter-spacing: 0.16em;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .site-footer p {
   margin-top: 8px;
-
   font-size: 13px;
+}
+
+.site-footer a:hover {
+  color: #ffffff;
 }
 
 .footer-links {
   display: flex;
-
   flex-wrap: wrap;
 
   gap: 22px;
@@ -1353,19 +1475,14 @@ section {
   font-size: 13px;
 }
 
-.footer-links a:hover {
-  color: white;
-}
-
 .footer-copy {
   font-size: 12px;
-
   white-space: nowrap;
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   TABLET
    ========================================================= */
 
 @media (max-width: 980px) {
@@ -1376,7 +1493,6 @@ section {
 
   .hero-grid {
     grid-template-columns: 1fr;
-
     padding-top: 150px;
   }
 
@@ -1386,7 +1502,6 @@ section {
 
   .connection-stage {
     margin: 15px auto 0;
-
     width: min(100%, 650px);
   }
 
@@ -1395,14 +1510,20 @@ section {
   }
 
   .build-grid {
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .market-layout {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .market-content {
+    max-width: 720px;
   }
 
   .journey-track {
-    grid-template-columns:
-      repeat(2, 1fr);
-
+    grid-template-columns: repeat(2, 1fr);
     row-gap: 60px;
   }
 
@@ -1417,25 +1538,79 @@ section {
   .footer-copy {
     grid-column: 1 / -1;
   }
+
 }
 
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 700px) {
 
   .container {
-    width: min(
-      var(--container),
-      calc(100% - 28px)
-    );
+    width: min(var(--container), calc(100% - 28px));
   }
 
+  /* Header */
+
   .nav-wrap {
-    height: 72px;
+    min-height: 72px;
+    gap: 12px;
+  }
+
+  .brand-logo {
+    width: 112px;
+    height: 39px;
+  }
+
+  .brand-tagline {
+    font-size: 7px;
+  }
+
+  .menu-toggle {
+    display: block;
+    flex: 0 0 auto;
   }
 
   .main-nav {
+    position: absolute;
+
+    top: 66px;
+    left: 14px;
+    right: 14px;
+
     display: none;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+    padding: 8px;
+
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 16px;
+
+    background: rgba(5,14,29,.97);
+
+    box-shadow: 0 18px 45px rgba(0,0,0,.25);
   }
+
+  .main-nav.is-open {
+    display: flex;
+  }
+
+  .main-nav a {
+    padding: 12px 14px;
+    border-radius: 10px;
+  }
+
+  .main-nav a:hover {
+    background: rgba(255,255,255,.07);
+    transform: none;
+  }
+
+
+  /* Hero */
 
   .hero-grid {
     padding-top: 125px;
@@ -1452,7 +1627,6 @@ section {
 
   .hero-actions {
     align-items: stretch;
-
     flex-direction: column;
   }
 
@@ -1466,12 +1640,15 @@ section {
 
   .visual-label {
     font-size: 9px;
-
     padding: 6px 9px;
   }
 
+
+  /* Sections */
+
   .about-section,
   .build-section,
+  .market-section,
   .journey-section {
     padding: 85px 0;
   }
@@ -1485,20 +1662,55 @@ section {
   }
 
   .build-card {
-    min-height: 300px;
+    min-height: 280px;
   }
+
+
+  /* Market */
+
+  .market-layout {
+    gap: 32px;
+  }
+
+  .market-content h2 {
+    font-size: 40px;
+  }
+
+  .market-content p {
+    font-size: 15px;
+  }
+
+  .market-category {
+    min-height: 85px;
+    padding: 15px;
+    gap: 13px;
+  }
+
+  .market-category-icon {
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .market-category strong {
+    font-size: 14px;
+  }
+
+  .market-category small {
+    font-size: 11px;
+  }
+
+
+  /* Journey */
 
   .journey-track {
     grid-template-columns: 1fr;
-
     gap: 45px;
   }
 
   .journey-step {
     display: grid;
-
     grid-template-columns: 52px 1fr;
-
     gap: 20px;
   }
 
@@ -1510,21 +1722,24 @@ section {
     padding: 0;
   }
 
+
+  /* Closing */
+
   .closing-content {
     padding: 42px 28px;
   }
 
   .closing-card {
     min-height: 430px;
-
     border-radius: 28px;
   }
 
+
+  /* Footer */
+
   .footer-wrap {
     grid-template-columns: 1fr;
-
     gap: 25px;
-
     align-items: start;
   }
 
@@ -1535,19 +1750,20 @@ section {
   .footer-links {
     gap: 15px;
   }
+
+  .footer-logo {
+    width: 125px;
+    height: 45px;
+  }
+
 }
 
 
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
 @media (max-width: 430px) {
-
-  .brand-name {
-    font-size: 12px;
-  }
-
-  .brand-mark {
-    width: 34px;
-    height: 34px;
-  }
 
   .hero h1 {
     font-size: 46px;
@@ -1572,6 +1788,7 @@ section {
   .closing-content h2 {
     font-size: 42px;
   }
+
 }
 
 
@@ -1588,80 +1805,9 @@ section {
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-
-
-/* Compact Sarvyanta brand in the top-left corner */
-
-.site-header .nav-wrap {
-  min-height: 82px;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.site-header .brand {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  flex: 0 1 auto;
-  width: 150px;
-  max-width: 150px;
-  gap: 2px;
-  overflow: hidden;
-  letter-spacing: normal;
-}
-
-.site-header .brand-logo {
-  display: block;
-  width: 125px;
-  height: 48px;
-  max-width: 100%;
-  object-fit: contain;
-  object-position: left center;
-  border-radius: 0;
-}
-
-.site-header .brand-tagline {
-  display: block;
-  color: #c8eaff;
-  font-size: 9px;
-  line-height: 1.3;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-}
-
-.site-header .main-nav {
-  flex-shrink: 0;
-}
-
-/* Mobile */
-@media (max-width: 700px) {
-  .site-header .nav-wrap {
-    min-height: 68px;
-    gap: 8px;
+    transition-duration: .01ms !important;
   }
 
-  .site-header .brand {
-    width: 118px;
-    max-width: 118px;
-  }
-
-  .site-header .brand-logo {
-    width: 105px;
-    height: 38px;
-  }
-
-  .site-header .brand-tagline {
-    font-size: 7px;
-  }
 }
