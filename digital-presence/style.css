@@ -903,3 +903,61 @@ h3 {
 .copyright {
   color: #b5c2d3;
 }
+
+/* =========================================
+   INTRODUCTION — BUSINESS PARTNER OFFER
+========================================= */
+
+.benefits-intro {
+  margin: 25px 0 12px;
+  color: #101828;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.intro-benefits {
+  max-width: 850px;
+  margin: 0 0 22px;
+  padding-left: 22px;
+  color: #26364d;
+}
+
+.intro-benefits li {
+  padding: 7px 0;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.intro-benefits strong {
+  color: #0a1830;
+}
+
+.free-offer {
+  display: inline-block;
+  margin: 5px 0 17px;
+  padding: 12px 16px;
+  border-left: 4px solid #175cd3;
+  background: #eaf2ff;
+  color: #101828;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.closing-text {
+  margin-top: 4px;
+}
+
+@media (max-width: 720px) {
+  .benefits-intro {
+    font-size: 15px;
+  }
+
+  .intro-benefits li {
+    font-size: 14px;
+    padding: 6px 0;
+  }
+
+  .free-offer {
+    font-size: 14px;
+  }
+}
