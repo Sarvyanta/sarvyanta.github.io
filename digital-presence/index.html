@@ -5,55 +5,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Digital Presence for Businesses | Sarvyanta</title>
+  <title>Build Your Business Online | Sarvyanta</title>
 
-  <meta name="description" content="Build your business's digital identity with Sarvyanta. Selected partners can receive a free business website, with opportunities for promotion and Sarvyanta Market visibility.">
+  <meta name="description"
+    content="Sarvyanta helps selected small businesses and independent creators build a free online business presence, showcase products and explore promotional opportunities.">
 
-  <meta name="keywords" content="Sarvyanta, digital presence, business website, small business website, business promotion, Sarvyanta Market, partner businesses">
+  <meta name="theme-color" content="#0a1830">
 
   <link rel="canonical" href="https://sarvyanta.com/digital-presence/">
+  <link rel="stylesheet" href="/digital-presence/style.css">
 
-  <meta property="og:title" content="More Than a Website | Sarvyanta Digital Presence">
-  <meta property="og:description" content="Give your business a digital identity and explore opportunities to connect with more customers through Sarvyanta.">
+  <meta property="og:title" content="Build Your Business Online | Sarvyanta">
+  <meta property="og:description"
+    content="More than a business webpage. Build your digital presence with Sarvyanta.">
   <meta property="og:url" content="https://sarvyanta.com/digital-presence/">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#091526">
 
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Google Analytics 4 -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-987ESMD68T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-    gtag("config", "G-987ESMD68T", {
-      anonymize_ip: true
-    });
-  </script>
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-987ESMD68T');
 
-  <!-- Page structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Sarvyanta Digital Presence",
-    "url": "https://sarvyanta.com/digital-presence/",
-    "description": "Digital identity and online presence support for selected independent businesses, including business websites, promotional opportunities and eligible Sarvyanta Market listings.",
-    "provider": {
-      "@type": "Organization",
-      "name": "Sarvyanta",
-      "url": "https://sarvyanta.com/"
-    },
-    "areaServed": "Worldwide"
-  }
+    gtag('event', 'digital_presence_page_view');
   </script>
-
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
 
 <body>
@@ -62,35 +39,36 @@
   <header class="site-header">
     <div class="container nav-wrap">
 
-      <a href="/" class="brand" aria-label="Sarvyanta home">
+      <a href="/" class="brand" aria-label="Sarvyanta Home">
         <img
           src="/images/sarvyanta-logo-transparent.webp"
           alt="Sarvyanta"
-          class="brand-logo"
-          width="300"
-          height="100"
-        >
-        <span class="brand-tagline">Building an Intelligent World</span>
+          class="brand-logo">
       </a>
 
-      <nav class="main-nav" id="main-navigation" aria-label="Main navigation">
+      <nav class="main-nav" id="mainNav">
         <a href="/">Home</a>
-        <a href="#how-we-help">How We Help</a>
-        <a href="#partner-example">Our Work</a>
+        <a href="#included">What is included</a>
+        <a href="#growth">Beyond a webpage</a>
+        <a href="#example">Example</a>
         <a href="/market/">Market</a>
-        <a href="#contact" class="nav-cta">Partner With Us</a>
       </nav>
+
+      <a
+        class="header-cta"
+        href="https://wa.me/917386406514?text=Hi%20Sarvyanta%2C%20I%20am%20interested%20in%20building%20an%20online%20presence%20for%20my%20business."
+        target="_blank"
+        rel="noopener"
+        data-track="whatsapp">
+        Contact us
+      </a>
 
       <button
         class="menu-toggle"
-        type="button"
+        id="menuToggle"
         aria-label="Open navigation"
-        aria-expanded="false"
-        aria-controls="main-navigation"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
+        aria-expanded="false">
+        ☰
       </button>
 
     </div>
@@ -99,344 +77,252 @@
 
   <main>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-glow"></div>
-
-      <div class="container hero-content">
-
-        <div class="eyebrow">
-          <span></span>
-          SARVYANTA DIGITAL PRESENCE
-        </div>
-
-        <h1>
-          Your business.
-          <strong>Your digital identity.</strong>
-          <span>More possibilities.</span>
-        </h1>
-
-        <p class="hero-lead">
-          Your business deserves to be discovered, understood and remembered.
-          Sarvyanta helps independent businesses establish an online presence
-          and explore more ways to connect with potential customers.
-        </p>
-
-        <p class="hero-support">
-          More than a website. A relationship that can grow with your business.
-        </p>
-
-        <div class="hero-actions">
-          <a
-            class="btn btn-primary"
-            href="https://wa.me/917386406514?text=Hello%20Sarvyanta%2C%20I%20am%20interested%20in%20building%20a%20digital%20presence%20for%20my%20business."
-            target="_blank"
-            rel="noopener noreferrer"
-            data-track="whatsapp"
-          >
-            Discuss Your Business <span>→</span>
-          </a>
-
-          <a href="#how-we-help" class="btn btn-ghost">
-            Explore What We Offer
-          </a>
-        </div>
-
-        <div class="hero-note">
-          <span class="pulse-dot"></span>
-          A digital starting point for selected business partners
-        </div>
-
-      </div>
-    </section>
-
-
     <!-- INTRODUCTION -->
     <section class="intro-section">
       <div class="container">
 
-        <div class="section-heading">
-          <span class="section-kicker">A BIGGER PICTURE</span>
+        <p class="eyebrow">SARVYANTA BUSINESS PARTNERS</p>
 
-          <h2>
-            Not just an online page.
-            <span>A place for your business to grow.</span>
-          </h2>
+        <h1>Get your business online.<br>
+          <span>Free for selected partners.</span>
+        </h1>
 
-          <p>
-            A website gives your business a place on the internet. But
-            building a useful digital presence can go further than that.
-            It is about presenting what you do, helping people discover
-            your offerings and creating opportunities to connect.
-          </p>
+        <p class="intro-text">
+          Do you run a small business, offer a service, create handmade
+          products or work independently?
+        </p>
+
+        <p class="intro-text">
+          Sarvyanta helps selected businesses establish an online presence,
+          showcase what they offer and explore opportunities to reach
+          more people.
+        </p>
+
+        <p class="intro-text">
+          We want to build a relationship with businesses — not simply
+          create a webpage and leave.
+        </p>
+
+        <div class="intro-actions">
+          <a
+            class="btn btn-primary"
+            href="https://wa.me/917386406514?text=Hi%20Sarvyanta%2C%20I%20would%20like%20to%20know%20about%20your%20business%20partner%20opportunity."
+            target="_blank"
+            rel="noopener"
+            data-track="whatsapp">
+            Discuss your business on WhatsApp
+          </a>
         </div>
 
-        <div class="intro-content">
-          <p>
-            Sarvyanta aims to bring independent businesses, creators,
-            products and customers closer together. We start by understanding
-            your business and creating a suitable digital identity. From there,
-            we can explore relevant promotional opportunities and connections
-            through Sarvyanta Market.
-          </p>
-
-          <p>
-            The intention is to build a useful, transparent relationship
-            rather than simply create a website and walk away.
-          </p>
-        </div>
+        <p class="small-note">
+          Participation is subject to review and selection by Sarvyanta.
+        </p>
 
       </div>
     </section>
 
 
-    <!-- HOW WE HELP -->
-    <section class="help-section" id="how-we-help">
+    <!-- THE OFFER -->
+    <section class="content-section" id="included">
       <div class="container">
 
-        <div class="section-heading">
-          <span class="section-kicker">HOW SARVYANTA CAN HELP</span>
+        <p class="eyebrow">THE BASIC OFFER</p>
+        <h2>What do selected partners receive?</h2>
 
-          <h2>
-            Four ways to build
-            <span>more possibilities.</span>
-          </h2>
+        <p class="section-intro">
+          We provide a basic business webpage at no charge to selected
+          partners, within the features and scope described below.
+        </p>
 
-          <p>
-            Your digital presence can begin with a business website and
-            gradually extend into discovery, promotion and product visibility.
-          </p>
-        </div>
+        <div class="feature-list">
 
-
-        <div class="help-grid">
-
-          <article class="help-card">
-            <div class="card-number">01</div>
-            <div class="help-icon">◎</div>
-
-            <h3>Build Your Digital Identity</h3>
-
-            <p>
-              Establish a dedicated online space where customers can learn
-              about your business and explore what you offer.
-            </p>
-
-            <ul>
-              <li>Dedicated business subdomain</li>
-              <li>Business introduction and details</li>
-              <li>Products, services and catalogue</li>
-              <li>Images, gallery or portfolio</li>
-              <li>Contact and WhatsApp enquiries</li>
-              <li>Mobile-friendly presentation</li>
-            </ul>
-          </article>
-
-
-          <article class="help-card">
-            <div class="card-number">02</div>
-            <div class="help-icon">↗</div>
-
-            <h3>Explore Promotional Opportunities</h3>
-
-            <p>
-              Help more people become aware of your business through
-              suitable promotional and visibility opportunities.
-            </p>
-
-            <ul>
-              <li>Social media sharing opportunities</li>
-              <li>Selected business or product features</li>
-              <li>Promotional campaigns where available</li>
-              <li>Shareable business links</li>
-              <li>Opportunities to reach relevant audiences</li>
-            </ul>
-
-            <p class="card-note">
-              Promotional activities depend on campaign availability,
-              suitability and selection.
-            </p>
-          </article>
-
-
-          <article class="help-card">
-            <div class="card-number">03</div>
-            <div class="help-icon">◇</div>
-
-            <h3>Connect Through Sarvyanta Market</h3>
-
-            <p>
-              Eligible products from selected partner businesses may be
-              featured on Sarvyanta Market, providing another way for
-              customers to discover their offerings.
-            </p>
-
-            <ul>
-              <li>Selected partner product listings</li>
-              <li>Product images and descriptions</li>
-              <li>Prices or enquiry-based details</li>
-              <li>Customer contact through WhatsApp</li>
-              <li>Links to explore more from the partner</li>
-            </ul>
-
-            <a href="/market/" class="text-link" data-track="market">
-              Explore Sarvyanta Market →
-            </a>
-          </article>
-
-
-          <article class="help-card">
-            <div class="card-number">04</div>
-            <div class="help-icon">∞</div>
-
-            <h3>Grow the Relationship</h3>
-
-            <p>
-              A business changes over time. Its online presence can evolve
-              too, with relevant updates and additional opportunities.
-            </p>
-
-            <ul>
-              <li>Update business information</li>
-              <li>Add or change product details</li>
-              <li>Expand the catalogue or portfolio</li>
-              <li>Explore further digital requirements</li>
-              <li>Discuss future opportunities together</li>
-            </ul>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- STANDARD FREE OFFER -->
-    <section class="offer-section" id="partner-offer">
-      <div class="container">
-
-        <div class="offer-layout">
-
-          <div class="offer-copy">
-            <span class="section-kicker">OUR STANDARD PARTNER OFFERING</span>
-
-            <h2>
-              A digital starting point.
-              <span>At no cost for selected partners.</span>
-            </h2>
-
-            <p>
-              Sarvyanta intends to make it easier for selected independent
-              businesses to establish their digital identity. The standard
-              digital presence offering is provided free of cost to selected
-              partners.
-            </p>
-
-            <p>
-              This gives a business an opportunity to establish its own
-              online space without having to begin with a custom-domain
-              website or a complex digital setup.
-            </p>
-          </div>
-
-
-          <div class="offer-card">
-            <div class="offer-label">STANDARD OFFERING</div>
-
-            <div class="offer-price">
-              <strong>Free</strong>
-              <span>for selected partners</span>
+          <article class="feature-item">
+            <span class="feature-number">01</span>
+            <div>
+              <h3>A dedicated business webpage</h3>
+              <p>
+                Your own business page under a Sarvyanta web address,
+                such as <strong>yourbusiness.sarvyanta.com</strong>.
+              </p>
             </div>
+          </article>
 
-            <p class="offer-description">
-              The standard offering may include:
-            </p>
+          <article class="feature-item">
+            <span class="feature-number">02</span>
+            <div>
+              <h3>Business introduction</h3>
+              <p>
+                Tell customers who you are, what your business does,
+                where you operate and what makes your offering useful.
+              </p>
+            </div>
+          </article>
 
-            <ul class="offer-list">
-              <li>Business page on a Sarvyanta subdomain</li>
-              <li>Business introduction and contact information</li>
-              <li>Services or product presentation</li>
-              <li>Images and gallery, where relevant</li>
-              <li>WhatsApp enquiry link</li>
-              <li>Mobile-friendly layout</li>
-              <li>Shareable website address</li>
-            </ul>
+          <article class="feature-item">
+            <span class="feature-number">03</span>
+            <div>
+              <h3>Products and services</h3>
+              <p>
+                Showcase your products, services, descriptions and
+                available information so visitors can understand
+                what you offer.
+              </p>
+            </div>
+          </article>
 
-            <p class="offer-footnote">
-              The exact scope and included features will be agreed with
-              each selected partner before the work begins.
-            </p>
-          </div>
+          <article class="feature-item">
+            <span class="feature-number">04</span>
+            <div>
+              <h3>Photos and work gallery</h3>
+              <p>
+                Display suitable product photographs, completed work,
+                creations or other images relevant to your business.
+              </p>
+            </div>
+          </article>
+
+          <article class="feature-item">
+            <span class="feature-number">05</span>
+            <div>
+              <h3>Direct customer contact</h3>
+              <p>
+                Include your contact details and a WhatsApp enquiry
+                option so interested customers can reach you directly.
+              </p>
+            </div>
+          </article>
+
+          <article class="feature-item">
+            <span class="feature-number">06</span>
+            <div>
+              <h3>Mobile-friendly presentation</h3>
+              <p>
+                Your page will be designed to work on mobile phones,
+                tablets and desktop computers.
+              </p>
+            </div>
+          </article>
 
         </div>
+
+        <p class="scope-note">
+          The free offering covers the standard features listed above.
+          The final page content and scope will be agreed with each
+          selected business.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- BEYOND THE WEBPAGE -->
+    <section class="content-section alternate-section" id="growth">
+      <div class="container">
+
+        <p class="eyebrow">MORE THAN A WEBPAGE</p>
+        <h2>We want to help people discover your business.</h2>
+
+        <p class="section-intro">
+          Having a webpage is only one part of building an online presence.
+          Sarvyanta is developing a wider platform where businesses,
+          products, services and useful information can be discovered.
+        </p>
+
+        <div class="growth-list">
+
+          <article>
+            <h3>Business visibility</h3>
+            <p>
+              Your business can become part of Sarvyanta's growing
+              collection of participating businesses and creators.
+            </p>
+          </article>
+
+          <article>
+            <h3>Promotional opportunities</h3>
+            <p>
+              Selected businesses may receive opportunities to be
+              introduced or shared through Sarvyanta's available
+              promotional channels.
+            </p>
+          </article>
+
+          <article>
+            <h3>Sarvyanta Market</h3>
+            <p>
+              Eligible products from selected partners may be considered
+              for inclusion in Sarvyanta Market, giving customers another
+              way to discover their offerings.
+            </p>
+            <a href="/market/" class="text-link">Explore Sarvyanta Market →</a>
+          </article>
+
+          <article>
+            <h3>Direct customer enquiries</h3>
+            <p>
+              Customers interested in your products or services can
+              contact your business directly using the contact options
+              on your page.
+            </p>
+          </article>
+
+          <article>
+            <h3>Growing together</h3>
+            <p>
+              As Sarvyanta develops new initiatives and opportunities,
+              participating businesses may have opportunities to take
+              part where relevant.
+            </p>
+          </article>
+
+        </div>
+
+        <p class="scope-note">
+          Promotional opportunities and Market inclusion are subject
+          to availability, suitability and selection. Sarvyanta does
+          not guarantee customer reach, enquiries, sales or business growth.
+        </p>
 
       </div>
     </section>
 
 
     <!-- LIVE EXAMPLE -->
-    <section class="example-section" id="partner-example">
+    <section class="content-section" id="example">
       <div class="container">
 
-        <div class="section-heading">
-          <span class="section-kicker">A REAL WEBSITE EXAMPLE</span>
+        <p class="eyebrow">SEE A WORKING EXAMPLE</p>
+        <h2>What can a business page look like?</h2>
 
-          <h2>
-            See a business
-            <span>with its own digital identity.</span>
-          </h2>
-
-          <p>
-            A dedicated website can give an independent business or creator
-            a place to present its work, share its offerings and receive
-            customer enquiries.
-          </p>
-        </div>
-
+        <p class="section-intro">
+          Explore an example of a business presence built on Sarvyanta.
+          It gives you an idea of how a business can present its work
+          and information online.
+        </p>
 
         <div class="example-card">
 
           <div class="example-content">
-            <span class="example-label">LIVE PARTNER WEBSITE</span>
-
             <h3>Resin Art Works</h3>
 
             <p>
-              Explore a live example of a partner website created under
-              the Sarvyanta domain. It demonstrates how an independent
-              creative business can present its identity and work online.
+              Explore a live example of a business page showcasing
+              creative products and work.
             </p>
-
-            <div class="example-domain">
-              resin-art-works.sarvyanta.com
-            </div>
 
             <a
               href="https://resin-art-works.sarvyanta.com/"
-              class="btn btn-primary"
               target="_blank"
-              rel="noopener noreferrer"
-              data-track="partner_demo"
-            >
-              Visit Live Website <span>↗</span>
+              rel="noopener"
+              class="text-link"
+              data-track="demo">
+              Visit the live business page →
             </a>
           </div>
 
-          <div class="example-side">
-            <div class="example-side-top">
-              <span class="example-dot"></span>
-              <span>Independent business presence</span>
-            </div>
-
-            <div class="example-preview">
-              <span class="preview-symbol">R</span>
-              <strong>Resin Art Works</strong>
-              <span>A dedicated online identity</span>
-            </div>
-
-            <p>
-              A business-specific web address, rather than a generic
-              listing buried inside another website.
-            </p>
+          <div class="example-label">
+            <span class="live-dot"></span>
+            Live example
           </div>
 
         </div>
@@ -445,63 +331,58 @@
     </section>
 
 
-    <!-- MARKET CONNECTION -->
-    <section class="market-section">
+    <!-- PROCESS -->
+    <section class="content-section alternate-section" id="process">
       <div class="container">
 
-        <div class="market-layout">
+        <p class="eyebrow">HOW IT WORKS</p>
+        <h2>Getting started is simple.</h2>
 
-          <div class="market-copy">
-            <span class="section-kicker">BEYOND YOUR WEBSITE</span>
+        <div class="process-list">
 
-            <h2>
-              Your business presence.
-              <span>Connected to a wider marketplace.</span>
-            </h2>
-
-            <p>
-              Sarvyanta Market brings together products from different
-              brands, independent businesses and future Sarvyanta offerings.
-              Selected partner products may become part of this marketplace
-              when they are suitable for listing.
-            </p>
-
-            <p>
-              This creates another possible discovery point for your products,
-              while customers can explore the partner's business and contact
-              the seller directly through the available enquiry options.
-            </p>
-
-            <a href="/market/" class="btn btn-primary" data-track="market">
-              Explore Sarvyanta Market <span>→</span>
-            </a>
-          </div>
-
-          <div class="market-points">
-            <div class="market-point">
-              <span>01</span>
-              <div>
-                <strong>Business identity</strong>
-                <p>Your own dedicated online presence.</p>
-              </div>
+          <article>
+            <span>1</span>
+            <div>
+              <h3>Tell us about your business</h3>
+              <p>
+                Contact us and share what you do, the products or
+                services you offer and where you operate.
+              </p>
             </div>
+          </article>
 
-            <div class="market-point">
-              <span>02</span>
-              <div>
-                <strong>Product discovery</strong>
-                <p>Eligible products can be featured in Market.</p>
-              </div>
+          <article>
+            <span>2</span>
+            <div>
+              <h3>Share your business information</h3>
+              <p>
+                Provide your business introduction, contact details,
+                product or service information and suitable photographs.
+              </p>
             </div>
+          </article>
 
-            <div class="market-point">
-              <span>03</span>
-              <div>
-                <strong>Direct connection</strong>
-                <p>Customers can contact the business.</p>
-              </div>
+          <article>
+            <span>3</span>
+            <div>
+              <h3>We review and create your page</h3>
+              <p>
+                If selected, Sarvyanta will work with you to prepare
+                your business page within the agreed standard scope.
+              </p>
             </div>
-          </div>
+          </article>
+
+          <article>
+            <span>4</span>
+            <div>
+              <h3>Share your page with customers</h3>
+              <p>
+                You can share your business link with customers,
+                contacts and through your own social channels.
+              </p>
+            </div>
+          </article>
 
         </div>
 
@@ -509,218 +390,146 @@
     </section>
 
 
-    <!-- HOW IT WORKS -->
-    <section class="process-section">
+    <!-- WHO CAN PARTICIPATE -->
+    <section class="content-section">
       <div class="container">
 
-        <div class="section-heading">
-          <span class="section-kicker">GETTING STARTED</span>
+        <p class="eyebrow">WHO CAN CONNECT WITH US?</p>
+        <h2>For businesses and independent creators.</h2>
 
-          <h2>
-            Simple steps.
-            <span>A shared understanding.</span>
-          </h2>
+        <p class="section-intro">
+          We welcome enquiries from different types of small businesses
+          and independent professionals.
+        </p>
 
-          <p>
-            We begin with a conversation and understand what your business
-            needs before deciding what can be offered.
-          </p>
-        </div>
+        <ul class="business-types">
+          <li>Home-based businesses</li>
+          <li>Handmade and creative product sellers</li>
+          <li>Boutiques and independent stores</li>
+          <li>Artists and creators</li>
+          <li>Service providers</li>
+          <li>Food and bakery businesses</li>
+          <li>Tutors and educators</li>
+          <li>Independent entrepreneurs</li>
+        </ul>
 
-        <div class="process-grid">
+        <p class="small-note">
+          Sarvyanta may consider other business categories too.
+          All enquiries are subject to review.
+        </p>
 
-          <article class="process-step">
-            <span class="process-number">01</span>
-            <h3>Understand</h3>
-            <p>
-              Tell us about your business, what you offer and what you
-              would like to achieve.
-            </p>
-          </article>
-
-          <article class="process-step">
-            <span class="process-number">02</span>
-            <h3>Create</h3>
-            <p>
-              We agree on the scope and prepare a suitable digital presence
-              using the available business information.
-            </p>
-          </article>
-
-          <article class="process-step">
-            <span class="process-number">03</span>
-            <h3>Connect</h3>
-            <p>
-              Share your business website with customers and explore
-              relevant promotional or Market opportunities.
-            </p>
-          </article>
-
-          <article class="process-step">
-            <span class="process-number">04</span>
-            <h3>Grow</h3>
-            <p>
-              Discuss updates, new requirements and further opportunities
-              as your business evolves.
-            </p>
-          </article>
-
-        </div>
       </div>
     </section>
 
 
-    <!-- WHO CAN BENEFIT -->
-    <section class="audience-section">
+    <!-- TRANSPARENCY / TERMS -->
+    <section class="content-section notes-section" id="notes">
       <div class="container">
 
-        <div class="section-heading">
-          <span class="section-kicker">WHO CAN PARTNER WITH US</span>
+        <p class="eyebrow">IMPORTANT INFORMATION</p>
+        <h2>A few things to know.</h2>
 
-          <h2>
-            Every business has a story.
-            <span>Give yours a place online.</span>
-          </h2>
+        <div class="notes-list">
 
-          <p>
-            We are interested in connecting with independent businesses
-            and people building something of their own.
-          </p>
-        </div>
+          <article>
+            <h3>Free for selected partners</h3>
+            <p>
+              The standard business page is offered free of charge
+              to businesses selected by Sarvyanta. This is not an
+              automatic or universal offer.
+            </p>
+          </article>
 
-        <div class="audience-list">
-          <span>Home businesses</span>
-          <span>Artists and creators</span>
-          <span>Boutiques</span>
-          <span>Small businesses</span>
-          <span>Service providers</span>
-          <span>Educators and tutors</span>
-          <span>Independent entrepreneurs</span>
-          <span>Local product makers</span>
+          <article>
+            <h3>Custom domains and additional costs</h3>
+            <p>
+              The standard offer uses a Sarvyanta subdomain.
+              If you prefer your own domain, domain registration
+              and renewal costs are separate. Custom features,
+              advanced integrations, additional functionality,
+              extensive content work or services outside the
+              standard offering may involve additional charges.
+              Any such costs will be discussed and agreed upon
+              before work begins.
+            </p>
+          </article>
+
+          <article>
+            <h3>Content and updates</h3>
+            <p>
+              The business is responsible for providing accurate
+              information, photographs and necessary permissions
+              for submitted content. Reasonable corrections to the
+              agreed page content can be discussed with Sarvyanta.
+              Major changes or additional work may fall outside
+              the free offering.
+            </p>
+          </article>
+
+          <article>
+            <h3>Promotions and visibility</h3>
+            <p>
+              Inclusion in promotional activities depends on
+              availability, suitability and Sarvyanta's discretion.
+              Promotion does not guarantee website traffic,
+              search rankings, customer enquiries or sales.
+            </p>
+          </article>
+
+          <article>
+            <h3>Sarvyanta Market listings</h3>
+            <p>
+              Not every partner product will automatically appear
+              in Sarvyanta Market. Product inclusion is subject
+              to review, eligibility, available space and any
+              applicable listing or participation conditions.
+            </p>
+          </article>
+
+          <article>
+            <h3>Business ownership and transactions</h3>
+            <p>
+              Participating businesses remain responsible for
+              their products, services, pricing, fulfilment,
+              customer communication, warranties and applicable
+              legal requirements. Unless separately agreed,
+              customers contact and transact directly with
+              the business.
+            </p>
+          </article>
+
         </div>
 
       </div>
     </section>
 
 
-    <!-- TRANSPARENCY -->
-    <section class="transparency-section" id="transparency">
-      <div class="container">
-
-        <div class="section-heading">
-          <span class="section-kicker">CLEAR EXPECTATIONS</span>
-
-          <h2>
-            Built on
-            <span>clarity and trust.</span>
-          </h2>
-
-          <p>
-            We believe a good partnership starts with understanding
-            what is included, what is optional and what depends on
-            availability.
-          </p>
-        </div>
-
-
-        <div class="terms-grid">
-
-          <article class="terms-card">
-            <span class="terms-icon">✓</span>
-            <h3>Standard offering</h3>
-            <p>
-              The standard digital presence offering is free for selected
-              partners, within the features and scope agreed before work begins.
-            </p>
-          </article>
-
-          <article class="terms-card">
-            <span class="terms-icon">+</span>
-            <h3>Custom domains and additional features</h3>
-            <p>
-              A separately registered domain, domain renewals, advanced
-              functionality, extra pages, integrations or requirements
-              beyond the standard scope may involve additional charges.
-              These will be discussed and agreed upon beforehand.
-            </p>
-          </article>
-
-          <article class="terms-card">
-            <span class="terms-icon">↗</span>
-            <h3>Promotion and visibility</h3>
-            <p>
-              Promotional opportunities depend on availability, campaign
-              suitability and selection. They are not guaranteed or
-              necessarily part of every partner's standard offering.
-            </p>
-          </article>
-
-          <article class="terms-card">
-            <span class="terms-icon">◇</span>
-            <h3>Market listings</h3>
-            <p>
-              Sarvyanta Market listings are subject to product suitability,
-              selection and availability. A business website does not
-              automatically guarantee product listing.
-            </p>
-          </article>
-
-        </div>
-
-        <div class="trust-note">
-          <h3>Our commitment</h3>
-          <p>
-            We aim to communicate clearly, understand each business's needs
-            and agree on the scope before proceeding. Any additional costs
-            will be discussed in advance. We do not promise guaranteed
-            traffic, customer enquiries, sales or business results.
-          </p>
-          <p>
-            Our goal is to create useful digital foundations and build
-            relationships that can develop over time.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- CONTACT CTA -->
+    <!-- CONTACT -->
     <section class="contact-section" id="contact">
       <div class="container">
 
-        <div class="contact-card">
+        <p class="eyebrow">LET'S CONNECT</p>
 
-          <span class="section-kicker">LET'S START A CONVERSATION</span>
+        <h2>Ready to bring your business online?</h2>
 
-          <h2>
-            Tell us about
-            <span>your business.</span>
-          </h2>
+        <p>
+          Tell us about your business. We can discuss whether
+          the Sarvyanta partner opportunity is suitable for you.
+        </p>
 
-          <p>
-            Whether you are starting from home, building a creative brand
-            or running an established small business, let's understand
-            what you need and explore what we can build together.
-          </p>
+        <a
+          class="btn btn-primary contact-button"
+          href="https://wa.me/917386406514?text=Hi%20Sarvyanta%2C%20I%20am%20interested%20in%20the%20business%20partner%20opportunity.%20I%20would%20like%20to%20share%20details%20about%20my%20business."
+          target="_blank"
+          rel="noopener"
+          data-track="whatsapp">
+          WhatsApp: 7386406514
+        </a>
 
-          <a
-            href="https://wa.me/917386406514?text=Hello%20Sarvyanta%2C%20I%20would%20like%20to%20discuss%20a%20digital%20presence%20for%20my%20business."
-            class="btn btn-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-track="whatsapp"
-          >
-            <span class="whatsapp-symbol">◉</span>
-            Connect With Sarvyanta on WhatsApp
-            <span>→</span>
-          </a>
-
-          <p class="contact-number">
-            WhatsApp: +91 73864 06514
-          </p>
-
-        </div>
+        <p class="contact-email">
+          You can also email us at
+          <a href="mailto:sarvyanta@gmail.com">sarvyanta@gmail.com</a>
+        </p>
 
       </div>
     </section>
@@ -730,166 +539,67 @@
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="container footer-wrap">
+    <div class="container footer-content">
 
-      <div class="footer-about">
-        <a href="/" class="footer-brand" aria-label="Sarvyanta home">
-          <img
-            src="/images/sarvyanta-logo-transparent.webp"
-            alt="Sarvyanta"
-            class="footer-logo"
-            width="300"
-            height="100"
-            loading="lazy"
-          >
-        </a>
-
+      <div>
+        <a href="/" class="footer-brand">SARVYANTA</a>
         <p>Building an Intelligent World.</p>
-        <p>
-          Contact:
-          <a href="mailto:sarvyanta@gmail.com">sarvyanta@gmail.com</a>
-        </p>
       </div>
 
-      <nav class="footer-links" aria-label="Footer navigation">
+      <div class="footer-links">
         <a href="/">Home</a>
-        <a href="/market/">Market</a>
-        <a href="#how-we-help">How We Help</a>
-        <a href="#transparency">Partner Terms</a>
-        <a href="/Privacy-Policy/">Privacy Policy</a>
-      </nav>
-
-      <div class="footer-copy">
-        © 2026 Sarvyanta. All rights reserved.
+        <a href="/market/">Sarvyanta Market</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="mailto:sarvyanta@gmail.com">Email</a>
       </div>
+
+      <p class="copyright">
+        © <span id="currentYear"></span> Sarvyanta. All rights reserved.
+      </p>
 
     </div>
   </footer>
 
 
-  <!-- PAGE ANALYTICS AND MOBILE NAVIGATION -->
   <script>
-    (function () {
-      "use strict";
+    // Mobile navigation
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
 
-      function trackEvent(name, parameters) {
-        if (typeof window.gtag === "function") {
-          window.gtag("event", name, parameters || {});
+    menuToggle.addEventListener('click', function () {
+      const isOpen = mainNav.classList.toggle('nav-open');
+
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.setAttribute(
+        'aria-label',
+        isOpen ? 'Close navigation' : 'Open navigation'
+      );
+
+      menuToggle.textContent = isOpen ? '✕' : '☰';
+    });
+
+    // Close mobile navigation after selecting a link
+    mainNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mainNav.classList.remove('nav-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation');
+        menuToggle.textContent = '☰';
+      });
+    });
+
+    // Analytics for important outbound actions
+    document.querySelectorAll('[data-track]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (typeof gtag === 'function') {
+          gtag('event', 'digital_presence_' + link.dataset.track + '_click');
         }
-      }
-
-      trackEvent("digital_presence_page_view", {
-        page_title: document.title,
-        page_location: window.location.href
       });
+    });
 
-      document.querySelectorAll("a[href]").forEach(function (link) {
-        link.addEventListener("click", function () {
-          var href = link.getAttribute("href") || "";
-          var text = (
-            link.innerText ||
-            link.getAttribute("aria-label") ||
-            ""
-          ).trim().slice(0, 100);
-
-          var location = "content";
-
-          if (link.closest(".site-header")) {
-            location = "header";
-          } else if (link.closest(".site-footer")) {
-            location = "footer";
-          } else if (link.closest(".hero")) {
-            location = "hero";
-          } else if (link.closest(".contact-section")) {
-            location = "contact";
-          } else if (link.closest(".example-section")) {
-            location = "example";
-          } else if (link.closest(".market-section")) {
-            location = "market";
-          }
-
-          trackEvent("digital_presence_link_click", {
-            link_text: text,
-            link_url: href,
-            link_location: location
-          });
-
-          var trackType = link.getAttribute("data-track");
-
-          if (trackType === "whatsapp") {
-            trackEvent("digital_presence_whatsapp_click", {
-              link_location: location
-            });
-          }
-
-          if (trackType === "market") {
-            trackEvent("digital_presence_market_click", {
-              link_location: location
-            });
-          }
-
-          if (trackType === "partner_demo") {
-            trackEvent("digital_presence_demo_click", {
-              partner_name: "Resin Art Works"
-            });
-          }
-        });
-      });
-
-
-      // Section visibility
-      if ("IntersectionObserver" in window) {
-        var sections = document.querySelectorAll(
-          "#how-we-help, #partner-offer, #partner-example, #contact, #transparency"
-        );
-
-        var seen = new Set();
-
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting && !seen.has(entry.target.id)) {
-              seen.add(entry.target.id);
-
-              trackEvent("digital_presence_section_view", {
-                section_id: entry.target.id
-              });
-            }
-          });
-        }, {
-          threshold: 0.35
-        });
-
-        sections.forEach(function (section) {
-          observer.observe(section);
-        });
-      }
-
-
-      // Mobile navigation
-      var menuButton = document.querySelector(".menu-toggle");
-      var navigation = document.querySelector(".main-nav");
-
-      if (menuButton && navigation) {
-        menuButton.addEventListener("click", function () {
-          var isOpen = navigation.classList.toggle("is-open");
-
-          menuButton.setAttribute("aria-expanded", String(isOpen));
-          menuButton.setAttribute(
-            "aria-label",
-            isOpen ? "Close navigation" : "Open navigation"
-          );
-        });
-
-        navigation.querySelectorAll("a").forEach(function (link) {
-          link.addEventListener("click", function () {
-            navigation.classList.remove("is-open");
-            menuButton.setAttribute("aria-expanded", "false");
-            menuButton.setAttribute("aria-label", "Open navigation");
-          });
-        });
-      }
-
-    })();
+    // Footer year
+    document.getElementById('currentYear').textContent =
+      new Date().getFullYear();
   </script>
 
 </body>
