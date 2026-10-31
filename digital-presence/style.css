@@ -769,3 +769,137 @@ h3 {
   }
 
 }
+
+/* =========================================
+   FINAL OVERRIDES — HEADER & READABILITY
+========================================= */
+
+/* Dark Sarvyanta header */
+.site-header {
+  background: #0a1830;
+  border-bottom: 1px solid #263b59;
+}
+
+.nav-wrap {
+  background: transparent;
+}
+
+.main-nav a {
+  color: #ffffff;
+}
+
+.main-nav a:hover {
+  color: #54c9ff;
+}
+
+.header-cta {
+  background: #175cd3;
+  color: #ffffff;
+}
+
+.header-cta:hover {
+  background: #2875ee;
+}
+
+.menu-toggle {
+  color: #ffffff;
+}
+
+/* Mobile navigation */
+@media (max-width: 720px) {
+  .main-nav {
+    background: #0a1830;
+    border-bottom: 1px solid #263b59;
+  }
+
+  .main-nav a {
+    color: #ffffff;
+    border-bottom: 1px solid #263b59;
+  }
+
+  .main-nav a:hover {
+    color: #54c9ff;
+  }
+}
+
+/* Stronger text contrast */
+body {
+  color: #172033;
+}
+
+.intro-text,
+.section-intro,
+.feature-item p,
+.growth-list p,
+.example-content p,
+.process-list p,
+.notes-list p {
+  color: #344054;
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+  color: #0a1830;
+}
+
+/* Feature descriptions */
+.feature-item h3,
+.growth-list h3,
+.process-list h3,
+.notes-list h3 {
+  color: #101828;
+}
+
+/* Business category text */
+.business-types li {
+  color: #172033;
+}
+
+/* Scope and information notes */
+.scope-note {
+  color: #26364d;
+  background: #edf3ff;
+}
+
+/* Supporting text */
+.small-note {
+  color: #475467;
+}
+
+/* Example label */
+.example-label {
+  color: #05603a;
+}
+
+/* Contact section retains contrasting white text */
+.contact-section {
+  background: #0a1830;
+}
+
+.contact-section h2 {
+  color: #ffffff;
+}
+
+.contact-section > .container > p:not(.eyebrow) {
+  color: #e0e8f3;
+}
+
+.contact-email {
+  color: #e0e8f3;
+}
+
+/* Footer */
+.site-footer {
+  background: #061226;
+}
+
+.footer-content > div:first-child p,
+.footer-links a {
+  color: #d0d9e6;
+}
+
+.copyright {
+  color: #b5c2d3;
+}
