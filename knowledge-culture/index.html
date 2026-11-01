@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,341 +7,1218 @@
 <title>Knowledge & Culture | Sarvyanta</title>
 <meta name="description" content="Explore useful knowledge, Indian culture, festivals, motherhood resources and learning guides from Sarvyanta.">
 <meta name="theme-color" content="#0a1830">
+
 <style>
-:root{
-  --ink:#101828;--navy:#081a35;--navy2:#10284b;--blue:#175cd3;
-  --cyan:#77e1ff;--violet:#a69bff;--muted:#667085;--line:#e5eaf2;
-  --surface:#f5f8fd;--white:#fff;--shadow:0 14px 38px rgba(16,40,75,.09);
+:root {
+  --ink:#101828;
+  --navy:#081a35;
+  --navy2:#10284b;
+  --blue:#175cd3;
+  --cyan:#77e1ff;
+  --violet:#a69bff;
+  --muted:#667085;
+  --line:#e5eaf2;
+  --shadow:0 14px 38px rgba(16,40,75,.09);
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:#fff}
-a{color:inherit}
-.container{width:min(1120px,calc(100% - 40px));margin:auto}
-.site-header{background:var(--navy);color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}
-.header-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{text-decoration:none;display:flex;flex-direction:column;gap:2px}
-.brand-name{font-size:25px;font-weight:800;letter-spacing:-.8px}
-.brand-tagline{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:#b8c9e2}
-.header-links{display:flex;align-items:center;gap:24px;font-size:13px;color:#dce8f8}
-.header-links a{text-decoration:none}
-.header-links a:hover{color:var(--cyan)}
-.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#081a35 0%,#102d55 58%,#173e72 100%);color:#fff;padding:74px 0 66px}
-.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none}
-.hero:before{width:420px;height:420px;right:-110px;top:-220px;background:rgba(119,225,255,.12);filter:blur(4px)}
-.hero:after{width:300px;height:300px;right:17%;bottom:-250px;background:rgba(166,155,255,.18);filter:blur(8px)}
-.hero-content{position:relative;z-index:1;max-width:820px}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
-.eyebrow:before{content:"";width:22px;height:2px;background:var(--cyan)}
-h1{font-size:clamp(36px,6vw,60px);line-height:1.06;letter-spacing:-2px;margin:18px 0 16px}
-h1 span{background:linear-gradient(100deg,#77e1ff,#b6adff);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{max-width:650px;color:#d4e1f3;font-size:17px;line-height:1.75;margin:0}
-.search-wrap{margin-top:30px;max-width:720px}
-.search-box{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid rgba(255,255,255,.5);border-radius:14px;padding:7px 8px 7px 17px;box-shadow:0 14px 34px rgba(0,0,0,.2)}
-.search-box svg{width:21px;height:21px;flex:none;color:#526783}
-.search-box input{width:100%;min-width:0;border:0;outline:0;font:inherit;font-size:15px;color:#101828;padding:11px 0;background:transparent}
-.search-box input::placeholder{color:#98a2b3}
-.clear-btn{border:0;border-radius:9px;background:#edf3fb;color:#24466f;font-weight:700;padding:10px 13px;cursor:pointer}
-.search-hint{font-size:12px;color:#b9cce5;margin:11px 2px 0}
-main{padding:48px 0 76px;background:linear-gradient(180deg,#f7faff 0%,#fff 360px)}
-.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:23px}
-.section-kicker{font-size:11px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;color:var(--blue)}
-h2{font-size:30px;letter-spacing:-.8px;margin:7px 0 0;color:#0b1f3b}
-.section-intro{font-size:14px;line-height:1.65;color:var(--muted);margin:8px 0 0;max-width:650px}
-.result-count{font-size:12px;color:var(--muted);white-space:nowrap}
-.category-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.category-card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;transition:transform .2s,border-color .2s}
-.category-card:hover{transform:translateY(-2px);border-color:#c8d8ef}
-.category-toggle{width:100%;display:flex;align-items:center;gap:15px;text-align:left;padding:22px;border:0;background:#fff;cursor:pointer;color:inherit}
-.category-icon{width:54px;height:54px;display:grid;place-items:center;flex:none;border-radius:15px;background:linear-gradient(145deg,#e9f4ff,#e9eaff);color:#175cd3}
-.category-icon svg{width:27px;height:27px}
-.category-info{min-width:0;flex:1}
-.category-info h3{margin:0;font-size:19px;letter-spacing:-.3px;color:#10284b}
-.category-info p{margin:5px 0 0;font-size:13px;line-height:1.5;color:#667085}
-.category-meta{font-size:11px;color:#667085;margin-top:8px}
-.chevron{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#f0f5fb;color:#175cd3;transition:transform .2s;flex:none}
-.category-card.is-open .chevron{transform:rotate(180deg)}
-.article-panel{border-top:1px solid #edf0f5;padding:8px 22px 19px;display:none}
-.category-card.is-open .article-panel{display:block}
-.article-list{list-style:none;padding:0;margin:0}
-.article-list li{border-bottom:1px solid #f0f2f6}
-.article-list li:last-child{border-bottom:0}
-.article-link{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 2px;text-decoration:none;color:#175cd3;font-size:13px;font-weight:650;line-height:1.45}
-.article-link:hover{color:#0b347f;text-decoration:underline}
-.article-link small{font-size:10px;color:#7b8798;font-weight:600;white-space:nowrap}
-.language-label{font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:800;color:#8a94a6;padding:13px 2px 3px}
-.search-results{display:none;margin:0 0 25px;background:#fff;border:1px solid #dce6f4;border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
-.search-results.visible{display:block}
-.results-head{padding:15px 18px;background:#f0f6ff;border-bottom:1px solid #e0eaf8;display:flex;justify-content:space-between;gap:12px;align-items:center}
-.results-head strong{font-size:14px;color:#10284b}
-.results-head span{font-size:11px;color:#667085}
-.results-list{list-style:none;padding:4px 18px;margin:0}
-.results-list li{border-bottom:1px solid #edf0f5}
-.results-list li:last-child{border:0}
-.results-list a{display:flex;justify-content:space-between;gap:12px;padding:12px 0;text-decoration:none;color:#175cd3;font-size:13px;font-weight:650}
-.results-list a:hover{text-decoration:underline}
-.results-list small{color:#7b8798;font-size:11px;font-weight:500;white-space:nowrap}
-.no-results{padding:20px;color:#667085;font-size:13px}
-.empty-state{display:none;padding:28px;text-align:center;color:#667085;background:#fff;border:1px dashed #cbd7e7;border-radius:14px}
-.site-footer{background:#07162d;color:#d3deed;padding:30px 0}
-.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
-.footer-brand{font-weight:800;font-size:18px;color:#fff}
-.footer-tag{font-size:11px;color:#9fb2ce;margin-top:3px}
-.footer-links{display:flex;gap:18px;flex-wrap:wrap;font-size:12px}
-.footer-links a{color:#c7d5e8;text-decoration:none}
-.footer-links a:hover{color:var(--cyan)}
-.copyright{font-size:11px;color:#91a4c0}
-@media(max-width:700px){
- .container{width:min(100% - 30px,1120px)}
- .header-inner{min-height:66px}.brand-name{font-size:22px}.header-links{gap:13px;font-size:12px}
- .hero{padding:55px 0 48px}h1{letter-spacing:-1.3px}.hero p{font-size:15px}
- main{padding:36px 0 55px}.section-head{display:block}h2{font-size:26px}.result-count{display:block;margin-top:10px}
- .category-grid{grid-template-columns:1fr;gap:13px}
- .category-toggle{padding:17px;gap:12px}.category-icon{width:48px;height:48px}
- .category-info h3{font-size:17px}.article-panel{padding:7px 17px 15px}
- .search-box{gap:8px}.search-box input{font-size:14px}.clear-btn{padding:9px 10px}
- .footer-inner{display:block}.footer-links{margin:17px 0}.copyright{margin-top:12px}
+
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+
+body {
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink);
+  background:#fff;
 }
-@media(max-width:390px){.header-links a:nth-child(2){display:none}.category-info p{font-size:12px}}
+
+a {color:inherit}
+.container {width:min(1120px,calc(100% - 40px));margin:auto}
+
+/* HEADER */
+
+.site-header {
+  background:var(--navy);
+  color:#fff;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.header-inner {
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand {
+  text-decoration:none;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:2px;
+  flex:none;
+}
+
+.brand-logo {
+  display:block;
+  width:150px;
+  height:50px;
+  object-fit:contain;
+  object-position:left center;
+}
+
+.brand-tagline {
+  font-size:10px;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  color:#b8c9e2;
+  margin-top:-3px;
+}
+
+.header-links {
+  display:flex;
+  align-items:center;
+  gap:24px;
+  font-size:13px;
+  color:#dce8f8;
+}
+
+.header-links a {text-decoration:none}
+.header-links a:hover {color:var(--cyan)}
+
+/* HERO */
+
+.hero {
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(120deg,#081a35 0%,#102d55 58%,#173e72 100%);
+  color:#fff;
+  padding:74px 0 66px;
+}
+
+.hero:before,.hero:after {
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.hero:before {
+  width:420px;
+  height:420px;
+  right:-110px;
+  top:-220px;
+  background:rgba(119,225,255,.12);
+  filter:blur(4px);
+}
+
+.hero:after {
+  width:300px;
+  height:300px;
+  right:17%;
+  bottom:-250px;
+  background:rgba(166,155,255,.18);
+  filter:blur(8px);
+}
+
+.hero-content {
+  position:relative;
+  z-index:1;
+  max-width:820px;
+}
+
+.eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--cyan);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.eyebrow:before {
+  content:"";
+  width:22px;
+  height:2px;
+  background:var(--cyan);
+}
+
+h1 {
+  font-size:clamp(36px,6vw,60px);
+  line-height:1.06;
+  letter-spacing:-2px;
+  margin:18px 0 16px;
+}
+
+h1 span {
+  background:linear-gradient(100deg,#77e1ff,#b6adff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero p {
+  max-width:650px;
+  color:#d4e1f3;
+  font-size:17px;
+  line-height:1.75;
+  margin:0;
+}
+
+/* SEARCH */
+
+.search-wrap {
+  margin-top:30px;
+  max-width:720px;
+}
+
+.search-box {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:#fff;
+  border:1px solid rgba(255,255,255,.5);
+  border-radius:14px;
+  padding:7px 8px 7px 17px;
+  box-shadow:0 14px 34px rgba(0,0,0,.2);
+}
+
+.search-box svg {
+  width:21px;
+  height:21px;
+  flex:none;
+  color:#526783;
+}
+
+.search-box input {
+  width:100%;
+  min-width:0;
+  border:0;
+  outline:0;
+  font:inherit;
+  font-size:15px;
+  color:#101828;
+  padding:11px 0;
+  background:transparent;
+}
+
+.search-box input::placeholder {color:#98a2b3}
+
+.clear-btn {
+  border:0;
+  border-radius:9px;
+  background:#edf3fb;
+  color:#24466f;
+  font-weight:700;
+  padding:10px 13px;
+  cursor:pointer;
+}
+
+.search-hint {
+  font-size:12px;
+  color:#b9cce5;
+  margin:11px 2px 0;
+}
+
+/* MAIN */
+
+main {
+  padding:48px 0 76px;
+  background:linear-gradient(180deg,#f7faff 0%,#fff 360px);
+}
+
+.section-head {
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:23px;
+}
+
+.section-kicker {
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+  color:var(--blue);
+}
+
+h2 {
+  font-size:30px;
+  letter-spacing:-.8px;
+  margin:7px 0 0;
+  color:#0b1f3b;
+}
+
+.section-intro {
+  font-size:14px;
+  line-height:1.65;
+  color:var(--muted);
+  margin:8px 0 0;
+  max-width:650px;
+}
+
+.result-count {
+  font-size:12px;
+  color:var(--muted);
+  white-space:nowrap;
+}
+
+/* CATEGORY CARDS */
+
+.category-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+
+.category-card {
+  position:relative;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  transition:transform .2s,border-color .2s;
+}
+
+.category-card:before {
+  content:"";
+  display:block;
+  height:4px;
+  background:var(--category-accent,#175cd3);
+}
+
+.category-card:hover {
+  transform:translateY(-2px);
+  border-color:var(--category-border,#c8d8ef);
+}
+
+.category-toggle {
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  text-align:left;
+  padding:22px;
+  border:0;
+  background:var(--category-tint,#fff);
+  cursor:pointer;
+  color:inherit;
+}
+
+.category-icon {
+  width:54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  flex:none;
+  border-radius:15px;
+  background:var(--category-icon-bg,#e9f4ff);
+  color:var(--category-accent,#175cd3);
+}
+
+.category-icon svg {
+  width:27px;
+  height:27px;
+}
+
+.category-info {
+  min-width:0;
+  flex:1;
+}
+
+.category-info h3 {
+  margin:0;
+  font-size:19px;
+  letter-spacing:-.3px;
+  color:var(--category-heading,#10284b);
+}
+
+.category-info p {
+  margin:5px 0 0;
+  font-size:13px;
+  line-height:1.5;
+  color:#667085;
+}
+
+.category-meta {
+  font-size:11px;
+  color:var(--category-accent,#667085);
+  margin-top:8px;
+  font-weight:700;
+}
+
+.chevron {
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--category-icon-bg,#f0f5fb);
+  color:var(--category-accent,#175cd3);
+  transition:transform .2s;
+  flex:none;
+}
+
+.category-card.is-open .chevron {
+  transform:rotate(180deg);
+}
+
+.article-panel {
+  border-top:1px solid var(--category-border,#edf0f5);
+  padding:8px 22px 19px;
+  display:none;
+  background:var(--category-panel,#fff);
+}
+
+.category-card.is-open .article-panel {display:block}
+
+/* CATEGORY-SPECIFIC COLOURS */
+
+/* New Mom — warm rose */
+
+.category-card[data-category="new-mom"] {
+  --category-accent:#b94f72;
+  --category-heading:#71364d;
+  --category-tint:#fff8fa;
+  --category-icon-bg:#fce8ef;
+  --category-border:#f0c8d5;
+  --category-panel:#fffafb;
+}
+
+/* India — saffron and ivory */
+
+.category-card[data-category="india"] {
+  --category-accent:#c47a19;
+  --category-heading:#684517;
+  --category-tint:#fffaf1;
+  --category-icon-bg:#fff0d6;
+  --category-border:#ecd6ad;
+  --category-panel:#fffdf8;
+}
+
+/* Festivals — marigold and traditional red */
+
+.category-card[data-category="festivals"] {
+  --category-accent:#b64a2d;
+  --category-heading:#762b20;
+  --category-tint:#fff8f2;
+  --category-icon-bg:#ffe8d4;
+  --category-border:#efc5a7;
+  --category-panel:#fffaf5;
+}
+
+/* Tuition — blue and teal */
+
+.category-card[data-category="tuition"] {
+  --category-accent:#147d8a;
+  --category-heading:#124c62;
+  --category-tint:#f3fbfc;
+  --category-icon-bg:#dff4f5;
+  --category-border:#b9e0e3;
+  --category-panel:#f8fdfd;
+}
+
+.category-card[data-category="new-mom"] .article-link {color:#a63f65}
+.category-card[data-category="india"] .article-link {color:#9b6417}
+.category-card[data-category="festivals"] .article-link {color:#a63d27}
+.category-card[data-category="tuition"] .article-link {color:#126d7a}
+
+/* ARTICLE LISTS */
+
+.article-list {
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.article-list li {border-bottom:1px solid #f0f2f6}
+.article-list li:last-child {border-bottom:0}
+
+.article-link {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 2px;
+  text-decoration:none;
+  color:#175cd3;
+  font-size:13px;
+  font-weight:650;
+  line-height:1.45;
+}
+
+.article-link:hover {
+  color:#0b347f;
+  text-decoration:underline;
+}
+
+.article-link small {
+  font-size:10px;
+  color:#7b8798;
+  font-weight:600;
+  white-space:nowrap;
+}
+
+.language-label {
+  font-size:10px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  font-weight:800;
+  color:#8a94a6;
+  padding:13px 2px 3px;
+}
+
+/* SEARCH RESULTS */
+
+.search-results {
+  display:none;
+  margin:0 0 25px;
+  background:#fff;
+  border:1px solid #dce6f4;
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.search-results.visible {display:block}
+
+.results-head {
+  padding:15px 18px;
+  background:#f0f6ff;
+  border-bottom:1px solid #e0eaf8;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+}
+
+.results-head strong {
+  font-size:14px;
+  color:#10284b;
+}
+
+.results-head span {
+  font-size:11px;
+  color:#667085;
+}
+
+.results-list {
+  list-style:none;
+  padding:4px 18px;
+  margin:0;
+}
+
+.results-list li {border-bottom:1px solid #edf0f5}
+.results-list li:last-child {border:0}
+
+.results-list a {
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 0;
+  text-decoration:none;
+  color:#175cd3;
+  font-size:13px;
+  font-weight:650;
+}
+
+.results-list a:hover {text-decoration:underline}
+
+.results-list small {
+  color:#7b8798;
+  font-size:11px;
+  font-weight:500;
+  white-space:nowrap;
+}
+
+.no-results {
+  padding:20px;
+  color:#667085;
+  font-size:13px;
+}
+
+.empty-state {
+  display:none;
+  padding:28px;
+  text-align:center;
+  color:#667085;
+  background:#fff;
+  border:1px dashed #cbd7e7;
+  border-radius:14px;
+}
+
+/* FOOTER */
+
+.site-footer {
+  background:#07162d;
+  color:#d3deed;
+  padding:30px 0;
+}
+
+.footer-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.footer-brand {
+  font-weight:800;
+  font-size:18px;
+  color:#fff;
+}
+
+.footer-tag {
+  font-size:11px;
+  color:#9fb2ce;
+  margin-top:3px;
+}
+
+.footer-links {
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  font-size:12px;
+}
+
+.footer-links a {
+  color:#c7d5e8;
+  text-decoration:none;
+}
+
+.footer-links a:hover {color:var(--cyan)}
+.copyright {font-size:11px;color:#91a4c0}
+
+/* MOBILE */
+
+@media(max-width:700px) {
+  .container {width:min(100% - 30px,1120px)}
+  .header-inner {min-height:70px}
+  .brand-logo {width:132px;height:44px}
+  .brand-tagline {font-size:8px;letter-spacing:1.1px}
+  .header-links {gap:13px;font-size:12px}
+
+  .hero {padding:55px 0 48px}
+  h1 {letter-spacing:-1.3px}
+  .hero p {font-size:15px}
+
+  main {padding:36px 0 55px}
+  .section-head {display:block}
+  h2 {font-size:26px}
+  .result-count {display:block;margin-top:10px}
+
+  .category-grid {
+    grid-template-columns:1fr;
+    gap:13px;
+  }
+
+  .category-toggle {padding:17px;gap:12px}
+  .category-icon {width:48px;height:48px}
+  .category-info h3 {font-size:17px}
+  .article-panel {padding:7px 17px 15px}
+
+  .search-box {gap:8px}
+  .search-box input {font-size:14px}
+  .clear-btn {padding:9px 10px}
+
+  .footer-inner {display:block}
+  .footer-links {margin:17px 0}
+  .copyright {margin-top:12px}
+}
+
+@media(max-width:390px) {
+  .header-links a:nth-child(2) {display:none}
+  .category-info p {font-size:12px}
+}
 </style>
 </head>
+
 <body>
+
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="https://sarvyanta.com/" aria-label="Sarvyanta home">
-      <span class="brand-name">Sarvyanta</span>
+
+    <a class="brand" href="/" aria-label="Sarvyanta home">
+      <img
+        src="/images/sarvyanta-logo-transparent.webp"
+        alt="Sarvyanta"
+        class="brand-logo"
+        width="300"
+        height="100"
+        fetchpriority="high"
+      >
       <span class="brand-tagline">Building an Intelligent World</span>
     </a>
+
     <nav class="header-links" aria-label="Main navigation">
-      <a href="https://sarvyanta.com/">Home</a>
-      <a href="https://sarvyanta.com/market/">Market</a>
+      <a href="/">Home</a>
+      <a href="/market/">Market</a>
     </nav>
+
   </div>
 </header>
 
 <section class="hero">
   <div class="container hero-content">
+
     <span class="eyebrow">SARVYANTA KNOWLEDGE HUB</span>
-    <h1>Explore. Learn.<br><span>Discover More.</span></h1>
-    <p>Discover useful knowledge, Indian stories, festivals, motherhood resources and learning guides — thoughtfully brought together in one place.</p>
+
+    <h1>
+      Explore. Learn.<br>
+      <span>Discover More.</span>
+    </h1>
+
+    <p>
+      Discover useful knowledge, Indian stories, festivals, motherhood
+      resources and learning guides — thoughtfully brought together
+      in one place.
+    </p>
+
     <div class="search-wrap">
       <label class="search-box" for="knowledgeSearch">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
-        <input id="knowledgeSearch" type="search" placeholder="Search articles, topics or keywords..." autocomplete="off">
-        <button class="clear-btn" id="clearSearch" type="button">Clear</button>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m20 20-4-4"></path>
+        </svg>
+
+        <input
+          id="knowledgeSearch"
+          type="search"
+          placeholder="Search articles, topics or keywords..."
+          autocomplete="off"
+        >
+
+        <button class="clear-btn" id="clearSearch" type="button">
+          Clear
+        </button>
       </label>
-      <div class="search-hint">Try: pregnancy, Bathukamma, cost of living, study habits, Telugu</div>
+
+      <div class="search-hint">
+        Try: pregnancy, Bathukamma, cost of living, study habits, Telugu
+      </div>
     </div>
+
   </div>
 </section>
 
 <main>
   <div class="container">
+
     <section aria-labelledby="categoriesTitle">
+
       <div class="section-head">
         <div>
           <span class="section-kicker">Browse the collection</span>
           <h2 id="categoriesTitle">Explore Categories</h2>
-          <p class="section-intro">Choose a topic to explore its articles. You can also search across the entire Knowledge Hub using a title, subject or keyword.</p>
+          <p class="section-intro">
+            Choose a topic to explore its articles. You can also search
+            across the entire Knowledge Hub using a title, subject or keyword.
+          </p>
         </div>
+
         <div class="result-count" id="articleCount"></div>
       </div>
+
       <div class="search-results" id="searchResults" aria-live="polite">
-        <div class="results-head"><strong>Matching articles</strong><span id="resultSummary"></span></div>
+        <div class="results-head">
+          <strong>Matching articles</strong>
+          <span id="resultSummary"></span>
+        </div>
         <ul class="results-list" id="resultsList"></ul>
       </div>
+
       <div class="category-grid" id="categoryGrid"></div>
-      <div class="empty-state" id="emptyState">No articles found. Try another keyword.</div>
+
+      <div class="empty-state" id="emptyState">
+        No articles found. Try another keyword.
+      </div>
+
     </section>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <div><div class="footer-brand">Sarvyanta</div><div class="footer-tag">Building an Intelligent World</div></div>
+
+    <div>
+      <div class="footer-brand">Sarvyanta</div>
+      <div class="footer-tag">Building an Intelligent World</div>
+    </div>
+
     <nav class="footer-links" aria-label="Footer navigation">
-      <a href="https://sarvyanta.com/">Home</a>
-      <a href="https://sarvyanta.com/market/">Sarvyanta Market</a>
-      <a href="https://sarvyanta.com/Privacy-Policy/">Privacy Policy</a>
+      <a href="/">Home</a>
+      <a href="/market/">Sarvyanta Market</a>
+      <a href="/Privacy-Policy/">Privacy Policy</a>
     </nav>
-    <div class="copyright">© 2026 Sarvyanta. All rights reserved.</div>
+
+    <div class="copyright">
+      © 2026 Sarvyanta. All rights reserved.
+    </div>
+
   </div>
 </footer>
 
 <script>
 /*
   Article catalogue built from the sitemap supplied for this page.
-  Titles are human-readable labels derived from URL slugs; review them
-  against the article page headings before publishing.
+  Titles are human-readable labels derived from URL slugs.
+  Please verify titles against the live article headings.
 */
+
 const catalogue = [
- {category:"new-mom",group:"New Mom",language:"English",path:"/New-Mom/pregnancy/",items:[
-  ["Finding Out","finding-out","pregnancy, positive test, expecting a baby"],
-  ["The First Weeks","first-weeks","early pregnancy, first trimester"],
-  ["Emotional Changes","emotional-changes","pregnancy emotions, mood changes"],
-  ["Baby Movements","baby-movements","fetal movement, baby kicks"],
-  ["Preparing for Baby","preparing-for-baby","baby preparation, newborn essentials"],
-  ["Preparing for Delivery","preparing-for-delivery","birth preparation, delivery"]
- ]},
- {category:"new-mom",group:"New Mom",language:"English",path:"/New-Mom/birth/",items:[
-  ["Labour","labour","labor, childbirth, contractions"],
-  ["Hospital Bag","hospital-bag","hospital checklist, delivery bag"],
-  ["The First Cry","first-cry","newborn, birth, first cry"],
-  ["The First Holding","first-holding","holding newborn, first moments"]
- ]},
- {category:"new-mom",group:"New Mom",language:"English",path:"/New-Mom/early-motherhood/",items:[
-  ["Coming Home","coming-home","bringing baby home, newborn care"],
-  ["Sleep Deprivation","sleep-deprivation","new mother sleep, exhaustion"],
-  ["Breastfeeding","breastfeeding","feeding, lactation"],
-  ["Baby Blues","baby-blues","postpartum emotions"],
-  ["Postpartum Depression","postpartum-depression","maternal mental health, PPD"],
-  ["Anxiety","anxiety","new mom anxiety, motherhood"],
-  ["Mom Guilt","mom-guilt","motherhood guilt"]
- ]},
- {category:"new-mom",group:"New Mom",language:"English",path:"/New-Mom/motherhood/",items:[
-  ["Confidence as a Mother","confidence-as-a-mother","motherhood confidence"],
-  ["Sharing Responsibilities","sharing-responsibilities","parenting, family responsibilities"],
-  ["Comparison and Motherhood","comparison-and-motherhood","social comparison, parenting"],
-  ["Work and Motherhood","work-and-motherhood","working mothers, career"],
-  ["Rediscovering Your Dreams","rediscovering-your-dreams","identity, personal goals"],
-  ["Making Time for Yourself","making-time-for-yourself","self care, motherhood"],
-  ["Relationships After Baby","relationships-after-baby","relationships, parenting"],
-  ["Identity After Baby","identity-after-baby","identity, life after childbirth"]
- ]},
- {category:"new-mom",group:"New Mom",language:"English",path:"/New-Mom/nobody-told-me/",items:[
-  ["Missing My Old Life","missing-my-old-life","motherhood feelings, identity"],
-  ["Breastfeeding Is Hard","breastfeeding-is-hard","breastfeeding challenges, feeding"],
-  ["Checking the Baby","checking-the-baby","newborn worries, baby safety"],
-  ["Crying","crying","motherhood emotions, crying"],
-  ["Asking About Mom","asking-about-mom","maternal wellbeing, support"]
- ]},
- {category:"new-mom",group:"New Mom",language:"Telugu",path:"/New-Mom/te/pregnancy/",items:[
-  ["గర్భం తెలిసినప్పుడు","finding-out","pregnancy, Telugu, positive test"],
-  ["మొదటి వారాలు","first-weeks","early pregnancy, Telugu"],
-  ["భావోద్వేగ మార్పులు","emotional-changes","pregnancy emotions, Telugu"],
-  ["శిశువు కదలికలు","baby-movements","baby movements, Telugu"],
-  ["బిడ్డ కోసం సిద్ధం కావడం","preparing-for-baby","baby preparation, Telugu"],
-  ["ప్రసవానికి సిద్ధం కావడం","preparing-for-delivery","delivery preparation, Telugu"]
- ]},
- {category:"new-mom",group:"New Mom",language:"Telugu",path:"/New-Mom/te/birth/",items:[
-  ["ప్రసవ వేదనలు","labour","labour, childbirth, Telugu"],
-  ["హాస్పిటల్ బ్యాగ్","hospital-bag","hospital checklist, Telugu"],
-  ["బిడ్డ తొలి ఏడుపు","first-cry","newborn, Telugu"],
-  ["బిడ్డను మొదటిసారి ఎత్తుకోవడం","first-holding","newborn, Telugu"]
- ]},
- {category:"new-mom",group:"New Mom",language:"Telugu",path:"/New-Mom/te/early-motherhood/",items:[
-  ["బిడ్డతో ఇంటికి రావడం","coming-home","newborn care, Telugu"],
-  ["నిద్రలేమి","sleep-deprivation","new mother sleep, Telugu"],
-  ["తల్లిపాలు ఇవ్వడం","breastfeeding","breastfeeding, Telugu"],
-  ["బేబీ బ్లూస్","baby-blues","postpartum emotions, Telugu"],
-  ["ప్రసవానంతర డిప్రెషన్","postpartum-depression","maternal mental health, Telugu"],
-  ["ఆందోళన","anxiety","anxiety, Telugu"],
-  ["అమ్మగా అపరాధ భావన","mom-guilt","motherhood guilt, Telugu"]
- ]},
- {category:"new-mom",group:"New Mom",language:"Telugu",path:"/New-Mom/te/motherhood/",items:[
-  ["తల్లిగా ఆత్మవిశ్వాసం","confidence-as-a-mother","motherhood confidence, Telugu"],
-  ["బాధ్యతలను పంచుకోవడం","sharing-responsibilities","parenting, Telugu"],
-  ["పోలికలు మరియు మాతృత్వం","comparison-and-motherhood","motherhood, Telugu"],
-  ["ఉద్యోగం మరియు మాతృత్వం","work-and-motherhood","working mothers, Telugu"],
-  ["మీ కలలను మళ్లీ కనుగొనడం","rediscovering-your-dreams","personal goals, Telugu"],
-  ["మీ కోసం సమయం కేటాయించడం","making-time-for-yourself","self care, Telugu"],
-  ["బిడ్డ తర్వాత సంబంధాలు","relationships-after-baby","relationships, Telugu"],
-  ["బిడ్డ తర్వాత మీ గుర్తింపు","identity-after-baby","identity, Telugu"]
- ]},
- {category:"new-mom",group:"New Mom",language:"Telugu",path:"/New-Mom/te/nobody-told-me/",items:[
-  ["నా పాత జీవితాన్ని మిస్ అవ్వడం","missing-my-old-life","motherhood feelings, Telugu"],
-  ["తల్లిపాలు ఇవ్వడం అంత సులభం కాదు","breastfeeding-is-hard","breastfeeding challenges, Telugu"],
-  ["బిడ్డను మళ్లీ మళ్లీ చూసుకోవడం","checking-the-baby","newborn worries, Telugu"],
-  ["ఏడుపు","crying","motherhood emotions, Telugu"],
-  ["అమ్మ గురించి అడగడం","asking-about-mom","maternal wellbeing, Telugu"]
- ]},
- {category:"india",group:"India",language:"English",path:"/India/",items:[
-  ["India: Then, Now & Next","then-now-next","India history, present, future, society"],
-  ["Cost of Living in India","cost-of-living","living expenses, household costs, India"],
-  ["Travel Costs in India","travel-cost","India travel budget, transport, expenses"],
-  ["Education in India","education","Indian education, schools, learning"],
-  ["Education in India – Telugu","education/te","Telugu education, India"],
-  ["Education in India – Hindi","education/hi","Hindi education, India"],
-  ["Travel in India","travel","Indian destinations, travel guide"]
- ]},
- {category:"festivals",group:"Festivals & Traditions",language:"India · Telangana",path:"/Festivals/India/Telangana/",items:[
-  ["Bathukamma Festival","Bathukamma","Bathukamma, Telangana, flowers, traditions"],
-  ["Dussehra Festival","Dussehra","Dussehra, Dasara, Vijayadashami, India"]
- ]},
- {category:"tuition",group:"Tuition & Learning Resources",language:"English",path:"/tuitions/tutor/resources/",items:[
-  ["How to Teach Effectively Online and Offline","how-to-teach-effectively-online-and-offline","teaching tips, online tuition, offline tuition"],
-  ["How to Keep Students Engaged During Tuition","how-to-keep-students-engaged-during-tuition","student engagement, tuition, teaching"],
-  ["How to Plan a Good Tuition Session","how-to-plan-a-good-tuition-session","lesson planning, tuition session"],
-  ["How Parents Can Support Their Child’s Learning","how-parents-can-support-their-childs-learning","parents, child learning, study support"],
-  ["Online vs Home Tuition: Choosing the Right Learning Environment","online-vs-home-tuition-choosing-the-right-learning-environment","online tuition, home tuition"],
-  ["How Students Can Build Better Study Habits","how-students-can-build-better-study-habits","study habits, students, learning"]
- ]}
+
+  /* NEW MOM — ENGLISH */
+
+  {
+    category:"new-mom",
+    group:"New Mom",
+    language:"English",
+    path:"/New-Mom/pregnancy/",
+    items:[
+      ["Finding Out","finding-out","pregnancy, positive test, expecting a baby"],
+      ["The First Weeks","first-weeks","early pregnancy, first trimester"],
+      ["Emotional Changes","emotional-changes","pregnancy emotions, mood changes"],
+      ["Baby Movements","baby-movements","fetal movement, baby kicks"],
+      ["Preparing for Baby","preparing-for-baby","baby preparation, newborn essentials"],
+      ["Preparing for Delivery","preparing-for-delivery","birth preparation, delivery"]
+    ]
+  },
+
+  {
+    category:"new-mom",
+    group:"New Mom",
+    language:"English",
+    path:"/New-Mom/birth/",
+    items:[
+      ["Labour","labour","labor, childbirth, contractions"],
+      ["Hospital Bag","hospital-bag","hospital checklist, delivery bag"],
+      ["The First Cry","first-cry","newborn, birth, first cry"],
+      ["The First Holding","first-holding","holding newborn, first moments"]
+    ]
+  },
+
+  {
+    category:"new-mom",
+    group:"New Mom",
+    language:"English",
+    path:"/New-Mom/early-motherhood/",
+    items:[
+      ["Coming Home","coming-home","bringing baby home, newborn care"],
+      ["Sleep Deprivation","sleep-deprivation","new mother sleep, exhaustion"],
+      ["Breastfeeding","breastfeeding","feeding, lactation"],
+      ["Baby Blues","baby-blues","postpartum emotions"],
+      ["Postpartum Depression","postpartum-depression","maternal mental health, PPD"],
+      ["Anxiety","anxiety","new mom anxiety, motherhood"],
+      ["Mom Guilt","mom-guilt","motherhood guilt"]
+    ]
+  },
+
+  {
+    category:"new-mom",
+    group:"New Mom",
+    language:"English",
+    path:"/New-Mom/motherhood/",
+    items:[
+      ["Confidence as a Mother","confidence-as-a-mother","motherhood confidence"],
+      ["Sharing Responsibilities","sharing-responsibilities","parenting, family responsibilities"],
+      ["Comparison and Motherhood","comparison-and-motherhood","social comparison, parenting"],
+      ["Work and Motherhood","work-and-motherhood","working mothers, career"],
+      ["Rediscovering Your Dreams","rediscovering-your-dreams","identity, personal goals"],
+      ["Making Time for Yourself","making-time-for-yourself","self care, motherhood"],
+      ["Relationships After Baby","relationships-after-baby","relationships, parenting"],
+      ["Identity After Baby","identity-after-baby","identity, life after childbirth"]
+    ]
+  },
+
+  {
+    category:"new-mom",
+    group:"New Mom",
+    language:"English",
+    path:"/New-Mom/nobody-told-me/",
+    items:[
+      ["Missing My Old Life","missing-my-old-life","motherhood feelings, identity"],
+      ["Breastfeeding Is Hard","breastfeeding-is-hard","breastfeeding challenges, feeding"],
+      ["Checking the Baby","checking-the-baby","newborn worries, baby safety"],
+      ["Crying","crying","motherhood emotions, crying"],
+      ["Asking About Mom","asking-about-mom","maternal wellbeing, support"]
+    ]
+  },
+
+  /* NEW MOM — TELUGU */
+
+  {
+    category:"new-mom",
+    group:"New Mom",
+    language:"Telugu",
+    path:"/New-Mom/te/pregnancy/",
+    items:[
+      ["గర్భం తెలిసినప్పుడు","finding-out","pregnancy, Telugu, positive test"],
+      ["మొదటి వారాలు","first-weeks","early pregnancy, Telugu"],
+      ["భావోద్వేగ మార్పులు","emotional-changes","pregnancy emotions, Telugu"],
+      ["శిశువు కదలికలు","baby-movements","baby movements, Telugu"],
+      ["బిడ్డ కోసం సిద్ధం కావడం","preparing-for-baby","baby preparation, Telugu"],
+      ["ప్రసవానికి సిద్ధం కావడం","preparing-for-delivery","delivery preparation, Telugu"]
+    ]
+  },
+
+  {
+    category:"new-mom",
+    group:"New Mom",
+    language:"Telugu",
+    path:"/New-Mom/te/birth/",
+    items:[
+      ["ప్రసవ వేదనలు","labour","labour, childbirth, Telugu"],
+      ["హాస్పిటల్ బ్యాగ్","hospital-bag","hospital checklist, Telugu"],
+      ["బిడ్డ తొలి ఏడుపు","first-cry","newborn, Telugu"],
+      ["బిడ్డను మొదటిసారి ఎత్తుకోవడం","first-holding","newborn, Telugu"]
+    ]
+  },
+
+  {
+    category:"new-mom",
+    group:"New Mom",
+    language:"Telugu",
+    path:"/New-Mom/te/early-motherhood/",
+    items:[
+      ["బిడ్డతో ఇంటికి రావడం","coming-home","newborn care, Telugu"],
+      ["నిద్రలేమి","sleep-deprivation","new mother sleep, Telugu"],
+      ["తల్లిపాలు ఇవ్వడం","breastfeeding","breastfeeding, Telugu"],
+      ["బేబీ బ్లూస్","baby-blues","postpartum emotions, Telugu"],
+      ["ప్రసవానంతర డిప్రెషన్","postpartum-depression","maternal mental health, Telugu"],
+      ["ఆందోళన","anxiety","anxiety, Telugu"],
+      ["అమ్మగా అపరాధ భావన","mom-guilt","motherhood guilt, Telugu"]
+    ]
+  },
+
+  {
+    category:"new-mom",
+    group:"New Mom",
+    language:"Telugu",
+    path:"/New-Mom/te/motherhood/",
+    items:[
+      ["తల్లిగా ఆత్మవిశ్వాసం","confidence-as-a-mother","motherhood confidence, Telugu"],
+      ["బాధ్యతలను పంచుకోవడం","sharing-responsibilities","parenting, Telugu"],
+      ["పోలికలు మరియు మాతృత్వం","comparison-and-motherhood","motherhood, Telugu"],
+      ["ఉద్యోగం మరియు మాతృత్వం","work-and-motherhood","working mothers, Telugu"],
+      ["మీ కలలను మళ్లీ కనుగొనడం","rediscovering-your-dreams","personal goals, Telugu"],
+      ["మీ కోసం సమయం కేటాయించడం","making-time-for-yourself","self care, Telugu"],
+      ["బిడ్డ తర్వాత సంబంధాలు","relationships-after-baby","relationships, Telugu"],
+      ["బిడ్డ తర్వాత మీ గుర్తింపు","identity-after-baby","identity, Telugu"]
+    ]
+  },
+
+  {
+    category:"new-mom",
+    group:"New Mom",
+    language:"Telugu",
+    path:"/New-Mom/te/nobody-told-me/",
+    items:[
+      ["నా పాత జీవితాన్ని మిస్ అవ్వడం","missing-my-old-life","motherhood feelings, Telugu"],
+      ["తల్లిపాలు ఇవ్వడం అంత సులభం కాదు","breastfeeding-is-hard","breastfeeding challenges, Telugu"],
+      ["బిడ్డను మళ్లీ మళ్లీ చూసుకోవడం","checking-the-baby","newborn worries, Telugu"],
+      ["ఏడుపు","crying","motherhood emotions, Telugu"],
+      ["అమ్మ గురించి అడగడం","asking-about-mom","maternal wellbeing, Telugu"]
+    ]
+  },
+
+  /* INDIA */
+
+  {
+    category:"india",
+    group:"India",
+    language:"English",
+    path:"/India/",
+    items:[
+      ["India: Then, Now & Next","then-now-next","India history, present, future, society"],
+      ["Cost of Living in India","cost-of-living","living expenses, household costs, India"],
+      ["Travel Costs in India","travel-cost","India travel budget, transport, expenses"],
+      ["Education in India","education","Indian education, schools, learning"],
+      ["Education in India – Telugu","education/te","Telugu education, India"],
+      ["Education in India – Hindi","education/hi","Hindi education, India"],
+      ["Travel in India","travel","Indian destinations, travel guide"]
+    ]
+  },
+
+  /* FESTIVALS */
+
+  {
+    category:"festivals",
+    group:"Festivals & Traditions",
+    language:"India · Telangana",
+    path:"/Festivals/India/Telangana/",
+    items:[
+      ["Bathukamma Festival","Bathukamma","Bathukamma, Telangana, flowers, traditions"],
+      ["Dussehra Festival","Dussehra","Dussehra, Dasara, Vijayadashami, India"]
+    ]
+  },
+
+  /* TUITION */
+
+  {
+    category:"tuition",
+    group:"Tuition & Learning Resources",
+    language:"English",
+    path:"/tuitions/tutor/resources/",
+    items:[
+      ["How to Teach Effectively Online and Offline","how-to-teach-effectively-online-and-offline","teaching tips, online tuition, offline tuition"],
+      ["How to Keep Students Engaged During Tuition","how-to-keep-students-engaged-during-tuition","student engagement, tuition, teaching"],
+      ["How to Plan a Good Tuition Session","how-to-plan-a-good-tuition-session","lesson planning, tuition session"],
+      ["How Parents Can Support Their Child’s Learning","how-parents-can-support-their-childs-learning","parents, child learning, study support"],
+      ["Online vs Home Tuition: Choosing the Right Learning Environment","online-vs-home-tuition-choosing-the-right-learning-environment","online tuition, home tuition"],
+      ["How Students Can Build Better Study Habits","how-students-can-build-better-study-habits","study habits, students, learning"]
+    ]
+  }
+
 ];
+
+/* CATEGORY DETAILS */
 
 const categories = [
- {id:"new-mom",title:"New Mom",desc:"Pregnancy, birth, early motherhood and the realities of becoming a mother.",icon:"mom"},
- {id:"india",title:"India",desc:"Explore India through useful information, education, travel and everyday topics.",icon:"india"},
- {id:"festivals",title:"Festivals & Traditions",desc:"Discover the stories, meaning and traditions behind Indian festivals.",icon:"festival"},
- {id:"tuition",title:"Tuition & Learning Resources",desc:"Practical guidance for tutors, parents and students.",icon:"learn"}
+  {
+    id:"new-mom",
+    title:"New Mom",
+    desc:"Pregnancy, birth, early motherhood and the realities of becoming a mother.",
+    icon:"mom"
+  },
+  {
+    id:"india",
+    title:"India",
+    desc:"Explore India through useful information, education, travel and everyday topics.",
+    icon:"india"
+  },
+  {
+    id:"festivals",
+    title:"Festivals & Traditions",
+    desc:"Discover the stories, meaning and traditions behind Indian festivals.",
+    icon:"festival"
+  },
+  {
+    id:"tuition",
+    title:"Tuition & Learning Resources",
+    desc:"Practical guidance for tutors, parents and students.",
+    icon:"learn"
+  }
 ];
-const icons={
- mom:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11Z"/><path d="M9 12h6M12 9v6"/></svg>',
- india:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m12 2 2.5 4 4.5 1.5-2 4 1 5-4 1.5L12 22l-2-4-4-1.5 1-5-2-4L9.5 6 12 2Z"/><path d="M9 10h6M10 14h4"/></svg>',
- festival:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 12c-4-1-6-4-5-8 4 0 6 2 5 8Zm0 0c1-4 4-6 8-5 0 4-2 6-8 5Zm0 0c4 1 6 4 5 8-4 0-6-2-5-8Zm0 0c-1 4-4 6-8 5 0-4 2-6 8-5Z"/><circle cx="12" cy="12" r="2"/></svg>',
- learn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H12v17H5.5A2.5 2.5 0 0 0 3 22V5.5Zm18 0A2.5 2.5 0 0 0 18.5 3H12v17h6.5A2.5 2.5 0 0 1 21 22V5.5Z"/></svg>'
-};
-const allArticles=[];
-catalogue.forEach(group=>group.items.forEach(([title,slug,keywords])=>{
- const url=group.path+slug+"/";
- allArticles.push({title,url,category:group.category,group:group.group,language:group.language,keywords,searchText:(title+" "+keywords+" "+group.group+" "+group.language).toLowerCase()});
-}));
-const grid=document.getElementById("categoryGrid");
-const search=document.getElementById("knowledgeSearch");
-const results=document.getElementById("searchResults");
-const resultsList=document.getElementById("resultsList");
-const resultSummary=document.getElementById("resultSummary");
-const empty=document.getElementById("emptyState");
-document.getElementById("articleCount").textContent=allArticles.length+" article entries";
 
-function articlesFor(id){return allArticles.filter(a=>a.category===id)}
-function renderCategories(){
- grid.innerHTML=categories.map(c=>{
-  const items=articlesFor(c.id);
-  const grouped={};
-  items.forEach(a=>(grouped[a.language]??=[]).push(a));
-  const content=Object.entries(grouped).map(([lang,list])=>`<div class="language-label">${lang}</div><ul class="article-list">${list.map(a=>`<li><a class="article-link" href="${a.url}"><span>${a.title}</span><small>Read article ↗</small></a></li>`).join("")}</ul>`).join("");
-  return `<article class="category-card" data-category="${c.id}">
-   <button class="category-toggle" type="button" aria-expanded="false">
-    <span class="category-icon">${icons[c.icon]}</span>
-    <span class="category-info"><h3>${c.title}</h3><p>${c.desc}</p><span class="category-meta">${items.length} article entries</span></span>
-    <span class="chevron" aria-hidden="true">⌄</span>
-   </button><div class="article-panel">${content}</div>
-  </article>`;
- }).join("");
- grid.querySelectorAll(".category-toggle").forEach(btn=>btn.addEventListener("click",()=>{
-  const card=btn.closest(".category-card");
-  const open=!card.classList.contains("is-open");
-  card.classList.toggle("is-open",open);btn.setAttribute("aria-expanded",String(open));
- }));
+/* CATEGORY ICONS */
+
+const icons = {
+  mom:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <path d="M12 21s-8-4.5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.5-8 11-8 11Z"/>
+    <path d="M9 12h6M12 9v6"/>
+  </svg>`,
+
+  india:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <path d="m12 2 2.5 4 4.5 1.5-2 4 1 5-4 1.5L12 22l-2-4-4-1.5 1-5-2-4L9.5 6 12 2Z"/>
+    <path d="M9 10h6M10 14h4"/>
+  </svg>`,
+
+  festival:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <path d="M12 12c-4-1-6-4-5-8 4 0 6 2 5 8Zm0 0c1-4 4-6 8-5 0 4-2 6-8 5Zm0 0c4 1 6 4 5 8-4 0-6-2-5-8Zm0 0c-1 4-4 6-8 5 0-4 2-6 8-5Z"/>
+    <circle cx="12" cy="12" r="2"/>
+  </svg>`,
+
+  learn:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+    <path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H12v17H5.5A2.5 2.5 0 0 0 3 22V5.5Zm18 0A2.5 2.5 0 0 0 18.5 3H12v17h6.5A2.5 2.5 0 0 1 21 22V5.5Z"/>
+  </svg>`
+};
+
+/* BUILD ARTICLE INDEX */
+
+const allArticles = [];
+
+catalogue.forEach(group => {
+  group.items.forEach(([title,slug,keywords]) => {
+    const url = group.path + slug + "/";
+
+    allArticles.push({
+      title,
+      url,
+      category:group.category,
+      group:group.group,
+      language:group.language,
+      keywords,
+      searchText:(title+" "+keywords+" "+group.group+" "+group.language).toLowerCase()
+    });
+  });
+});
+
+/* PAGE ELEMENTS */
+
+const grid = document.getElementById("categoryGrid");
+const search = document.getElementById("knowledgeSearch");
+const results = document.getElementById("searchResults");
+const resultsList = document.getElementById("resultsList");
+const resultSummary = document.getElementById("resultSummary");
+const empty = document.getElementById("emptyState");
+
+/* ARTICLE COUNT */
+
+document.getElementById("articleCount").textContent =
+  allArticles.length + " article entries";
+
+/* CATEGORY ARTICLES */
+
+function articlesFor(id) {
+  return allArticles.filter(article => article.category === id);
 }
-function runSearch(){
- const q=search.value.trim().toLowerCase();
- if(!q){results.classList.remove("visible");empty.style.display="none";grid.style.display="grid";return}
- const matches=allArticles.filter(a=>a.searchText.includes(q));
- results.classList.add("visible");grid.style.display="grid";
- resultSummary.textContent=matches.length+" found";
- resultsList.innerHTML=matches.map(a=>`<li><a href="${a.url}"><span>${a.title}</span><small>${a.group} · ${a.language}</small></a></li>`).join("");
- empty.style.display=matches.length?"none":"block";
- // Keep category cards visible, but open categories containing matches.
- document.querySelectorAll(".category-card").forEach(card=>{
-  const has=matches.some(a=>a.category===card.dataset.category);
-  card.classList.toggle("is-open",has);
-  card.querySelector(".category-toggle").setAttribute("aria-expanded",String(has));
- });
+
+/* RENDER CATEGORIES */
+
+function renderCategories() {
+
+  grid.innerHTML = categories.map(category => {
+
+    const items = articlesFor(category.id);
+    const grouped = {};
+
+    items.forEach(article => {
+      if (!grouped[article.language]) {
+        grouped[article.language] = [];
+      }
+      grouped[article.language].push(article);
+    });
+
+    const content = Object.entries(grouped).map(([language,list]) => `
+      <div class="language-label">${language}</div>
+
+      <ul class="article-list">
+        ${list.map(article => `
+          <li>
+            <a class="article-link" href="${article.url}">
+              <span>${article.title}</span>
+              <small>Read article ↗</small>
+            </a>
+          </li>
+        `).join("")}
+      </ul>
+    `).join("");
+
+    return `
+      <article class="category-card" data-category="${category.id}">
+
+        <button class="category-toggle" type="button" aria-expanded="false">
+
+          <span class="category-icon">
+            ${icons[category.icon]}
+          </span>
+
+          <span class="category-info">
+            <h3>${category.title}</h3>
+            <p>${category.desc}</p>
+            <span class="category-meta">
+              ${items.length} article entries
+            </span>
+          </span>
+
+          <span class="chevron" aria-hidden="true">⌄</span>
+
+        </button>
+
+        <div class="article-panel">
+          ${content}
+        </div>
+
+      </article>
+    `;
+
+  }).join("");
+
+  grid.querySelectorAll(".category-toggle").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const card = button.closest(".category-card");
+      const open = !card.classList.contains("is-open");
+
+      card.classList.toggle("is-open",open);
+      button.setAttribute("aria-expanded",String(open));
+
+    });
+
+  });
+
 }
+
+/* SEARCH */
+
+function runSearch() {
+
+  const query = search.value.trim().toLowerCase();
+
+  if (!query) {
+
+    results.classList.remove("visible");
+    empty.style.display = "none";
+    grid.style.display = "grid";
+
+    document.querySelectorAll(".category-card").forEach(card => {
+      card.classList.remove("is-open");
+      card.querySelector(".category-toggle")
+        .setAttribute("aria-expanded","false");
+    });
+
+    return;
+  }
+
+  const matches = allArticles.filter(article =>
+    article.searchText.includes(query)
+  );
+
+  results.classList.add("visible");
+  grid.style.display = "grid";
+
+  resultSummary.textContent = matches.length + " found";
+
+  resultsList.innerHTML = matches.map(article => `
+    <li>
+      <a href="${article.url}">
+        <span>${article.title}</span>
+        <small>${article.group} · ${article.language}</small>
+      </a>
+    </li>
+  `).join("");
+
+  empty.style.display = matches.length ? "none" : "block";
+
+  /* Open categories containing matching articles */
+
+  document.querySelectorAll(".category-card").forEach(card => {
+
+    const hasMatches = matches.some(
+      article => article.category === card.dataset.category
+    );
+
+    card.classList.toggle("is-open",hasMatches);
+
+    card.querySelector(".category-toggle")
+      .setAttribute("aria-expanded",String(hasMatches));
+
+  });
+
+}
+
+/* EVENTS */
+
 search.addEventListener("input",runSearch);
-document.getElementById("clearSearch").addEventListener("click",()=>{search.value="";runSearch();search.focus()});
+
+document.getElementById("clearSearch").addEventListener("click",() => {
+  search.value = "";
+  runSearch();
+  search.focus();
+});
+
+/* INITIALISE */
+
 renderCategories();
+
 </script>
+
 </body>
 </html>
