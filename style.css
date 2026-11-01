@@ -1825,15 +1825,38 @@ section {
   margin-bottom: 25px;
 }
 
+/* Destination CTA buttons — match Explore Sarvyanta */
+
 .destination-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 9px;
+
+  width: fit-content;
+  max-width: 100%;
+
   margin-top: auto;
-  padding-top: 12px;
-  color: #91e3ff;
+  padding: 11px 17px;
+
+  border-radius: 999px;
+
+  color: #061221;
+
+  background: linear-gradient(
+    135deg,
+    #77e1ff,
+    #a69bff
+  );
+
+  box-shadow: 0 8px 24px rgba(84,201,255,.16);
+
   font-size: 13px;
-  font-weight: 750;
+  font-weight: 700;
+
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
 }
 
 .destination-link span {
@@ -1841,8 +1864,14 @@ section {
   transition: transform .2s ease;
 }
 
+.destination-card:hover .destination-link {
+  color: #061221;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(84,201,255,.25);
+}
+
 .destination-card:hover .destination-link span {
-  transform: translateX(5px);
+  transform: translateX(4px);
 }
 
 .destination-note {
