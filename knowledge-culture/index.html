@@ -636,6 +636,24 @@ h2 {
   .category-info p {font-size:12px}
 }
 </style>
+
+  <!-- Google Analytics 4 - Sarvyanta -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-987ESMD68T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-987ESMD68T', {
+    send_page_view: true
+  });
+
+  gtag('event', 'knowledge_hub_view', {
+    page_type: 'knowledge_hub',
+    page_title: document.title
+  });
+</script>
+  
 </head>
 
 <body>
@@ -1203,7 +1221,107 @@ function runSearch() {
   });
 
 }
+/* SARVYANTA KNOWLEDGE HUB ANALYTICS */
 
+function trackKnowledgeEvent(eventName, parameters = {}) {
+
+  if (typeof gtag === "function") {
+    gtag("event", eventName, {
+      page_type: "knowledge_hub",
+      ...parameters
+    });
+  }
+
+}
+
+/* SEARCH TRACKING */
+
+let searchTimer;
+
+search.addEventListener("input", () => {
+
+  clearTimeout(searchTimer);
+
+  const query = search.value.trim();
+
+  if (!query) return;
+
+  searchTimer = setTimeout(() => {
+
+    const matches = allArticles.filter(article =>
+      article.searchText.includes(query.toLowerCase())
+    );
+
+    trackKnowledgeEvent("knowledge_search", {
+      search_term: query,
+      results_count: matches.length
+    });
+
+  }, 800);
+
+});
+
+/* CATEGORY TRACKING */
+
+grid.addEventListener("click", event => {
+
+  const button = event.target.closest(".category-toggle");
+
+  if (!button) return;
+
+  const card = button.closest(".category-card");
+  const isOpening = !card.classList.contains("is-open");
+
+  if (isOpening) {
+
+    trackKnowledgeEvent("knowledge_category_open", {
+      category_name: card.dataset.category
+    });
+
+  }
+
+});
+
+/* ARTICLE CLICK TRACKING */
+
+grid.addEventListener("click", event => {
+
+  const link = event.target.closest(".article-link");
+
+  if (!link) return;
+
+  const card = link.closest(".category-card");
+
+  trackKnowledgeEvent("knowledge_article_click", {
+    article_title: link.querySelector("span").textContent.trim(),
+    article_url: link.getAttribute("href"),
+    category_name: card.dataset.category
+  });
+
+});
+
+/* SEARCH RESULT CLICK TRACKING */
+
+resultsList.addEventListener("click", event => {
+
+  const link = event.target.closest("a");
+
+  if (!link) return;
+
+  const article = allArticles.find(
+    item => item.url === link.getAttribute("href")
+  );
+
+  if (!article) return;
+
+  trackKnowledgeEvent("knowledge_search_result_click", {
+    article_title: article.title,
+    article_url: article.url,
+    category_name: article.category,
+    language: article.language
+  });
+
+});
 /* EVENTS */
 
 search.addEventListener("input",runSearch);
